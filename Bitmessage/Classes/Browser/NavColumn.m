@@ -1,0 +1,155 @@
+//
+//  NavColumn.m
+//  Bitmarket
+//
+//  Created by Steve Dekorte on 2/5/14.
+//  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
+//
+
+#import "NavColumn.h"
+#import "TableCell.h"
+#import "NSView+sizing.h"
+
+@implementation NavColumn
+
+- (id)initWithFrame:(NSRect)frameRect
+{
+    self = [super initWithFrame:frameRect];
+    [self setAutoresizesSubviews:YES];
+    [self setAutoresizingMask:NSViewHeightSizable /* | NSViewWidthSizable*/];
+    [self setupTable];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeChanged:) name:@"BMMessageChanged" object:nil];
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)nodeChanged:(NSNotification *)note
+{
+    [self.tableView reloadData];
+}
+
+- (void)selectRowIndex:(NSInteger)rowIndex
+{
+    [self tableView:self.tableView shouldSelectRow:rowIndex];
+
+    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
+}
+
+- (void)setRowHeight:(CGFloat)height
+{
+    [self.tableView setRowHeight:height];
+}
+
+- (void)setMaxWidth:(CGFloat)w
+{
+    [self.tableColumn setMaxWidth:w];
+    
+    [self setWidth:w];
+    [self.scrollView setWidth:w];
+    [self.tableView setWidth:w];
+    [self.navView stackViews];
+}
+
+- (void)setNode:(id<NavNode>)node
+{
+    _node = node;
+    [self setMaxWidth:node.nodeSuggestedWidth];
+    [self.tableView reloadData];
+
+    if ([node respondsToSelector:@selector(columnBgColor)])
+    {
+        if ([node columnBgColor])
+        {
+            [self.tableView setBackgroundColor:[node columnBgColor]];
+        }
+    }
+}
+
+- (void)setupTable
+{
+    self.scrollView = [[NSScrollView alloc] initWithFrame:self.frame];
+    [self.scrollView setHasVerticalScroller:YES];
+    [self.scrollView setHasHorizontalRuler:NO];
+    [self.scrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
+    
+    [self.scrollView setAutoresizesSubviews:YES];
+    [self.scrollView setAutoresizingMask:NSViewHeightSizable /*| NSViewWidthSizable*/];
+    
+    self.tableView = [[NSTableView alloc] initWithFrame:self.scrollView.bounds];
+    
+    [self.tableView setAutoresizesSubviews:YES];
+    [self.tableView setAutoresizingMask:NSViewHeightSizable /*| NSViewWidthSizable*/];
+    
+    [self.tableView setBackgroundColor:[NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0]];
+    self.tableColumn = [[NSTableColumn alloc] init];
+    [self.tableColumn setDataCell:[[TableCell alloc] init]];
+    [self.tableView addTableColumn:self.tableColumn];
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
+    
+    [self.tableView setHeaderView:nil];
+    [self.tableView setFocusRingType:NSFocusRingTypeNone];
+    
+    [self.scrollView setDocumentView:self.tableView];
+    [self addSubview:self.scrollView];
+
+    [self setRowHeight:60];
+    [self setMaxWidth:400];
+}
+
+- (id <NavNode>)nodeForRow:(NSInteger)rowIndex
+{
+    return [self.node.children objectAtIndex:rowIndex];
+}
+
+// table data source
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+{
+    return [self.node.children count];
+}
+
+- (id)tableView:(NSTableView *)aTableView
+    objectValueForTableColumn:(NSTableColumn *)aTableColumn
+            row:(NSInteger)rowIndex
+{
+    return [[self.node.children objectAtIndex:rowIndex] nodeTitle];
+}
+
+// table delegate
+
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
+{
+    id <NavNode> node = [self nodeForRow:rowIndex];
+    //if ([node respondsToSelector:@selector(<#selector#>)])
+    return [self.navView shouldSelectNode:node inColumn:self];
+}
+
+- (void)tableView:(NSTableView *)aTableView
+    willDisplayCell:(id)aCell
+   forTableColumn:(NSTableColumn *)aTableColumn
+              row:(NSInteger)rowIndex
+{
+    [aCell setIsSelected:[aTableView selectedRow] == rowIndex];
+    [aCell setNode:[self nodeForRow:rowIndex]];
+}
+
+- (void)handleAction:(SEL)aSel
+{
+    NSInteger selectedRow = [self.tableView selectedRow];
+    if (selectedRow >= 0)
+    {
+        id item = [self nodeForRow:selectedRow];
+        if (item && [item respondsToSelector:aSel])
+        {
+            [item performSelector:aSel];
+        }
+    }
+}
+
+@end
