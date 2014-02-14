@@ -15,4 +15,9 @@
 
 + (BMContact *)withDict:(NSDictionary *)dict;
 
+
+- (void)delete;
+- (void)update;
+- (void)insert;
+
 @end

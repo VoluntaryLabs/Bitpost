@@ -7,7 +7,7 @@
 //
 
 #import "BMMessage.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 #import "BMClient.h"
 
 @implementation BMMessage
@@ -15,7 +15,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"send", @"broadcast", @"delete", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"reply", @"delete", nil];
     return self;
 }
 
@@ -116,21 +116,22 @@
 
 // -----------------------
 
-- (id)send
+- (void)send
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"sendMessage"];
     
     // subject and message in base64
-    NSArray *params = [NSArray arrayWithObjects:self.toAddress, self.fromAddress, self.subject, self.message, nil];
-    
+    NSArray *params = [NSArray arrayWithObjects:self.toAddress, self.fromAddress, self.subject.encodedBase64, self.message.encodedBase64, nil];
+    message.debug = YES;
     [message setParameters:params];
     [message sendSync];
     
-    return [message parsedResponseValue];
+    id result = [message parsedResponseValue];
+    NSLog(@"send result %@", result);
 }
 
-- (id)broadcast
+- (void)broadcast
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"sendBroadcast"];
@@ -141,18 +142,23 @@
     [message setParameters:params];
     [message sendSync];
     
-    return [message parsedResponseValue];
+    id result =  [message parsedResponseValue];
+    NSLog(@"broadcast result %@", result);
 }
 
-- (id)delete
+- (void)delete
 {
+    /*
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"trashMessage"];
     NSArray *params = [NSArray arrayWithObjects:self.msgid, nil];
     [message setParameters:params];
     [message sendSync];
-    [self postChanged];
-    return [message parsedResponseValue];
+    id result = [message parsedResponseValue];
+    NSLog(@"delete result %@", result);
+     */
+    [self.nodeParent removeChild:self];
+    //[self postChanged];
 }
 
 - (id)setReadState:(BOOL)isRead
@@ -182,12 +188,6 @@
         [self postChanged];
     }
 }
-
-- (void)postChanged
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMMessageChanged" object:self];
-}
-
 
 
 @end

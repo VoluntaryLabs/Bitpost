@@ -9,12 +9,14 @@
 #import "BMReceivedMessages.h"
 #import "BMClient.h"
 #import "NSArray+extra.h"
+#import "BMMessage.h"
 
 @implementation BMReceivedMessages
 
 - (id)init
 {
     self = [super init];
+    self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
     return self;
 }
 
@@ -33,6 +35,12 @@
 - (NSString *)nodeTitle
 {
     return @"Inbox";
+}
+
+- (void)refresh
+{
+    [self fetch];
+    [self postChanged];
 }
 
 @end

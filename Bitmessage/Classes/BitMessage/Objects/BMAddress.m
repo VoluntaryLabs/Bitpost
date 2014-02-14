@@ -7,14 +7,8 @@
 //
 
 #import "BMAddress.h"
-#import "BMServerProxy.h"
 
 @implementation BMAddress
 
-- (void)createRandomAddress
-{
-    self.address = [[BMServerProxy sharedBMServerProxy]
-                    createRandomAddressWithLabel:self.label];
-}
 
 @end

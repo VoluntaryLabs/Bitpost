@@ -7,7 +7,7 @@
 //
 
 #import "BMIdentity.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 
 @implementation BMIdentity
 
@@ -40,5 +40,43 @@
 
 // ----------
 
+- (void)delete
+{
+    BMProxyMessage *message = [[BMProxyMessage alloc] init];
+    [message setMethodName:@"deleteAddress"];
+    NSArray *params = [NSArray arrayWithObjects:self.address, nil];
+    [message setParameters:params];
+    message.debug = YES;
+    [message sendSync];
+    id response = [message parsedResponseValue];
+    NSLog(@"delete response = %@", response);
+    
+    [self postChanged];
+}
+
+- (void)update
+{
+    NSLog(@"updating identity '%@' '%@'", self.address, self.label);
+    
+    [self delete];
+    [self insert];
+    
+    [self postChanged];
+}
+
+- (void)insert
+{
+    NSLog(@"insert identity '%@' '%@'", self.address, self.label);
+    
+    BMProxyMessage *message = [[BMProxyMessage alloc] init];
+    [message setMethodName:@"addAddressBookEntry"];
+    NSArray *params = [NSArray arrayWithObjects:self.address, self.label.encodedBase64, nil];
+    [message setParameters:params];
+    message.debug = YES;
+    [message sendSync];
+    
+    id response = [message parsedResponseValue];
+    NSLog(@"insert response = %@", response);
+}
 
 @end

@@ -662,50 +662,21 @@
                     <customView id="EhG-Gy-s1m" customClass="NavView">
                         <rect key="frame" x="0.0" y="0.0" width="688" height="282"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <connections>
+                            <outlet property="actionStrip" destination="gKD-24-toZ" id="mEL-A1-5ai"/>
+                        </connections>
                     </customView>
-                    <button id="vLR-8O-8RZ">
-                        <rect key="frame" x="602" y="298" width="29" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="Reply_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="8dR-cE-iT6">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystemBold"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="reply:" target="494" id="xqJ-4p-oF2"/>
-                        </connections>
-                    </button>
-                    <button id="2PU-VC-zp6">
-                        <rect key="frame" x="639" y="298" width="29" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="New_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="bL9-5d-4j4">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystemBold"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="add:" target="494" id="MQj-oR-G1r"/>
-                        </connections>
-                    </button>
-                    <button id="WYd-f2-zTJ">
-                        <rect key="frame" x="565" y="298" width="29" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="inline" bezelStyle="inline" image="Trash_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="SuM-8z-F5L">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="smallSystemBold"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="trash:" target="494" id="QNV-Ih-mHZ"/>
-                        </connections>
-                    </button>
+                    <customView id="gKD-24-toZ">
+                        <rect key="frame" x="20" y="290" width="648" height="27"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    </customView>
                 </subviews>
             </view>
         </window>
         <customObject id="494" customClass="AppController">
             <connections>
-                <outlet property="add" destination="2PU-VC-zp6" id="rzH-D9-JOQ"/>
                 <outlet property="contentView" destination="EhG-Gy-s1m" id="p15-nG-3lC"/>
                 <outlet property="navView" destination="EhG-Gy-s1m" id="g9o-q4-QD2"/>
-                <outlet property="reply" destination="vLR-8O-8RZ" id="uvX-pg-Ark"/>
-                <outlet property="trash" destination="WYd-f2-zTJ" id="BSB-LY-2Nt"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
@@ -718,9 +689,4 @@
         </treeController>
         <userDefaultsController representsSharedInstance="YES" id="T8F-n7-GlL"/>
     </objects>
-    <resources>
-        <image name="New_inactive" width="14" height="14"/>
-        <image name="Reply_inactive" width="14" height="14"/>
-        <image name="Trash_inactive" width="14" height="14"/>
-    </resources>
 </document>

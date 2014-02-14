@@ -25,4 +25,7 @@
 - (CGFloat)maxX;
 - (CGFloat)maxY;
 
+- (void)centerXInSuperview;
+- (void)centerYInSuperview;
+
 @end

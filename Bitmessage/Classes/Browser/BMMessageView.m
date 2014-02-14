@@ -8,9 +8,11 @@
 
 #import "BMMessageView.h"
 #import "BMMessage.h"
+#import "BMClient.h"
 #import "NSView+sizing.h"
 #import "ResizingScrollView.h"
-
+#import "DraftController.h"
+#import "AppController.h"
 
 @implementation BMMessageView
 
@@ -26,7 +28,6 @@
 
 - (NSString *)fontName
 {
-    //return @"Open Sans Light";
     return @"Open Sans Light";
 }
 
@@ -175,6 +176,7 @@
 
 @implementation BMMessage (NodeView)
 
+/*
 - (NSView *)nodeView
 {
     if (![super nodeView])
@@ -183,6 +185,7 @@
     }
     return [super nodeView];
 }
+*/
 
 - (NSColor *)textColor
 {
@@ -194,6 +197,12 @@
     }
     
     return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
+}
+
+- (NSColor *)textColorActive
+{
+    NSString *className = NSStringFromClass([self class]);
+    return [Theme objectForKey:[NSString stringWithFormat:@"%@-textColorActive", className]];
 }
 
 - (NSString *)nodeNote
@@ -212,17 +221,22 @@
         
         if (hours < 1)
         {
-            return [NSString stringWithFormat:@"%im", (int)mins];
+            return [NSString stringWithFormat:@"%imin", (int)mins];
         }
         
-        if (hours < 1)
+        if (days < 1)
         {
-            return [NSString stringWithFormat:@"%ih", (int)hours];
+            return [NSString stringWithFormat:@"%ihr", (int)hours];
+        }
+        
+        if (days < 2)
+        {
+            return @"Yesterday";
         }
 
         if (weeks < 1)
         {
-            return [NSString stringWithFormat:@"%iw", (int)days];
+            return [NSString stringWithFormat:@"%iwk", (int)days];
         }
 
         return [date
@@ -231,6 +245,24 @@
     }
     
     return @"";
+}
+
+- (void)reply
+{
+    //DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
+    //[[[draft view] window] makeKeyAndOrderFront:self];
+    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
+    DraftController *draftController = [appController newDraft];
+
+    [draftController.to setStringValue:self.fromAddress];
+    
+    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
+    
+    if (from)
+    {
+        [draftController.from setStringValue:self.fromAddress];
+    }
+    //[self.drafts addObject:draft];
 }
 
 @end

@@ -13,9 +13,13 @@
 
 @property (strong, nonatomic) NSMutableArray *navColumns;
 @property (strong, nonatomic) id <NavNode> rootNode;
+@property (strong, nonatomic) IBOutlet NSView *actionStrip;
 
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn;
 - (void)stackViews;
+
+- (BOOL)canHandleAction:(SEL)aSel;
+- (void)handleAction:(SEL)aSel;
 
 @end

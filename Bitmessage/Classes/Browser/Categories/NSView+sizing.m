@@ -73,4 +73,17 @@
     return self.y + self.height;
 }
 
+
+- (void)centerXInSuperview
+{
+    CGFloat w = [self superview].width;
+    [self setX:w/2 - self.width/2];
+}
+
+- (void)centerYInSuperview
+{
+    CGFloat h = [self superview].height;
+    [self setY:h/2 - self.height/2];
+}
+
 @end

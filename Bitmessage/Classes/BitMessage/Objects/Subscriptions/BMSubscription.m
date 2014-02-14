@@ -7,7 +7,7 @@
 //
 
 #import "BMSubscription.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 #import "BMClient.h"
 
 @implementation BMSubscription

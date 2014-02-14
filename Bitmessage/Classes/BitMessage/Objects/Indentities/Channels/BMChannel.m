@@ -7,7 +7,7 @@
 //
 
 #import "BMChannel.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 
 @implementation BMChannel
 

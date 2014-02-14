@@ -7,7 +7,8 @@
 //
 
 #import "BMMessages.h"
-#import "BMServerProxy.h"
+#import "BMMessage.h"
+#import "BMProxyMessage.h"
 
 
 @implementation BMMessages

@@ -11,6 +11,6 @@
 
 @interface BMReceivedMessages : BMNode
 
-
+- (void)refresh;
 
 @end

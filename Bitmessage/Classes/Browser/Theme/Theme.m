@@ -55,11 +55,13 @@ static Theme *sharedTheme = nil;
     [self setObject:bgColorActive forKey:@"BMIdentity-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMIdentity-bgColorInactive"];
     
+    [self setObject:[NSColor whiteColor] forKey:@"BMContact-textColor"];
     [self setObject:bgColorActive forKey:@"BMContact-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMContact-bgColorInactive"];
     
     [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMMessage-unreadTextColor"];
     [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMMessage-readTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMMessage-textColorActive"];
 }
 
 - (id)objectForKey:(NSString *)k

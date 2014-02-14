@@ -7,26 +7,10 @@
 //
 
 #import "BMChannels.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 
 @implementation BMChannels
 
 
-/*
-- (void)create
-{
-    [[BMServerProxy sharedBMServerProxy] createChan:self];
-}
-
-- (void)join
-{
-    [[BMServerProxy sharedBMServerProxy] joinChan:self];
-}
-
-- (void)leave
-{
-    [[BMServerProxy sharedBMServerProxy] leaveChan:self];
-}
-*/
 
 @end

@@ -30,9 +30,9 @@
 
 - (NSDate *)date;
 
-- (id)send;
-- (id)broadcast;
-- (id)delete;
+- (void)send;
+- (void)broadcast;
+- (void)delete;
 
 - (void)markAsRead;
 - (void)markAsUnread;

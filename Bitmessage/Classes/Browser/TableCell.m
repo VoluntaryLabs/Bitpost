@@ -39,14 +39,35 @@
     */
 }
 
-- (NSColor *)textColor
+- (NSColor *)textColorActive
 {
-    if ([self.node respondsToSelector:@selector(textColor)])
+    if ([self.node respondsToSelector:@selector(textColorActive)])
     {
-        NSColor *color = [(id)self.node textColor];
+        NSColor *color = [(id)self.node textColorActive];
         if (color)
         {
             return color;
+        }
+    }
+    
+    return [NSColor whiteColor];
+}
+
+- (NSColor *)textColor
+{
+    if ([self isHighlighted])
+    {
+        return self.textColorActive;
+    }
+    else
+    {
+        if ([self.node respondsToSelector:@selector(textColor)])
+        {
+            NSColor *color = [(id)self.node textColor];
+            if (color)
+            {
+                return color;
+            }
         }
     }
     
@@ -253,6 +274,25 @@
     }
            
     return @"";
+}
+
+// --- mouse down ---
+
+- (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
+{
+    NSLog(@"NSCell trackMouse"); // why isn't this working?
+    return NO;
+}
+
+- (BOOL)startTrackingAt:(NSPoint)startPoint inView:(NSView *)controlView
+{
+    NSLog(@"NSCell startTrackingAt"); // why isn't this working?
+    return NO;
+}
+
++ (BOOL)prefersTrackingUntilMouseUp
+{
+    return YES; // why isn't this working?
 }
 
 @end

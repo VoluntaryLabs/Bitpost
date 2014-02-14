@@ -1,8 +1,8 @@
 
 
 #import <Cocoa/Cocoa.h>
-//#import "BrowserNode.h"
 #import "NavView.h"
+#import "DraftController.h"
 
 
 @interface AppController : NSObject <NSTableViewDataSource>
@@ -13,6 +13,7 @@
 
 // actions
 
+/*
 @property (strong) IBOutlet NSView *trash;
 @property (strong) IBOutlet NSView *reply;
 @property (strong) IBOutlet NSView *add;
@@ -20,5 +21,8 @@
 - (IBAction)trash:(id)sender;
 - (IBAction)reply:(id)sender;
 - (IBAction)add:(id)sender;
+*/
+
+- (DraftController *)newDraft;
 
 @end

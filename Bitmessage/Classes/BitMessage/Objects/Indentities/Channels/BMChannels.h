@@ -10,6 +10,5 @@
 
 @interface BMChannels : BMNode
 
-- (void)fetch;
 
 @end

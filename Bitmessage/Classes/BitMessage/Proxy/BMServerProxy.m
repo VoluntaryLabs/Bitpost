@@ -244,6 +244,7 @@ static BMServerProxy *sharedBMServerProxy = nil;
 }
 */
 
+/*
 - (id)deleteAddress:(NSString *)address
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
@@ -253,6 +254,7 @@ static BMServerProxy *sharedBMServerProxy = nil;
     [message sendSync];
     return [message parsedResponseValue];
 }
+ */
 
 /*
 - (NSString *)createRandomAddressWithLabel:(NSString *)label
@@ -268,7 +270,7 @@ static BMServerProxy *sharedBMServerProxy = nil;
 
 
 
-
+/*
 - (NSMutableArray *)listAddressBookEntries // contacts
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
@@ -294,8 +296,9 @@ static BMServerProxy *sharedBMServerProxy = nil;
     
     return contacts;
 }
+*/
 
-
+/*
 - (NSMutableArray *)listAddresses2 // identities
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
@@ -322,5 +325,6 @@ static BMServerProxy *sharedBMServerProxy = nil;
     
     return contacts;
 }
+ */
 
 @end

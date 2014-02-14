@@ -25,30 +25,26 @@
     [self.drafts removeObject:[note object]];
 }
 
-- (void)handleAction:(SEL)aSel
+- (void)handleAction:(SEL)aSelector
 {
-    id firstResponder = [[[NSApplication sharedApplication] mainWindow] firstResponder];
-    
-    //NSLog(@"firstResponder %@", firstResponder);
-    
-    if (firstResponder && [firstResponder respondsToSelector:@selector(handleAction:)])
-    {
-        [firstResponder handleAction:aSel];
-    }
-    
-    DraftController *draft = [DraftController alloc];
-    draft = [draft initWithNibName:@"Compose" bundle:nil];
-    NSView *view = [draft view];
-    NSWindow *window = [view window];
-    //[window makeKeyAndOrderFront:self];
-    //[window performSelector:@selector(makeKeyAndOrderFront:) withObject:self afterDelay:2];
-    //[NSBundle loadNibNamed:@"Compose" owner:dc topLevelObjects:nil];
-    //NSNib *nib = [[NSNib alloc] initWithNibNamed:@"Compose" bundle:nil];
-    //NSLog(@"nib = %@", nib);
-    
-    [self.drafts addObject:draft];
+    [self.navView handleAction:aSelector];
 }
 
+- (BOOL)canHandleAction:(SEL)aSelector
+{
+    return [self.navView canHandleAction:aSelector];
+}
+
+
+- (DraftController *)newDraft
+{
+    DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
+    [[[draft view] window] makeKeyAndOrderFront:self];
+    [self.drafts addObject:draft];
+    return draft;
+}
+
+/*
 - (IBAction)trash:(id)sender
 {
     [self handleAction:@selector(trash)];
@@ -63,5 +59,11 @@
 {
     [self handleAction:@selector(add)];
 }
+
+- (void)updateButtons
+{
+    
+}
+*/
 
 @end

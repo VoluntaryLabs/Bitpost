@@ -154,6 +154,8 @@
     [m setSubject:self.subject.stringValue];
     [m setMessage:self.bodyText.string];
     [m send];
+    
+    [[[[BMClient sharedBMClient] messages] sent] refresh];
     [self close];
 }
 

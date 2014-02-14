@@ -20,6 +20,4 @@
 @property (retain, nonatomic) NSString *label;
 @property (retain, nonatomic) NSString *address;
 
-- (void)createRandomAddress;
-
 @end

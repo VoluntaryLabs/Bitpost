@@ -38,6 +38,33 @@
 {
 }
 
+- (void)setChildren:(NSMutableArray *)children
+{
+    _children = children;
+
+    for (BMNode *child in self.children)
+    {
+        [child setNodeParent:self];
+    }
+}
+
+- (void)addChild:(id)aChild
+{
+    [aChild setNodeParent:self];
+    [self.children addObject:aChild];
+}
+
+- (void)removeChild:(id)aChild
+{
+    [self.children removeObject:aChild];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"BMMessageRemovedChild" object:self.nodeParent];
+
+    NSNotification *note = [NSNotification  notificationWithName:@"BMMessageRemovedChild" object:self userInfo:[NSDictionary dictionaryWithObject:aChild forKey:@"child"]];
+    
+    [[NSNotificationCenter defaultCenter] postNotification:note];
+
+}
+
 
 - (NSString *)nodeTitle
 {
@@ -65,6 +92,7 @@
     NSString *className = NSStringFromClass([self class]);
     NSString *iconName = [NSString stringWithFormat:@"%@_%@", className, aState];
     //NSLog(@"iconName: %@", iconName);
+    //iconName = nil;
     return [NSImage imageNamed:iconName];
 }
 
@@ -81,6 +109,28 @@
 - (NSImage *)nodeDisabledIcon
 {
     return [self nodeIconForState:@"disabled"];
+}
+
+- (void)postChanged
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self.nodeParent];
+}
+
+
+- (NSView *)nodeView
+{
+    if (!_nodeView)
+    {
+        NSString *className = [NSStringFromClass([self class]) stringByAppendingString:@"View"];
+        id viewClass = NSClassFromString(className);
+        
+        if (viewClass)
+        {
+            _nodeView = [(NSView *)[viewClass alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+        }
+    }
+    
+    return _nodeView;
 }
 
 

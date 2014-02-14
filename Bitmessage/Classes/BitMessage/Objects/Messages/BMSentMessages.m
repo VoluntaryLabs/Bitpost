@@ -7,8 +7,9 @@
 //
 
 #import "BMSentMessages.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 #import "BMClient.h"
+#import "NSArray+extra.h"
 
 
 @implementation BMSentMessages
@@ -16,12 +17,14 @@
 - (id)init
 {
     self = [super init];
+    self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
     return self;
 }
 
 - (void)fetch
 {
     self.children = [self getAllSentMessages];
+    [self.children reverse];
 }
 
 - (NSMutableArray *)getAllSentMessages
@@ -33,6 +36,12 @@
 - (NSString *)nodeTitle
 {
     return @"Sent";
+}
+
+- (void)refresh
+{
+    [self fetch];
+    [self postChanged];
 }
 
 @end

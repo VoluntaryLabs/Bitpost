@@ -17,4 +17,6 @@
 @property (assign, nonatomic) BOOL enabled;
 @property (assign, nonatomic) BOOL chan;
 
++ (BMIdentity *)withDict:(NSDictionary *)dict;
+
 @end

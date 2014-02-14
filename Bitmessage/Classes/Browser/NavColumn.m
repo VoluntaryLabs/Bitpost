@@ -19,7 +19,6 @@
     [self setAutoresizingMask:NSViewHeightSizable /* | NSViewWidthSizable*/];
     [self setupTable];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeChanged:) name:@"BMMessageChanged" object:nil];
     return self;
 }
 
@@ -28,9 +27,50 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (BOOL)selectedNodeWasRemoved
+{
+    return ![self.node.children containsObject:[self selectedNode]];
+}
+
+- (void)nodeRemovedChild:(NSNotification *)note
+{
+    //id childNode = [[note userInfo] objectForKey:@"child"];
+
+    [self.tableView reloadData];
+
+    
+    NSInteger max = self.node.children.count - 1;
+    NSInteger selectedIndex = [self.tableView selectedRow];
+    
+    
+    if (selectedIndex > max || selectedIndex == -1)
+    {
+        selectedIndex = max;
+    }
+    
+    [self selectRowIndex:selectedIndex];
+}
+
 - (void)nodeChanged:(NSNotification *)note
 {
+    //BOOL removedSelected = [self selectedNodeWasRemoved];
+    //NSInteger selectedIndex = [self.tableView selectedRow];
+
     [self.tableView reloadData];
+    /*
+     
+    if (removedSelected)
+    {
+        NSInteger max = self.node.children.count - 1;
+        
+        if (selectedIndex > max)
+        {
+            selectedIndex = max;
+        }
+        
+        [self selectRowIndex:selectedIndex];
+    }
+    */
 }
 
 - (void)selectRowIndex:(NSInteger)rowIndex
@@ -58,6 +98,15 @@
 - (void)setNode:(id<NavNode>)node
 {
     _node = node;
+    
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"BMNodeChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"BMMessageRemovedChild" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeChanged:) name:@"BMNodeChanged" object:node];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeRemovedChild:) name:@"BMMessageRemovedChild" object:node];
+    
+    
     [self setMaxWidth:node.nodeSuggestedWidth];
     [self.tableView reloadData];
 
@@ -139,16 +188,28 @@
     [aCell setNode:[self nodeForRow:rowIndex]];
 }
 
-- (void)handleAction:(SEL)aSel
+- (id <NavNode>)selectedNode
 {
     NSInteger selectedRow = [self.tableView selectedRow];
+    
     if (selectedRow >= 0)
     {
-        id item = [self nodeForRow:selectedRow];
-        if (item && [item respondsToSelector:aSel])
-        {
-            [item performSelector:aSel];
-        }
+        return [self nodeForRow:selectedRow];
+    }
+    
+    return nil;
+}
+
+- (BOOL)canHandleAction:(SEL)aSel
+{
+    return [self.node respondsToSelector:aSel];
+}
+
+- (void)handleAction:(SEL)aSel
+{
+    if ([self.node respondsToSelector:aSel])
+    {
+        [self.node performSelector:aSel];
     }
 }
 

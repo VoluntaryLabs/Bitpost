@@ -8,6 +8,8 @@
 
 #import "NavView.h"
 #import "NavColumn.h"
+#import "NSView+sizing.h"
+#import <objc/runtime.h>
 
 @implementation NavView
 
@@ -103,6 +105,7 @@
     [self.navColumns removeObjectsInArray:toRemove];
     
     [self addColumnForNode:node];
+    [self updateActionStrip];
     return YES;
 }
 
@@ -116,6 +119,88 @@
     [[self bgColor] set];
     [NSBezierPath fillRect:dirtyRect];
     [super drawRect:dirtyRect];
+}
+
+- (BOOL)canHandleAction:(SEL)aSel
+{
+    id lastColumn = [self.navColumns lastObject];
+    return [lastColumn canHandleAction:aSel];
+}
+
+- (void)handleAction:(SEL)aSel
+{
+    id lastColumn = [self.navColumns lastObject];
+    [lastColumn handleAction:aSel];
+}
+
+- (void)updateActionStrip
+{
+    for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
+    {
+        [view removeFromSuperview];
+    }
+    
+    id lastColumn = [self.navColumns lastObject];
+    id <NavNode> lastNode = [lastColumn node];
+    id lastButton = nil;
+    
+    [self setAutoresizesSubviews:YES];
+    
+    for (NSString *action in lastNode.actions)
+    {
+        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, 20)];
+        [button setButtonType:NSMomentaryChangeButton];
+        [button setBordered:NO];
+        [button setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
+        [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
+        
+        NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
+        NSImage *image = nil; //[NSImage imageNamed:imageName];
+        if (image)
+        {
+            [button setImage:image];
+            [button setWidth:image.size.width];
+        }
+        else
+        {
+            NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [button font], NSFontAttributeName,
+                    nil];
+            CGFloat width = [[[NSAttributedString alloc] initWithString:action attributes:att] size].width;
+            [button setTitle:action];
+            [button setWidth:width+10];
+        }
+        
+        [button setTarget:self];
+        [button setAction:@selector(hitActionButton:)];
+        [self.actionStrip addSubview:button];
+        
+        if (lastButton)
+        {
+            //[button setX:[lastButton maxX] + 15];
+            [button setX:[lastButton x] - 15 - [button width]];
+        }
+        else
+        {
+            [button setX:self.actionStrip.width - button.width];
+        }
+        
+        objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
+        
+        lastButton = button;
+    }
+    
+}
+
+- (void)hitActionButton:(id)aButton
+{
+    NSString *action = objc_getAssociatedObject(aButton, @"action");
+    NSLog(@"hit action %@", action);
+    
+    id lastColumn = [self.navColumns lastObject];
+    id <NavNode> lastNode = [lastColumn node];
+    [lastNode performSelector:NSSelectorFromString(action) withObject:nil];
+    
 }
 
 @end

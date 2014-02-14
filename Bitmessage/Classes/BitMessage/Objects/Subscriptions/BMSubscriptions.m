@@ -7,7 +7,8 @@
 //
 
 #import "BMSubscriptions.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
+#import "BMSubscription.h"
 
 @implementation BMSubscriptions
 
@@ -20,7 +21,6 @@
 
 - (void)fetch
 {
-    //self.children = [[BMServerProxy sharedBMServerProxy] listSubscriptions];
     self.children = [self listSubscriptions];
 }
 

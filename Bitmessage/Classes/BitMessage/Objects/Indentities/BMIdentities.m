@@ -7,7 +7,7 @@
 //
 
 #import "BMIdentities.h"
-#import "BMServerProxy.h"
+#import "BMProxyMessage.h"
 #import "BMIdentity.h"
 
 @implementation BMIdentities
@@ -15,32 +15,61 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"createNewAddress", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
     return self;
 }
 
 - (void)fetch
 {
-    self.children = [[BMServerProxy sharedBMServerProxy] listAddresses2];
+    self.children = [self listAddresses2];
 }
 
-
-- (id)createNewAddress
+- (NSMutableArray *)listAddresses2 // identities
 {
-    //NSString *address =
-    [self createRandomAddressWithLabel:@"unlabeled"];
-    [self fetch];
-    return nil;
+    BMProxyMessage *message = [[BMProxyMessage alloc] init];
+    [message setMethodName:@"listAddresses2"];
+    NSArray *params = [NSArray arrayWithObjects:nil];
+    [message setParameters:params];
+    [message sendSync];
+    
+    NSMutableArray *identities = [NSMutableArray array];
+    
+    //NSLog(@"[message parsedResponseValue] = %@", [message parsedResponseValue]);
+    
+    NSArray *dicts = [[message parsedResponseValue] objectForKey:@"addresses"];
+    
+    //NSLog(@"\n\ndicts = %@", dicts);
+    
+    for (NSDictionary *dict in dicts)
+    {
+        BMIdentity *child = [BMIdentity withDict:dict];
+        [identities addObject:child];
+    }
+    
+    //NSLog(@"\n\n contacts = %@", contacts);
+    
+    return identities;
 }
 
-- (NSString *)createRandomAddressWithLabel:(NSString *)label
+
+
+- (void)add
+{
+    [self createRandomAddressWithLabel:@"Enter Label"];
+}
+
+- (void)createRandomAddressWithLabel:(NSString *)label
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"createRandomAddress"];
     NSArray *params = [NSArray arrayWithObjects:label.encodedBase64, nil];
     [message setParameters:params];
     [message sendSync];
-    return [message parsedResponseValue];
+    id response = [message parsedResponseValue];
+    NSLog(@"createRandomAddress response %@", response);
+    [self fetch];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
 
 - (BMIdentity *)identityWithAddress:(NSString *)address
@@ -51,6 +80,18 @@
         {
             return child;
         }
+    }
+    
+    return nil;
+}
+
+- (NSString *)firstIdentityAddress
+{
+    BMIdentity *identity = (BMIdentity *)self.children.firstObject;
+    
+    if (identity)
+    {
+        return identity.label;
     }
     
     return nil;
