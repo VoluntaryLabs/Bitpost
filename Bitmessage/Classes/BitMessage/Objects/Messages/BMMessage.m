@@ -148,7 +148,6 @@
 
 - (void)delete
 {
-    /*
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"trashMessage"];
     NSArray *params = [NSArray arrayWithObjects:self.msgid, nil];
@@ -156,7 +155,7 @@
     [message sendSync];
     id result = [message parsedResponseValue];
     NSLog(@"delete result %@", result);
-     */
+
     [self.nodeParent removeChild:self];
     //[self postChanged];
 }

@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSTextField *labelField;
 @property (strong, nonatomic) NSTextField *addressField;
 
+@property (assign, nonatomic) BOOL isUpdating;
 
 @end

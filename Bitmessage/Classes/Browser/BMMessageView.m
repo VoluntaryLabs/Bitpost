@@ -13,6 +13,7 @@
 #import "ResizingScrollView.h"
 #import "DraftController.h"
 #import "AppController.h"
+#import "NSString+BM.h"
 
 @implementation BMMessageView
 
@@ -217,7 +218,7 @@
         NSInteger mins = dt/60;
         NSInteger hours = mins/60;
         NSInteger days = hours/24;
-        NSInteger weeks = days/7;
+        //NSInteger weeks = days/7;
         
         if (hours < 1)
         {
@@ -234,10 +235,12 @@
             return @"Yesterday";
         }
 
+        /*
         if (weeks < 1)
         {
             return [NSString stringWithFormat:@"%iwk", (int)days];
         }
+        */
 
         return [date
                   descriptionWithCalendarFormat:@"%b %d" timeZone:nil
@@ -247,7 +250,20 @@
     return @"";
 }
 
-- (void)reply
+- (NSString *)quotedMessage
+{
+    NSString *date = [[self date]
+                                descriptionWithCalendarFormat:@"%b %d" timeZone:nil
+                      locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+    
+    NSString *q =  [self.message.decodedBase64 stringByReplacingOccurrencesOfString:@"\n" withString:@"\n> "];
+    q =  [@"> " stringByAppendingString:q];
+    
+    
+    return [NSString stringWithFormat:@"\n\n\nOn %@, %@ wrote:\n%@\n", date, [self fromAddressLabel], q];
+}
+
+- (void)reply // hack
 {
     //DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
     //[[[draft view] window] makeKeyAndOrderFront:self];
@@ -260,8 +276,20 @@
     
     if (from)
     {
-        [draftController.from setStringValue:self.fromAddress];
+        [draftController.from setStringValue:from];
     }
+    
+    NSString *reSubject = self.subjectString;
+    if (![reSubject hasPrefix:@"Re: "])
+    {
+        reSubject = [@"Re: " stringByAppendingString:reSubject];
+    }
+    
+    [draftController.subject setStringValue:reSubject];
+    
+    [draftController.bodyText insertText:self.quotedMessage];
+    [draftController setCursorForReply];
+    
     //[self.drafts addObject:draft];
 }
 

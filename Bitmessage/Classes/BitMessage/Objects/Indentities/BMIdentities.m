@@ -91,7 +91,7 @@
     
     if (identity)
     {
-        return identity.label;
+        return identity.address;
     }
     
     return nil;

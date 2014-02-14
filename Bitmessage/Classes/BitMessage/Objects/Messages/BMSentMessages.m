@@ -10,7 +10,7 @@
 #import "BMProxyMessage.h"
 #import "BMClient.h"
 #import "NSArray+extra.h"
-
+#import "BMMessage.h"
 
 @implementation BMSentMessages
 
@@ -25,6 +25,13 @@
 {
     self.children = [self getAllSentMessages];
     [self.children reverse];
+    
+    // hack to use unread color
+    
+    for (BMMessage *child in self.children)
+    {
+        [child setRead:YES];
+    }
 }
 
 - (NSMutableArray *)getAllSentMessages

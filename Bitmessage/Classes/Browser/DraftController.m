@@ -43,6 +43,7 @@
 
 - (void)setupViewPositions
 {
+    
     [self.bodyArea setBackgroundColor:[NSColor whiteColor]];
     [self.bodyArea setNeedsDisplay:YES];
     [self.topBackground setBackgroundColor:[NSColor colorWithCalibratedWhite:.95 alpha:1.0]];
@@ -69,6 +70,15 @@
     
     [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans Light" size:14]];
     [[self bodyText] setTextColor:textColor];
+    
+    
+    CGFloat margin = 20.0;
+    self.marginView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, margin, self.scrollView.height)];
+    self.marginView.backgroundColor = [NSColor whiteColor];
+    [self.scrollView.superview addSubview:self.marginView];
+    
+    [self.scrollView setX:margin];
+    [self.scrollView setWidth:self.scrollView.superview.width - margin];
 }
 
 - (void)setupHighlightColors
@@ -118,10 +128,9 @@
     NSRect r = self.window.frame;
     r.size.width ++;
     [self.window setFrame:r display:YES];
-    [self.subject becomeFirstResponder];
+    //[self.bodyText becomeFirstResponder];
     [self updateSendButton];
 }
-
     
 - (void)removeFocusRings
 {
@@ -180,6 +189,14 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"draftClosed" object:self];
     return YES;
+}
+
+- (void)setCursorForReply
+{
+    NSInteger charIndex = 1;
+    [self.bodyText setSelectedRange: NSMakeRange(charIndex, 0)];
+    [self.scrollView becomeFirstResponder];
+    //[self.bodyText becomeFirstResponder];
 }
 
 @end

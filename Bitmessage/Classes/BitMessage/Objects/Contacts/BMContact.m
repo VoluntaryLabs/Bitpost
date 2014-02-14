@@ -10,12 +10,17 @@
 #import "BMProxyMessage.h"
 #import "NSString+BM.h"
 
+#import "DraftController.h"
+#import "AppController.h"
+#import "BMClient.h"
+#import "BMIdentities.h"
+
 @implementation BMContact
 
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"delete", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"message", @"delete", nil];
     return self;
 }
 
@@ -56,7 +61,7 @@
 
 // -----
 
-- (void)delete
+- (void)justDelete
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"deleteAddressBookEntry"];
@@ -66,20 +71,39 @@
     [message sendSync];
     id response = [message parsedResponseValue];
     NSLog(@"delete response = %@", response);
+}
+
+- (void)delete
+{
+    [self justDelete];
     [self.nodeParent removeChild:self];
-    [self postChanged];
+}
+
+- (BOOL)isValidAddress
+{
+    // hack
+    
+    if ([self.address hasPrefix:@"BM-"] && [self.address length] > 30)
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (void)update
 {
     NSLog(@"updating contact '%@' '%@'", self.address, self.label);
     
-    [self delete];
-    [self insert];
-    [self postChanged];
+    [self justDelete];
+    
+    if([self insert])
+    {
+        [self postChanged];
+    }
 }
 
-- (void)insert
+- (BOOL)insert
 {
     NSLog(@"inserting contact '%@' '%@'", self.address, self.label);
     
@@ -92,6 +116,34 @@
     
     id response = [message parsedResponseValue];
     NSLog(@"insert response = %@", response);
+    
+    if ([response isKindOfClass:[NSString class]] && [response containsString:@"Error"])
+    {
+        return NO;
+    }
+
+    [self.nodeParent addChild:self];
+
+    return YES;
+}
+
+
+- (void)message
+{
+    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
+    DraftController *draftController = [appController newDraft];
+    
+    [draftController.to setStringValue:self.address];
+    
+    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
+    
+    if (from)
+    {
+        [draftController.from setStringValue:from];
+    }
+    
+    
+    [draftController.subject becomeFirstResponder];
 }
 
 

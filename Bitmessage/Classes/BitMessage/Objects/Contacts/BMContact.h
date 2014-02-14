@@ -16,8 +16,11 @@
 + (BMContact *)withDict:(NSDictionary *)dict;
 
 
+- (BOOL)isValidAddress;
+
 - (void)delete;
 - (void)update;
-- (void)insert;
+- (BOOL)insert;
+
 
 @end

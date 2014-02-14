@@ -50,8 +50,11 @@
 
 - (void)addChild:(id)aChild
 {
-    [aChild setNodeParent:self];
-    [self.children addObject:aChild];
+    if (![self.children containsObject:aChild])
+    {
+        [aChild setNodeParent:self];
+        [self.children addObject:aChild];
+    }
 }
 
 - (void)removeChild:(id)aChild

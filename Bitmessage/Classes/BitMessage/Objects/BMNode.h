@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "NSString+BM.h"
 
+@class BMNode;
+
 @interface BMNode : NSObject
 
-@property (assign, nonatomic) id nodeParent;
+@property (assign, nonatomic) BMNode *nodeParent;
 @property (strong, nonatomic) NSMutableArray *children;
 @property (strong, nonatomic) NSMutableArray *actions;
 @property (strong, nonatomic) NSView *nodeView;

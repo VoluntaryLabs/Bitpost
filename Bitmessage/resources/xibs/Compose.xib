@@ -105,7 +105,7 @@
                         </subviews>
                     </customView>
                     <button id="Iel-wg-lzM">
-                        <rect key="frame" x="518" y="595" width="42" height="21"/>
+                        <rect key="frame" x="518" y="593" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="Reply_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="fyH-Pd-3TN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

@@ -66,6 +66,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedText:) name:NSControlTextDidChangeNotification object:self.addressField];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setFrame:(NSRect)frameRect
 {
     [super setFrame:frameRect];
@@ -105,6 +110,23 @@
 {
     NSLog(@"updatedText");
     //[(BMContact *)self.node update];
+    [self.addressField setStringValue:[self.addressField.stringValue strip]];
+    [self updateAddressColor];
+
+}
+
+- (void)updateAddressColor
+{
+    self.contact.address = self.addressField.stringValue;
+    
+    if (self.contact.isValidAddress)
+    {
+        self.addressField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
+    }
+    else
+    {
+        self.addressField.textColor = [NSColor redColor];
+    }
 }
 
 - (BMContact *)contact
@@ -114,15 +136,28 @@
 
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
 {
-    NSLog(@"contact textShouldEndEditing");
+    if (!self.isUpdating)
+    {
+        self.isUpdating = YES;
+        NSLog(@"contact textShouldEndEditing");
+                
+        self.contact.label   = self.labelField.stringValue;
+        self.contact.address = self.addressField.stringValue;
+        
+        if (self.contact.isValidAddress)
+        {
+            [self.contact update];
+        }
+        
+        self.isUpdating = NO;
+    }
 
-    self.contact.label = self.labelField.stringValue;
-    self.contact.address = self.addressField.stringValue;
-    
-    [self.contact update];
 
     return YES;
 }
 
 
 @end
+
+
+

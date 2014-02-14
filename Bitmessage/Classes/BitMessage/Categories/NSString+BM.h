@@ -13,4 +13,13 @@
 - (NSString *)encodedBase64;
 - (NSString *)decodedBase64;
 
+- (BOOL)containsString:(NSString *)other;
+
+- (NSString *)stringByTrimmingLeadingWhitespace;
+- (NSString *)stringByTrimmingTrailingWhitespace;
+- (NSString *)stringByTrimmingLeadingWhitespaceAndNewline;
+- (NSString *)stringByTrimmingTrailingWhitespaceAndNewline;
+
+- (NSString *)strip;
+
 @end
