@@ -28,6 +28,8 @@
 
 - (void)deepFetch;
 - (void)fetch;
-- (void)postChanged;
+
+- (void)postParentChanged;
+- (void)postSelfChanged;
 
 @end

@@ -114,11 +114,15 @@
     return [self nodeIconForState:@"disabled"];
 }
 
-- (void)postChanged
+- (void)postParentChanged
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self.nodeParent];
 }
 
+- (void)postSelfChanged
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
+}
 
 - (NSView *)nodeView
 {

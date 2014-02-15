@@ -99,7 +99,7 @@
     
     if([self insert])
     {
-        [self postChanged];
+        [self postParentChanged];
     }
 }
 

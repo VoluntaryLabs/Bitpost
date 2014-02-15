@@ -51,7 +51,7 @@
     id response = [message parsedResponseValue];
     NSLog(@"delete response = %@", response);
     
-    [self postChanged];
+    [self postParentChanged];
 }
 
 - (void)update
@@ -61,7 +61,7 @@
     [self delete];
     [self insert];
     
-    [self postChanged];
+    [self postParentChanged];
 }
 
 - (void)insert

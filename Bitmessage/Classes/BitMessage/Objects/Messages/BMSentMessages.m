@@ -48,7 +48,7 @@
 - (void)refresh
 {
     [self fetch];
-    [self postChanged];
+    [self postSelfChanged];
 }
 
 @end

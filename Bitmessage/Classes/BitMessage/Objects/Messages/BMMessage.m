@@ -157,17 +157,20 @@
     NSLog(@"delete result %@", result);
 
     [self.nodeParent removeChild:self];
-    //[self postChanged];
+    //[self postParentChanged];
 }
 
-- (id)setReadState:(BOOL)isRead
+- (void)setReadState:(BOOL)isRead
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"getInboxMessageByID"];
     NSArray *params = [NSArray arrayWithObjects:self.msgid, [NSNumber numberWithBool:isRead], nil];
     [message setParameters:params];
     [message sendSync];
-    return [message parsedResponseValue];
+    
+    id response = [message parsedResponseValue];
+    NSLog(@"set read state %@", response);
+    _read = isRead;
 }
 
 - (void)markAsRead
@@ -175,7 +178,7 @@
     if (!self.read)
     {
         [self setReadState:YES];
-        [self postChanged];
+        [self postParentChanged];
     }
 }
 
@@ -184,7 +187,7 @@
     if (self.read)
     {
         [self setReadState:NO];
-        [self postChanged];
+        [self postParentChanged];
     }
 }
 
