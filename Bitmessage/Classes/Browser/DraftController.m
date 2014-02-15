@@ -8,6 +8,7 @@
 
 #import "DraftController.h"
 #import "NSView+sizing.h"
+#import "NSString+BM.h"
 #import "BMMessage.h"
 #import "BMClient.h"
 #import "BMIdentity.h"
@@ -117,8 +118,6 @@
     if (identity)
     {
         [self.from setStringValue:identity.address];
-        //[self.to setStringValue:identity.address];
-        [self.to setStringValue:@"BM-orkCbppXWSqPpAxnz6jnfTZ2djb5pJKDb"];
     }
 }
 
@@ -151,8 +150,9 @@
 
 - (BOOL)canSend
 {
-    return ![self.fromAddress isEqualToString:@""] &&
-    ![self.toAddress isEqualToString:@""];
+    return
+        ![self.fromAddress isEqualToString:@""] &&
+        ![self.toAddress isEqualToString:@""];
 }
 
 - (IBAction)send:(id)sender
@@ -170,13 +170,18 @@
 
 - (void)updateSendButton
 {
+    [self.from setStringValue:self.from.stringValue.strip];
+    [self.to setStringValue:self.to.stringValue.strip];
+    
     if([self canSend])
     {
-        [self.sendButton setImage:[NSImage imageNamed:@"Reply_active"]];
+        [self.sendButton setImage:[NSImage imageNamed:@"send_active"]];
+        [self.sendButton setEnabled:YES];
     }
     else
     {
-        [self.sendButton setImage:[NSImage imageNamed:@"Reply_inactive"]];
+        [self.sendButton setImage:[NSImage imageNamed:@"send_inactive"]];
+        [self.sendButton setEnabled:NO];
     }
 }
 

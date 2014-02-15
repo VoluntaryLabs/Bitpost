@@ -41,12 +41,7 @@
 - (void)composeAuth
 {
     NSString *authString = [NSString stringWithFormat:@"%@:%@", self.username, self.password];
-    //NSData *data = [[authString dataUsingEncoding: NSUTF8StringEncoding] base64EncodedDataWithOptions:0];
-    
-    //NSString *auth = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    //auth = [@"Basic " stringByAppendingString:auth];
     NSString *auth = [@"Basic " stringByAppendingString:[authString encodedBase64]];
-    
     [self.request setValue:auth forHTTPHeaderField: @"Authorization"];
 }
 

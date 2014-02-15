@@ -289,6 +289,7 @@
     
     [draftController.bodyText insertText:self.quotedMessage];
     [draftController setCursorForReply];
+    [draftController updateSendButton];
     
     //[self.drafts addObject:draft];
 }

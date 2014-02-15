@@ -28,4 +28,6 @@
 - (IBAction)send:(id)sender;
 - (void)setCursorForReply;
 
+- (void)updateSendButton;
+
 @end

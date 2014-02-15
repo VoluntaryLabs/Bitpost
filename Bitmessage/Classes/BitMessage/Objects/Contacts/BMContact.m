@@ -144,6 +144,7 @@
     
     
     [draftController.subject becomeFirstResponder];
+    [draftController updateSendButton];
 }
 
 

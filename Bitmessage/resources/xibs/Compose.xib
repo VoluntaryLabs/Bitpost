@@ -9,7 +9,7 @@
                 <outlet property="bodyText" destination="9pB-sB-vzm" id="wgf-xM-WAp"/>
                 <outlet property="from" destination="irf-38-Vxg" id="9Bb-qH-Cru"/>
                 <outlet property="scrollView" destination="FFi-oG-JYe" id="Q0u-nq-XwJ"/>
-                <outlet property="sendButton" destination="Iel-wg-lzM" id="CSO-Ce-jXV"/>
+                <outlet property="sendButton" destination="Iel-wg-lzM" id="fow-Sb-NCZ"/>
                 <outlet property="subject" destination="Hj0-vj-3JM" id="fe1-ib-YRg"/>
                 <outlet property="to" destination="VHv-NU-7E7" id="KMO-zr-tcL"/>
                 <outlet property="topBackground" destination="BTF-aW-ju0" id="tM9-qR-7Tx"/>
@@ -105,9 +105,9 @@
                         </subviews>
                     </customView>
                     <button id="Iel-wg-lzM">
-                        <rect key="frame" x="518" y="593" width="42" height="21"/>
+                        <rect key="frame" x="511" y="593" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="Reply_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="fyH-Pd-3TN">
+                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="send_inactive" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="fyH-Pd-3TN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -149,6 +149,6 @@
         </window>
     </objects>
     <resources>
-        <image name="Reply_inactive" width="14" height="14"/>
+        <image name="send_inactive" width="28" height="14"/>
     </resources>
 </document>
