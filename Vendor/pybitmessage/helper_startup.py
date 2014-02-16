@@ -6,6 +6,7 @@ import locale
 import random
 import string
 import platform
+from os import environ
 from distutils.version import StrictVersion
 
 from namecoin import ensureNamecoinOptions
@@ -46,6 +47,15 @@ def loadConfig():
         # This appears to be the first time running the program; there is
         # no config file (or it cannot be accessed). Create config file.
         shared.config.add_section('bitmessagesettings')
+        
+        #Preconfigure password
+        shared.config.set('bitmessagesettings', 'apienabled', 'true')
+        shared.config.set('bitmessagesettings', 'apiinterface', '127.0.0.1')
+        shared.config.set('bitmessagesettings', 'apiport', '8442')
+        shared.config.set('bitmessagesettings', 'apiusername', environ['PYBITMESSAGE_USER'])
+        shared.config.set('bitmessagesettings', 'apipassword', environ['PYBITMESSAGE_PASSWORD'])
+
+
         shared.config.set('bitmessagesettings', 'settingsversion', '8')
         shared.config.set('bitmessagesettings', 'port', '8444')
         shared.config.set(

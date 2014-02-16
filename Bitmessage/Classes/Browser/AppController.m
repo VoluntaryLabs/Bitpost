@@ -46,13 +46,25 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:@"/usr/bin/python"];
+    _pybitmessage = [[NSTask alloc] init];
+    NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
+    NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];
+    NSLog(@"%@", [environment valueForKey:@"PATH"]);
+    [environment setObject: @"FOO" forKey:@"PYBITMESSAGE_USER"];
+    [environment setObject: @"BAR" forKey:@"PYBITMESSAGE_PASSWORD"];
+    [_pybitmessage setEnvironment: environment];
+    [_pybitmessage setLaunchPath:@"/usr/bin/python"];
     NSBundle * mainBundle = [NSBundle mainBundle];
     NSString * path = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
     NSLog(@"%@", path);
-    [task setArguments:@[ path ]];
-    [task launch];
+    [_pybitmessage setArguments:@[ path ]];
+    [_pybitmessage launch];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    NSLog(@"Killing pybitmessage process...");
+    [_pybitmessage terminate];
 }
 
 
