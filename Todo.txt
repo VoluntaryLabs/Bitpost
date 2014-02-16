@@ -1,0 +1,14 @@
+
+todo
+
+- correct send icon
+
+- auto refresh
+- open draft windows in proper place (stack them?)
+
+- embed server
+
+- menus? info panel?
+
+
+

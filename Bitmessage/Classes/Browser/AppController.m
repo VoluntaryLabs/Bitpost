@@ -54,7 +54,7 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    return;
+    //return; // temporarily disable until sysconfig issue is fixed
     
     NSBundle * mainBundle = [NSBundle mainBundle];
     
