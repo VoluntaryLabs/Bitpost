@@ -153,7 +153,7 @@ GLHACK=-Dclear=__GLclear
 # modules are to be built as shared libraries (see above for more
 # detail; also note that *static* reverses this effect):
 
-#*shared*
+*static*
 
 # GNU readline.  Unlike previous Python incarnations, GNU readline is
 # now incorporated in an optional module, configured in the Setup file
