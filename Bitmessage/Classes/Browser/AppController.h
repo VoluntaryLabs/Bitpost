@@ -11,6 +11,7 @@
 @property (strong) IBOutlet NavView *navView;
 @property (strong) NSMutableArray *drafts;
 @property (strong) NSTimer *timer;
+@property (strong) NSTask *pybitmessage;
 
 // actions
 

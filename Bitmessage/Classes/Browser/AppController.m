@@ -52,4 +52,57 @@
     return draft;
 }
 
+- (void)applicationDidFinishLaunching: (NSNotification *)aNotification
+{
+    NSBundle * mainBundle = [NSBundle mainBundle];
+    
+    _pybitmessage = [[NSTask alloc] init];
+    NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
+    NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];
+    NSLog(@"%@", [environment valueForKey:@"PATH"]);
+    
+    // Set environment variables containing api username and password
+    [environment setObject: @"FOO" forKey:@"PYBITMESSAGE_USER"];
+    [environment setObject: @"BAR" forKey:@"PYBITMESSAGE_PASSWORD"];
+    [_pybitmessage setEnvironment: environment];
+    
+    // Set the path to the python executable
+    NSString * pythonPath = [mainBundle pathForResource:@"python" ofType:@"exe" inDirectory: @"static-python"];
+    NSString * pybitmessagePath = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
+    [_pybitmessage setLaunchPath:pythonPath];
+
+
+    [_pybitmessage setArguments:@[ pybitmessagePath ]];
+    [_pybitmessage launch];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    NSLog(@"Killing pybitmessage process...");
+    [_pybitmessage terminate];
+}
+
+
+/*
+- (IBAction)trash:(id)sender
+{
+    [self handleAction:@selector(trash)];
+}
+
+- (IBAction)reply:(id)sender
+{
+    [self handleAction:@selector(reply)];
+}
+
+- (IBAction)add:(id)sender
+{
+    [self handleAction:@selector(add)];
+}
+
+- (void)updateButtons
+{
+    
+}
+*/
+
 @end
