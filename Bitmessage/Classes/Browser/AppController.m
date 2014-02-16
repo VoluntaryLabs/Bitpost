@@ -18,6 +18,15 @@
                                              selector:@selector(draftClosed:)
                                                  name:@"draftClosed"
                                                object:nil];
+ 
+    //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+}
+
+- (void)timer:(id)sender
+{
+    NSLog(@"timer start");
+    [[[[BMClient sharedBMClient] messages] received] refresh];
+    NSLog(@"timer stop");
 }
 
 - (void)draftClosed:(NSNotification *)note
@@ -35,7 +44,6 @@
     return [self.navView canHandleAction:aSelector];
 }
 
-
 - (DraftController *)newDraft
 {
     DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
@@ -43,27 +51,5 @@
     [self.drafts addObject:draft];
     return draft;
 }
-
-/*
-- (IBAction)trash:(id)sender
-{
-    [self handleAction:@selector(trash)];
-}
-
-- (IBAction)reply:(id)sender
-{
-    [self handleAction:@selector(reply)];
-}
-
-- (IBAction)add:(id)sender
-{
-    [self handleAction:@selector(add)];
-}
-
-- (void)updateButtons
-{
-    
-}
-*/
 
 @end
