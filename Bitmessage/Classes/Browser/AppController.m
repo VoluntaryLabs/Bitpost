@@ -44,6 +44,18 @@
     return draft;
 }
 
+- (void)applicationDidFinishLaunching: (NSNotification *)aNotification
+{
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath:@"/usr/bin/python"];
+    NSBundle * mainBundle = [NSBundle mainBundle];
+    NSString * path = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
+    NSLog(@"%@", path);
+    [task setArguments:@[ path ]];
+    [task launch];
+}
+
+
 /*
 - (IBAction)trash:(id)sender
 {
