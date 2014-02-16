@@ -1,10 +1,10 @@
 
 todo
 
+- auto refresh
+
 - use labels in compose
 
-
-- auto refresh
 - open draft windows in proper place (stack them?)
 
 - embed server
