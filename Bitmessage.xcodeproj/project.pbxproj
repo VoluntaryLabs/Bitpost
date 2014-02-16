@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
-		8E93980118B11F55003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980018B11F55003ABFE9 /* static-python */; };
+		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -121,7 +121,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				8E93980118B11F55003ABFE9 /* static-python in CopyFiles */,
+				8E93980318B18118003ABFE9 /* static-python in CopyFiles */,
 				8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,7 +130,7 @@
 
 /* Begin PBXFileReference section */
 		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
-		8E93980018B11F55003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
+		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -302,7 +302,7 @@
 		AA3155FE18AAE02D0017E94F = {
 			isa = PBXGroup;
 			children = (
-				8E93980018B11F55003ABFE9 /* static-python */,
+				8E93980218B18118003ABFE9 /* static-python */,
 				8E9397F418B034DA003ABFE9 /* pybitmessage */,
 				AA31561018AAE02D0017E94F /* Bitmessage */,
 				AA31562E18AAE02D0017E94F /* BitmessageTests */,
