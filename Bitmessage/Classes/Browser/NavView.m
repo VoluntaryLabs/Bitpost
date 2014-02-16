@@ -133,6 +133,25 @@
     [lastColumn handleAction:aSel];
 }
 
+- (void)reloadedColumn:(NavColumn *)aColumn
+{
+    [self updateActionStrip];
+}
+
+- (id <NavNode>)lastNode
+{
+    NSEnumerator *e = [self.navColumns reverseObjectEnumerator];
+    id column = nil;
+    while (column = [e nextObject])
+    {
+        if ([column respondsToSelector:@selector(node)])
+        {
+            return [column node];
+        }
+    }
+    return nil;
+}
+
 - (void)updateActionStrip
 {
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
@@ -141,7 +160,8 @@
     }
     
     id lastColumn = [self.navColumns lastObject];
-    id <NavNode> lastNode = [lastColumn node];
+    //id <NavNode> lastNode = [lastColumn node];
+    id <NavNode> lastNode = [self lastNode];
     id lastButton = nil;
     
     [self setAutoresizesSubviews:YES];
@@ -154,7 +174,7 @@
         [button setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
-        NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
+        //NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
         NSImage *image = nil; //[NSImage imageNamed:imageName];
         if (image)
         {

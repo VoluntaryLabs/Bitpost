@@ -32,11 +32,17 @@
     return ![self.node.children containsObject:[self selectedNode]];
 }
 
+- (void)reloadData
+{
+    [self.tableView reloadData];
+    [self.navView reloadedColumn:self];
+}
+
 - (void)nodeRemovedChild:(NSNotification *)note
 {
     //id childNode = [[note userInfo] objectForKey:@"child"];
 
-    [self.tableView reloadData];
+    [self reloadData];
 
     
     NSInteger max = self.node.children.count - 1;
@@ -51,12 +57,13 @@
     [self selectRowIndex:selectedIndex];
 }
 
+
 - (void)nodeChanged:(NSNotification *)note
 {
     //BOOL removedSelected = [self selectedNodeWasRemoved];
     //NSInteger selectedIndex = [self.tableView selectedRow];
 
-    [self.tableView reloadData];
+    [self reloadData];
     /*
      
     if (removedSelected)

@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "NavNode.h"
 
+@class NavColumn;
+
 @interface NavView : NSView
 
 @property (strong, nonatomic) NSMutableArray *navColumns;
@@ -21,5 +23,7 @@
 
 - (BOOL)canHandleAction:(SEL)aSel;
 - (void)handleAction:(SEL)aSel;
+
+- (void)reloadedColumn:(NavColumn *)aColumn;
 
 @end
