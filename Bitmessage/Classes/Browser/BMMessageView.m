@@ -14,6 +14,7 @@
 #import "DraftController.h"
 #import "AppController.h"
 #import "NSString+BM.h"
+#import "MarginTextView.h"
 
 @implementation BMMessageView
 
@@ -23,7 +24,6 @@
     [self setAutoresizesSubviews:YES];
     [self setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     [self setupBody];
-    _margin = 15.0;
     return self;
 }
 
@@ -110,27 +110,11 @@
     [self.textView setEditable:NO];
     [self.textView.textStorage setAttributedString:[self bodyString]];
     [self.textView setWidth:self.frame.size.width];
-    
-    /*
-    self.marginView.bounds = self.textView.bounds;
-    [self.scrollView setDocumentView:self.marginView];
-    
-    NSLayoutManager *layoutManager = self.textView.layoutManager;
-    NSTextContainer *textContainer = self.textView.textContainer;
-    NSRange r = NSMakeRange(0, [self.textView.textStorage characters].count);
-    
-    [layoutManager ensureLayoutForCharacterRange:r];
-    NSRect b = [layoutManager boundingRectForGlyphRange:r inTextContainer:textContainer];
-    self.textView.frame = b;
-    */
 }
 
 - (void)setupBody
 {
-    CGFloat margin = 30.0;
     NSRect f = self.frame;
-    f.origin.x += margin;
-    f.size.width -= margin*2;
     
     self.scrollView = [[ResizingScrollView alloc] initWithFrame:f];
     [self addSubview:self.scrollView];
@@ -140,12 +124,7 @@
     [self.scrollView setAutoresizesSubviews:YES];
     [self.scrollView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     
-    ///self.marginView = [[NSView alloc] initWithFrame:self.scrollView.bounds];
-    //[self.scrollView setDocumentView:self.marginView];
-    //[self.marginView setAutoresizesSubviews:YES];
-    //[self.marginView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
-    
-    self.textView = [[NSTextView alloc] initWithFrame:self.scrollView.bounds];
+    self.textView = [[MarginTextView alloc] initWithFrame:self.scrollView.bounds];
     [self.scrollView setDocumentView:self.textView];
     
     [self.textView setSelectedTextAttributes:
@@ -153,13 +132,8 @@
       //[NSColor blackColor], NSBackgroundColorAttributeName,
       [NSColor colorWithCalibratedWhite:1.0 alpha:0.15], NSBackgroundColorAttributeName, //NSForegroundColorAttributeName,
       nil]];
-    
-    //[self.marginView addSubview:self.textView];
-    //[self.textView setAutoresizesSubviews:YES];
-    //[self.textView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
+
     [self.textView setBackgroundColor:[NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0]];
-    //[self.textView setBackgroundColor:[NSColor whiteColor]];
-    //[self.textView setTextColor:[NSColor colorWithCalibratedWhite:198.0/255.0 alpha:1.0]];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

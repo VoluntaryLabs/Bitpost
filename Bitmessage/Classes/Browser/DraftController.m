@@ -65,21 +65,14 @@
     
     [self.topBackground setY:[self.subject superview].y -1];
     [self.topBackground setHeight:[self.from superview].maxY - [self.subject superview].y];
-    
+
+    [self.scrollView setX:0];
     [self.scrollView setY:0];
     [self.scrollView setHeight:self.topBackground.y -0];
+    [self.scrollView setWidth:self.scrollView.superview.width];
     
     [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans Light" size:14]];
     [[self bodyText] setTextColor:textColor];
-    
-    
-    CGFloat margin = 20.0;
-    self.marginView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, margin, self.scrollView.height)];
-    self.marginView.backgroundColor = [NSColor whiteColor];
-    [self.scrollView.superview addSubview:self.marginView];
-    
-    [self.scrollView setX:margin];
-    [self.scrollView setWidth:self.scrollView.superview.width - margin];
 }
 
 - (void)setupHighlightColors

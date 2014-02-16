@@ -15,8 +15,6 @@
 @property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?
 
 @property (strong, nonatomic) NSScrollView *scrollView;
-@property (strong, nonatomic) NSView *marginView;
 @property (strong, nonatomic) NSTextView *textView;
-@property (assign, nonatomic) CGFloat margin;
 
 @end

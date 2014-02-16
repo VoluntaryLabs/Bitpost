@@ -54,6 +54,8 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
+    return;
+    
     NSBundle * mainBundle = [NSBundle mainBundle];
     
     _pybitmessage = [[NSTask alloc] init];
@@ -81,28 +83,5 @@
     NSLog(@"Killing pybitmessage process...");
     [_pybitmessage terminate];
 }
-
-
-/*
-- (IBAction)trash:(id)sender
-{
-    [self handleAction:@selector(trash)];
-}
-
-- (IBAction)reply:(id)sender
-{
-    [self handleAction:@selector(reply)];
-}
-
-- (IBAction)add:(id)sender
-{
-    [self handleAction:@selector(add)];
-}
-
-- (void)updateButtons
-{
-    
-}
-*/
 
 @end

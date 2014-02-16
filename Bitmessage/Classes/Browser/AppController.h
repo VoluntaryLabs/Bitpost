@@ -13,18 +13,6 @@
 @property (strong) NSTimer *timer;
 @property (strong) NSTask *pybitmessage;
 
-// actions
-
-/*
-@property (strong) IBOutlet NSView *trash;
-@property (strong) IBOutlet NSView *reply;
-@property (strong) IBOutlet NSView *add;
-
-- (IBAction)trash:(id)sender;
-- (IBAction)reply:(id)sender;
-- (IBAction)add:(id)sender;
-*/
-
 - (DraftController *)newDraft;
 
 @end

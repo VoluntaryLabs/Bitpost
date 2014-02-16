@@ -19,7 +19,6 @@
 
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;
 @property (assign, nonatomic) IBOutlet NSTextView *bodyText;
-@property (strong, nonatomic) ColoredView *marginView;
 
 
 @property (assign, nonatomic) IBOutlet ColoredView *bodyArea;

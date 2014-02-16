@@ -90,6 +90,7 @@
 		AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577018AAE1610017E94F /* XMLRPCRequest.m */; };
 		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
 		AA3157C318AAE1920017E94F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3157C118AAE1920017E94F /* MainMenu.xib */; };
+		AA7F6A7D18B16D81009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A7C18B16D81009285EA /* MarginTextView.m */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -260,6 +261,8 @@
 		AA31577118AAE1610017E94F /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
 		AA31577218AAE1610017E94F /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
 		AA3157C218AAE1920017E94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AA7F6A7B18B16D81009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarginTextView.h; path = Views/MarginTextView.h; sourceTree = "<group>"; };
+		AA7F6A7C18B16D81009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarginTextView.m; path = Views/MarginTextView.m; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 				AAB79BD118AD80C30041B6B1 /* BMContactView.m */,
 				AAB79BD318AD9D6E0041B6B1 /* BMIdentityView.h */,
 				AAB79BD418AD9D6E0041B6B1 /* BMIdentityView.m */,
+				AA7F6A7B18B16D81009285EA /* MarginTextView.h */,
+				AA7F6A7C18B16D81009285EA /* MarginTextView.m */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -851,6 +856,7 @@
 				AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */,
 				AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */,
 				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
+				AA7F6A7D18B16D81009285EA /* MarginTextView.m in Sources */,
 				AAB79BD518AD9D6E0041B6B1 /* BMIdentityView.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
