@@ -194,14 +194,17 @@
         NSInteger days = hours/24;
         //NSInteger weeks = days/7;
         
+        /*
         if (hours < 1)
         {
             return [NSString stringWithFormat:@"%imin", (int)mins];
         }
+        */
         
         if (days < 1)
         {
-            return [NSString stringWithFormat:@"%ihr", (int)hours];
+            //return [NSString stringWithFormat:@"%ihr", (int)hours];
+            return @"Today";
         }
         
         if (days < 2)

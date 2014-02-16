@@ -1,14 +1,18 @@
 
 todo
 
-- correct send icon
+- use labels in compose
+
 
 - auto refresh
 - open draft windows in proper place (stack them?)
 
 - embed server
 
-- menus? info panel?
+- menus
+- info panel
+
+- app icon
 
 
 
