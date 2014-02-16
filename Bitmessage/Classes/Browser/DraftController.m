@@ -71,8 +71,9 @@
     [self.scrollView setHeight:self.topBackground.y -0];
     [self.scrollView setWidth:self.scrollView.superview.width];
     
-    [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans Light" size:14]];
-    [[self bodyText] setTextColor:textColor];
+    [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans" size:13]];
+    NSColor *bodyTextColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
+    [[self bodyText] setTextColor:bodyTextColor];
 }
 
 - (void)setupHighlightColors
