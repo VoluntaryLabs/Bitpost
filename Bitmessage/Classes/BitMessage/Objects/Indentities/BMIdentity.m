@@ -18,6 +18,14 @@
     return instance;
 }
 
+- (id)init
+{
+    self = [super init];
+    self.actions = [NSMutableArray arrayWithObjects:@"delete", nil];
+    return self;
+}
+
+
 - (NSDictionary *)dict
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

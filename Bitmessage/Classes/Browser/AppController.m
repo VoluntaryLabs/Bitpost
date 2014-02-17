@@ -8,16 +8,6 @@
 
 - (void)awakeFromNib
 {
-    [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
-    self.drafts = [NSMutableArray array];
-    
-    NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
-    [firstNavColumn selectRowIndex:0];
- 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(draftClosed:)
-                                                 name:@"draftClosed"
-                                               object:nil];
  
     //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
 }
@@ -54,8 +44,11 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    //return; // temporarily disable until sysconfig issue is fixed
-    
+    [self launchServer];
+}
+
+- (void)launchServer
+{
     NSBundle * mainBundle = [NSBundle mainBundle];
     
     _pybitmessage = [[NSTask alloc] init];
@@ -72,10 +65,29 @@
     NSString * pythonPath = [mainBundle pathForResource:@"python" ofType:@"exe" inDirectory: @"static-python"];
     NSString * pybitmessagePath = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
     [_pybitmessage setLaunchPath:pythonPath];
-
-
+    
+    NSFileHandle *nullFileHandle = [NSFileHandle fileHandleWithNullDevice];
+    [_pybitmessage setStandardOutput:nullFileHandle];
+    [_pybitmessage setStandardError:nullFileHandle];
+    
     [_pybitmessage setArguments:@[ pybitmessagePath ]];
     [_pybitmessage launch];
+    
+    [self performSelector:@selector(connectToServer) withObject:self afterDelay:3.0];
+}
+
+- (void)connectToServer
+{
+    [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
+    self.drafts = [NSMutableArray array];
+    
+    NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
+    [firstNavColumn selectRowIndex:0];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(draftClosed:)
+                                                 name:@"draftClosed"
+                                               object:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

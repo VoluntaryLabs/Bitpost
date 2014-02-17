@@ -502,11 +502,11 @@
 		AA31566E18AAE0E00017E94F /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				AA31566F18AAE0E00017E94F /* AppController.h */,
+				AA31567018AAE0E00017E94F /* AppController.m */,
 				AA7F6A9218B17B19009285EA /* Nav */,
 				AA7F6A8818B17B15009285EA /* Inspectors */,
 				AA7F6A7E18B17A5B009285EA /* Views */,
-				AA31566F18AAE0E00017E94F /* AppController.h */,
-				AA31567018AAE0E00017E94F /* AppController.m */,
 				AA31568318AAE0E00017E94F /* Theme */,
 				AA31567318AAE0E00017E94F /* Categories */,
 				AA31567818AAE0E00017E94F /* DraftController.h */,

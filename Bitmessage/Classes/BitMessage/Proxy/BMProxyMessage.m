@@ -89,6 +89,12 @@
     if (self.response)
     {
         NSString *s = self.response.object;
+        
+        if (s == nil)
+        {
+            return nil;
+        }
+        
         NSData *data = [s dataUsingEncoding:NSUTF8StringEncoding];
         
         NSError *error = nil;
