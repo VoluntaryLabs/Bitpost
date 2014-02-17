@@ -73,7 +73,8 @@
     [_pybitmessage setArguments:@[ pybitmessagePath ]];
     [_pybitmessage launch];
     
-    [self performSelector:@selector(connectToServer) withObject:self afterDelay:3.0];
+    [self connectToServer];
+    //[self performSelector:@selector(connectToServer) withObject:self afterDelay:.1];
 }
 
 - (void)connectToServer

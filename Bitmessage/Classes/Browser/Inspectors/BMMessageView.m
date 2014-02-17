@@ -193,6 +193,15 @@
         NSInteger hours = mins/60;
         NSInteger days = hours/24;
         //NSInteger weeks = days/7;
+
+        NSString *messageYear = [date
+                                 descriptionWithCalendarFormat:@"%Y" timeZone:nil
+                                 locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+        NSString *currentYear = [[NSDate date]
+                                 descriptionWithCalendarFormat:@"%Y" timeZone:nil
+                                 locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+        
+        BOOL sameYear = [messageYear isEqualToString:currentYear];
         
         /*
         if (hours < 1)
@@ -219,6 +228,13 @@
         }
         */
 
+        if (!sameYear)
+        {
+            return [date
+                    descriptionWithCalendarFormat:@"%b %d %Y" timeZone:nil
+                    locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+        }
+        
         return [date
                   descriptionWithCalendarFormat:@"%b %d" timeZone:nil
                   locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];

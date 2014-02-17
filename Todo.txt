@@ -1,13 +1,11 @@
 
 todo
 
+- use labels in compose & autocomplete
+
 - auto refresh
 
-- use labels in compose
-
 - open draft windows in proper place (stack them?)
-
-- embed server
 
 - menus
 - info panel
