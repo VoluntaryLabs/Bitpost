@@ -43,14 +43,17 @@
 }
 
 
-- (NSString *)stringByTrimmingLeadingCharactersInSet:(NSCharacterSet *)characterSet {
+- (NSString *)stringByTrimmingLeadingCharactersInSet:(NSCharacterSet *)characterSet
+{
     NSUInteger location = 0;
     NSUInteger length = [self length];
     unichar charBuffer[length];
     [self getCharacters:charBuffer];
     
-    for (location; location < length; location++) {
-        if (![characterSet characterIsMember:charBuffer[location]]) {
+    for (location; location < length; location++)
+    {
+        if (![characterSet characterIsMember:charBuffer[location]])
+        {
             break;
         }
     }
@@ -65,7 +68,8 @@
     unichar charBuffer[length];
     [self getCharacters:charBuffer];
     
-    for (length; length > 0; length--) {
+    for (length; length > 0; length--)
+    {
         if (![characterSet characterIsMember:charBuffer[length - 1]])
         {
             break;

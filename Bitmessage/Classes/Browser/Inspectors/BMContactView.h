@@ -9,13 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
 
-@interface BMContactView : NSView <NSTextFieldDelegate>
+@interface BMContactView : NSView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
 @property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?
 
-@property (strong, nonatomic) NSTextField *labelField;
-@property (strong, nonatomic) NSTextField *addressField;
+@property (strong, nonatomic) NSTextView *labelField;
+@property (strong, nonatomic) NSTextView *addressField;
 
 @property (assign, nonatomic) BOOL isUpdating;
 

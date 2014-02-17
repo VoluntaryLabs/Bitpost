@@ -343,7 +343,7 @@
 		AA31561018AAE02D0017E94F /* Bitmessage */ = {
 			isa = PBXGroup;
 			children = (
-				AA3156FE18AAE1610017E94F /* xmlrpc */,
+				AAC9092018B2B0500009FA89 /* Vendor */,
 				AA31563E18AAE0E00017E94F /* Classes */,
 				AA31562218AAE02D0017E94F /* Images.xcassets */,
 				AA31561118AAE02D0017E94F /* Supporting Files */,
@@ -709,6 +709,14 @@
 			path = Top;
 			sourceTree = "<group>";
 		};
+		AAC9092018B2B0500009FA89 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				AA3156FE18AAE1610017E94F /* xmlrpc */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1027,6 +1035,7 @@
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1040,6 +1049,7 @@
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -27,6 +27,7 @@
     return self;
 }
 
+
 - (NSString *)fontName
 {
     return @"Open Sans Light";
@@ -110,6 +111,11 @@
     [self.textView setEditable:NO];
     [self.textView.textStorage setAttributedString:[self bodyString]];
     [self.textView setWidth:self.frame.size.width];
+    
+
+    NSPoint pointToScrollTo = NSMakePoint (0, 0);  // Any point you like.
+    [[self.scrollView contentView] scrollToPoint: pointToScrollTo];
+    [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
 }
 
 - (void)setupBody

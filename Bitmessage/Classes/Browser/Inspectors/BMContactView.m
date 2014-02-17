@@ -33,7 +33,7 @@
     NSColor *bgColor   = [Theme objectForKey:@"BMContact-bgColorActive"];
     
     
-    self.labelField   = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
+    self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
     [self addSubview:self.labelField];
     self.labelField.backgroundColor = [NSColor clearColor];
     self.labelField.textColor = [NSColor whiteColor];
@@ -42,11 +42,12 @@
     [self.labelField centerYInSuperview];
     [self.labelField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
     [self.labelField setAlignment:NSCenterTextAlignment];
-    [self.labelField setBordered:NO];
+    //[self.labelField setBordered:NO];
     [self.labelField setDelegate:self];
+    [self.labelField setRichText:NO];
     
     
-    self.addressField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 30)];
+    self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 30)];
     [self addSubview:self.addressField];
     self.addressField.backgroundColor = [NSColor clearColor];
     self.addressField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
@@ -55,8 +56,9 @@
     [self.addressField setY:self.labelField.maxY + 10];
     [self.addressField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
     [self.addressField setAlignment:NSCenterTextAlignment];
-    [self.addressField setBordered:NO];
+    //[self.addressField setBordered:NO];
     [self.addressField setDelegate:self];
+    [self.addressField setRichText:NO];
     
     [self.labelField setFocusRingType:NSFocusRingTypeNone];
     [self.addressField setFocusRingType:NSFocusRingTypeNone];
@@ -64,6 +66,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedText:) name:NSControlTextDidChangeNotification object:self.labelField];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedText:) name:NSControlTextDidChangeNotification object:self.addressField];
+    
+    [(NSTextView *)self.labelField setInsertionPointColor:[NSColor whiteColor]];
+    [(NSTextView *)self.addressField setInsertionPointColor:[NSColor whiteColor]];
 }
 
 - (void)dealloc
@@ -94,8 +99,8 @@
     
     BMContact *contact = (BMContact *)node;
     
-    [self.labelField setStringValue:contact.label];
-    [self.addressField setStringValue:contact.address];
+    [self.labelField setString:contact.label];
+    [self.addressField setString:contact.address];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -110,14 +115,14 @@
 {
     NSLog(@"updatedText");
     //[(BMContact *)self.node update];
-    [self.addressField setStringValue:[self.addressField.stringValue strip]];
+    [self.addressField setString:[self.addressField.string strip]];
     [self updateAddressColor];
 
 }
 
 - (void)updateAddressColor
 {
-    self.contact.address = self.addressField.stringValue;
+    self.contact.address = self.addressField.string;
     
     if (self.contact.isValidAddress)
     {
@@ -134,26 +139,32 @@
     return (BMContact *)self.node;
 }
 
-- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+
+//- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+
+- (void)textDidChange:(NSNotification *)aNotification
 {
     if (!self.isUpdating)
     {
         self.isUpdating = YES;
-        NSLog(@"contact textShouldEndEditing");
-                
-        self.contact.label   = self.labelField.stringValue;
-        self.contact.address = self.addressField.stringValue;
+        NSLog(@"contact textDidChange");
         
-        if (self.contact.isValidAddress)
+        //if (![self.contact.label isEqualToString:self.labelField.string] ||
+        //![self.contact.address isEqualToString:self.addressField.string])
         {
-            [self.contact update];
+            self.contact.label   = self.labelField.string;
+            self.contact.address = self.addressField.string;
+            
+            if (self.contact.isValidAddress)
+            {
+                [self.contact update];
+            }
         }
         
         self.isUpdating = NO;
     }
 
-
-    return YES;
+    //return YES;
 }
 
 

@@ -10,7 +10,7 @@ todo
 - menus
 - info panel
 
-- app icon
+- red tag on app icon for unread count
 
 
 

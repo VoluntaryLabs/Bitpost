@@ -12,6 +12,7 @@
 @property (strong) NSMutableArray *drafts;
 @property (strong) NSTimer *timer;
 @property (strong) NSTask *pybitmessage;
+@property (strong) IBOutlet NSTextView *infoText;
 
 - (DraftController *)newDraft;
 
