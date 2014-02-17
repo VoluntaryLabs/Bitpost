@@ -49,11 +49,13 @@ def loadConfig():
         shared.config.add_section('bitmessagesettings')
         
         #Preconfigure password
+        shared.config.set('bitmessagesettings', 'daemon', 'true')
         shared.config.set('bitmessagesettings', 'apienabled', 'true')
         shared.config.set('bitmessagesettings', 'apiinterface', '127.0.0.1')
         shared.config.set('bitmessagesettings', 'apiport', '8442')
         shared.config.set('bitmessagesettings', 'apiusername', environ['PYBITMESSAGE_USER'])
         shared.config.set('bitmessagesettings', 'apipassword', environ['PYBITMESSAGE_PASSWORD'])
+
 
 
         shared.config.set('bitmessagesettings', 'settingsversion', '8')

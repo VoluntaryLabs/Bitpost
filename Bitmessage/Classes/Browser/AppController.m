@@ -57,8 +57,8 @@
     NSLog(@"%@", [environment valueForKey:@"PATH"]);
     
     // Set environment variables containing api username and password
-    [environment setObject: @"FOO" forKey:@"PYBITMESSAGE_USER"];
-    [environment setObject: @"BAR" forKey:@"PYBITMESSAGE_PASSWORD"];
+    [environment setObject: @"bitmarket" forKey:@"PYBITMESSAGE_USER"];
+    [environment setObject: @"87342873428901648473823" forKey:@"PYBITMESSAGE_PASSWORD"];
     [_pybitmessage setEnvironment: environment];
     
     // Set the path to the python executable
