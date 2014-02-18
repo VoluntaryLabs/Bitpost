@@ -11,6 +11,42 @@
 #import "Theme.h"
 #import "BMContact.h"
 
+@interface NSTextView (Editing)
+
+- (void)endEditing;
+- (BOOL)endEditingOnReturn;
+- (void)removeReturns;
+
+@end
+
+
+@implementation NSTextView (Editing)
+
+- (void)endEditing
+{
+    //[self resignFirstResponder];
+    [self setSelectedRange:NSMakeRange(0, 0)];
+    [self.window makeFirstResponder:nil];
+}
+
+- (BOOL)endEditingOnReturn
+{
+    if ([self.string containsString:@"\n"])
+    {
+        [self removeReturns];
+        [self endEditing];
+        return YES;
+    }
+    return NO;
+}
+
+- (void)removeReturns
+{
+    [self setString:[self.string stringWithReturnsRemoved]];
+}
+
+@end
+
 @implementation BMContactView
 
 - (id)initWithFrame:(NSRect)frame
@@ -154,13 +190,19 @@
     if (!self.isUpdating) // still needed?
     {
         self.isUpdating = YES;
+        
+        // if return removed some text, we may need to commit it
+        
+        [self.labelField endEditingOnReturn];
+        [self.addressField endEditingOnReturn];
+
         //NSLog(@"contact textDidChange");
         
-        //if (![self.contact.label isEqualToString:self.labelField.string] ||
-        //![self.contact.address isEqualToString:self.addressField.string])
+        if (![self.contact.label isEqualToString:[self.labelField.string strip]] ||
+            ![self.contact.address isEqualToString:[self.addressField.string strip]])
         {
-            self.contact.label   = self.labelField.string;
-            self.contact.address = self.addressField.string;
+            self.contact.label   = [self.labelField.string strip];
+            self.contact.address = [self.addressField.string strip];
             
             if (self.contact.isValidAddress)
             {
@@ -176,10 +218,7 @@
 
 - (void)textDidEndEditing:(NSNotification *)aNotification
 {
-    if ([aNotification object] == self.labelField)
-    {
-        [self.labelField resignFirstResponder];
-    }
+    [[aNotification object] endEditing];
 }
 
 

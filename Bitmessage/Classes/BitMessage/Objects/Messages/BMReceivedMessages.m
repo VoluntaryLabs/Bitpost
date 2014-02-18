@@ -43,4 +43,20 @@
     [self postSelfChanged];
 }
 
+- (NSInteger)unreadCount
+{
+    NSInteger unreadCount = 0;
+    
+    for (BMMessage *message in self.children)
+    {
+        if (![message read])
+        {
+            unreadCount ++;
+        }
+    }
+    
+    return unreadCount;
+}
+
+
 @end

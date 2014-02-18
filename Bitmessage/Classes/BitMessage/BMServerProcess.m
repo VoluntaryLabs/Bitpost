@@ -72,10 +72,12 @@
 
 - (void)launch
 {
+    /*
     if (self.isLastServerRunning)
     {
-        //return;
+        return;
     }
+    */
     
     if (self.isRunning)
     {

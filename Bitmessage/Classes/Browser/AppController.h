@@ -17,4 +17,6 @@
 
 - (DraftController *)newDraft;
 
+- (NSInteger)unreadMessageCount;
+
 @end

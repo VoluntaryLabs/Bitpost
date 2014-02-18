@@ -119,6 +119,12 @@
     [self.bitmessageProcess terminate];
 }
 
+- (NSInteger)unreadMessageCount
+{
+    return [[[[BMClient sharedBMClient] messages] received] unreadCount];
+}
+
+
 void SignalHandler(int signal)
 {
     printf("SignalHandler caught signal - shutting down server and exiting\n");

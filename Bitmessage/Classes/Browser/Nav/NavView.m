@@ -159,8 +159,6 @@
         [view removeFromSuperview];
     }
     
-    id lastColumn = [self.navColumns lastObject];
-    //id <NavNode> lastNode = [lastColumn node];
     id <NavNode> lastNode = [self lastNode];
     id lastButton = nil;
     
@@ -174,12 +172,12 @@
         [button setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
-        //NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
-        NSImage *image = nil; //[NSImage imageNamed:imageName];
+        NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
+        NSImage *image = [NSImage imageNamed:imageName];
         if (image)
         {
             [button setImage:image];
-            [button setWidth:image.size.width];
+            [button setWidth:image.size.width*3];
         }
         else
         {

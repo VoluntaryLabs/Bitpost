@@ -105,5 +105,11 @@
 }
 
 
+- (NSString *)stringWithReturnsRemoved
+{
+    return [self stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+}
+
+
 @end
 

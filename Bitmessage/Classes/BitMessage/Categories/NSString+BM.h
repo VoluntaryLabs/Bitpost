@@ -21,5 +21,6 @@
 - (NSString *)stringByTrimmingTrailingWhitespaceAndNewline;
 
 - (NSString *)strip;
+- (NSString *)stringWithReturnsRemoved;
 
 @end

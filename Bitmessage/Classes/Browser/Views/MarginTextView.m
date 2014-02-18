@@ -12,14 +12,14 @@
 
 - (void)awakeFromNib
 {
-    [super setTextContainerInset:NSMakeSize(15.0f, 5.0f)]; // needed?
+    //[super setTextContainerInset:NSMakeSize(15.0f, 5.0f)]; // needed?
 }
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [super setTextContainerInset:NSMakeSize(15.0f, 5.0f)];
+        [super setTextContainerInset:NSMakeSize(30.0f, 5.0f)];
     }
     return self;
 }

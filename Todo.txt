@@ -5,12 +5,12 @@ todo
 
 - auto refresh
 
-- open draft windows in proper place (stack them?)
-
 - menus
 - info panel
 
 - red tag on app icon for unread count
+
+- open draft windows in proper place (stack them?)
 
 
 
