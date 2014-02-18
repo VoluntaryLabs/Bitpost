@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
 		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
+		AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -131,6 +132,8 @@
 /* Begin PBXFileReference section */
 		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
 		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
+		AA1AA68218B2C5BE00AE72F6 /* BMServerProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMServerProcess.h; path = Bitmessage/Classes/BitMessage/BMServerProcess.h; sourceTree = SOURCE_ROOT; };
+		AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMServerProcess.m; path = Bitmessage/Classes/BitMessage/BMServerProcess.m; sourceTree = SOURCE_ROOT; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -395,6 +398,8 @@
 		AA31563F18AAE0E00017E94F /* BitMessage */ = {
 			isa = PBXGroup;
 			children = (
+				AA1AA68218B2C5BE00AE72F6 /* BMServerProcess.h */,
+				AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */,
 				AA31564018AAE0E00017E94F /* Categories */,
 				AA31564518AAE0E00017E94F /* Objects */,
 				AA31566918AAE0E00017E94F /* Proxy */,
@@ -889,6 +894,7 @@
 				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
+				AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
 				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,

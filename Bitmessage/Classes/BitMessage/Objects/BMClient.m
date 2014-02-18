@@ -45,5 +45,12 @@ static BMClient *sharedBMClient;
     return self;
 }
 
+- (void)refresh
+{
+    [self.messages.received refresh];
+    [self.messages.sent refresh];
+}
+
+
 
 @end

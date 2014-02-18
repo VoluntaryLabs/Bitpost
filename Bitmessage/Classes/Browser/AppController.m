@@ -85,38 +85,20 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    [self launchServer];
+    InstallSignalnHandler();
+    self.bitmessageProcess = [[BMServerProcess alloc] init];
+    [self.bitmessageProcess launch];
+
+    //[self connectToServer];
+    [self performSelector:@selector(connectToServer) withObject:self afterDelay:1];
+    //[[BMClient sharedBMClient] performSelector:@selector(refresh) withObject:self afterDelay:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(draftClosed:)
+                                                 name:@"draftClosed"
+                                               object:nil];
 }
 
-- (void)launchServer
-{
-    NSBundle * mainBundle = [NSBundle mainBundle];
-    
-    _pybitmessage = [[NSTask alloc] init];
-    NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
-    NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];
-    NSLog(@"%@", [environment valueForKey:@"PATH"]);
-    
-    // Set environment variables containing api username and password
-    [environment setObject: @"bitmarket" forKey:@"PYBITMESSAGE_USER"];
-    [environment setObject: @"87342873428901648473823" forKey:@"PYBITMESSAGE_PASSWORD"];
-    [_pybitmessage setEnvironment: environment];
-    
-    // Set the path to the python executable
-    NSString * pythonPath = [mainBundle pathForResource:@"python" ofType:@"exe" inDirectory: @"static-python"];
-    NSString * pybitmessagePath = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
-    [_pybitmessage setLaunchPath:pythonPath];
-    
-    NSFileHandle *nullFileHandle = [NSFileHandle fileHandleWithNullDevice];
-    [_pybitmessage setStandardOutput:nullFileHandle];
-    [_pybitmessage setStandardError:nullFileHandle];
-    
-    [_pybitmessage setArguments:@[ pybitmessagePath ]];
-    [_pybitmessage launch];
-    
-    [self connectToServer];
-    //[self performSelector:@selector(connectToServer) withObject:self afterDelay:.1];
-}
 
 - (void)connectToServer
 {
@@ -125,17 +107,35 @@
     
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(draftClosed:)
-                                                 name:@"draftClosed"
-                                               object:nil];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-    NSLog(@"Killing pybitmessage process...");
-    [_pybitmessage terminate];
+    [self killServer];
+}
+
+- (void)killServer
+{
+    [self.bitmessageProcess terminate];
+}
+
+void SignalHandler(int signal)
+{
+    printf("SignalHandler caught signal - shutting down server and exiting\n");
+    AppController *self = (AppController *)[[NSApplication sharedApplication] delegate];
+    [self killServer];
+    exit(0);
+}
+
+void InstallSignalnHandler()
+{
+    printf("InstallUncaughtExceptionHandler\n");
+	signal(SIGABRT, SignalHandler);
+	signal(SIGILL, SignalHandler);
+	signal(SIGSEGV, SignalHandler);
+	signal(SIGFPE, SignalHandler);
+	signal(SIGBUS, SignalHandler);
+	signal(SIGPIPE, SignalHandler);
 }
 
 @end

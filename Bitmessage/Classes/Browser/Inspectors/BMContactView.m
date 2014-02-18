@@ -42,9 +42,14 @@
     [self.labelField centerYInSuperview];
     [self.labelField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
     [self.labelField setAlignment:NSCenterTextAlignment];
-    //[self.labelField setBordered:NO];
     [self.labelField setDelegate:self];
     [self.labelField setRichText:NO];
+    
+    [self.labelField setSelectedTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSBackgroundColorAttributeName,
+      [NSColor whiteColor], NSForegroundColorAttributeName,
+      nil]];
     
     
     self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 30)];
@@ -56,9 +61,14 @@
     [self.addressField setY:self.labelField.maxY + 10];
     [self.addressField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
     [self.addressField setAlignment:NSCenterTextAlignment];
-    //[self.addressField setBordered:NO];
     [self.addressField setDelegate:self];
     [self.addressField setRichText:NO];
+    
+    [self.addressField setSelectedTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSBackgroundColorAttributeName,
+      [NSColor whiteColor], NSForegroundColorAttributeName,
+      nil]];
     
     [self.labelField setFocusRingType:NSFocusRingTypeNone];
     [self.addressField setFocusRingType:NSFocusRingTypeNone];
@@ -139,15 +149,12 @@
     return (BMContact *)self.node;
 }
 
-
-//- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
-
 - (void)textDidChange:(NSNotification *)aNotification
 {
-    if (!self.isUpdating)
+    if (!self.isUpdating) // still needed?
     {
         self.isUpdating = YES;
-        NSLog(@"contact textDidChange");
+        //NSLog(@"contact textDidChange");
         
         //if (![self.contact.label isEqualToString:self.labelField.string] ||
         //![self.contact.address isEqualToString:self.addressField.string])
@@ -165,6 +172,14 @@
     }
 
     //return YES;
+}
+
+- (void)textDidEndEditing:(NSNotification *)aNotification
+{
+    if ([aNotification object] == self.labelField)
+    {
+        [self.labelField resignFirstResponder];
+    }
 }
 
 

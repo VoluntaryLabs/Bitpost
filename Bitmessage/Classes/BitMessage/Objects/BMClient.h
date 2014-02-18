@@ -21,4 +21,6 @@
 
 + (BMClient *)sharedBMClient;
 
+- (void)refresh;
+
 @end
