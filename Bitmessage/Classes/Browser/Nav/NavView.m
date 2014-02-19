@@ -142,6 +142,7 @@
 {
     NSEnumerator *e = [self.navColumns reverseObjectEnumerator];
     id column = nil;
+    
     while (column = [e nextObject])
     {
         if ([column respondsToSelector:@selector(node)])
@@ -149,6 +150,7 @@
             return [column node];
         }
     }
+    
     return nil;
 }
 

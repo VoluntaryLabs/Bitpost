@@ -12,5 +12,7 @@ todo
 
 - open draft windows in proper place (stack them?)
 
+- Objc wrapper on callsystem.c to fork, setgrp and exec server
+
 
 

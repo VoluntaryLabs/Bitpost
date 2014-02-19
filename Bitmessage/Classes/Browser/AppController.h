@@ -1,5 +1,3 @@
-
-
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
 #import "DraftController.h"
@@ -18,5 +16,7 @@
 - (DraftController *)newDraft;
 
 - (NSInteger)unreadMessageCount;
+
+- (IBAction)openInfoPanel:(id)sender;
 
 @end

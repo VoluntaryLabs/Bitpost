@@ -12,6 +12,10 @@
 		AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
+		AA1AA6A018B4225E00AE72F6 /* InfoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */; };
+		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
+		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
+		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -86,7 +90,6 @@
 		AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576E18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m */; };
 		AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577018AAE1610017E94F /* XMLRPCRequest.m */; };
 		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
-		AA3157C318AAE1920017E94F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3157C118AAE1920017E94F /* MainMenu.xib */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
@@ -138,6 +141,12 @@
 		AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMServerProcess.m; path = Bitmessage/Classes/BitMessage/BMServerProcess.m; sourceTree = SOURCE_ROOT; };
 		AA1AA69A18B41C9E00AE72F6 /* message_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_active.png; sourceTree = "<group>"; };
 		AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_inactive.png; sourceTree = "<group>"; };
+		AA1AA69E18B4225E00AE72F6 /* InfoPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPanelController.h; sourceTree = "<group>"; };
+		AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPanelController.m; sourceTree = "<group>"; };
+		AA1AA6A118B4265900AE72F6 /* Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
+		AA1AA6A318B427C100AE72F6 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+positioning.h"; sourceTree = "<group>"; };
+		AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+positioning.m"; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -254,7 +263,6 @@
 		AA31577018AAE1610017E94F /* XMLRPCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCRequest.m; sourceTree = "<group>"; };
 		AA31577118AAE1610017E94F /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
 		AA31577218AAE1610017E94F /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
-		AA3157C218AAE1920017E94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AA7F6A7F18B17A5B009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginTextView.h; sourceTree = "<group>"; };
 		AA7F6A8018B17A5B009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginTextView.m; sourceTree = "<group>"; };
 		AA7F6A8218B17A7E009285EA /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
@@ -361,7 +369,6 @@
 		AA31561118AAE02D0017E94F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA3157C118AAE1920017E94F /* MainMenu.xib */,
 				AA3156A618AAE0E60017E94F /* resources */,
 				AA31561218AAE02D0017E94F /* Bitmessage-Info.plist */,
 				AA31561318AAE02D0017E94F /* InfoPlist.strings */,
@@ -511,6 +518,8 @@
 		AA31566E18AAE0E00017E94F /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				AA1AA69E18B4225E00AE72F6 /* InfoPanelController.h */,
+				AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */,
 				AA31566F18AAE0E00017E94F /* AppController.h */,
 				AA31567018AAE0E00017E94F /* AppController.m */,
 				AA7F6A9218B17B19009285EA /* Nav */,
@@ -529,6 +538,8 @@
 			children = (
 				AA31567418AAE0E00017E94F /* NSView+sizing.h */,
 				AA31567518AAE0E00017E94F /* NSView+sizing.m */,
+				AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */,
+				AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -628,7 +639,9 @@
 		AA3156FB18AAE1130017E94F /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				AA1AA6A318B427C100AE72F6 /* MainMenu.xib */,
 				AA3156FC18AAE1130017E94F /* Compose.xib */,
+				AA1AA6A118B4265900AE72F6 /* Info.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -810,14 +823,15 @@
 				AA3156F018AAE0E60017E94F /* BMSentMessages_inactive.png in Resources */,
 				AA3156E218AAE0E60017E94F /* icon_16x16@2x.png in Resources */,
 				AAB79BCF18AB14170041B6B1 /* Top.psd in Resources */,
-				AA3157C318AAE1920017E94F /* MainMenu.xib in Resources */,
 				AA3156D918AAE0E60017E94F /* OpenSans-Italic.ttf in Resources */,
 				AA3156EC18AAE0E60017E94F /* BMIdentities_inactive.png in Resources */,
 				AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */,
+				AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */,
 				AA3156EB18AAE0E60017E94F /* BMIdentities_active.png in Resources */,
 				AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */,
 				AA3156D618AAE0E60017E94F /* OpenSans-BoldItalic.ttf in Resources */,
 				AA3156DF18AAE0E60017E94F /* icon_128x128.png in Resources */,
+				AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */,
 				AA3156E318AAE0E60017E94F /* icon_256x256.png in Resources */,
 				AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */,
 				AA3156D418AAE0E60017E94F /* LICENSE.txt in Resources */,
@@ -872,6 +886,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1AA6A018B4225E00AE72F6 /* InfoPanelController.m in Sources */,
+				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
 				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
 				AA31569018AAE0E00017E94F /* BMIdentity.m in Sources */,
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
@@ -959,14 +975,6 @@
 				AA31563218AAE02D0017E94F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AA3157C118AAE1920017E94F /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA3157C218AAE1920017E94F /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

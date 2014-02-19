@@ -3,61 +3,14 @@
 #import "BMClient.h"
 #import "DraftController.h"
 #import "NavColumn.h"
+#import "InfoPanelController.h"
 
 @implementation AppController
 
 - (void)awakeFromNib
 {
-    /*
- 
-    //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
-    
-    NSMutableParagraphStyle *indented = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:25.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.9 alpha:1.0], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         nil];
-    
-    [indented setAlignment:NSCenterTextAlignment];
-    [indented setLineSpacing:1.0];
-    [indented setParagraphSpacing:1.0];
-    [indented setHeadIndent:0.0];
-    [indented setTailIndent:0.0];
-    //[indented setFirstLineHeadIndent:45.0];
-    [indented setLineBreakMode:NSLineBreakByWordWrapping];
-    
-    [self.message markAsRead];
-    
-    NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc]
-                                                initWithString:@"About Bitmessage"
-                                                attributes:[self subjectAttributes]];
-    
-    
-    NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
-                                             initWithString:[@"\n" stringByAppendingString:self.message.messageString]
-                                             attributes:[self bodyAttributes]];
-    
-    [subjectString appendAttributedString:bodyString];
-    
-    //NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc] initWithString:aString];
-    
-    //[subjectString setAttributes:[self subjectAttributes] range:NSMakeRange(0, [aString length])];
-    
-    [subjectString addAttribute:NSParagraphStyleAttributeName
-                          value:indented
-                          range:NSMakeRange(0, [subjectString length])];
-    
-    [self.infoText appendAttr]
-    */
-}
 
-- (void)timer:(id)sender
-{
-    NSLog(@"timer start");
-    [[[[BMClient sharedBMClient] messages] received] refresh];
-    NSLog(@"timer stop");
+
 }
 
 - (void)draftClosed:(NSNotification *)note
@@ -85,7 +38,7 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    InstallSignalnHandler();
+    //InstallSignalnHandler();
     self.bitmessageProcess = [[BMServerProcess alloc] init];
     [self.bitmessageProcess launch];
 
@@ -107,6 +60,15 @@
     
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+}
+
+- (void)timer:(id)sender
+{
+    NSLog(@"timer start");
+    //[[[[BMClient sharedBMClient] messages] received] refresh];
+    NSLog(@"timer stop");
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -116,12 +78,18 @@
 
 - (void)killServer
 {
+    [self.timer invalidate];
     [self.bitmessageProcess terminate];
 }
 
 - (NSInteger)unreadMessageCount
 {
     return [[[[BMClient sharedBMClient] messages] received] unreadCount];
+}
+
+- (IBAction)openInfoPanel:(id)sender
+{
+    [[InfoPanelController sharedInfoPanelController] open];
 }
 
 
