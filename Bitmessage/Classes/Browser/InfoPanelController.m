@@ -59,7 +59,7 @@ static InfoPanelController *shared = nil;
     return att;
 }
 
-- (NSDictionary *)body2Attributes
+- (NSDictionary *)bodyHeaderAttributes
 {
     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:16.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -75,14 +75,6 @@ static InfoPanelController *shared = nil;
     [self.infoText setEditable:NO];
 
      NSMutableParagraphStyle *indented = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    
-    /*
-     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:25.0];
-     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-         [NSColor colorWithCalibratedWhite:.9 alpha:1.0], NSForegroundColorAttributeName,
-         font, NSFontAttributeName,
-         nil];
-     */
      
      [indented setAlignment:NSCenterTextAlignment];
      [indented setLineSpacing:1.0];
@@ -100,7 +92,7 @@ static InfoPanelController *shared = nil;
 
     [string appendAttributedString:[[NSMutableAttributedString alloc]
                                     initWithString:@"Design\n"
-                                    attributes:[self body2Attributes]]];
+                                    attributes:[self bodyHeaderAttributes]]];
  
     [string appendAttributedString:[[NSMutableAttributedString alloc]
                                     initWithString:@"Chris Robinson\n\n"
@@ -108,15 +100,11 @@ static InfoPanelController *shared = nil;
     
     [string appendAttributedString:[[NSMutableAttributedString alloc]
                                     initWithString:@"Development\n"
-                                    attributes:[self body2Attributes]]];
+                                    attributes:[self bodyHeaderAttributes]]];
     
     [string appendAttributedString:[[NSMutableAttributedString alloc]
                                     initWithString:@"Steve Dekorte\nAdam Thorsen"
                                     attributes:[self bodyAttributes]]];
-    
-     //NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc] initWithString:aString];
-     
-     //[subjectString setAttributes:[self subjectAttributes] range:NSMakeRange(0, [aString length])];
 
     [string addAttribute:NSParagraphStyleAttributeName
                            value:indented
