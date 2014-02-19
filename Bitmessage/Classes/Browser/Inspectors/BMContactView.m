@@ -157,14 +157,15 @@
     [NSBezierPath fillRect:dirtyRect];
 }
 
+/*
 - (void)updatedText:(NSNotification *)note
 {
     NSLog(@"updatedText");
     //[(BMContact *)self.node update];
     [self.addressField setString:[self.addressField.string strip]];
     [self updateAddressColor];
-
 }
+*/
 
 - (void)updateAddressColor
 {
@@ -195,6 +196,8 @@
         
         [self.labelField endEditingOnReturn];
         [self.addressField endEditingOnReturn];
+        
+        [self updateAddressColor];
 
         //NSLog(@"contact textDidChange");
         

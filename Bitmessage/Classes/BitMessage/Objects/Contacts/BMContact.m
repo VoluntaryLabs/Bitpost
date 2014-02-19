@@ -14,6 +14,7 @@
 #import "AppController.h"
 #import "BMClient.h"
 #import "BMIdentities.h"
+#import "BMAddress.h"
 
 @implementation BMContact
 
@@ -23,9 +24,6 @@
     self.actions = [NSMutableArray arrayWithObjects:@"message", @"delete", nil];
     return self;
 }
-
-
-
 
 + (BMContact *)withDict:(NSDictionary *)dict
 {
@@ -82,14 +80,18 @@
 
 - (BOOL)isValidAddress
 {
-    // hack
-    
-    if ([self.address hasPrefix:@"BM-"] && [self.address length] > 30)
+    if (![self.address hasPrefix:@"BM-"] || ![self.address length] > 30)
     {
-        return YES;
+        return NO;
     }
     
-    return NO;
+    BMAddress *address = [[BMAddress alloc] init];
+    [address setAddress:self.address];
+    [address decode];
+    
+    BOOL isValid = [address isValid];
+    NSLog(@"isValid %i", isValid);
+    return isValid;
 }
 
 - (void)update
@@ -112,7 +114,7 @@
     [message setMethodName:@"addAddressBookEntry"];
     NSArray *params = [NSArray arrayWithObjects:self.address, self.label.encodedBase64, nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
     
     id response = [message parsedResponseValue];

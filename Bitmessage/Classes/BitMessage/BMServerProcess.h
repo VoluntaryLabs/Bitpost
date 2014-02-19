@@ -19,5 +19,6 @@
 - (BOOL)isRunning;
 - (void)terminate;
 - (BOOL)canConnect;
+- (NSString *)status;
 
 @end
