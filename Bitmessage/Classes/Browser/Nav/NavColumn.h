@@ -14,7 +14,6 @@
 @property (assign, nonatomic) id navView;
 @property (strong, nonatomic) id <NavNode> node;
 
-
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTableView *tableView;
 @property (strong, nonatomic) NSTableColumn *tableColumn;

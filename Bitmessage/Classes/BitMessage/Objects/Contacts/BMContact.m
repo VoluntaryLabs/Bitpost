@@ -26,6 +26,7 @@
 
 
 
+
 + (BMContact *)withDict:(NSDictionary *)dict
 {
     id instance = [[[self class] alloc] init];

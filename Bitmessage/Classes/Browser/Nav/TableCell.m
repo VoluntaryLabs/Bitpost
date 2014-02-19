@@ -183,7 +183,7 @@
     
     CGFloat leftMargin = cellFrame.size.height * self.leftMarginRatio;
 
-    NSImage *icon = [self icon];
+    NSImage *icon = nil; //[self icon];
     
     if (icon)
     {

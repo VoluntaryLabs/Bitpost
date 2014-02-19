@@ -14,7 +14,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
     return self;
 }
 
@@ -71,6 +71,11 @@
     [self addChild:newContact];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
+}
+
+- (NSString *)nodeTitle
+{
+    return @"Contacts";
 }
 
 

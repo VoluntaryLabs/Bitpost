@@ -16,6 +16,8 @@
 		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
 		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
+		AA1AA6C418B450C900AE72F6 /* callsystem.c in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C018B450C900AE72F6 /* callsystem.c */; };
+		AA1AA6C518B450C900AE72F6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C318B450C900AE72F6 /* Task.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -108,6 +110,8 @@
 		AAB79BCF18AB14170041B6B1 /* Top.psd in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC818AB14170041B6B1 /* Top.psd */; };
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
+		AAF40CB018B56183005BA55E /* refresh_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAE18B56183005BA55E /* refresh_active.png */; };
+		AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAF18B56183005BA55E /* refresh_inactive.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +151,10 @@
 		AA1AA6A318B427C100AE72F6 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+positioning.h"; sourceTree = "<group>"; };
 		AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+positioning.m"; sourceTree = "<group>"; };
+		AA1AA6C018B450C900AE72F6 /* callsystem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = callsystem.c; sourceTree = "<group>"; };
+		AA1AA6C118B450C900AE72F6 /* callsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = callsystem.h; sourceTree = "<group>"; };
+		AA1AA6C218B450C900AE72F6 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		AA1AA6C318B450C900AE72F6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -291,6 +299,8 @@
 		AAB79BC818AB14170041B6B1 /* Top.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Top.psd; sourceTree = "<group>"; };
 		AAB79BD618AEEAB70041B6B1 /* send_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_active.png; sourceTree = "<group>"; };
 		AAB79BD718AEEAB70041B6B1 /* send_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_inactive.png; sourceTree = "<group>"; };
+		AAF40CAE18B56183005BA55E /* refresh_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_active.png; sourceTree = "<group>"; };
+		AAF40CAF18B56183005BA55E /* refresh_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_inactive.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +324,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA1AA6BF18B450C900AE72F6 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				AA1AA6C018B450C900AE72F6 /* callsystem.c */,
+				AA1AA6C118B450C900AE72F6 /* callsystem.h */,
+				AA1AA6C218B450C900AE72F6 /* Task.h */,
+				AA1AA6C318B450C900AE72F6 /* Task.m */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
 		AA3155FE18AAE02D0017E94F = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +430,7 @@
 		AA31563F18AAE0E00017E94F /* BitMessage */ = {
 			isa = PBXGroup;
 			children = (
+				AA1AA6BF18B450C900AE72F6 /* Task */,
 				AA1AA68218B2C5BE00AE72F6 /* BMServerProcess.h */,
 				AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */,
 				AA31564018AAE0E00017E94F /* Categories */,
@@ -718,6 +740,8 @@
 		AAB79BC118AB14170041B6B1 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				AAF40CAE18B56183005BA55E /* refresh_active.png */,
+				AAF40CAF18B56183005BA55E /* refresh_inactive.png */,
 				AA1AA69A18B41C9E00AE72F6 /* message_active.png */,
 				AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */,
 				AAB79BD618AEEAB70041B6B1 /* send_active.png */,
@@ -864,8 +888,10 @@
 				AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */,
 				AA3156DC18AAE0E60017E94F /* OpenSans-Regular.ttf in Resources */,
 				AA3156EF18AAE0E60017E94F /* BMSentMessages_active.png in Resources */,
+				AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */,
 				AA3156E718AAE0E60017E94F /* icon_512x512.png in Resources */,
 				AA3156E418AAE0E60017E94F /* icon_256x256@2x.png in Resources */,
+				AAF40CB018B56183005BA55E /* refresh_active.png in Resources */,
 				AA3156E618AAE0E60017E94F /* icon_32x32@2x.png in Resources */,
 				AA3156D818AAE0E60017E94F /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 			);
@@ -906,8 +932,10 @@
 				AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */,
 				AA31569918AAE0E00017E94F /* BMProxyMessage.m in Sources */,
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
+				AA1AA6C418B450C900AE72F6 /* callsystem.c in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
+				AA1AA6C518B450C900AE72F6 /* Task.m in Sources */,
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
 				AA7F6A8F18B17B15009285EA /* BMContactView.m in Sources */,
 				AA31568B18AAE0E00017E94F /* BMClient.m in Sources */,

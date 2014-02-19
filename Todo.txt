@@ -5,7 +5,8 @@ todo
 
 - auto refresh
 
-- menus
+- menus 
+- keyboard shortcuts (delete to delete message) - generic with actions?
 - info panel
 
 - red tag on app icon for unread count

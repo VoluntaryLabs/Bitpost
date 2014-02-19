@@ -25,5 +25,6 @@
 - (void)handleAction:(SEL)aSel;
 
 - (void)reloadedColumn:(NavColumn *)aColumn;
+- (void)updateActionStrip;
 
 @end

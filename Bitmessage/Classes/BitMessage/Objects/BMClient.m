@@ -51,6 +51,10 @@ static BMClient *sharedBMClient;
     [self.messages.sent refresh];
 }
 
+- (CGFloat)nodeSuggestedWidth
+{
+    return 150.0;
+}
 
 
 @end

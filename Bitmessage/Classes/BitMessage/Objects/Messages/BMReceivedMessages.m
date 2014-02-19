@@ -37,12 +37,6 @@
     return @"Inbox";
 }
 
-- (void)refresh
-{
-    [self fetch];
-    [self postSelfChanged];
-}
-
 - (NSInteger)unreadCount
 {
     NSInteger unreadCount = 0;

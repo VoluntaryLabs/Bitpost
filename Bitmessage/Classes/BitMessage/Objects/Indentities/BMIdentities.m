@@ -15,7 +15,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
     return self;
 }
 
@@ -96,5 +96,11 @@
     
     return nil;
 }
+
+- (NSString *)nodeTitle
+{
+    return @"My Identities";
+}
+
 
 @end

@@ -165,12 +165,21 @@
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"getInboxMessageByID"];
     NSArray *params = [NSArray arrayWithObjects:self.msgid, [NSNumber numberWithBool:isRead], nil];
+    //NSArray *params = [NSArray arrayWithObjects:self.msgid, [NSNumber numberWithInt:isRead], nil];
     [message setParameters:params];
+    message.debug = YES;
     [message sendSync];
     
-    id response = [message parsedResponseValue];
-    NSLog(@"set read state %@", response);
-    _read = isRead;
+    NSDictionary *response = [message parsedResponseValue];
+    NSArray *items = [response objectForKey:@"inboxMessage"];
+    NSDictionary *dict = [items firstObject];
+    if (dict)
+    {
+        [self setDict:dict];
+    }
+
+    //NSLog(@"set read state %@", response);
+    //_read = isRead;
 }
 
 - (void)markAsRead

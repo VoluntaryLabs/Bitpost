@@ -43,7 +43,6 @@
     //id childNode = [[note userInfo] objectForKey:@"child"];
 
     [self reloadData];
-
     
     NSInteger max = self.node.children.count - 1;
     NSInteger selectedIndex = [self.tableView selectedRow];

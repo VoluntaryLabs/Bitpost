@@ -45,10 +45,4 @@
     return @"Sent";
 }
 
-- (void)refresh
-{
-    [self fetch];
-    [self postSelfChanged];
-}
-
 @end

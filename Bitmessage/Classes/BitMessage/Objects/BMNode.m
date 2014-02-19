@@ -38,6 +38,12 @@
 {
 }
 
+- (void)refresh
+{
+    [self fetch];
+    [self postSelfChanged];
+}
+
 - (void)setChildren:(NSMutableArray *)children
 {
     _children = children;

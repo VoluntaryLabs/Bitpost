@@ -73,6 +73,12 @@ static InfoPanelController *shared = nil;
 {
     [self.window setDelegate:self];
     [self.infoText setEditable:NO];
+    
+    [self.infoText setSelectedTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [NSColor colorWithCalibratedWhite:1.0 alpha:.05], NSBackgroundColorAttributeName,
+      //[NSColor whiteColor], NSForegroundColorAttributeName,
+      nil]];
 
      NSMutableParagraphStyle *indented = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
      

@@ -11,8 +11,21 @@
 #include <sys/sysctl.h>
 #include <unistd.h>
 #include <errno.h>
+#import "BMProxyMessage.h"
 
 @implementation BMServerProcess
+
+static BMServerProcess *shared = nil;
+
++ (BMServerProcess *)sharedBMServerProcess
+{
+    if (!shared)
+    {
+        shared = [[BMServerProcess alloc] init];
+    }
+    
+    return shared;
+}
 
 - (NSNumber *)lastServerPid
 {
@@ -35,7 +48,7 @@
 
 - (void)rememberServerPid
 {
-    pid_t pid = [_pybitmessage processIdentifier];
+    pid_t pid = [_task processIdentifier];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:pid] forKey:@"serverPid"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -86,7 +99,7 @@
     
     [self killLastServerIfNeeded];
     
-    self.pybitmessage = [[NSTask alloc] init];
+    _task = (Task *)[[NSTask alloc] init];
     NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
     NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];
     NSLog(@"%@", [environment valueForKey:@"PATH"]);
@@ -94,71 +107,64 @@
     // Set environment variables containing api username and password
     [environment setObject: @"bitmarket" forKey:@"PYBITMESSAGE_USER"];
     [environment setObject: @"87342873428901648473823" forKey:@"PYBITMESSAGE_PASSWORD"];
-    [_pybitmessage setEnvironment: environment];
+    [_task setEnvironment: environment];
     
     // Set the path to the python executable
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString * pythonPath = [mainBundle pathForResource:@"python" ofType:@"exe" inDirectory: @"static-python"];
     NSString * pybitmessagePath = [mainBundle pathForResource:@"bitmessagemain" ofType:@"py" inDirectory: @"pybitmessage"];
-    [_pybitmessage setLaunchPath:pythonPath];
+    [_task setLaunchPath:pythonPath];
     
     NSFileHandle *nullFileHandle = [NSFileHandle fileHandleWithNullDevice];
-    [_pybitmessage setStandardOutput:nullFileHandle];
-    //[_pybitmessage setStandardError:nullFileHandle];
+    [_task setStandardOutput:nullFileHandle];
+    //[_task setStandardError:nullFileHandle];
     
-    [_pybitmessage setArguments:@[ pybitmessagePath ]];
-    
-    [_pybitmessage launch];
-    [self rememberServerPid];
-    
-    // -------------
-    //pid_t group = getsid(0);
-
-    //printf("sid %i\n", (int)group);
-
-    /*
-    pid_t group = setsid();
-    if (group == -1)
-    {
-        group = getpgrp();
-    }
-    */
-    /*
-    pid_t group = getpgrp();
-    printf("gid %i\n", (int)group);
+    [_task setArguments:@[ pybitmessagePath ]];
    
-    [_pybitmessage launch];
+    [_task launch];
     
-    pid_t pid = [_pybitmessage processIdentifier];
-    printf("pid %i\n", (int)pid);
-    errno = 0;
-    int result = setpgid(pid, group);
-    printf("errno %i\n",(int)errno);
-    
-    printf("EACCES %i\n",(int)EACCES);
-    printf("EINVAL %i\n",(int)EINVAL);
-    printf("EPERM %i\n",(int)EPERM);
-    printf("ESRCH %i\n",(int)ESRCH);
-    
-    if (result == -1)
+    if (![_task isRunning])
     {
-        NSLog(@"unable to put task into same group as self");
-        [self terminate];
+        NSLog(@"task not running after launch");
     }
-    */
+    else
+    {
+        for (int i = 0; i < 5; i ++)
+        {
+            if ([self canConnect])
+            {
+                NSLog(@"connected to server");
+                break;
+            }
+            NSLog(@"waiting to connect to server...");
+            sleep(1);
+        }
+    }
 }
 
 - (void)terminate
 {
     NSLog(@"Killing pybitmessage process...");
-    [_pybitmessage terminate];
-    self.pybitmessage = nil;
+    [_task terminate];
+    self.task = nil;
     [self forgetServerPid];
 }
 
 - (BOOL)isRunning
 {
-    return [self isLastServerRunning] || (self.pybitmessage && [_pybitmessage isRunning]);
+    return [self isLastServerRunning] || (_task && [_task isRunning]);
+}
+
+- (BOOL)canConnect
+{
+    BMProxyMessage *message = [[BMProxyMessage alloc] init];
+    [message setMethodName:@"helloWorld"];
+    NSArray *params = [NSArray arrayWithObjects:@"hello", @"world", nil];
+    [message setParameters:params];
+    //message.debug = YES;
+    [message sendSync];
+    NSString *response = [message responseValue];
+    return [response isEqualToString:@"hello-world"];
 }
 
 @end

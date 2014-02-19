@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Task.h"
 
 @interface BMServerProcess : NSObject
 
-@property (strong) NSTask *pybitmessage;
++ (BMServerProcess *)sharedBMServerProcess;
+
+@property (strong) Task *task;
 
 - (void)launch;
 - (BOOL)isRunning;
 - (void)terminate;
+- (BOOL)canConnect;
 
 @end

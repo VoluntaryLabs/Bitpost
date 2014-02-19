@@ -85,6 +85,7 @@
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn
 {
+    
     NSMutableArray *toRemove = [NSMutableArray array];
     
     BOOL hitColumn = NO;
@@ -101,6 +102,8 @@
             hitColumn = YES;
         }
     }
+    
+    NSLog(@"shouldSelectNode - removing old columns");
     
     [self.navColumns removeObjectsInArray:toRemove];
     
@@ -147,7 +150,9 @@
     {
         if ([column respondsToSelector:@selector(node)])
         {
-            return [column node];
+            //id node = [column performSelector:@selector(node)];
+            id node = [column node];
+            return node;
         }
     }
     
