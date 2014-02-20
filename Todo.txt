@@ -1,9 +1,9 @@
 
 todo
 
-- use labels in compose & autocomplete
+- auto refresh table reload?
 
-- auto refresh
+- use address labels in compose & autocomplete
 
 - menus 
 - keyboard shortcuts (delete to delete message) - generic with actions?

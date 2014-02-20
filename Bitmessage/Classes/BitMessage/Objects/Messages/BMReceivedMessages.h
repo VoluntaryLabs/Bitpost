@@ -11,7 +11,6 @@
 
 @interface BMReceivedMessages : BMNode
 
-- (void)refresh;
 - (NSInteger)unreadCount;
 
 @end

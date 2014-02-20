@@ -167,14 +167,16 @@ static BMServerProcess *shared = nil;
     return [response isEqualToString:@"hello-world"];
 }
 
+/*
 - (NSString *)status
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
-    [message setMethodName:@"getStatus"];
+    [message setMethodName:@"statusBar"];
     //message.debug = YES;
     [message sendSync];
     NSString *response = [message responseValue];
     return response;
 }
+*/
 
 @end

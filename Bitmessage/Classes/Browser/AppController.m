@@ -48,18 +48,27 @@
                                              selector:@selector(draftClosed:)
                                                  name:@"draftClosed"
                                                object:nil];
+ 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(unreadCountChanged:)
+                                                 name:@"BMReceivedMessagesUnreadCountChanged"
+                                               object:nil];
+    
 }
 
 
 - (void)connectToServer
 {
+    [self.navView.window setTitle:@"connecting..."];
+    
     [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
     self.drafts = [NSMutableArray array];
     
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+    [self.navView.window setTitle:@""];
 }
 
 - (void)timer:(id)sender
@@ -68,6 +77,25 @@
     //[self.navView updateActionStrip];
     //[[[[BMClient sharedBMClient] messages] received] refresh];
     [[BMClient sharedBMClient] refresh];
+    //NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+/*
+ /System/Library/Sounds
+ Here the list of sounds found in that directory:
+ Basso
+ Blow
+ Bottle
+ Frog
+ Funk
+ Glass
+ Hero
+ Morse
+ Ping
+ Pop
+ Purr
+ Sosumi
+ Submarine
+ Tink
+ */
     NSLog(@"timer stop");
 }
 
@@ -85,6 +113,14 @@
 - (NSInteger)unreadMessageCount
 {
     return [[[[BMClient sharedBMClient] messages] received] unreadCount];
+}
+
+- (void)unreadCountChanged:(NSNotification *)note
+{
+    NSLog(@"unreadCountChanged");
+    
+    NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+    [newMessageSound play];
 }
 
 - (IBAction)openInfoPanel:(id)sender

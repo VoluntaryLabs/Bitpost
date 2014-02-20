@@ -22,7 +22,6 @@
     
     [self.children addObject:self.sent];
     [self.children addObject:self.received];
-    
     return self;
 }
 

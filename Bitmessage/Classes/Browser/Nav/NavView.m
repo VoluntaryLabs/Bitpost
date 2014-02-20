@@ -228,4 +228,16 @@
     
 }
 
+/*
+- (BOOL)acceptsFirstResponder
+{
+    return YES;
+}
+
+- (void)keyDown:(NSEvent *)theEvent
+{
+    NSLog(@"class %@ got key down", NSStringFromClass([self class]));
+}
+*/
+
 @end

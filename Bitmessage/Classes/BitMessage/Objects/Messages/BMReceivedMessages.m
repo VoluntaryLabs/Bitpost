@@ -22,8 +22,16 @@
 
 - (void)fetch
 {
+    NSInteger lastUnreadCount = self.unreadCount;
+    BOOL isFirstFetch = self.children == nil;
+    
     self.children = [self getAllInboxMessages];
     [self.children reverse];
+
+    if (!isFirstFetch && (lastUnreadCount != self.unreadCount))
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
+    }
 }
 
 - (NSMutableArray *)getAllInboxMessages

@@ -28,6 +28,7 @@
 
 - (void)deepFetch;
 - (void)fetch;
+- (void)refresh;
 
 - (void)postParentChanged;
 - (void)postSelfChanged;
