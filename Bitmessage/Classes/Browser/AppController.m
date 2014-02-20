@@ -67,13 +67,13 @@
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+    //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
     [self.navView.window setTitle:@""];
 }
 
 - (void)timer:(id)sender
 {
-    NSLog(@"timer start");
+    //NSLog(@"timer start");
     //[self.navView updateActionStrip];
     //[[[[BMClient sharedBMClient] messages] received] refresh];
     [[BMClient sharedBMClient] refresh];
@@ -96,7 +96,7 @@
  Submarine
  Tink
  */
-    NSLog(@"timer stop");
+    //NSLog(@"timer stop");
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

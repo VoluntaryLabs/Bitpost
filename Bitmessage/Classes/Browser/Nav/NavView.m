@@ -10,6 +10,7 @@
 #import "NavColumn.h"
 #import "NSView+sizing.h"
 #import <objc/runtime.h>
+#import "CustomSearchField.h"
 
 @implementation NavView
 
@@ -213,6 +214,22 @@
         objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
         
         lastButton = button;
+    }
+    
+    if ([lastNode canSearch])
+    {
+        NSSearchField *search = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
+        [self.actionStrip addSubview:search];
+
+        if (lastButton)
+        {
+            //[button setX:[lastButton maxX] + 15];
+            [search setX:[lastButton x] - 15 - [search width]];
+        }
+        else
+        {
+            [search setX:self.actionStrip.width - search.width];
+        }
     }
     
 }

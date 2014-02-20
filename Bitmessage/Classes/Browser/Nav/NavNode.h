@@ -24,4 +24,7 @@
 - (CGFloat)nodeSuggestedWidth;
 - (NSColor *)columnBgColor;
 
+- (BOOL)canSearch;
+- (void)search:(NSString *)aString;
+
 @end

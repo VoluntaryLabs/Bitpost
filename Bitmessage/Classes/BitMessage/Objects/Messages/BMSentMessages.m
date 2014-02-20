@@ -18,7 +18,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
+    //self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
     return self;
 }
 

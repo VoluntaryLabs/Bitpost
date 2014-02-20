@@ -643,15 +643,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView id="EhG-Gy-s1m" customClass="NavView">
-                        <rect key="frame" x="0.0" y="0.0" width="688" height="282"/>
+                        <rect key="frame" x="0.0" y="0.0" width="688" height="278"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <connections>
                             <outlet property="actionStrip" destination="gKD-24-toZ" id="mEL-A1-5ai"/>
                         </connections>
                     </customView>
                     <customView id="gKD-24-toZ">
-                        <rect key="frame" x="20" y="290" width="648" height="27"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="21" y="290" width="642" height="27"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     </customView>
                 </subviews>
             </view>

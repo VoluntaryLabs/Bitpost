@@ -40,7 +40,7 @@
 - (NSColor *)bgColorInactive
 {
     NSString *k = [NSString stringWithFormat:@"%@-bgColorInactive", NSStringFromClass([self class])];
-    NSLog(k);
+    //NSLog(k);
     return [Theme objectForKey:k];
 }
 

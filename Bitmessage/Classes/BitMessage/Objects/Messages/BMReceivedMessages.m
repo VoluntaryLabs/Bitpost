@@ -17,7 +17,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
+    //self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
     return self;
 }
 
@@ -63,5 +63,14 @@
     return unreadCount;
 }
 
+- (BOOL)canSearch
+{
+    return YES;
+}
+
+- (void)search:(NSString *)aString
+{
+    
+}
 
 @end

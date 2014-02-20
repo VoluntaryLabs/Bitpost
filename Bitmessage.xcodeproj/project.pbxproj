@@ -18,6 +18,7 @@
 		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
 		AA1AA6C418B450C900AE72F6 /* callsystem.c in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C018B450C900AE72F6 /* callsystem.c */; };
 		AA1AA6C518B450C900AE72F6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C318B450C900AE72F6 /* Task.m */; };
+		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -158,6 +159,8 @@
 		AA1AA6C118B450C900AE72F6 /* callsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = callsystem.h; sourceTree = "<group>"; };
 		AA1AA6C218B450C900AE72F6 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		AA1AA6C318B450C900AE72F6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchField.h; sourceTree = "<group>"; };
+		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -721,6 +724,8 @@
 				AA7F6A8318B17A7E009285EA /* ColoredView.m */,
 				AA7F6A7F18B17A5B009285EA /* MarginTextView.h */,
 				AA7F6A8018B17A5B009285EA /* MarginTextView.m */,
+				AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */,
+				AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -930,6 +935,7 @@
 				AA1AA6A018B4225E00AE72F6 /* InfoPanelController.m in Sources */,
 				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
 				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
+				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,
 				AA31569018AAE0E00017E94F /* BMIdentity.m in Sources */,
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
 				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,

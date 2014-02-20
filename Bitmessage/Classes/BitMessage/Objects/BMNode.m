@@ -130,12 +130,19 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
 
+
+- (Class)viewClass
+{
+    NSString *className = [NSStringFromClass([self class]) stringByAppendingString:@"View"];
+    id viewClass = NSClassFromString(className);
+    return viewClass;
+}
+
 - (NSView *)nodeView
 {
     if (!_nodeView)
     {
-        NSString *className = [NSStringFromClass([self class]) stringByAppendingString:@"View"];
-        id viewClass = NSClassFromString(className);
+        id viewClass = self.viewClass;
         
         if (viewClass)
         {
@@ -146,5 +153,14 @@
     return _nodeView;
 }
 
+- (BOOL)canSearch
+{
+    return NO;
+}
+
+- (void)search:(NSString *)aString
+{
+    
+}
 
 @end

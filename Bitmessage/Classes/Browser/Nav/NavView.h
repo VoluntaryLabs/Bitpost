@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *navColumns;
 @property (strong, nonatomic) id <NavNode> rootNode;
 @property (strong, nonatomic) IBOutlet NSView *actionStrip;
+//@property (strong, nonatomic) IBOutlet NSSearchField *searchField;
 
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn;

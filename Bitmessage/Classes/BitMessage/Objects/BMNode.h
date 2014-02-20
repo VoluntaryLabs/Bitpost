@@ -33,4 +33,12 @@
 - (void)postParentChanged;
 - (void)postSelfChanged;
 
+// --- search ---
+
+@property (assign, nonatomic) BOOL isSearching;
+@property (strong, nonatomic) NSMutableArray *searchResults;
+
+- (BOOL)canSearch;
+- (void)search:(NSString *)aString;
+
 @end

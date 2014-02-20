@@ -297,4 +297,9 @@
     //[self.drafts addObject:draft];
 }
 
+- (Class)viewClass
+{
+    return [BMMessageView class];
+}
+
 @end
