@@ -86,4 +86,25 @@
     [self setY:h/2 - self.height/2];
 }
 
+- (void)stackSubviewsRightToLeft
+{
+    CGFloat margin = 10.0;
+    
+    NSView *lastView = nil;
+    
+    for (NSView *view in self.subviews)
+    {
+        if (lastView)
+        {
+            [view setX:lastView.x - view.width - margin];
+        }
+        else
+        {
+            [view setX:self.width - view.width];
+        }
+        [view setY:0];
+        lastView = view;
+    }
+}
+
 @end

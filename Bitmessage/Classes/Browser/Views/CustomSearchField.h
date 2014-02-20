@@ -14,5 +14,7 @@
 
 @property (assign, nonatomic) BOOL isExpanded;
 @property (strong, nonatomic) NSAnimation *expandAnimation;
+@property (strong, nonatomic) NSTimer *timer;
+@property (assign, nonatomic) float animationValue;
 
 @end

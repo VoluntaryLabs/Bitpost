@@ -28,4 +28,6 @@
 - (void)centerXInSuperview;
 - (void)centerYInSuperview;
 
+- (void)stackSubviewsRightToLeft;
+
 @end

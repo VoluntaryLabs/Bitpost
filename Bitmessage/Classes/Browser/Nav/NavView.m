@@ -172,6 +172,8 @@
     
     [self setAutoresizesSubviews:YES];
     
+    NSLog(@"actions %@", lastNode.actions);
+    
     for (NSString *action in lastNode.actions)
     {
         NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, 20)];
@@ -216,21 +218,14 @@
         lastButton = button;
     }
     
+    
     if ([lastNode canSearch])
     {
         NSSearchField *search = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
         [self.actionStrip addSubview:search];
-
-        if (lastButton)
-        {
-            //[button setX:[lastButton maxX] + 15];
-            [search setX:[lastButton x] - 15 - [search width]];
-        }
-        else
-        {
-            [search setX:self.actionStrip.width - search.width];
-        }
     }
+
+    [self.actionStrip stackSubviewsRightToLeft];
     
 }
 
@@ -242,7 +237,6 @@
     id lastColumn = [self.navColumns lastObject];
     id <NavNode> lastNode = [lastColumn node];
     [lastNode performSelector:NSSelectorFromString(action) withObject:nil];
-    
 }
 
 /*
