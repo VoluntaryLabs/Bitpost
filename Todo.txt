@@ -2,12 +2,11 @@
 todo
 
 - auto refresh table reload?
+- keyboard shortcuts (delete to delete message) - generic with actions?
 
 - use address labels in compose & autocomplete
 
-- menus 
-- keyboard shortcuts (delete to delete message) - generic with actions?
-- info panel
+- find
 
 - red tag on app icon for unread count
 
@@ -16,4 +15,8 @@ todo
 - Objc wrapper on callsystem.c to fork, setgrp and exec server
 
 
+- menus?
 
+- possible ref loop with node and BMMessageView?
+
+- cleanup base64 in dicts

@@ -16,6 +16,6 @@
 @property (strong, nonatomic) BMReceivedMessages *received;
 
 - (NSMutableArray *)getSentMessagesBySender:(NSString *)sender;
-- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName;
+- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName class:(Class)aClass;
 
 @end

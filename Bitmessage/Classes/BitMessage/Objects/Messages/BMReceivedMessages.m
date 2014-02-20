@@ -7,6 +7,7 @@
 //
 
 #import "BMReceivedMessages.h"
+#import "BMReceivedMessage.h"
 #import "BMClient.h"
 #import "NSArray+extra.h"
 #import "BMMessage.h"
@@ -37,7 +38,9 @@
 - (NSMutableArray *)getAllInboxMessages
 {
     return [[[BMClient sharedBMClient] messages]
-            getMessagesWithMethod:@"getAllInboxMessages" andKey:@"inboxMessages"];
+            getMessagesWithMethod:@"getAllInboxMessages"
+            andKey:@"inboxMessages"
+            class:[BMReceivedMessage class]];
 }
 
 - (NSString *)nodeTitle

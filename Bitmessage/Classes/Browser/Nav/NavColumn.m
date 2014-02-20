@@ -9,6 +9,7 @@
 #import "NavColumn.h"
 #import "TableCell.h"
 #import "NSView+sizing.h"
+#import "NSEvent+keys.h"
 
 @implementation NavColumn
 
@@ -224,9 +225,24 @@
     return YES;
 }
 
-- (void)keyDown:(NSEvent *)theEvent
+- (void)keyDown:(NSEvent *)event
 {
-    NSLog(@"class %@ got key down", NSStringFromClass([self class]));
+    //NSLog(@"class %@ got key down", NSStringFromClass([self class]));
+    
+    if ([event isDeleteDown])
+    {
+        [self delete];
+    }
+}
+
+- (void)delete
+{
+    id <NavNode> node = [self selectedNode];
+    
+    if ([node respondsToSelector:@selector(delete)])
+    {
+        [node performSelector:@selector(delete)];
+    }
 }
 
 @end

@@ -26,7 +26,7 @@
 }
 
 
-- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName
+- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName class:(Class)aClass
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:methodName];
@@ -50,7 +50,7 @@
     
     for (NSDictionary *dict in dicts)
     {
-        BMMessage *message = [BMMessage withDict:dict];
+        BMMessage *message = [aClass withDict:dict];
         [messages addObject:message];
         //NSLog(@"messageString: %@", [message messageString]);
     }

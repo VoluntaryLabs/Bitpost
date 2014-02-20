@@ -49,8 +49,6 @@ static Theme *sharedTheme = nil;
     NSColor *bgColorActive = [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
     NSColor *bgColorInactive = [NSColor colorWithCalibratedWhite:023.0/255.0 alpha:1.0];
     
-    [self setObject:bgColorActive forKey:@"BMMessage-bgColorActive"];
-    [self setObject:bgColorInactive forKey:@"BMMessage-bgColorInactive"];
     
     [self setObject:bgColorActive forKey:@"BMIdentity-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMIdentity-bgColorInactive"];
@@ -59,9 +57,17 @@ static Theme *sharedTheme = nil;
     [self setObject:bgColorActive forKey:@"BMContact-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMContact-bgColorInactive"];
     
-    [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMMessage-unreadTextColor"];
-    [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMMessage-readTextColor"];
-    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMMessage-textColorActive"];
+    [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMSentMessage-unreadTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMSentMessage-readTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMSentMessage-textColorActive"];
+    [self setObject:bgColorActive forKey:@"BMSentMessage-bgColorActive"];
+    [self setObject:bgColorInactive forKey:@"BMSentMessage-bgColorInactive"];
+    
+    [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMReceivedMessage-unreadTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMReceivedMessage-readTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMReceivedMessage-textColorActive"];
+    [self setObject:bgColorActive forKey:@"BMReceivedMessage-bgColorActive"];
+    [self setObject:bgColorInactive forKey:@"BMReceivedMessage-bgColorInactive"];
 }
 
 - (id)objectForKey:(NSString *)k

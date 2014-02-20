@@ -77,19 +77,26 @@
 
 - (NSString *)fromAddressLabel
 {
-    BMContact *contact = [[[BMClient sharedBMClient] contacts] contactWithAddress:self.fromAddress];
-    if (contact && contact.label && ![contact.label isEqualToString:@""])
+    NSString *label = [[BMClient sharedBMClient] labelForAddress:self.fromAddress];
+
+    if (label)
     {
-        return contact.label;
-    }
-    
-    BMIdentity *identity = [[[BMClient sharedBMClient] identities] identityWithAddress:self.fromAddress];
-    if (identity && identity.label && ![identity.label isEqualToString:@""])
-    {
-        return identity.label;
+        return label;
     }
     
     return self.fromAddress;
+}
+
+- (NSString *)toAddressLabel
+{
+    NSString *label = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
+    
+    if (label)
+    {
+        return label;
+    }
+    
+    return self.toAddress;
 }
 
 - (NSDate *)date

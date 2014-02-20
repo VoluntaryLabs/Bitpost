@@ -27,7 +27,9 @@
 
 - (NSString *)subjectString;
 - (NSString *)messageString;
+
 - (NSString *)fromAddressLabel;
+- (NSString *)toAddressLabel;
 
 - (NSDate *)date;
 

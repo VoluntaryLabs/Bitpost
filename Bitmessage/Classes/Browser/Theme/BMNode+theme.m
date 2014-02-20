@@ -33,14 +33,15 @@
 
 - (NSColor *)bgColorActive
 {
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-bgColorActive",
-                                NSStringFromClass([self class])]];
+    NSString *k = [NSString stringWithFormat:@"%@-bgColorActive", NSStringFromClass([self class])];
+    return [Theme objectForKey:k];
 }
 
 - (NSColor *)bgColorInactive
 {
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-bgColorInactive",
-                                NSStringFromClass([self class])]];
+    NSString *k = [NSString stringWithFormat:@"%@-bgColorInactive", NSStringFromClass([self class])];
+    NSLog(k);
+    return [Theme objectForKey:k];
 }
 
 

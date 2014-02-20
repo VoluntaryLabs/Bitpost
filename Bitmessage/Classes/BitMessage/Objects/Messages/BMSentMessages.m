@@ -11,6 +11,7 @@
 #import "BMClient.h"
 #import "NSArray+extra.h"
 #import "BMMessage.h"
+#import "BMSentMessage.h"
 
 @implementation BMSentMessages
 
@@ -37,7 +38,10 @@
 - (NSMutableArray *)getAllSentMessages
 {
     return [[[BMClient sharedBMClient] messages]
-            getMessagesWithMethod:@"getAllSentMessages" andKey:@"sentMessages"];
+            getMessagesWithMethod:@"getAllSentMessages"
+            andKey:@"sentMessages"
+            class:[BMSentMessage class]];
+
 }
 
 - (NSString *)nodeTitle

@@ -22,5 +22,6 @@
 + (BMClient *)sharedBMClient;
 
 - (void)refresh;
+- (NSString *)labelForAddress:(NSString *)addressString;
 
 @end

@@ -56,5 +56,22 @@ static BMClient *sharedBMClient;
     return 150.0;
 }
 
+- (NSString *)labelForAddress:(NSString *)addressString
+{
+    BMContact *contact = [[self contacts] contactWithAddress:addressString];
+    if (contact && contact.label && ![contact.label isEqualToString:@""])
+    {
+        return contact.label;
+    }
+    
+    BMIdentity *identity = [[self identities] identityWithAddress:addressString];
+    if (identity && identity.label && ![identity.label isEqualToString:@""])
+    {
+        return identity.label;
+    }
+    
+    return nil;
+}
+
 
 @end
