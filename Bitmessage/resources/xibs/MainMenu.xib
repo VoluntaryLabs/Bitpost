@@ -650,9 +650,13 @@
                         </connections>
                     </customView>
                     <customView id="gKD-24-toZ">
-                        <rect key="frame" x="21" y="290" width="642" height="27"/>
+                        <rect key="frame" x="102" y="290" width="561" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     </customView>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="nRx-Du-Nnp">
+                        <rect key="frame" x="20" y="295" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </progressIndicator>
                 </subviews>
             </view>
         </window>
@@ -660,6 +664,7 @@
             <connections>
                 <outlet property="contentView" destination="EhG-Gy-s1m" id="p15-nG-3lC"/>
                 <outlet property="navView" destination="EhG-Gy-s1m" id="g9o-q4-QD2"/>
+                <outlet property="progress" destination="nRx-Du-Nnp" id="AOB-pU-8Xe"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>

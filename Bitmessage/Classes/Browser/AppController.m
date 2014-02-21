@@ -9,6 +9,8 @@
 
 - (void)awakeFromNib
 {
+    self.progressController = [[ProgressController alloc] init];
+    [self.progressController setProgress:self.progress];
 }
 
 - (void)draftClosed:(NSNotification *)note

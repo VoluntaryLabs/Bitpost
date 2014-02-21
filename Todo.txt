@@ -1,6 +1,8 @@
 
 todo
 
+- channels?
+
 - compose button/menu
 
 - auto refresh table reload?

@@ -2,7 +2,7 @@
 #import "NavView.h"
 #import "DraftController.h"
 #import "BMServerProcess.h"
-
+#import "ProgressController.h"
 
 @interface AppController : NSObject <NSTableViewDataSource>
 
@@ -12,6 +12,9 @@
 @property (strong) NSTimer *timer;
 @property (strong) BMServerProcess *bitmessageProcess;
 @property (strong) IBOutlet NSTextView *infoText;
+
+@property (strong) IBOutlet NSProgressIndicator *progress;
+@property (strong) ProgressController *progressController;
 
 - (DraftController *)newDraft;
 

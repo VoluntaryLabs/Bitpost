@@ -56,7 +56,7 @@
 - (void)add
 {
     BMChannel *channel = [[BMChannel alloc] init];
-    [channel setPassphrase:@"worm gatherer"];
+    [channel setPassphrase:@"Enter channel name"];
     [channel create];
     [self refresh];
 }

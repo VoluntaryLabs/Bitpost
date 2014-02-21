@@ -20,6 +20,7 @@
 		AA1AA6C518B450C900AE72F6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C318B450C900AE72F6 /* Task.m */; };
 		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
 		AA2AC83F18B6E930008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83E18B6E930008CEEB4 /* BMChannelView.m */; };
+		AA2AC84218B7F542008CEEB4 /* ProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84118B7F542008CEEB4 /* ProgressController.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -164,6 +165,8 @@
 		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
 		AA2AC83D18B6E930008CEEB4 /* BMChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMChannelView.h; sourceTree = "<group>"; };
 		AA2AC83E18B6E930008CEEB4 /* BMChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMChannelView.m; sourceTree = "<group>"; };
+		AA2AC84018B7F542008CEEB4 /* ProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressController.h; sourceTree = "<group>"; };
+		AA2AC84118B7F542008CEEB4 /* ProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressController.m; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -559,6 +562,8 @@
 		AA31566E18AAE0E00017E94F /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				AA2AC84018B7F542008CEEB4 /* ProgressController.h */,
+				AA2AC84118B7F542008CEEB4 /* ProgressController.m */,
 				AA1AA69E18B4225E00AE72F6 /* InfoPanelController.h */,
 				AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */,
 				AA31566F18AAE0E00017E94F /* AppController.h */,
@@ -976,6 +981,7 @@
 				AAF40CB818B59FF7005BA55E /* BMSentMessage.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */,
+				AA2AC84218B7F542008CEEB4 /* ProgressController.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
 				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,

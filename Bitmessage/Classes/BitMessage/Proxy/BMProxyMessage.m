@@ -56,6 +56,7 @@
 
 - (void)sendSync
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
     [self composeRequest];
     
     NSError *error;
@@ -72,6 +73,7 @@
             NSLog(@"\n\nerror %@", self.error);
         }
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
 }
 
 - (id)responseValue
