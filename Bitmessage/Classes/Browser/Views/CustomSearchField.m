@@ -11,20 +11,15 @@
 
 @implementation CustomSearchField
 
-/*
-- (void)awakeFromNib
-{
-    [self setupCollapsed];
-}
-*/
-
 - (void)setupCollapsed
 {
     [self setBordered:NO];
     [self setFocusRingType:NSFocusRingTypeNone];
     [self setEditable:NO];
     [self setSelectable:NO];
-    [self setBackgroundColor:[NSColor clearColor]];
+    //[self setBackgroundColor:[NSColor clearColor]];
+    [self setDrawsBackground:NO];
+    [self setNeedsDisplay];
 }
 
 - (void)setupExpanded
@@ -36,6 +31,8 @@
     [self setBackgroundColor:[NSColor whiteColor]];
     [self setBezeled:YES];
     [self setBezelStyle:NSTextFieldRoundedBezel];
+    [self setDrawsBackground:YES];
+    [self setNeedsDisplay];
 }
 
 - (id)initWithFrame:(NSRect)frame
@@ -44,104 +41,135 @@
     
     if (self)
     {
-        [self setupCollapsed];
+        //if (!self.isExpanded)
+        {
+            [self setupCollapsed];
+        }
+        /*
+        else
+        {
+            [self setupExpanded];
+        }
+         */
+        
         [self setDelegate:self];
     }
     
     return self;
 }
 
-/*
-- (void)drawRect:(NSRect)dirtyRect
+- (void)connectCancelButton
 {
-	[super drawRect:dirtyRect];
-	
-    // Drawing code here.
+    [[[self cell] cancelButtonCell] setAction:@selector(clearSearchField:)];
+    [[[self cell] cancelButtonCell] setTarget:self];
 }
-*/
 
-- (void)mouseDown:(NSEvent *)theEvent
+- (void)clearSearchField:sender
+{
+    //[self selectAll:self];
+    //[self deleteToEndOfLine:self];
+    [self setStringValue:@""];
+    [self toggle];
+}
+
+- (void)mouseDown:(NSEvent *)event
 {
     // only get's this if the magnifying glass icon was clicked
-    //NSPoint p = [self convertPoint:[theEvent locationInWindow] fromView:nil];
-    //NSLog(@"mouse position %i, %i", (int)p.x, (int)p.y);
-    [super mouseDown:theEvent];
+    NSPoint p = [self convertPoint:[event locationInWindow] fromView:nil];
+    NSLog(@"mouse position %i, %i", (int)p.x, (int)p.y);
+    [super mouseDown:event];
+
+    if ((p.x < 20) && ([event type] == NSLeftMouseDown))
+    //if ([event type] == NSLeftMouseDown)
+    {
+        [self toggle];
+    }
+}
+
+- (void)toggle
+{
+    self.isExpanded = !self.isExpanded;
     
+    _animationValue = 0.0;
+    [self setup];
+    [self timer:nil];
+}
+
+- (void)setup
+{
     if (self.isExpanded)
     {
-        [self collapse];
+        [self setupExpanded];
     }
     else
     {
-        [self expand];
+        //[self setupCollapsed];
     }
 }
 
-- (void)expand
+- (void)completeSetup
 {
-    self.animationValue = 0.0;
-    [self expandTimer:nil];
-    [self setupExpanded];
+    if (self.isExpanded)
+    {
+        //[self setupExpanded];
+    }
+    else
+    {
+        [self setupCollapsed];
+    }
 }
 
-- (void)expandTimer:anObject
+- (void)timer:anObject
 {
-    self.animationValue += 1.0/10.0;
+    CGFloat v = self.animationValue + 1.0/10.0;
 
-    if (self.animationValue < 1.0)
+    if (v > 1.0)
     {
+        v = 1.0;
+        self.animationValue = v;
+        //self.isExpanded = !self.isExpanded;
+        self.timer = nil;
+        [self completeSetup];
+    }
+    else
+    {
+        self.animationValue = v;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0
                                                   target:self
-                                                selector:@selector(expandTimer:)
+                                                selector:@selector(timer:)
                                                 userInfo:nil
                                                  repeats:NO];
     }
-    else
-    {
-        self.isExpanded = YES;
-    }
     
-    if (self.animationValue > 1.0)
-    {
-        self.animationValue = 1.0;
-    }
-    
-    [self setWidth:20.0 + 150.0*self.animationValue];
-    //[self setX:self.x - 4];
-    [self.superview stackSubviewsRightToLeft];
 }
 
-- (void)collapse
+- (void)setAnimationValue:(float)animationValue
 {
-    self.animationValue = 0.0;
-    [self collapseTimer:nil];
-    [self setupCollapsed];
-}
-
-- (void)collapseTimer:anObject
-{
-    self.animationValue += 1.0/10.0;
+    _animationValue = animationValue;
+  
+    CGFloat v = 0.0;
     
-    if (self.animationValue < 1.0)
+    if (!self.isExpanded)
     {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0
-                                                      target:self
-                                                    selector:@selector(collapseTimer:)
-                                                    userInfo:nil
-                                                     repeats:NO];
+        v = 1.0 - self.animationValue;
     }
     else
     {
-        self.isExpanded = NO;
+        v = self.animationValue;
     }
     
-    if (self.animationValue > 1.0)
-    {
-        self.animationValue = 1.0;
-    }
-    
-    [self setWidth:20.0 + 150.0*(1-self.animationValue)];
+    [self setWidth:self.minWidth + (self.maxWidth - self.minWidth)*v];
     [self.superview stackSubviewsRightToLeft];
+}
+
+- (CGFloat)minWidth
+{
+    return 20.0;
+}
+
+- (CGFloat)maxWidth
+{
+    return 150.0;
 }
 
 - (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor

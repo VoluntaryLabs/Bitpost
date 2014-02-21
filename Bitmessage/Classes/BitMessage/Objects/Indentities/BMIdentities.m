@@ -43,7 +43,11 @@
     for (NSDictionary *dict in dicts)
     {
         BMIdentity *child = [BMIdentity withDict:dict];
-        [identities addObject:child];
+        
+        if (![child.label hasPrefix:@"[chan] "])
+        {
+            [identities addObject:child];
+        }
     }
     
     //NSLog(@"\n\n contacts = %@", contacts);

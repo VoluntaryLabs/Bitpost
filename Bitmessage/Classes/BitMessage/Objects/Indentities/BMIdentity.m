@@ -11,13 +11,6 @@
 
 @implementation BMIdentity
 
-+ (BMIdentity *)withDict:(NSDictionary *)dict
-{
-    id instance = [[[self class] alloc] init];
-    [instance setDict:dict];
-    return instance;
-}
-
 - (id)init
 {
     self = [super init];
@@ -25,6 +18,12 @@
     return self;
 }
 
++ (BMIdentity *)withDict:(NSDictionary *)dict
+{
+    id instance = [[[self class] alloc] init];
+    [instance setDict:dict];
+    return instance;
+}
 
 - (NSDictionary *)dict
 {

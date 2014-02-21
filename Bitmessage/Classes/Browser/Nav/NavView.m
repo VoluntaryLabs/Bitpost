@@ -162,6 +162,8 @@
 
 - (void)updateActionStrip
 {
+    NSLog(@"updateActionStrip");
+    
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
     {
         [view removeFromSuperview];
@@ -171,9 +173,7 @@
     id lastButton = nil;
     
     [self setAutoresizesSubviews:YES];
-    
-    NSLog(@"actions %@", lastNode.actions);
-    
+        
     for (NSString *action in lastNode.actions)
     {
         NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, 20)];
@@ -203,6 +203,7 @@
         [button setAction:@selector(hitActionButton:)];
         [self.actionStrip addSubview:button];
         
+        /*
         if (lastButton)
         {
             //[button setX:[lastButton maxX] + 15];
@@ -212,6 +213,7 @@
         {
             [button setX:self.actionStrip.width - button.width];
         }
+        */
         
         objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
         

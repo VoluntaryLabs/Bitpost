@@ -8,7 +8,6 @@
 
 #import "BMClient.h"
 
-
 @implementation BMClient
 
 static BMClient *sharedBMClient;
@@ -33,11 +32,13 @@ static BMClient *sharedBMClient;
     self.contacts      = [[BMContacts alloc] init];
     self.messages      = [[BMMessages alloc] init];
     self.subscriptions = [[BMSubscriptions alloc] init];
+    self.channels = [[BMChannels alloc] init];
     
     [self.children addObject:self.messages.received];
     [self.children addObject:self.messages.sent];
     [self.children addObject:self.contacts];
     [self.children addObject:self.identities];
+    [self.children addObject:self.channels];
     //[self.children addObject:self.subscriptions];
     
     [self deepFetch];

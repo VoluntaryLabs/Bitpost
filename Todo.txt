@@ -1,8 +1,12 @@
 
 todo
 
+- compose button/menu
+
 - auto refresh table reload?
 - keyboard shortcuts (delete to delete message) - generic with actions?
+
+- fix selection after reload (stay on same message if possible, not row index)
 
 - use address labels in compose & autocomplete
 
@@ -20,3 +24,5 @@ todo
 - possible ref loop with node and BMMessageView?
 
 - cleanup base64 in dicts
+
+- back arrow to navigate

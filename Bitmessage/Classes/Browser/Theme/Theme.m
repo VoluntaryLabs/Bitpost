@@ -44,6 +44,7 @@ static Theme *sharedTheme = nil;
     [self setObject:column1Color forKey:@"BMReceivedMessages-columnBgColor"];
     [self setObject:column1Color forKey:@"BMContacts-columnBgColor"];
     [self setObject:column1Color forKey:@"BMIdentities-columnBgColor"];
+    [self setObject:column1Color forKey:@"BMChannels-columnBgColor"];
 
     
     NSColor *bgColorActive = [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
@@ -63,11 +64,19 @@ static Theme *sharedTheme = nil;
     [self setObject:bgColorActive forKey:@"BMSentMessage-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMSentMessage-bgColorInactive"];
     
+    
     [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMReceivedMessage-unreadTextColor"];
     [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMReceivedMessage-readTextColor"];
     [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMReceivedMessage-textColorActive"];
     [self setObject:bgColorActive forKey:@"BMReceivedMessage-bgColorActive"];
     [self setObject:bgColorInactive forKey:@"BMReceivedMessage-bgColorInactive"];
+    
+    
+    [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f] forKey:@"BMChannel-unreadTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0] forKey:@"BMChannel-readTextColor"];
+    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0] forKey:@"BMChannel-textColorActive"];
+    [self setObject:bgColorActive forKey:@"BMChannel-bgColorActive"];
+    [self setObject:bgColorInactive forKey:@"BMChannel-bgColorInactive"];
 }
 
 - (id)objectForKey:(NSString *)k

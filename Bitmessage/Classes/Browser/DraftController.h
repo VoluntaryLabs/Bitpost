@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ColoredView.h"
+#import "MarginTextView.h"
 
 @interface DraftController : NSViewController <NSWindowDelegate>
 
@@ -18,7 +19,7 @@
 @property (assign, nonatomic) IBOutlet NSTextField *subject;
 
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;
-@property (assign, nonatomic) IBOutlet NSTextView *bodyText;
+@property (assign, nonatomic) IBOutlet MarginTextView *bodyText;
 
 
 @property (assign, nonatomic) IBOutlet ColoredView *bodyArea;

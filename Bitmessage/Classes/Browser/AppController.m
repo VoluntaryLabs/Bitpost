@@ -74,7 +74,6 @@
 - (void)timer:(id)sender
 {
     //NSLog(@"timer start");
-    //[self.navView updateActionStrip];
     //[[[[BMClient sharedBMClient] messages] received] refresh];
     [[BMClient sharedBMClient] refresh];
     //NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
