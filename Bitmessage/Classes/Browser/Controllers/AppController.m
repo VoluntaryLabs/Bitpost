@@ -39,7 +39,6 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    //InstallSignalnHandler();
     self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
     [self.bitmessageProcess launch];
 
@@ -129,65 +128,18 @@
 
 - (void)unreadCountChanged:(NSNotification *)note
 {
+    // replace with notification -> sound mapping with theme lookup
+    
     NSLog(@"unreadCountChanged");
     
     NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+    
     [newMessageSound play];
 }
 
 - (IBAction)openInfoPanel:(id)sender
 {
     [[InfoPanelController sharedInfoPanelController] open];
-}
-
-void SignalHandler(int signal)
-{
-    printf("SignalHandler caught signal %i - shutting down server and exiting \n", signal);
-    AppController *self = (AppController *)[[NSApplication sharedApplication] delegate];
-    [self killServer];
-    //exit(0);
-}
-
-void InstallSignalnHandler()
-{
-    printf("InstallSignalnHandler\n");
-	signal(SIGABRT, SignalHandler);
-	signal(SIGALRM, SignalHandler);
-	signal(SIGVTALRM, SignalHandler);
-	signal(SIGPROF, SignalHandler);
-	signal(SIGBUS, SignalHandler);
-	signal(SIGCHLD, SignalHandler);
-	signal(SIGFPE, SignalHandler);
-	signal(SIGHUP, SignalHandler);
-	signal(SIGILL, SignalHandler);
-	signal(SIGINT, SignalHandler);
-	signal(SIGKILL, SignalHandler);
-    
-    //prctl(PR_SET_PDEATHSIG, SIGKILL)
-    
-	signal(SIGPIPE, SignalHandler);
-	signal(SIGQUIT, SignalHandler);
-	signal(SIGSEGV, SignalHandler);
-	signal(SIGSTOP, SignalHandler);
-	signal(SIGTERM, SignalHandler);
-	signal(SIGTSTP, SignalHandler);
-
-    signal(SIGTTIN, SignalHandler);
-	signal(SIGTTOU, SignalHandler);
-    
-	signal(SIGUSR1, SignalHandler);
-	signal(SIGUSR2, SignalHandler);
-
-	//signal(SIGPOLL, SignalHandler);
-	signal(SIGSYS, SignalHandler);
-	signal(SIGTRAP, SignalHandler);
-    
-	signal(SIGURG, SignalHandler);
-	signal(SIGXCPU, SignalHandler);
-	signal(SIGXFSZ, SignalHandler);
-
-    //signal(SIGRTMIN, SignalHandler);
-	//signal(SIGRTMAX, SignalHandler);
 }
 
 @end
