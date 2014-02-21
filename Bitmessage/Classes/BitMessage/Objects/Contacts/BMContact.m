@@ -78,22 +78,6 @@
     [self.nodeParent removeChild:self];
 }
 
-- (BOOL)isValidAddress
-{
-    if (![self.address hasPrefix:@"BM-"] || ![self.address length] > 30)
-    {
-        return NO;
-    }
-    
-    BMAddress *address = [[BMAddress alloc] init];
-    [address setAddress:self.address];
-    [address decode];
-    
-    BOOL isValid = [address isValid];
-    NSLog(@"isValid %i", isValid);
-    return isValid;
-}
-
 - (void)update
 {
     NSLog(@"updating contact '%@' '%@'", self.address, self.label);
@@ -130,7 +114,6 @@
     return YES;
 }
 
-
 - (void)message
 {
     AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
@@ -145,10 +128,8 @@
         [draftController.from setStringValue:from];
     }
     
-    
     [draftController.subject becomeFirstResponder];
     [draftController updateSendButton];
 }
-
 
 @end

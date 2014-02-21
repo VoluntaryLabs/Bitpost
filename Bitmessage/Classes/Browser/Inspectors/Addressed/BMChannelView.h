@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMContactView.h"
+#import "BMAddressedView.h"
 
-@interface BMChannelView : BMContactView
+@interface BMChannelView : BMAddressedView
 
 @end

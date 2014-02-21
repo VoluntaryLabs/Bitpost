@@ -6,20 +6,16 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMNode.h"
+#import "BMAddressed.h"
 
-@interface BMSubscription : BMNode
+@interface BMSubscription : BMAddressed
 
-@property (retain, nonatomic) NSString *label;
-@property (retain, nonatomic) NSString *address; // base64
-@property (retain, nonatomic) NSEnumerator *enabled;
+@property (assign, nonatomic) BOOL enabled;
 
 + (BMSubscription *)withDict:(NSDictionary *)dict;
 
-- (void)setDict:(NSDictionary *)dict;
-- (NSDictionary *)dict;
+- (BOOL)subscribe;
+- (void)delete;
 
-- (id)subscribe;
-- (id)unsubscribe;
 
 @end

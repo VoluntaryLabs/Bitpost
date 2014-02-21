@@ -7,12 +7,10 @@
 //
 
 
-#import "BMNode.h"
+#import "BMAddressed.h"
 
-@interface BMIdentity : BMNode
+@interface BMIdentity : BMAddressed
 
-@property (retain, nonatomic) NSString *label;
-@property (retain, nonatomic) NSString *address;
 @property (assign, nonatomic) NSInteger stream;
 @property (assign, nonatomic) BOOL enabled;
 @property (assign, nonatomic) BOOL chan;

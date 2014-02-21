@@ -6,21 +6,14 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMNode.h"
+#import "BMAddressed.h"
 
-@interface BMContact : BMNode
-
-@property (retain, nonatomic) NSString *label;
-@property (retain, nonatomic) NSString *address; // base64
+@interface BMContact : BMAddressed
 
 + (BMContact *)withDict:(NSDictionary *)dict;
-
-
-- (BOOL)isValidAddress;
 
 - (void)delete;
 - (void)update;
 - (BOOL)insert;
-
 
 @end

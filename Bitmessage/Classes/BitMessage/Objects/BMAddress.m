@@ -11,6 +11,20 @@
 
 @implementation BMAddress
 
+
++ (BOOL)isValidAddress:(NSString *)address
+{
+    if (![address hasPrefix:@"BM-"] || ![address length] > 30)
+    {
+        return NO;
+    }
+    
+    BMAddress *add = [[BMAddress alloc] init];
+    add.address = address;
+    [add decode];
+    return add.isValid;
+}
+
 - (void)setDict:(NSDictionary *)dict
 {
     self.status = [dict objectForKey:@"status"];

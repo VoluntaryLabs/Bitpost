@@ -15,6 +15,7 @@
 - (id)init
 {
     self = [super init];
+    self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
     [self fetch];
     return self;
 }
@@ -47,6 +48,26 @@
     //NSLog(@"\n\n subscriptions = %@", subscriptions);
     
     return subscriptions;
+}
+
+- (void)add
+{
+    BMSubscription *sub = [[BMSubscription alloc] init];
+    sub.label = @"Enter subscription label";
+    sub.address = @"Enter address";
+    [self addChild:sub];
+    [self postSelfChanged];
+    //[self refresh];
+}
+
+- (NSString *)nodeTitle
+{
+    return @"Subscriptions";
+}
+
+- (CGFloat)nodeSuggestedWidth
+{
+    return 330.0;
 }
 
 @end

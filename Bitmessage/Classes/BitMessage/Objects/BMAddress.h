@@ -17,6 +17,8 @@
 
 @interface BMAddress : NSObject
 
++ (BOOL)isValidAddress:(NSString *)address;
+
 @property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSString *status; // (ascii/utf-8)
 @property (strong, nonatomic) NSString *addressVersion; // (ascii integer)

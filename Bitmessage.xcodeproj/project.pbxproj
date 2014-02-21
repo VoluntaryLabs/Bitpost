@@ -12,15 +12,22 @@
 		AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
-		AA1AA6A018B4225E00AE72F6 /* InfoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */; };
 		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
 		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
 		AA1AA6C418B450C900AE72F6 /* callsystem.c in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C018B450C900AE72F6 /* callsystem.c */; };
 		AA1AA6C518B450C900AE72F6 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6C318B450C900AE72F6 /* Task.m */; };
 		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
-		AA2AC83F18B6E930008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83E18B6E930008CEEB4 /* BMChannelView.m */; };
-		AA2AC84218B7F542008CEEB4 /* ProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84118B7F542008CEEB4 /* ProgressController.m */; };
+		AA2AC84C18B7FBFE008CEEB4 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84518B7FBFE008CEEB4 /* AppController.m */; };
+		AA2AC84D18B7FBFE008CEEB4 /* DraftController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84718B7FBFE008CEEB4 /* DraftController.m */; };
+		AA2AC84E18B7FBFE008CEEB4 /* InfoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84918B7FBFE008CEEB4 /* InfoPanelController.m */; };
+		AA2AC84F18B7FBFE008CEEB4 /* ProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC84B18B7FBFE008CEEB4 /* ProgressController.m */; };
+		AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */; };
+		AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */; };
+		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
+		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
+		AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86218B8175A008CEEB4 /* BMContactView.m */; };
+		AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -48,9 +55,7 @@
 		AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31566618AAE0E00017E94F /* BMSubscription.m */; };
 		AA31569818AAE0E00017E94F /* BMSubscriptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31566818AAE0E00017E94F /* BMSubscriptions.m */; };
 		AA31569918AAE0E00017E94F /* BMProxyMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31566B18AAE0E00017E94F /* BMProxyMessage.m */; };
-		AA31569B18AAE0E00017E94F /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31567018AAE0E00017E94F /* AppController.m */; };
 		AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31567518AAE0E00017E94F /* NSView+sizing.m */; };
-		AA31569F18AAE0E00017E94F /* DraftController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31567918AAE0E00017E94F /* DraftController.m */; };
 		AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31568518AAE0E00017E94F /* BMNode+theme.m */; };
 		AA3156A518AAE0E00017E94F /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31568718AAE0E00017E94F /* Theme.m */; };
 		AA3156D418AAE0E60017E94F /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA3156A918AAE0E60017E94F /* LICENSE.txt */; };
@@ -98,8 +103,6 @@
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
-		AA7F6A8F18B17B15009285EA /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8A18B17B15009285EA /* BMContactView.m */; };
-		AA7F6A9018B17B15009285EA /* BMIdentityView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8C18B17B15009285EA /* BMIdentityView.m */; };
 		AA7F6A9118B17B15009285EA /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8E18B17B15009285EA /* BMMessageView.m */; };
 		AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A9418B17B19009285EA /* NavColumn.m */; };
 		AA7F6A9B18B17B19009285EA /* NavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A9718B17B19009285EA /* NavView.m */; };
@@ -151,8 +154,6 @@
 		AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMServerProcess.m; path = Bitmessage/Classes/BitMessage/BMServerProcess.m; sourceTree = SOURCE_ROOT; };
 		AA1AA69A18B41C9E00AE72F6 /* message_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_active.png; sourceTree = "<group>"; };
 		AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_inactive.png; sourceTree = "<group>"; };
-		AA1AA69E18B4225E00AE72F6 /* InfoPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPanelController.h; sourceTree = "<group>"; };
-		AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPanelController.m; sourceTree = "<group>"; };
 		AA1AA6A118B4265900AE72F6 /* Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
 		AA1AA6A318B427C100AE72F6 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+positioning.h"; sourceTree = "<group>"; };
@@ -163,10 +164,26 @@
 		AA1AA6C318B450C900AE72F6 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchField.h; sourceTree = "<group>"; };
 		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
-		AA2AC83D18B6E930008CEEB4 /* BMChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMChannelView.h; sourceTree = "<group>"; };
-		AA2AC83E18B6E930008CEEB4 /* BMChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMChannelView.m; sourceTree = "<group>"; };
-		AA2AC84018B7F542008CEEB4 /* ProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressController.h; sourceTree = "<group>"; };
-		AA2AC84118B7F542008CEEB4 /* ProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressController.m; sourceTree = "<group>"; };
+		AA2AC84418B7FBFE008CEEB4 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		AA2AC84518B7FBFE008CEEB4 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		AA2AC84618B7FBFE008CEEB4 /* DraftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraftController.h; sourceTree = "<group>"; };
+		AA2AC84718B7FBFE008CEEB4 /* DraftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraftController.m; sourceTree = "<group>"; };
+		AA2AC84818B7FBFE008CEEB4 /* InfoPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPanelController.h; sourceTree = "<group>"; };
+		AA2AC84918B7FBFE008CEEB4 /* InfoPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPanelController.m; sourceTree = "<group>"; };
+		AA2AC84A18B7FBFE008CEEB4 /* ProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressController.h; sourceTree = "<group>"; };
+		AA2AC84B18B7FBFE008CEEB4 /* ProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressController.m; sourceTree = "<group>"; };
+		AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressed.h; sourceTree = "<group>"; };
+		AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddressed.m; sourceTree = "<group>"; };
+		AA2AC85918B814A3008CEEB4 /* NSObject+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+extra.h"; sourceTree = "<group>"; };
+		AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+extra.m"; sourceTree = "<group>"; };
+		AA2AC85D18B8175A008CEEB4 /* BMAddressedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressedView.h; sourceTree = "<group>"; };
+		AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddressedView.m; sourceTree = "<group>"; };
+		AA2AC85F18B8175A008CEEB4 /* BMChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMChannelView.h; sourceTree = "<group>"; };
+		AA2AC86018B8175A008CEEB4 /* BMChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMChannelView.m; sourceTree = "<group>"; };
+		AA2AC86118B8175A008CEEB4 /* BMContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContactView.h; sourceTree = "<group>"; };
+		AA2AC86218B8175A008CEEB4 /* BMContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContactView.m; sourceTree = "<group>"; };
+		AA2AC86C18B81815008CEEB4 /* NSTextView+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+extra.h"; sourceTree = "<group>"; };
+		AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+extra.m"; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -219,12 +236,8 @@
 		AA31566818AAE0E00017E94F /* BMSubscriptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMSubscriptions.m; sourceTree = "<group>"; };
 		AA31566A18AAE0E00017E94F /* BMProxyMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMProxyMessage.h; sourceTree = "<group>"; };
 		AA31566B18AAE0E00017E94F /* BMProxyMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMProxyMessage.m; sourceTree = "<group>"; };
-		AA31566F18AAE0E00017E94F /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
-		AA31567018AAE0E00017E94F /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		AA31567418AAE0E00017E94F /* NSView+sizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+sizing.h"; sourceTree = "<group>"; };
 		AA31567518AAE0E00017E94F /* NSView+sizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+sizing.m"; sourceTree = "<group>"; };
-		AA31567818AAE0E00017E94F /* DraftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraftController.h; sourceTree = "<group>"; };
-		AA31567918AAE0E00017E94F /* DraftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraftController.m; sourceTree = "<group>"; };
 		AA31568418AAE0E00017E94F /* BMNode+theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMNode+theme.h"; sourceTree = "<group>"; };
 		AA31568518AAE0E00017E94F /* BMNode+theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMNode+theme.m"; sourceTree = "<group>"; };
 		AA31568618AAE0E00017E94F /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
@@ -289,10 +302,6 @@
 		AA7F6A8318B17A7E009285EA /* ColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredView.m; sourceTree = "<group>"; };
 		AA7F6A8518B17A98009285EA /* ResizingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizingScrollView.h; sourceTree = "<group>"; };
 		AA7F6A8618B17A98009285EA /* ResizingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizingScrollView.m; sourceTree = "<group>"; };
-		AA7F6A8918B17B15009285EA /* BMContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContactView.h; sourceTree = "<group>"; };
-		AA7F6A8A18B17B15009285EA /* BMContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContactView.m; sourceTree = "<group>"; };
-		AA7F6A8B18B17B15009285EA /* BMIdentityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMIdentityView.h; sourceTree = "<group>"; };
-		AA7F6A8C18B17B15009285EA /* BMIdentityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMIdentityView.m; sourceTree = "<group>"; };
 		AA7F6A8D18B17B15009285EA /* BMMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMessageView.h; sourceTree = "<group>"; };
 		AA7F6A8E18B17B15009285EA /* BMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageView.m; sourceTree = "<group>"; };
 		AA7F6A9318B17B19009285EA /* NavColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavColumn.h; sourceTree = "<group>"; };
@@ -351,6 +360,34 @@
 				AA1AA6C318B450C900AE72F6 /* Task.m */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		AA2AC84318B7FBFE008CEEB4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA2AC84418B7FBFE008CEEB4 /* AppController.h */,
+				AA2AC84518B7FBFE008CEEB4 /* AppController.m */,
+				AA2AC84618B7FBFE008CEEB4 /* DraftController.h */,
+				AA2AC84718B7FBFE008CEEB4 /* DraftController.m */,
+				AA2AC84818B7FBFE008CEEB4 /* InfoPanelController.h */,
+				AA2AC84918B7FBFE008CEEB4 /* InfoPanelController.m */,
+				AA2AC84A18B7FBFE008CEEB4 /* ProgressController.h */,
+				AA2AC84B18B7FBFE008CEEB4 /* ProgressController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AA2AC85C18B8175A008CEEB4 /* Addressed */ = {
+			isa = PBXGroup;
+			children = (
+				AA2AC85D18B8175A008CEEB4 /* BMAddressedView.h */,
+				AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */,
+				AA2AC85F18B8175A008CEEB4 /* BMChannelView.h */,
+				AA2AC86018B8175A008CEEB4 /* BMChannelView.m */,
+				AA2AC86118B8175A008CEEB4 /* BMContactView.h */,
+				AA2AC86218B8175A008CEEB4 /* BMContactView.m */,
+			);
+			path = Addressed;
 			sourceTree = "<group>";
 		};
 		AA3155FE18AAE02D0017E94F = {
@@ -465,6 +502,8 @@
 				AA31564218AAE0E00017E94F /* NSArray+extra.m */,
 				AA31564318AAE0E00017E94F /* NSString+BM.h */,
 				AA31564418AAE0E00017E94F /* NSString+BM.m */,
+				AA2AC85918B814A3008CEEB4 /* NSObject+extra.h */,
+				AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -472,6 +511,8 @@
 		AA31564518AAE0E00017E94F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */,
+				AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */,
 				AA31564618AAE0E00017E94F /* BMAddress.h */,
 				AA31564718AAE0E00017E94F /* BMAddress.m */,
 				AA31564818AAE0E00017E94F /* BMClient.h */,
@@ -562,19 +603,12 @@
 		AA31566E18AAE0E00017E94F /* Browser */ = {
 			isa = PBXGroup;
 			children = (
-				AA2AC84018B7F542008CEEB4 /* ProgressController.h */,
-				AA2AC84118B7F542008CEEB4 /* ProgressController.m */,
-				AA1AA69E18B4225E00AE72F6 /* InfoPanelController.h */,
-				AA1AA69F18B4225E00AE72F6 /* InfoPanelController.m */,
-				AA31566F18AAE0E00017E94F /* AppController.h */,
-				AA31567018AAE0E00017E94F /* AppController.m */,
+				AA2AC84318B7FBFE008CEEB4 /* Controllers */,
 				AA7F6A9218B17B19009285EA /* Nav */,
 				AA7F6A8818B17B15009285EA /* Inspectors */,
 				AA7F6A7E18B17A5B009285EA /* Views */,
 				AA31568318AAE0E00017E94F /* Theme */,
 				AA31567318AAE0E00017E94F /* Categories */,
-				AA31567818AAE0E00017E94F /* DraftController.h */,
-				AA31567918AAE0E00017E94F /* DraftController.m */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -588,6 +622,8 @@
 				AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */,
 				AAF40CB218B59543005BA55E /* NSEvent+keys.h */,
 				AAF40CB318B59543005BA55E /* NSEvent+keys.m */,
+				AA2AC86C18B81815008CEEB4 /* NSTextView+extra.h */,
+				AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -741,14 +777,9 @@
 		AA7F6A8818B17B15009285EA /* Inspectors */ = {
 			isa = PBXGroup;
 			children = (
-				AA7F6A8918B17B15009285EA /* BMContactView.h */,
-				AA7F6A8A18B17B15009285EA /* BMContactView.m */,
-				AA7F6A8B18B17B15009285EA /* BMIdentityView.h */,
-				AA7F6A8C18B17B15009285EA /* BMIdentityView.m */,
+				AA2AC85C18B8175A008CEEB4 /* Addressed */,
 				AA7F6A8D18B17B15009285EA /* BMMessageView.h */,
 				AA7F6A8E18B17B15009285EA /* BMMessageView.m */,
-				AA2AC83D18B6E930008CEEB4 /* BMChannelView.h */,
-				AA2AC83E18B6E930008CEEB4 /* BMChannelView.m */,
 			);
 			path = Inspectors;
 			sourceTree = "<group>";
@@ -942,7 +973,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA1AA6A018B4225E00AE72F6 /* InfoPanelController.m in Sources */,
+				AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */,
+				AA2AC84E18B7FBFE008CEEB4 /* InfoPanelController.m in Sources */,
 				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
 				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
 				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,
@@ -950,29 +982,28 @@
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
 				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
-				AA7F6A9018B17B15009285EA /* BMIdentityView.m in Sources */,
 				AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */,
 				AA31569518AAE0E00017E94F /* BMReceivedMessages.m in Sources */,
 				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
-				AA31569B18AAE0E00017E94F /* AppController.m in Sources */,
+				AA2AC84C18B7FBFE008CEEB4 /* AppController.m in Sources */,
 				AA31569218AAE0E00017E94F /* BMChannels.m in Sources */,
 				AA31569818AAE0E00017E94F /* BMSubscriptions.m in Sources */,
-				AA31569F18AAE0E00017E94F /* DraftController.m in Sources */,
 				AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */,
 				AA31569918AAE0E00017E94F /* BMProxyMessage.m in Sources */,
 				AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */,
+				AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */,
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA1AA6C418B450C900AE72F6 /* callsystem.c in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
-				AA2AC83F18B6E930008CEEB4 /* BMChannelView.m in Sources */,
 				AA1AA6C518B450C900AE72F6 /* Task.m in Sources */,
+				AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */,
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
-				AA7F6A8F18B17B15009285EA /* BMContactView.m in Sources */,
 				AA31568B18AAE0E00017E94F /* BMClient.m in Sources */,
 				AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */,
+				AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */,
 				AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */,
 				AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */,
 				AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */,
@@ -981,11 +1012,13 @@
 				AAF40CB818B59FF7005BA55E /* BMSentMessage.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */,
-				AA2AC84218B7F542008CEEB4 /* ProgressController.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
+				AA2AC84F18B7FBFE008CEEB4 /* ProgressController.m in Sources */,
 				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
+				AA2AC84D18B7FBFE008CEEB4 /* DraftController.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,
 				AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */,
+				AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */,
 				AA31568E18AAE0E00017E94F /* BMContacts.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,
@@ -993,6 +1026,7 @@
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
 				AA7F6A9118B17B15009285EA /* BMMessageView.m in Sources */,
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
+				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AA31569118AAE0E00017E94F /* BMChannel.m in Sources */,
 				AA31568A18AAE0E00017E94F /* BMAddress.m in Sources */,
 			);

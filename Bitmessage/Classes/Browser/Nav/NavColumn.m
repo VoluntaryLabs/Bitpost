@@ -160,7 +160,11 @@
 
 - (id <NavNode>)nodeForRow:(NSInteger)rowIndex
 {
-    return [self.node.children objectAtIndex:rowIndex];
+    if (rowIndex < self.node.children.count)
+    {
+        return [self.node.children objectAtIndex:rowIndex];
+    }
+    return nil;
 }
 
 // table data source

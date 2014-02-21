@@ -7,6 +7,7 @@
 //
 
 #import "BMNode.h"
+#import "NSObject+extra.h"
 
 @implementation BMNode
 
@@ -131,18 +132,12 @@
 }
 
 
-- (Class)viewClass
-{
-    NSString *className = [NSStringFromClass([self class]) stringByAppendingString:@"View"];
-    id viewClass = NSClassFromString(className);
-    return viewClass;
-}
 
 - (NSView *)nodeView
 {
     if (!_nodeView)
     {
-        id viewClass = self.viewClass;
+        id viewClass = self.class.firstViewClass;
         
         if (viewClass)
         {

@@ -9,13 +9,14 @@
 #import "BMSubscription.h"
 #import "BMProxyMessage.h"
 #import "BMClient.h"
+#import "BMAddress.h"
 
 @implementation BMSubscription
 
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"subscribe", @"unsubscribe", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"delete", nil];
     return self;
 }
 
@@ -26,20 +27,17 @@
     return instance;
 }
 
-- (NSDictionary *)dict
+- (NSMutableDictionary *)dict
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:[self.label encodedBase64] forKey:@"label"];
-    [dict setObject:self.address forKey:@"address"];
-    [dict setObject:self.enabled forKey:@"enabled"];
+    NSMutableDictionary *dict = [super dict];
+    [dict setObject:[NSNumber numberWithBool:self.enabled] forKey:@"enabled"];
     return dict;
 }
 
 - (void)setDict:(NSDictionary *)dict
 {
-    self.label   = [[dict objectForKey:@"label"] decodedBase64];
-    self.address = [dict objectForKey:@"address"];
-    self.enabled = [dict objectForKey:@"enabled"];
+    [super setDict:dict];
+    self.enabled = [[dict objectForKey:@"enabled"] boolValue];
 }
 
 - (NSString *)description
@@ -60,26 +58,57 @@
 
 // ----------------------
 
-- (id)subscribe
+- (BOOL)subscribe
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"addSubscription"];
     NSArray *params = [NSArray arrayWithObjects:self.address,
                        [self.label encodedBase64], nil];
     [message setParameters:params];
+    message.debug = NO;
     [message sendSync];
-    return [message parsedResponseValue];
+    id response = [message parsedResponseValue];
+    NSLog(@"response %@", response);
+    return YES;
 }
 
-- (id)unsubscribe
+- (void)delete
+{
+    [self unsubscribe];
+}
+
+- (void)unsubscribe
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"deleteSubscription"];
     NSArray *params = [NSArray arrayWithObjects:self.address, nil];
     [message setParameters:params];
+    message.debug = NO;
     [message sendSync];
-    return [message parsedResponseValue];
+    id response = [message parsedResponseValue];
+    NSLog(@"response %@", response);
 }
 
+- (void)update
+{
+    NSLog(@"updating subscription '%@' '%@'", self.address, self.label);
+    
+    [self delete];
+    
+    if ([self subscribe])
+    {
+        [self postParentChanged];
+    }
+}
+
+- (NSString *)visibleLabel
+{
+    return self.label;
+}
+
+- (void)setVisibleLabel:(NSString *)aLabel
+{
+    self.label = aLabel;
+}
 
 @end

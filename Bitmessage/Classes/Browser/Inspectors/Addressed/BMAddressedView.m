@@ -1,53 +1,19 @@
 //
-//  BMContactView.m
+//  BMAddressedView.m
 //  Bitmessage
 //
-//  Created by Steve Dekorte on 2/13/14.
+//  Created by Steve Dekorte on 2/21/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMContactView.h"
+#import "BMAddressedView.h"
+#import "NSTextView+extra.h"
 #import "NSView+sizing.h"
 #import "Theme.h"
 #import "BMContact.h"
 
-@interface NSTextView (Editing)
+@implementation BMAddressedView
 
-- (void)endEditing;
-- (BOOL)endEditingOnReturn;
-- (void)removeReturns;
-
-@end
-
-
-@implementation NSTextView (Editing)
-
-- (void)endEditing
-{
-    //[self resignFirstResponder];
-    [self setSelectedRange:NSMakeRange(0, 0)];
-    [self.window makeFirstResponder:nil];
-}
-
-- (BOOL)endEditingOnReturn
-{
-    if ([self.string containsString:@"\n"])
-    {
-        [self removeReturns];
-        [self endEditing];
-        return YES;
-    }
-    return NO;
-}
-
-- (void)removeReturns
-{
-    [self setString:[self.string stringWithReturnsRemoved]];
-}
-
-@end
-
-@implementation BMContactView
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -65,8 +31,8 @@
 
 - (void)setup
 {
-    NSColor *textColor = [Theme objectForKey:@"BMContact-textColor"];
-    NSColor *bgColor   = [Theme objectForKey:@"BMContact-bgColorActive"];
+    //NSColor *textColor = [Theme objectForKey:@"BMContact-textColor"];
+    //NSColor *bgColor   = [Theme objectForKey:@"BMContact-bgColorActive"];
     
     
     self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
@@ -109,10 +75,6 @@
     [self.labelField setFocusRingType:NSFocusRingTypeNone];
     [self.addressField setFocusRingType:NSFocusRingTypeNone];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedText:) name:NSControlTextDidChangeNotification object:self.labelField];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatedText:) name:NSControlTextDidChangeNotification object:self.addressField];
-    
     [(NSTextView *)self.labelField setInsertionPointColor:[NSColor whiteColor]];
     [(NSTextView *)self.addressField setInsertionPointColor:[NSColor whiteColor]];
 }
@@ -142,11 +104,7 @@
 - (void)setNode:(id <NavNode>)node
 {
     _node = node;
-    
-    BMContact *contact = (BMContact *)node;
-    
-    [self.labelField setString:contact.label];
-    [self.addressField setString:contact.address];
+    [self syncFromNode];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -156,16 +114,6 @@
     [bgColor set];
     [NSBezierPath fillRect:dirtyRect];
 }
-
-/*
-- (void)updatedText:(NSNotification *)note
-{
-    NSLog(@"updatedText");
-    //[(BMContact *)self.node update];
-    [self.addressField setString:[self.addressField.string strip]];
-    [self updateAddressColor];
-}
-*/
 
 - (void)updateAddressColor
 {
@@ -186,6 +134,8 @@
     return (BMContact *)self.node;
 }
 
+// --- text changes ---
+
 - (void)textDidChange:(NSNotification *)aNotification
 {
     if (!self.isUpdating) // still needed?
@@ -198,14 +148,10 @@
         [self.addressField endEditingOnReturn];
         
         [self updateAddressColor];
-
-        //NSLog(@"contact textDidChange");
         
-        if (![self.contact.label isEqualToString:[self.labelField.string strip]] ||
-            ![self.contact.address isEqualToString:[self.addressField.string strip]])
+        if (!self.isSynced)
         {
-            self.contact.label   = [self.labelField.string strip];
-            self.contact.address = [self.addressField.string strip];
+            [self syncToNode];
             
             if (self.contact.isValidAddress)
             {
@@ -215,8 +161,6 @@
         
         self.isUpdating = NO;
     }
-
-    //return YES;
 }
 
 - (void)textDidEndEditing:(NSNotification *)aNotification
@@ -224,8 +168,25 @@
     [[aNotification object] endEditing];
 }
 
+// -- sync ----
+
+- (BOOL)isSynced
+{
+    return [self.contact.visibleLabel isEqualToString:[self.labelField.string strip]] &&
+    [self.contact.address isEqualToString:[self.addressField.string strip]];
+}
+
+- (void)syncToNode
+{
+    self.contact.visibleLabel   = [self.labelField.string strip];
+    self.contact.address = [self.addressField.string strip];
+}
+
+- (void)syncFromNode
+{
+    [self.labelField setString:self.contact.visibleLabel];
+    [self.addressField setString:self.contact.address];
+}
+
 
 @end
-
-
-

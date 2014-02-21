@@ -11,6 +11,7 @@
 {
     self.progressController = [[ProgressController alloc] init];
     [self.progressController setProgress:self.progress];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
 }
 
 - (void)draftClosed:(NSNotification *)note
@@ -42,8 +43,8 @@
     self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
     [self.bitmessageProcess launch];
 
-    //[self connectToServer];
-    [self performSelector:@selector(connectToServer) withObject:self afterDelay:1];
+    [self connectToServer];
+    //[self performSelector:@selector(connectToServer) withObject:self afterDelay:1];
     //[[BMClient sharedBMClient] performSelector:@selector(refresh) withObject:self afterDelay:1];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -56,6 +57,7 @@
                                                  name:@"BMReceivedMessagesUnreadCountChanged"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
 }
 
 
@@ -69,8 +71,17 @@
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    //self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timer:) userInfo:Nil repeats:YES];
+    [self startRefreshTimer];
     [self.navView.window setTitle:@""];
+}
+
+- (void)startRefreshTimer
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0
+                                                  target:self
+                                                selector:@selector(timer:)
+                                                userInfo:Nil
+                                                 repeats:YES];
 }
 
 - (void)timer:(id)sender

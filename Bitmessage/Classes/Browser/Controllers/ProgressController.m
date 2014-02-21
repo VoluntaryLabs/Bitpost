@@ -19,6 +19,8 @@
 
 - (void)listen
 {
+    // eventually switch to holding a list of object/action/count we are waiting on?
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(progressPush:)
                                                  name:@"ProgressPush"

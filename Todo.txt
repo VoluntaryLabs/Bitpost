@@ -28,3 +28,7 @@ todo
 - cleanup base64 in dicts
 
 - back arrow to navigate
+
+- after a item remove, nav to prev column if column is empty
+
+- avoid contact update on label or address change until done editing
