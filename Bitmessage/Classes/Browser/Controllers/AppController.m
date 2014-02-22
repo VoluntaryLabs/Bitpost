@@ -12,6 +12,8 @@
     self.progressController = [[ProgressController alloc] init];
     [self.progressController setProgress:self.progress];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
+    
+    self.dockTile = [[NSApplication sharedApplication] dockTile];
 }
 
 - (void)draftClosed:(NSNotification *)note
@@ -57,6 +59,8 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
+    
+    
 }
 
 
@@ -129,12 +133,22 @@
 - (void)unreadCountChanged:(NSNotification *)note
 {
     // replace with notification -> sound mapping with theme lookup
-    
     NSLog(@"unreadCountChanged");
-    
+    [self displayUnreadMessageCountBadge];
     NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
     
     [newMessageSound play];
+}
+
+- (void)displayUnreadMessageCountBadge
+{
+    NSInteger unreadMessageCount = [self unreadMessageCount];
+    if (unreadMessageCount > 0) {
+        [self.dockTile setBadgeLabel:[NSString stringWithFormat: @"%ld", (long)unreadMessageCount]];
+    }
+    else {
+        [self.dockTile setBadgeLabel: nil];
+    }
 }
 
 - (IBAction)openInfoPanel:(id)sender

@@ -15,6 +15,7 @@
 
 @property (strong) IBOutlet NSProgressIndicator *progress;
 @property (strong) ProgressController *progressController;
+@property (strong) NSDockTile *dockTile;
 
 - (DraftController *)newDraft;
 
