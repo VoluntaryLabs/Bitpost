@@ -1,6 +1,7 @@
 import threading
 import shared
 import socket
+import select
 from class_sendDataThread import *
 from class_receiveDataThread import *
 import helper_bootstrap
@@ -56,6 +57,12 @@ class singleListener(threading.Thread):
                     print 'We are connected to too many people. Not accepting further incoming connections for ten seconds.'
 
                 time.sleep(10)
+
+            rdy_read, rdy_write, in_error = select.select([sock, sys.stdin],[],[])
+            if sys.stdin in rdy_read:
+                print 'Parent Exit. Stopping Bitmessage Daemon.'
+                shared.doCleanShutdown()
+
             a, (HOST, PORT) = sock.accept()
 
             # The following code will, unfortunately, block an incoming
