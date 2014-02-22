@@ -87,4 +87,9 @@
     NSLog(@"insert response = %@", response);
 }
 
+- (BOOL)canLiveUpdate
+{
+    return YES;
+}
+
 @end

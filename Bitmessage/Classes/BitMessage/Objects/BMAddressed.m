@@ -59,4 +59,9 @@
     return [BMAddress isValidAddress:self.address];
 }
 
+- (BOOL)canLiveUpdate
+{
+    return YES;
+}
+
 @end

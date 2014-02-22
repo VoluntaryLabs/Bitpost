@@ -14,7 +14,6 @@
 
 @implementation BMAddressedView
 
-
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,6 +27,7 @@
     
     return self;
 }
+
 
 - (void)setup
 {
@@ -138,6 +138,24 @@
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
+    if (self.contact.canLiveUpdate)
+    {
+        [self update];
+    }
+    else
+    {
+        if (!self.isUpdating) // still needed?
+        {
+            self.isUpdating = YES;
+            [self.labelField endEditingOnReturn];
+            [self.addressField endEditingOnReturn];
+            self.isUpdating = NO;
+        }
+    }
+}
+
+- (void)update
+{
     if (!self.isUpdating) // still needed?
     {
         self.isUpdating = YES;
@@ -166,6 +184,7 @@
 - (void)textDidEndEditing:(NSNotification *)aNotification
 {
     [[aNotification object] endEditing];
+    [self update];
 }
 
 // -- sync ----

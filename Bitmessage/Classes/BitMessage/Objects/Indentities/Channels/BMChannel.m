@@ -79,6 +79,7 @@
 - (void)create
 {
     [self justCreate];
+    [self.nodeParent addChild:self];
     [self postParentChanged];
 }
 
@@ -149,6 +150,11 @@
 {
     [self justLeave];
     [self create];
+}
+
+- (BOOL)canLiveUpdate
+{
+    return NO;
 }
 
 @end

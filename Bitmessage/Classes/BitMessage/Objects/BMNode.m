@@ -72,7 +72,6 @@
     NSNotification *note = [NSNotification  notificationWithName:@"BMMessageRemovedChild" object:self userInfo:[NSDictionary dictionaryWithObject:aChild forKey:@"child"]];
     
     [[NSNotificationCenter defaultCenter] postNotification:note];
-
 }
 
 

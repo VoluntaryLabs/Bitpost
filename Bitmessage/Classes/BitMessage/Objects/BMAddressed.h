@@ -22,5 +22,6 @@
 - (BOOL)isValidAddress;
 - (NSString *)visibleLabel;
 - (void)setVisibleLabel:(NSString *)aLabel;
+- (BOOL)canLiveUpdate;
 
 @end
