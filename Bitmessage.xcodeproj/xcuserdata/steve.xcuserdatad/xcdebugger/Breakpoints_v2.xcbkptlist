@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Proxy/BMProxyMessage.m"
-            timestampString = "414709643.678601"
+            timestampString = "414720092.921329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "-parsedResponseValue"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Proxy/BMProxyMessage.m"
-            timestampString = "414709643.678601"
+            timestampString = "414720092.921329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-parsedResponseValue"
             landmarkType = "5">
          </BreakpointContent>

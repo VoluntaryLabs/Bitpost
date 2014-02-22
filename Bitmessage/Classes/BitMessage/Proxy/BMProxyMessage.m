@@ -17,8 +17,8 @@
     self = [super init];
     self.username = @"bitmarket";
     self.password = @"87342873428901648473823";
-    //self.methodName = @"add";
-    //self.parameters = [NSArray arrayWithObjects:@2, @3, nil];
+    self.host = @"127.0.0.1";
+    self.port = 8442;
     self.parameters = [NSArray array];
     self.debug = NO;
     return self;
@@ -26,7 +26,8 @@
 
 - (void)composeRequest
 {
-    self.requestUrl = [NSURL URLWithString: @"http://127.0.0.1:8442/"];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@:%i/", self.host, self.port];
+    self.requestUrl = [NSURL URLWithString:urlString];
     self.request = [[XMLRPCRequest alloc] initWithURL:self.requestUrl];
     
     [self composeAuth];
@@ -44,15 +45,6 @@
     NSString *auth = [@"Basic " stringByAppendingString:[authString encodedBase64]];
     [self.request setValue:auth forHTTPHeaderField: @"Authorization"];
 }
-
-/*
-- (void)sendAsync
-{
-    [self composeRequest];
-    XMLRPCConnectionManager *manager = [XMLRPCConnectionManager sharedManager];
-    [manager spawnConnectionWithXMLRPCRequest:self.request delegate: self];
-}
-*/
 
 - (void)sendSync
 {
@@ -73,6 +65,7 @@
             NSLog(@"\n\nerror %@", self.error);
         }
     }
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
 }
 
@@ -117,7 +110,15 @@
     return nil;
 }
 
+
 /*
+
+- (void)sendAsync
+{
+    [self composeRequest];
+    XMLRPCConnectionManager *manager = [XMLRPCConnectionManager sharedManager];
+    [manager spawnConnectionWithXMLRPCRequest:self.request delegate: self];
+}
 
  // for asnyc calls
  
