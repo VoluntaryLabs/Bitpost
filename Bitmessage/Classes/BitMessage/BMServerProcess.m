@@ -97,9 +97,10 @@ static BMServerProcess *shared = nil;
         return;
     }
     
-    [self killLastServerIfNeeded];
+    //[self killLastServerIfNeeded];
     
     _task = (Task *)[[NSTask alloc] init];
+    _inpipe = [NSPipe pipe];
     NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
     NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];
     NSLog(@"%@", [environment valueForKey:@"PATH"]);
@@ -117,6 +118,7 @@ static BMServerProcess *shared = nil;
     
     NSFileHandle *nullFileHandle = [NSFileHandle fileHandleWithNullDevice];
     [_task setStandardOutput:nullFileHandle];
+    [_task setStandardInput: (NSFileHandle *) _inpipe];
     //[_task setStandardError:nullFileHandle];
     
     [_task setArguments:@[ pybitmessagePath ]];
@@ -152,7 +154,8 @@ static BMServerProcess *shared = nil;
 
 - (BOOL)isRunning
 {
-    return [self isLastServerRunning] || (_task && [_task isRunning]);
+    //return [self isLastServerRunning] || (_task && [_task isRunning]);
+    return (_task && [_task isRunning]);
 }
 
 - (BOOL)canConnect

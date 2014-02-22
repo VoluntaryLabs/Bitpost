@@ -14,6 +14,7 @@
 + (BMServerProcess *)sharedBMServerProcess;
 
 @property (strong) Task *task;
+@property (strong) NSPipe *inpipe;
 
 - (void)launch;
 - (BOOL)isRunning;
