@@ -16,6 +16,11 @@
 @property (strong) Task *task;
 @property (strong) NSPipe *inpipe;
 
+@property (retain, nonatomic) NSString *host;
+@property (assign) int port;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *password;
+
 - (void)launch;
 - (BOOL)isRunning;
 - (void)terminate;

@@ -13,7 +13,6 @@
 
 @property (retain, nonatomic) NSString *host;
 @property (assign) int port;
-
 @property (retain, nonatomic) NSString *username;
 @property (retain, nonatomic) NSString *password;
 @property (retain, nonatomic) NSURL *requestUrl;

@@ -9,16 +9,18 @@
 #import "BMProxyMessage.h"
 #import "XMLRPCEventBasedParser.h"
 #import "NSString+BM.h"
+#import "BMServerProcess.h"
 
 @implementation BMProxyMessage
 
 - (id)init
 {
     self = [super init];
-    self.username = @"bitmarket";
-    self.password = @"87342873428901648473823";
-    self.host = @"127.0.0.1";
-    self.port = 8442;
+    BMServerProcess *server = [BMServerProcess sharedBMServerProcess];
+    self.username = [server username];
+    self.password = [server password];
+    self.host = [server host];
+    self.port = [server port];
     self.parameters = [NSArray array];
     self.debug = NO;
     return self;

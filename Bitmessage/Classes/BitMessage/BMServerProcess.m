@@ -27,60 +27,15 @@ static BMServerProcess *shared = nil;
     return shared;
 }
 
-- (NSNumber *)lastServerPid
+- (id)init
 {
-    NSNumber *pidNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"serverPid"];
-    return pidNumber;
-}
-
-- (BOOL)isLastServerRunning
-{
-    NSNumber *pidNumber = [self lastServerPid];
+    self = [super init];
+    self.host = @"127.0.0.1";
+    self.port = 8442;
+    self.username = @"bitmarket";
+    self.password = @"87342873428901648473823";
     
-    if (pidNumber)
-    {
-        int result = kill([pidNumber intValue], 0);
-        return result == 0;
-    }
-    
-    return NO;
-}
-
-- (void)rememberServerPid
-{
-    pid_t pid = [_task processIdentifier];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:pid] forKey:@"serverPid"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)forgetServerPid
-{
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"serverPid"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (void)killLastServerIfNeeded
-{
-    NSNumber *pidNumber = [self lastServerPid];
-    
-    if (pidNumber)
-    {
-        NSLog(@"killing old server with pid %@", pidNumber);
-        
-        int result = kill([pidNumber intValue], SIGKILL);
-        
-        if (result == -1)
-        {
-            NSLog(@"unable to kill old server with pid %@, errno %i", pidNumber, (int)errno);
-        }
-        else
-        {
-            //sleep(3);
-        }
-        
-        [self forgetServerPid];
-    }
-
+    return self;
 }
 
 - (void)launch
@@ -106,8 +61,8 @@ static BMServerProcess *shared = nil;
     NSLog(@"%@", [environment valueForKey:@"PATH"]);
     
     // Set environment variables containing api username and password
-    [environment setObject: @"bitmarket" forKey:@"PYBITMESSAGE_USER"];
-    [environment setObject: @"87342873428901648473823" forKey:@"PYBITMESSAGE_PASSWORD"];
+    [environment setObject:self.username forKey:@"PYBITMESSAGE_USER"];
+    [environment setObject:self.password forKey:@"PYBITMESSAGE_PASSWORD"];
     [_task setEnvironment: environment];
     
     // Set the path to the python executable
@@ -149,7 +104,7 @@ static BMServerProcess *shared = nil;
     NSLog(@"Killing pybitmessage process...");
     [_task terminate];
     self.task = nil;
-    [self forgetServerPid];
+    //[self forgetServerPid];
 }
 
 - (BOOL)isRunning
