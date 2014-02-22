@@ -97,7 +97,7 @@ static BMServerProcess *shared = nil;
         return;
     }
     
-    [self killLastServerIfNeeded];
+    //[self killLastServerIfNeeded];
     
     _task = (Task *)[[NSTask alloc] init];
     _inpipe = [NSPipe pipe];
@@ -154,7 +154,8 @@ static BMServerProcess *shared = nil;
 
 - (BOOL)isRunning
 {
-    return [self isLastServerRunning] || (_task && [_task isRunning]);
+    //return [self isLastServerRunning] || (_task && [_task isRunning]);
+    return (_task && [_task isRunning]);
 }
 
 - (BOOL)canConnect
