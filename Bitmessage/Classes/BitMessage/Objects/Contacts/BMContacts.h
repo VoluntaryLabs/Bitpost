@@ -14,6 +14,5 @@
 
 - (void)fetch;
 
-- (BMContact *)contactWithAddress:(NSString *)address;
 
 @end

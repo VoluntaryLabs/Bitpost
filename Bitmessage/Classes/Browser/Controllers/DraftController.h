@@ -10,7 +10,7 @@
 #import "ColoredView.h"
 #import "MarginTextView.h"
 
-@interface DraftController : NSViewController <NSWindowDelegate>
+@interface DraftController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
 
 @property (assign, nonatomic) IBOutlet NSButton *sendButton;
 
@@ -24,6 +24,7 @@
 
 @property (assign, nonatomic) IBOutlet ColoredView *bodyArea;
 @property (assign, nonatomic) IBOutlet ColoredView *topBackground;
+//@property (assign, nonatomic) BOOL hasValidAddresses;
 
 - (IBAction)send:(id)sender;
 - (void)setCursorForReply;

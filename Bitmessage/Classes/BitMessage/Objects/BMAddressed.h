@@ -24,4 +24,8 @@
 - (void)setVisibleLabel:(NSString *)aLabel;
 - (BOOL)canLiveUpdate;
 
+// --- actions ---
+
+- (void)message;
+
 @end

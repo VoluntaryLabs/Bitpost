@@ -33,6 +33,8 @@
 - (void)postParentChanged;
 - (void)postSelfChanged;
 
+- (id)childWithAddress:(NSString *)address; // hack - move to node subclass
+
 // --- search ---
 
 @property (assign, nonatomic) BOOL isSearching;

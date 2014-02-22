@@ -12,8 +12,6 @@
 
 @interface BMIdentities : BMNode
 
-- (BMIdentity *)identityWithAddress:(NSString *)address;
-
 - (void)add;
 
 - (NSString *)firstIdentityAddress;

@@ -157,4 +157,20 @@
     
 }
 
+- (id)childWithAddress:(NSString *)address
+{
+    for (id child in self.children)
+    {
+        if ([child respondsToSelector:@selector(address)])
+        {
+            if([(NSString *)[child address] isEqualToString:address])
+            {
+                return child;
+            }
+        }
+    }
+    
+    return nil;
+}
+
 @end

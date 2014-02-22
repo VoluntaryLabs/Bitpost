@@ -7,6 +7,7 @@
 //
 
 #import "BMClient.h"
+#import "BMAddressed.h"
 
 @implementation BMClient
 
@@ -59,16 +60,16 @@ static BMClient *sharedBMClient;
 
 - (NSString *)labelForAddress:(NSString *)addressString
 {
-    BMContact *contact = [[self contacts] contactWithAddress:addressString];
-    if (contact && contact.label && ![contact.label isEqualToString:@""])
+    for (id child in self.children)
     {
-        return contact.label;
-    }
-    
-    BMIdentity *identity = [[self identities] identityWithAddress:addressString];
-    if (identity && identity.label && ![identity.label isEqualToString:@""])
-    {
-        return identity.label;
+        if ([child respondsToSelector:@selector(childWithAddress:)])
+        {
+            BMAddressed *addr = [child childWithAddress:addressString];
+            if (addr && addr.label && ![addr.label isEqualToString:@""])
+            {
+                return addr.label;
+            }
+        }
     }
     
     return nil;

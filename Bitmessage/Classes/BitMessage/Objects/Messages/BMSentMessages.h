@@ -11,6 +11,4 @@
 @interface BMSentMessages : BMNode
 
 
-- (void)refresh;
-
 @end

@@ -76,19 +76,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
 
-- (BMIdentity *)identityWithAddress:(NSString *)address
-{
-    for (BMIdentity *child in self.children)
-    {
-        if ([child.address isEqualToString:address])
-        {
-            return child;
-        }
-    }
-    
-    return nil;
-}
-
 - (NSString *)firstIdentityAddress
 {
     BMIdentity *identity = (BMIdentity *)self.children.firstObject;

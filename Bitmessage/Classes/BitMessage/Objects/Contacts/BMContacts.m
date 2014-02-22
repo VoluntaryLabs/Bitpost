@@ -50,18 +50,6 @@
     return contacts;
 }
 
-- (BMContact *)contactWithAddress:(NSString *)address
-{
-    for (BMContact *contact in self.children)
-    {
-        if ([contact.address isEqualToString:address])
-        {
-            return contact;
-        }
-    }
-    return nil;
-}
-
 - (void)add
 {
     BMContact *newContact = [[BMContact alloc] init];

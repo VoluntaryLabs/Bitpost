@@ -9,6 +9,9 @@
 #import "BMAddressed.h"
 #import "BMAddress.h"
 
+#import "AppController.h"
+#import "BMClient.h"
+
 @implementation BMAddressed
 
 - (id)init
@@ -62,6 +65,26 @@
 - (BOOL)canLiveUpdate
 {
     return YES;
+}
+
+// -----------------------
+
+- (void)message
+{
+    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
+    DraftController *draftController = [appController newDraft];
+    
+    [draftController.to setStringValue:self.address];
+    
+    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
+    
+    if (from)
+    {
+        [draftController.from setStringValue:from];
+    }
+    
+    [draftController.subject becomeFirstResponder];
+    [draftController updateSendButton];
 }
 
 @end

@@ -12,6 +12,8 @@
 #import "BMMessage.h"
 #import "BMClient.h"
 #import "BMIdentity.h"
+#import "NSString+BM.h"
+#import "BMAddress.h"
 
 @implementation DraftController
 
@@ -40,20 +42,27 @@
     [self setupDefaultValues];
     [self updateWindow];
     [self.window setDelegate:self];
+    
+    [self.to setDelegate:self];
+    [self.from setDelegate:self];
+}
+
+
+- (NSColor *)fieldTextColor
+{
+    return [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
 }
 
 - (void)setupViewPositions
 {
-    
     [self.bodyArea setBackgroundColor:[NSColor whiteColor]];
     [self.bodyArea setNeedsDisplay:YES];
     [self.topBackground setBackgroundColor:[NSColor colorWithCalibratedWhite:.95 alpha:1.0]];
     [self removeFocusRings];
 
-    NSColor *textColor = [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
-    [self.to setTextColor:textColor];
-    [self.from setTextColor:textColor];
-    [self.subject setTextColor:textColor];
+    [self.to setTextColor:self.fieldTextColor];
+    [self.from setTextColor:self.fieldTextColor];
+    [self.subject setTextColor:self.fieldTextColor];
     
     //[[self.to      superview] setY:[self.from superview].maxY + 2];
     [[self.to superview] setY:[self.from superview].y - [self.to superview].height - 1];
@@ -144,9 +153,7 @@
 
 - (BOOL)canSend
 {
-    return
-        ![self.fromAddress isEqualToString:@""] &&
-        ![self.toAddress isEqualToString:@""];
+    return [self hasValidAddresses];
 }
 
 - (IBAction)send:(id)sender
@@ -196,6 +203,32 @@
     [self.bodyText setSelectedRange: NSMakeRange(charIndex, 0)];
     [self.scrollView becomeFirstResponder];
     //[self.bodyText becomeFirstResponder];
+}
+
+// --- delegate ---
+
+- (BOOL)hasValidAddresses
+{
+    return
+        [BMAddress isValidAddress:[self.to.stringValue strip]] &&
+        [BMAddress isValidAddress:[self.from.stringValue strip]];
+}
+
+-(void)controlTextDidChange:(NSNotification *)note
+{
+    NSLog(@"draft controlTextDidChange");
+
+    NSTextField *field = [note object];
+    NSString *address = [field.stringValue strip];
+    
+    if ([BMAddress isValidAddress:address])
+    {
+        field.textColor = self.fieldTextColor;
+    }
+    else
+    {
+        field.textColor = [NSColor redColor];
+    }
 }
 
 @end

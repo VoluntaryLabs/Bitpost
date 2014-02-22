@@ -14,6 +14,7 @@
 
 + (BMChannel *)withDict:(NSDictionary *)dict;
 
+
 - (void)create;
 //- (void)join;
 - (void)delete;

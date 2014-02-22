@@ -1,7 +1,18 @@
 
 todo
 
-- channels?
+
+- filter BMReceivedMessages into channels and subscriptions
+  - if TO field is in identities -> receviedMessages children
+  - if TO field is in channels -> channels children
+  - if TO field is in subscriptions -> subscriptions children
+
+should inbox be separated from received messages?
+
+- deal with deleted or read messages reappearing - add db
+
+
+- select item after add/update
 
 - compose button/menu
 
