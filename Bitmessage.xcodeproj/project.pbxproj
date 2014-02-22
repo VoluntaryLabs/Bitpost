@@ -29,6 +29,7 @@
 		AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86218B8175A008CEEB4 /* BMContactView.m */; };
 		AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */; };
 		AA2AC87118B81D76008CEEB4 /* SignalHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC87018B81D76008CEEB4 /* SignalHandler.m */; };
+		AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC87318B88FF2008CEEB4 /* BMIdentityView.m */; };
 		AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA31560A18AAE02D0017E94F /* Cocoa.framework */; };
 		AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AA31561318AAE02D0017E94F /* InfoPlist.strings */; };
 		AA31561718AAE02D0017E94F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31561618AAE02D0017E94F /* main.m */; };
@@ -187,6 +188,8 @@
 		AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+extra.m"; sourceTree = "<group>"; };
 		AA2AC86F18B81D76008CEEB4 /* SignalHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalHandler.h; sourceTree = "<group>"; };
 		AA2AC87018B81D76008CEEB4 /* SignalHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalHandler.m; sourceTree = "<group>"; };
+		AA2AC87218B88FF2008CEEB4 /* BMIdentityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMIdentityView.h; sourceTree = "<group>"; };
+		AA2AC87318B88FF2008CEEB4 /* BMIdentityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMIdentityView.m; sourceTree = "<group>"; };
 		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -385,6 +388,8 @@
 		AA2AC85C18B8175A008CEEB4 /* Addressed */ = {
 			isa = PBXGroup;
 			children = (
+				AA2AC87218B88FF2008CEEB4 /* BMIdentityView.h */,
+				AA2AC87318B88FF2008CEEB4 /* BMIdentityView.m */,
 				AA2AC85D18B8175A008CEEB4 /* BMAddressedView.h */,
 				AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */,
 				AA2AC85F18B8175A008CEEB4 /* BMChannelView.h */,
@@ -1025,6 +1030,7 @@
 				AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */,
 				AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */,
 				AA31568E18AAE0E00017E94F /* BMContacts.m in Sources */,
+				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
 				AA2AC87118B81D76008CEEB4 /* SignalHandler.m in Sources */,
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,

@@ -195,6 +195,8 @@
     {
         [self setReadState:YES];
         [self postParentChanged];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
+
     }
 }
 

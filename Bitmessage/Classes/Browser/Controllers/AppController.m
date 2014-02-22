@@ -132,9 +132,9 @@
     
     NSLog(@"unreadCountChanged");
     
-    NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+    //NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
     
-    [newMessageSound play];
+    //[newMessageSound play];
 }
 
 - (IBAction)openInfoPanel:(id)sender

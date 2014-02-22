@@ -66,14 +66,15 @@
 {
     NSLog(@"updating identity '%@' '%@'", self.address, self.label);
     
-    [self delete];
-    [self insert];
+    //[self delete];
+    //[self insert];
     
-    [self postParentChanged];
+    //[self postParentChanged];
 }
 
 - (void)insert
 {
+    /*
     NSLog(@"insert identity '%@' '%@'", self.address, self.label);
     
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
@@ -85,6 +86,7 @@
     
     id response = [message parsedResponseValue];
     NSLog(@"insert response = %@", response);
+    */
 }
 
 - (BOOL)canLiveUpdate

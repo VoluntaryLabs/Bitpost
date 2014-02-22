@@ -231,4 +231,14 @@
     }
 }
 
+- (NSArray *)control:(NSControl *)control
+            textView:(NSTextView *)textView
+         completions:(NSArray *)words
+ forPartialWordRange:(NSRange)charRange
+ indexOfSelectedItem:(NSInteger *)index
+{
+    
+    return @[@"foobar", @"foobaz", @"fooqaz"];
+}
+
 @end
