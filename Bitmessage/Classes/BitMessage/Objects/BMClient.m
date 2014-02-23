@@ -42,6 +42,9 @@ static BMClient *sharedBMClient;
     [self.children addObject:self.channels];
     [self.children addObject:self.subscriptions];
     
+    self.deletedMessagesDB = [[BMDatabase alloc] init];
+    [self.deletedMessagesDB setName:@"deletedMessages"];
+    
     [self deepFetch];
     
     return self;

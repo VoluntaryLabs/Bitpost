@@ -8,6 +8,7 @@
 
 #import "BMIdentity.h"
 #import "BMProxyMessage.h"
+#import "BMServerProcess.h"
 
 @implementation BMIdentity
 
@@ -66,10 +67,12 @@
 {
     NSLog(@"updating identity '%@' '%@'", self.address, self.label);
     
+    [[BMServerProcess sharedBMServerProcess] setLabel:self.label onAddress:self.address];
+    
     //[self delete];
     //[self insert];
     
-    //[self postParentChanged];
+    [self postParentChanged];
 }
 
 - (void)insert
@@ -91,7 +94,7 @@
 
 - (BOOL)canLiveUpdate
 {
-    return YES;
+    return NO;
 }
 
 @end

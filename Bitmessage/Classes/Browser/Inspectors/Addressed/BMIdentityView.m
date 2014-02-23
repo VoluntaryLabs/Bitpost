@@ -10,5 +10,10 @@
 
 @implementation BMIdentityView
 
+- (void)setup
+{
+    [super setup];
+    [self.addressField setEditable:NO];
+}
 
 @end

@@ -66,9 +66,11 @@ static BMServerProcess *shared = nil;
 
 - (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
     [self terminate];
     [self.keysFile setLabel:aLabel onAddress:anAddress];
     [self launch];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
     return YES;
 }
 

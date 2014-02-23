@@ -12,6 +12,7 @@
 #import "BMMessages.h"
 #import "BMSubscriptions.h"
 #import "BMChannels.h"
+#import "BMDatabase.h"
 
 @interface BMClient : BMNode
 
@@ -20,6 +21,8 @@
 @property (strong, nonatomic) BMMessages *messages;
 @property (strong, nonatomic) BMSubscriptions *subscriptions;
 @property (strong, nonatomic) BMChannels *channels;
+@property (strong, nonatomic) BMDatabase *deletedMessagesDB;
+
 
 + (BMClient *)sharedBMClient;
 

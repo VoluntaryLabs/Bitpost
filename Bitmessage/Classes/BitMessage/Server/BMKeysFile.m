@@ -144,7 +144,7 @@
 {
     [self read];
 
-    NSString *key = [NSString stringWithFormat:@"[%@]", aLabel];
+    NSString *key = [NSString stringWithFormat:@"[%@]", anAddress];
     NSMutableDictionary *addressDict = [self.dict objectForKey:key];
     
     if (!addressDict)
@@ -157,9 +157,9 @@
         return NO;
     }
     
-    [addressDict setObject:aLabel.encodedBase64 forKey:@"label"];
+    [addressDict setObject:aLabel forKey:@"label"];
 
-    [self read];
+    [self write];
     return YES;
 }
 
