@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Task.h"
+#import "BMKeysFile.h"
 
 @interface BMServerProcess : NSObject
 
@@ -20,11 +21,18 @@
 @property (assign) int port;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) BMKeysFile *keysFile;
+
 
 - (void)launch;
 - (BOOL)isRunning;
 - (void)terminate;
 - (BOOL)canConnect;
-//- (NSString *)status;
+
+
+// hack around API's inability to do this for all identities
+// this method shuts down the server and modifies the keys.dat file directly
+
+- (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress;
 
 @end

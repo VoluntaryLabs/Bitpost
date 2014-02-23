@@ -50,7 +50,7 @@
     unichar charBuffer[length];
     [self getCharacters:charBuffer];
     
-    for (location; location < length; location++)
+    for (; location < length; location++)
     {
         if (![characterSet characterIsMember:charBuffer[location]])
         {
@@ -68,7 +68,7 @@
     unichar charBuffer[length];
     [self getCharacters:charBuffer];
     
-    for (length; length > 0; length--)
+    for (; length > 0; length--)
     {
         if (![characterSet characterIsMember:charBuffer[length - 1]])
         {
@@ -104,12 +104,10 @@
     return [[self stringByTrimmingLeadingWhitespaceAndNewline] stringByTrimmingTrailingWhitespaceAndNewline];
 }
 
-
 - (NSString *)stringWithReturnsRemoved
 {
     return [self stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 }
-
 
 @end
 

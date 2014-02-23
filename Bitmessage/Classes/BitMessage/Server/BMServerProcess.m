@@ -21,7 +21,8 @@ static BMServerProcess *shared = nil;
 {
     if (!shared)
     {
-        shared = [[BMServerProcess alloc] init];
+        shared = [BMServerProcess alloc];
+        shared = [shared init];
     }
     
     return shared;
@@ -35,24 +36,49 @@ static BMServerProcess *shared = nil;
     self.username = @"bitmarket";
     self.password = @"87342873428901648473823";
     
+    self.keysFile = [[BMKeysFile alloc] init];
+    [self setupKeysDat];
     return self;
+}
+
+- (long)entropy
+{
+    // yeah, this isn't great
+    unsigned int entropy = (unsigned int)time(NULL) + (unsigned int)clock();
+    srandom(entropy);
+    return random();
+}
+
+- (void)randomizeLogin
+{
+    self.username = [NSString stringWithFormat:@"%i", (int)self.entropy];
+    self.password = [NSString stringWithFormat:@"%i", (int)self.entropy];
+    [self.keysFile setApiUsername:self.username];
+    [self.keysFile setApiPassword:self.password];
+}
+
+- (void)setupKeysDat
+{
+    [self.keysFile backup];
+    [self.keysFile setupForDaemon];
+    [self randomizeLogin];
+}
+
+- (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress
+{
+    [self terminate];
+    [self.keysFile setLabel:aLabel onAddress:anAddress];
+    [self launch];
+    return YES;
 }
 
 - (void)launch
 {
-    /*
-    if (self.isLastServerRunning)
-    {
-        return;
-    }
-    */
-    
     if (self.isRunning)
     {
+        NSLog(@"Attempted to launch BM server more than once.");
         return;
     }
-    
-    //[self killLastServerIfNeeded];
     
     _task = (Task *)[[NSTask alloc] init];
     _inpipe = [NSPipe pipe];
@@ -86,17 +112,25 @@ static BMServerProcess *shared = nil;
     }
     else
     {
-        for (int i = 0; i < 5; i ++)
-        {
-            if ([self canConnect])
-            {
-                NSLog(@"connected to server");
-                break;
-            }
-            NSLog(@"waiting to connect to server...");
-            sleep(1);
-        }
+        [self waitOnConnect];
     }
+}
+
+- (BOOL)waitOnConnect
+{
+    for (int i = 0; i < 5; i ++)
+    {
+        if ([self canConnect])
+        {
+            NSLog(@"connected to server");
+            return YES;
+        }
+        
+        NSLog(@"waiting to connect to server...");
+        sleep(1);
+    }
+    
+    return NO;
 }
 
 - (void)terminate
@@ -104,12 +138,10 @@ static BMServerProcess *shared = nil;
     NSLog(@"Killing pybitmessage process...");
     [_task terminate];
     self.task = nil;
-    //[self forgetServerPid];
 }
 
 - (BOOL)isRunning
 {
-    //return [self isLastServerRunning] || (_task && [_task isRunning]);
     return (_task && [_task isRunning]);
 }
 

@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
 		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
-		AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */; };
+		AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11BD18B9097A00E61591 /* BMServerProcess.m */; };
+		AA1A11C118B909B300E61591 /* BMKeysFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11C018B909B300E61591 /* BMKeysFile.m */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
 		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
@@ -152,8 +153,10 @@
 /* Begin PBXFileReference section */
 		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
 		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
-		AA1AA68218B2C5BE00AE72F6 /* BMServerProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMServerProcess.h; path = Bitmessage/Classes/BitMessage/BMServerProcess.h; sourceTree = SOURCE_ROOT; };
-		AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMServerProcess.m; path = Bitmessage/Classes/BitMessage/BMServerProcess.m; sourceTree = SOURCE_ROOT; };
+		AA1A11BC18B9097A00E61591 /* BMServerProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerProcess.h; sourceTree = "<group>"; };
+		AA1A11BD18B9097A00E61591 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerProcess.m; sourceTree = "<group>"; };
+		AA1A11BF18B909B300E61591 /* BMKeysFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKeysFile.h; sourceTree = "<group>"; };
+		AA1A11C018B909B300E61591 /* BMKeysFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKeysFile.m; sourceTree = "<group>"; };
 		AA1AA69A18B41C9E00AE72F6 /* message_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_active.png; sourceTree = "<group>"; };
 		AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_inactive.png; sourceTree = "<group>"; };
 		AA1AA6A118B4265900AE72F6 /* Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
@@ -357,6 +360,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA1A11BB18B9097A00E61591 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				AA1A11BC18B9097A00E61591 /* BMServerProcess.h */,
+				AA1A11BD18B9097A00E61591 /* BMServerProcess.m */,
+				AA1A11BF18B909B300E61591 /* BMKeysFile.h */,
+				AA1A11C018B909B300E61591 /* BMKeysFile.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		AA1AA6BF18B450C900AE72F6 /* Task */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,9 +509,8 @@
 		AA31563F18AAE0E00017E94F /* BitMessage */ = {
 			isa = PBXGroup;
 			children = (
+				AA1A11BB18B9097A00E61591 /* Server */,
 				AA1AA6BF18B450C900AE72F6 /* Task */,
-				AA1AA68218B2C5BE00AE72F6 /* BMServerProcess.h */,
-				AA1AA68318B2C5BE00AE72F6 /* BMServerProcess.m */,
 				AA31564018AAE0E00017E94F /* Categories */,
 				AA31564518AAE0E00017E94F /* Objects */,
 				AA31566918AAE0E00017E94F /* Proxy */,
@@ -987,6 +1000,7 @@
 				AA2AC84E18B7FBFE008CEEB4 /* InfoPanelController.m in Sources */,
 				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
 				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
+				AA1A11C118B909B300E61591 /* BMKeysFile.m in Sources */,
 				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,
 				AA31569018AAE0E00017E94F /* BMIdentity.m in Sources */,
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
@@ -994,6 +1008,7 @@
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
 				AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */,
 				AA31569518AAE0E00017E94F /* BMReceivedMessages.m in Sources */,
+				AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */,
 				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
@@ -1021,7 +1036,6 @@
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
 				AAF40CB818B59FF7005BA55E /* BMSentMessage.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
-				AA1AA68418B2C5BE00AE72F6 /* BMServerProcess.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
 				AA2AC84F18B7FBFE008CEEB4 /* ProgressController.m in Sources */,
 				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
