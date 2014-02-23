@@ -37,10 +37,24 @@
 
 - (NSMutableArray *)getAllInboxMessages
 {
-    return [[[BMClient sharedBMClient] messages]
+    NSMutableArray *messages = [[[BMClient sharedBMClient] messages]
             getMessagesWithMethod:@"getAllInboxMessages"
             andKey:@"inboxMessages"
             class:[BMReceivedMessage class]];
+
+    // remove deleted
+    
+    NSMutableArray *results = [NSMutableArray array];
+    for (BMReceivedMessage *message in messages)
+    {
+        if (![self.client.deletedMessagesDB hasMarked:message.msgid])
+        {
+            [results addObject:message];
+        }
+    }
+    
+    
+    return results;
 }
 
 - (NSString *)nodeTitle

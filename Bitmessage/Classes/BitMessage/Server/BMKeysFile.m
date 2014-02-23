@@ -60,7 +60,7 @@
     
     for (NSString *line in lines)
     {
-        NSLog(@"line : '%@'", line);
+        //NSLog(@"line : '%@'", line);
         
         if ([line hasPrefix:@"["])
         {
@@ -79,7 +79,7 @@
         }
     }
     
-    NSLog(@"read keys: %@", dict);
+    //NSLog(@"read keys: %@", dict);
     
     self.dict = dict;
 }

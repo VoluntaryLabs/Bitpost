@@ -14,9 +14,10 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableDictionary *dict;
+@property (assign, nonatomic) int daysToCache;
 
 - (void)mark:(NSString *)messageId;
-- (BOOL)isMarked:(NSString *)messageId;
+- (BOOL)hasMarked:(NSString *)messageId;
 
 - (void)removeOldKeys;
 

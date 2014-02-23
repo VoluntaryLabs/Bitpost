@@ -8,6 +8,7 @@
 
 #import "BMNode.h"
 #import "NSObject+extra.h"
+#import "BMClient.h"
 
 @implementation BMNode
 
@@ -172,5 +173,11 @@
     
     return nil;
 }
+
+- (BMClient *)client
+{
+    return [BMClient sharedBMClient];
+}
+
 
 @end

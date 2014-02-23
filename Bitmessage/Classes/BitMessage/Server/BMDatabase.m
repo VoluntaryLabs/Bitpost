@@ -14,6 +14,7 @@
 {
     self = [super init];
     self.name = @"default";
+    self.daysToCache = 10;
     return self;
 }
 // --- read / write ---
@@ -27,6 +28,7 @@
 {
     _name = name;
     [self read];
+    [self removeOldKeys];
 }
 
 - (void)read
@@ -40,13 +42,12 @@
     else
     {
         self.dict = [NSMutableDictionary dictionary];
-        
     }
 }
 
 - (void)write
 {
-    [[NSUserDefaults standardUserDefaults] dictionaryForKey:self.dbKey];
+    [[NSUserDefaults standardUserDefaults] setObject:self.dict forKey:self.dbKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -64,7 +65,7 @@
     [self write];
 }
 
-- (BOOL)isMarked:(NSString *)messageId
+- (BOOL)hasMarked:(NSString *)messageId
 {
     return [self.dict objectForKey:messageId] != nil;
 }
@@ -75,7 +76,8 @@
     {
         NSNumber *d = [self.dict objectForKey:key];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[d longLongValue]];
-        if ([date timeIntervalSinceNow] > 60*60*24*10) // ten days
+        int secondsInDay = 60*60*24;
+        if ([date timeIntervalSinceNow] > secondsInDay*self.daysToCache)
         {
             [self.dict removeObjectForKey:key];
         }

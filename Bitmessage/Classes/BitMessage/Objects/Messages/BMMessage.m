@@ -155,6 +155,8 @@
 
 - (void)delete
 {
+    [self.client.deletedMessagesDB mark:self.msgid];
+    
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"trashMessage"];
     NSArray *params = [NSArray arrayWithObjects:self.msgid, nil];
@@ -189,10 +191,17 @@
     //_read = isRead;
 }
 
+- (BOOL)read
+{
+    return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
+    //return ([self.client.deletedMessagesDB hasMarked:self.msgid]);
+}
+
 - (void)markAsRead
 {
     if (!self.read)
     {
+        [self.client.readMessagesDB mark:self.msgid];
         [self setReadState:YES];
         [self postParentChanged];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) BMMessages *messages;
 @property (strong, nonatomic) BMSubscriptions *subscriptions;
 @property (strong, nonatomic) BMChannels *channels;
+@property (strong, nonatomic) BMDatabase *readMessagesDB;
 @property (strong, nonatomic) BMDatabase *deletedMessagesDB;
 
 

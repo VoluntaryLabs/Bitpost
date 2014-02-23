@@ -10,6 +10,7 @@
 #import "NSString+BM.h"
 
 @class BMNode;
+@class BMClient;
 
 @interface BMNode : NSObject
 
@@ -42,5 +43,7 @@
 
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
+
+- (BMClient *)client;
 
 @end
