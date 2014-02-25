@@ -17,4 +17,5 @@
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTextView *textView;
 
+
 @end

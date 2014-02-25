@@ -292,10 +292,17 @@
     }
     
     NavColumn *inColumn = [self.navColumns objectAtIndex:index + 1];
-    [inColumn selectRowIndex:0];
-    //[self shouldSelectNode:[inColumn nodeA] inColumn:inColumn];
-    [inColumn.window makeFirstResponder:inColumn.tableView];
-    //[inColumn.tableView becomeFirstResponder];
+    if ([inColumn respondsToSelector:@selector(selectRowIndex:)])
+    {
+        [inColumn selectRowIndex:0];
+        //[self shouldSelectNode:[inColumn nodeA] inColumn:inColumn];
+        [inColumn.window makeFirstResponder:inColumn.tableView];
+        //[inColumn.tableView becomeFirstResponder];
+    }
+    else if ([inColumn respondsToSelector:@selector(selectFirstResponder)])
+    {
+        [inColumn performSelector:@selector(selectFirstResponder)];
+    }
 }
 
 

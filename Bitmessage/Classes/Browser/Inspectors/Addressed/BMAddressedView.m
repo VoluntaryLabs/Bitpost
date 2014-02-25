@@ -207,5 +207,12 @@
     [self.addressField setString:self.contact.address];
 }
 
+- (void)selectFirstResponder
+{
+    [self.window makeFirstResponder:self.labelField];
+    [self.labelField selectAll:nil];
+//    [labelField becomeFirstResponder];
+}
+
 
 @end

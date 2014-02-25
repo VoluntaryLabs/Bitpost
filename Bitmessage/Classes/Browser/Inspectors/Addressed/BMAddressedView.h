@@ -25,4 +25,6 @@
 - (void)syncToNode;
 - (void)syncFromNode;
 
+- (void)selectFirstResponder;
+
 @end

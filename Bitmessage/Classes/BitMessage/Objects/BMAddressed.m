@@ -90,11 +90,13 @@
     [draftController updateSendButton];
 }
 
+/*
 - (NSMutableArray *)children
 {
     // should we have TO and FROM children instead
     return [[[BMClient sharedBMClient] messages] inboxMessagesFromAddress:self.address];
 }
+*/
 
 // UI - move to category
 

@@ -217,7 +217,7 @@
         CGFloat fontSize = [(NSFont *)[titleAttributes objectForKey:NSFontAttributeName] pointSize];
 
         title = [self string:title
-              clippedToWidth:f.size.width*.5
+              clippedToWidth:f.size.width*.6
                forAttributes:titleAttributes];
         
         [title drawAtPoint:NSMakePoint(cellFrame.origin.x + leftMargin,
@@ -226,6 +226,10 @@
         
         NSDictionary *subtitleAttributes = [self subtitleAttributes];
         CGFloat subtitleFontSize = [(NSFont *)[subtitleAttributes objectForKey:NSFontAttributeName] pointSize];
+        
+        subtitle = [self string:subtitle
+              clippedToWidth:f.size.width*.7
+               forAttributes:titleAttributes];
         
         [subtitle drawAtPoint:NSMakePoint(cellFrame.origin.x + leftMargin,
                                        cellFrame.origin.y + cellFrame.size.height*.6 - subtitleFontSize/2.0 - 3)

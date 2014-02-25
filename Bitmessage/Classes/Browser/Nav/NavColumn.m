@@ -10,7 +10,7 @@
 #import "TableCell.h"
 #import "NSView+sizing.h"
 #import "NSEvent+keys.h"
-#import "NavRowView.h"
+//#import "NavRowView.h"
 
 @implementation NavColumn
 
@@ -286,6 +286,8 @@
 }
 
 /*
+// This was slow and choppy. Why?
+ 
 - (NSView *)tableView:(NSTableView *)aTableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex
 {
     NavRowView *rowView = [aTableView makeViewWithIdentifier:@"NavRowView" owner:self];
