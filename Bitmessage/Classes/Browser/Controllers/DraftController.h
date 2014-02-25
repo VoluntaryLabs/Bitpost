@@ -31,6 +31,8 @@
 - (IBAction)send:(id)sender;
 - (void)setCursorForReply;
 
+- (void)open;
+
 - (void)updateSendButton;
 
 @end

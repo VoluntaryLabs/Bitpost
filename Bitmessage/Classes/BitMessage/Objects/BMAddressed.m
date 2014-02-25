@@ -87,7 +87,7 @@
     }
     
     [draftController.subject becomeFirstResponder];
-    [draftController updateSendButton];
+    [draftController open];
 }
 
 /*

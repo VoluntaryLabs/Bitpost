@@ -128,7 +128,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Controllers/AppController.m"
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Controllers/DraftController.m"
-            timestampString = "414895606.552608"
+            timestampString = "414987883.082005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "+openNewDraft"
             landmarkType = "5">
          </BreakpointContent>

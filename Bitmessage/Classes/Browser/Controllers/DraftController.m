@@ -15,6 +15,7 @@
 #import "NSString+BM.h"
 #import "BMAddress.h"
 #import "AppController.h"
+#import "NSScrollView+extra.h"
 
 @implementation DraftController
 
@@ -22,22 +23,25 @@
 {
     DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
     
-    // place window
+    //[draft placeWindow];
     
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"draftOpened" object:self];
+    //AppController *appDelegate = (AppController *)[[NSApplication sharedApplication] delegate];
+    //[appDelegate.drafts addObject:self];
+    [draft open];
+    return draft;
+}
+
+- (void)placeWindow
+{
     NSRect f = [[NSApplication sharedApplication] mainWindow].frame;
     NSPoint topLeft = f.origin;
     topLeft.y += f.size.height;
     topLeft.y -= 20;
     topLeft.x += 20;
-    NSWindow *window = [[draft view] window];
+    NSWindow *window = [[self view] window];
     [window setFrameTopLeftPoint:topLeft];
     [window makeKeyAndOrderFront:self];
-    
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"draftOpened" object:self];
-    //AppController *appDelegate = (AppController *)[[NSApplication sharedApplication] delegate];
-    //[appDelegate.drafts addObject:self];
-    
-    return draft;
 }
 
 - (id)init
@@ -207,6 +211,14 @@
         [self.sendButton setImage:[NSImage imageNamed:@"send_inactive"]];
         [self.sendButton setEnabled:NO];
     }
+}
+
+- (void)open
+{
+    [self placeWindow];
+    [self updateSendButton];
+    [self.scrollView scrollToTop];
+    [self.scrollView.window makeKeyAndOrderFront:nil];
 }
 
 - (void)close

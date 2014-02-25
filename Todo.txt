@@ -1,30 +1,24 @@
 
 todo
 
+- use address labels in compose & autocomplete
+- find
+- scroll compose window to top
+
 [adam]
 - alphabetically sort identities, channels, subscriptions
 
 
-- on shutdown, turn off daemon mode so default client can work?
+- tab to move to next input in contact views
 
-- filter BMReceivedMessages into channels and subscriptions
-  - if TO field is in identities -> receviedMessages children
-  - if TO field is in channels -> channels children
-  - if TO field is in subscriptions -> subscriptions children
-
+- on normal shutdown, turn off daemon mode so default client can work?
 
 - select item after add/update
 
 - compose button/menu
 
-- auto refresh table reload?
-- keyboard shortcuts (delete to delete message) - generic with actions?
-
 - fix selection after reload (stay on same message if possible, not row index)
 
-- use address labels in compose & autocomplete
-
-- find
 
 - stack draft windows when opening?
 
@@ -34,11 +28,7 @@ todo
 
 - cleanup base64 in dicts
 
-- back arrow to navigate
-
 - after a item remove, nav to prev column if column is empty
-
-- avoid contact update on label or address change until done editing
 
 
 

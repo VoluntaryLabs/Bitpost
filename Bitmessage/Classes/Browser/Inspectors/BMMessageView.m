@@ -153,6 +153,11 @@
     [NSBezierPath fillRect:dirtyRect];
 }
 
+- (NSString *)selectedContent
+{
+    return [[self.textView string]
+            substringWithRange:[self.textView selectedRange]];
+}
 
 @end
 
@@ -260,28 +265,38 @@
                                 descriptionWithCalendarFormat:@"%b %d" timeZone:nil
                       locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
     
-    NSString *q =  [self.message.decodedBase64 stringByReplacingOccurrencesOfString:@"\n" withString:@"\n> "];
+    NSString *s = ((BMMessageView *)self.nodeView).selectedContent;
+    
+    if (s == nil || [s length] == 0)
+    {
+        s = self.message.decodedBase64;
+    }
+    
+    NSString *q =  [s stringByReplacingOccurrencesOfString:@"\n" withString:@"\n> "];
     q =  [@"> " stringByAppendingString:q];
     
     
     return [NSString stringWithFormat:@"\n\n\nOn %@, %@ wrote:\n%@\n", date, [self fromAddressLabel], q];
 }
 
-- (void)reply // hack
+- (void)reply // hack!
 {
-    //DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
-    //[[[draft view] window] makeKeyAndOrderFront:self];
     AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
     DraftController *draftController = [appController newDraft];
 
+    // set to
+    
     [draftController.to setStringValue:self.fromAddress];
     
-    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
+    // set from
     
+    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
     if (from)
     {
         [draftController.from setStringValue:from];
     }
+    
+    // set subject
     
     NSString *reSubject = self.subjectString;
     if (![reSubject hasPrefix:@"Re: "])
@@ -292,10 +307,9 @@
     [draftController.subject setStringValue:reSubject];
     
     [draftController.bodyText insertText:self.quotedMessage];
-    [draftController setCursorForReply];
-    [draftController updateSendButton];
     
-    //[self.drafts addObject:draft];
+    [draftController setCursorForReply];
+    [draftController open];
 }
 
 - (Class)viewClass

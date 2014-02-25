@@ -120,6 +120,7 @@
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
 		AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */; };
+		AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */; };
 		AAF40CB018B56183005BA55E /* refresh_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAE18B56183005BA55E /* refresh_active.png */; };
 		AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAF18B56183005BA55E /* refresh_inactive.png */; };
 		AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF40CB318B59543005BA55E /* NSEvent+keys.m */; };
@@ -332,6 +333,8 @@
 		AAB79BD718AEEAB70041B6B1 /* send_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_inactive.png; sourceTree = "<group>"; };
 		AAE0EE9E18BA92D100B7E9F3 /* BMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDatabase.h; sourceTree = "<group>"; };
 		AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDatabase.m; sourceTree = "<group>"; };
+		AAE0EEA418BC34DE00B7E9F3 /* NSScrollView+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScrollView+extra.h"; sourceTree = "<group>"; };
+		AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScrollView+extra.m"; sourceTree = "<group>"; };
 		AAF40CAE18B56183005BA55E /* refresh_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_active.png; sourceTree = "<group>"; };
 		AAF40CAF18B56183005BA55E /* refresh_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_inactive.png; sourceTree = "<group>"; };
 		AAF40CB218B59543005BA55E /* NSEvent+keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+keys.h"; sourceTree = "<group>"; };
@@ -652,6 +655,8 @@
 				AAF40CB318B59543005BA55E /* NSEvent+keys.m */,
 				AA2AC86C18B81815008CEEB4 /* NSTextView+extra.h */,
 				AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */,
+				AAE0EEA418BC34DE00B7E9F3 /* NSScrollView+extra.h */,
+				AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
 				AA7F6A9118B17B15009285EA /* BMMessageView.m in Sources */,
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
+				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AA31569118AAE0E00017E94F /* BMChannel.m in Sources */,
 				AA31568A18AAE0E00017E94F /* BMAddress.m in Sources */,
