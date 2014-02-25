@@ -22,9 +22,11 @@
 @property (assign, nonatomic) IBOutlet MarginTextView *bodyText;
 
 
-@property (assign, nonatomic) IBOutlet ColoredView *bodyArea;
+@property (strong, nonatomic) ColoredView *bodyArea;
 @property (assign, nonatomic) IBOutlet ColoredView *topBackground;
 //@property (assign, nonatomic) BOOL hasValidAddresses;
+
++ (DraftController *)openNewDraft;
 
 - (IBAction)send:(id)sender;
 - (void)setCursorForReply;

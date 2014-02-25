@@ -31,4 +31,25 @@
     return NO;
 }
 
+
+- (BOOL)isLeftArrow
+{
+    return [self keyCode] == 123;
+}
+
+- (BOOL)isRightArrow
+{
+    return [self keyCode] == 124;
+}
+
+- (BOOL)isUpArrow
+{
+    return [self keyCode] == 125;
+}
+
+- (BOOL)isDownArrow
+{
+    return [self keyCode] == 126;
+}
+
 @end

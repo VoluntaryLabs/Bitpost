@@ -107,4 +107,39 @@
     }
 }
 
+- (void)stackSubviewsTopToBottom
+{
+    CGFloat margin = 0.0;
+    
+    NSView *lastView = nil;
+    
+    for (NSView *view in self.subviews)
+    {
+        if (lastView)
+        {
+            [view setY:lastView.y - view.height - margin];
+        }
+        else
+        {
+            [view setY:self.height - view.height];
+        }
+        
+        [view setX:0];
+        lastView = view;
+    }
+}
+
+- (CGFloat)sumOfSubviewHeights
+{
+    CGFloat sum = 0.0;
+    
+    for (NSView *view in self.subviews)
+    {
+        sum += view.frame.size.height;
+    }
+    
+    return sum;
+}
+
+
 @end

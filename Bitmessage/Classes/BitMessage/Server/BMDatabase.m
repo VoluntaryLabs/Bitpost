@@ -31,6 +31,8 @@
     [self removeOldKeys];
 }
 
+// should probably move dbs to same folder as keys.dat
+
 - (void)read
 {
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:self.dbKey];

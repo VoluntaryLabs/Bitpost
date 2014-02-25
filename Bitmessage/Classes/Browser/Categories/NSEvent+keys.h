@@ -12,4 +12,9 @@
 
 - (BOOL)isDeleteDown;
 
+- (BOOL)isLeftArrow;
+- (BOOL)isRightArrow;
+- (BOOL)isUpArrow;
+- (BOOL)isDownArrow;
+
 @end

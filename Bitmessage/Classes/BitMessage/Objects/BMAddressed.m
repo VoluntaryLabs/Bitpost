@@ -11,6 +11,9 @@
 
 #import "AppController.h"
 #import "BMClient.h"
+#import "BMReceivedMessage.h"
+
+#import "Theme.h"
 
 @implementation BMAddressed
 
@@ -87,4 +90,24 @@
     [draftController updateSendButton];
 }
 
+- (NSMutableArray *)children
+{
+    // should we have TO and FROM children instead
+    return [[[BMClient sharedBMClient] messages] inboxMessagesFromAddress:self.address];
+}
+
+// UI - move to category
+
+- (CGFloat)nodeSuggestedWidth
+{
+    return 350.0;
+}
+
+- (NSColor *)columnBgColor
+{
+    return [Theme objectForKey:[NSString stringWithFormat:@"Messages-columnBgColor"]];
+}
+
+
 @end
+

@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
+#import "ColoredView.h"
 
 @interface NavColumn : NSView <NSTableViewDataSource, NSTableViewDelegate>
 
@@ -17,7 +18,13 @@
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTableView *tableView;
 @property (strong, nonatomic) NSTableColumn *tableColumn;
+@property (strong, nonatomic) ColoredView *documentView;
+@property (strong, nonatomic) ColoredView *headerView;
+@property (assign, nonatomic) BOOL isUpdating;
+
+- (id <NavNode>)selectedNode;
 
 - (void)selectRowIndex:(NSInteger)rowIndex;
+- (void)setupHeaderView:(NSView *)aView;
 
 @end

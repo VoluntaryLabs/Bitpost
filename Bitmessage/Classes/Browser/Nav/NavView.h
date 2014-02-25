@@ -28,4 +28,7 @@
 - (void)reloadedColumn:(NavColumn *)aColumn;
 - (void)updateActionStrip;
 
+- (void)leftArrowFrom:aColumn;
+- (void)rightArrowFrom:aColumn;
+
 @end

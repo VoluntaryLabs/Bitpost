@@ -39,6 +39,10 @@ static Theme *sharedTheme = nil;
     //[self setObject:[NSColor blueColor] forKey:@"BMSentMessages-inactive"];
     
     NSColor *column1Color = [NSColor colorWithCalibratedWhite:.09 alpha:1.0];
+    NSColor *column2Color = [NSColor colorWithCalibratedWhite:.09 alpha:1.0];
+    
+    [self setObject:column2Color forKey:@"Messages-columnBgColor"];
+    
     
     [self setObject:column1Color forKey:@"BMSentMessages-columnBgColor"];
     [self setObject:column1Color forKey:@"BMReceivedMessages-columnBgColor"];

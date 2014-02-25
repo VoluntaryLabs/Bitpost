@@ -120,6 +120,7 @@
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
 		AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */; };
+		AAE0EEA318BAEFF000B7E9F3 /* NavRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEA218BAEFF000B7E9F3 /* NavRowView.m */; };
 		AAF40CB018B56183005BA55E /* refresh_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAE18B56183005BA55E /* refresh_active.png */; };
 		AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAF18B56183005BA55E /* refresh_inactive.png */; };
 		AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF40CB318B59543005BA55E /* NSEvent+keys.m */; };
@@ -332,6 +333,8 @@
 		AAB79BD718AEEAB70041B6B1 /* send_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_inactive.png; sourceTree = "<group>"; };
 		AAE0EE9E18BA92D100B7E9F3 /* BMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDatabase.h; sourceTree = "<group>"; };
 		AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDatabase.m; sourceTree = "<group>"; };
+		AAE0EEA118BAEFF000B7E9F3 /* NavRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavRowView.h; sourceTree = "<group>"; };
+		AAE0EEA218BAEFF000B7E9F3 /* NavRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavRowView.m; sourceTree = "<group>"; };
 		AAF40CAE18B56183005BA55E /* refresh_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_active.png; sourceTree = "<group>"; };
 		AAF40CAF18B56183005BA55E /* refresh_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_inactive.png; sourceTree = "<group>"; };
 		AAF40CB218B59543005BA55E /* NSEvent+keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+keys.h"; sourceTree = "<group>"; };
@@ -815,13 +818,15 @@
 		AA7F6A9218B17B19009285EA /* Nav */ = {
 			isa = PBXGroup;
 			children = (
+				AA7F6A9618B17B19009285EA /* NavView.h */,
+				AA7F6A9718B17B19009285EA /* NavView.m */,
 				AA7F6A9318B17B19009285EA /* NavColumn.h */,
 				AA7F6A9418B17B19009285EA /* NavColumn.m */,
 				AA7F6A9518B17B19009285EA /* NavNode.h */,
-				AA7F6A9618B17B19009285EA /* NavView.h */,
-				AA7F6A9718B17B19009285EA /* NavView.m */,
 				AA7F6A9818B17B19009285EA /* TableCell.h */,
 				AA7F6A9918B17B19009285EA /* TableCell.m */,
+				AAE0EEA118BAEFF000B7E9F3 /* NavRowView.h */,
+				AAE0EEA218BAEFF000B7E9F3 /* NavRowView.m */,
 			);
 			path = Nav;
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 				AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */,
 				AA2AC84E18B7FBFE008CEEB4 /* InfoPanelController.m in Sources */,
 				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
+				AAE0EEA318BAEFF000B7E9F3 /* NavRowView.m in Sources */,
 				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
 				AA1A11C118B909B300E61591 /* BMKeysFile.m in Sources */,
 				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,

@@ -1,42 +1,37 @@
+//
+//  NavRowView.m
+//  Bitmessage
+//
+//  Created by Steve Dekorte on 2/23/14.
+//  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
+//
 
+#import "NavRowView.h"
+#import "NSView+sizing.h"
 
-#import "TableCell.h"
-//#import "BrowserNode.h"
+@implementation NavRowView
 
-@implementation TableCell
-
-- (id)init
+- (BOOL)isHighlighted
 {
-    self = [super init];
-    self.leftMarginRatio = 0.5;
-	//[self setTextColor:[NSColor whiteColor]];
-	//[self setBackgroundColor:[NSColor blackColor]];
-
-    return self;
+    return [self.tableView selectedRow] == self.rowIndex;
 }
 
-
-- (void)setupMenu
+- (BOOL)wantsDefaultClipping
 {
-    /*
-    BrowserNode *node = self.representedObject;
-    
-    if (node && node.actions.count)
+    return NO;
+}
+
+- (id)initWithFrame:(NSRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
     {
-        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu"];
-        
-        for (NSString *action in node.actions)
-        {
-            NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:action
-                                                          action:NSSelectorFromString(action)
-                                                   keyEquivalent:@""];
-            
-            [item setTarget:node];
-            [menu addItem:item];
-        }
-        [self setMenu:menu];
+        self.leftMarginRatio = 0.5;
+        [self setAutoresizesSubviews:YES];
+        [self setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
+        self.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
     }
-    */
+    return self;
 }
 
 - (NSColor *)textColorActive
@@ -72,8 +67,8 @@
     }
     
 	return [self isHighlighted] ?
-        [NSColor whiteColor] :
-        [NSColor colorWithCalibratedWhite:071.0/255.0 alpha:1.0];
+    [NSColor whiteColor] :
+    [NSColor colorWithCalibratedWhite:071.0/255.0 alpha:1.0];
 }
 
 - (NSColor *)bgColorActive
@@ -86,6 +81,7 @@
             return color;
         }
     }
+    
     return [NSColor colorWithCalibratedWhite:023.0/255.0 alpha:1.0];
 }
 
@@ -99,24 +95,13 @@
             return color;
         }
     }
+    
     return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
 }
 
 - (NSColor *)bgColor
 {
     return [self isHighlighted] ? [self bgColorActive] : [self bgColorInactive];
-}
-
-/*
-+ (NSColor *)selectedControlTextColor
-{
-    return [NSColor blueColor]; // does this DO anything?
-}
-*/
-
-- (NSRect)expansionFrameWithFrame:(NSRect)cellFrame inView:(NSView *)view
-{
-    return NSZeroRect; // to remove tool tip
 }
 
 - (NSString *)fontName
@@ -129,9 +114,9 @@
     CGFloat fontSize = 14.0;
     NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+            [self textColor], NSForegroundColorAttributeName,
+            font, NSFontAttributeName,
+            nil];
 }
 
 - (NSDictionary *)subtitleAttributes
@@ -139,9 +124,9 @@
     CGFloat fontSize = 12.0;
     NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+            [self textColor], NSForegroundColorAttributeName,
+            font, NSFontAttributeName,
+            nil];
 }
 
 - (NSDictionary *)noteAttributes
@@ -149,9 +134,9 @@
     CGFloat fontSize = 12.0;
     NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+            [self textColor], NSForegroundColorAttributeName,
+            font, NSFontAttributeName,
+            nil];
 }
 
 - (NSImage *)icon
@@ -166,14 +151,11 @@
     return [self.node nodeIconForState:stateName];
 }
 
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
+- (void)drawRect:(NSRect)dirtyRect
 {
-    NSRect f = cellFrame;
-    //f.origin.x -= 1;
-    //f.origin.y -= 1;
-    f.size.width = controlView.frame.size.width; // +1;
-    //f.size.height += 1;
-    
+//	[super drawRect:dirtyRect];
+    [self setWidth:self.tableView.width];
+    NSRect f = self.bounds;
     
     [[self bgColor] set];
     [NSBezierPath fillRect:f];
@@ -181,19 +163,18 @@
     NSString *title = [self.node nodeTitle];
     NSString *subtitle = [self.node nodeSubtitle];
     
-    CGFloat leftMargin = cellFrame.size.height * self.leftMarginRatio;
-
+    CGFloat leftMargin = self.bounds.size.height * self.leftMarginRatio;
+    
     NSImage *icon = nil; //[self icon];
     
     if (icon)
     {
         CGPoint center = CGPointMake((f.origin.x + (f.size.width / 2)),
                                      (f.origin.y + (f.size.height / 2)));
-
+        
         CGFloat w = icon.size.width;
         CGFloat h = icon.size.height;
         
-        //NSRect r = NSMakeRect(center.x/2 - w/2, center.y/2 -h/2, w, h);
         NSRect r = NSMakeRect(center.x - w/2, center.y -h/2 , w, h);
         
         [icon drawInRect:r];
@@ -205,31 +186,31 @@
         NSDictionary *titleAttributes = [self titleAttributes];
         CGFloat fontSize = [(NSFont *)[titleAttributes objectForKey:NSFontAttributeName] pointSize];
         
-
         
-        [title drawAtPoint:NSMakePoint(cellFrame.origin.x+leftMargin,
-                                      cellFrame.origin.y + cellFrame.size.height/2.0 - fontSize/2.0 - 5)
+        
+        [title drawAtPoint:NSMakePoint(self.bounds.origin.x+leftMargin,
+                                       self.bounds.origin.y + self.bounds.size.height/2.0 - fontSize/2.0 - 5)
             withAttributes:titleAttributes];
     }
     else
     {
         NSDictionary *titleAttributes = [self titleAttributes];
         CGFloat fontSize = [(NSFont *)[titleAttributes objectForKey:NSFontAttributeName] pointSize];
-
+        
         title = [self string:title
               clippedToWidth:f.size.width*.5
                forAttributes:titleAttributes];
         
-        [title drawAtPoint:NSMakePoint(cellFrame.origin.x + leftMargin,
-                                      cellFrame.origin.y + cellFrame.size.height*.2 - fontSize/2.0 - 3)
-           withAttributes:titleAttributes];
+        [title drawAtPoint:NSMakePoint(self.bounds.origin.x + leftMargin,
+                                       self.bounds.origin.y + self.bounds.size.height*.2 - fontSize/2.0 - 3)
+            withAttributes:titleAttributes];
         
         NSDictionary *subtitleAttributes = [self subtitleAttributes];
         CGFloat subtitleFontSize = [(NSFont *)[subtitleAttributes objectForKey:NSFontAttributeName] pointSize];
         
-        [subtitle drawAtPoint:NSMakePoint(cellFrame.origin.x + leftMargin,
-                                       cellFrame.origin.y + cellFrame.size.height*.6 - subtitleFontSize/2.0 - 3)
-            withAttributes:subtitleAttributes];
+        [subtitle drawAtPoint:NSMakePoint(self.bounds.origin.x + leftMargin,
+                                          self.bounds.origin.y + self.bounds.size.height*.6 - subtitleFontSize/2.0 - 3)
+               withAttributes:subtitleAttributes];
     }
     
     if ([self.node respondsToSelector:@selector(nodeNote)])
@@ -242,18 +223,18 @@
             CGFloat fontSize = [(NSFont *)[noteAttributes objectForKey:NSFontAttributeName] pointSize];
             
             CGFloat width = [[[NSAttributedString alloc] initWithString:note attributes:noteAttributes] size].width;
-
             
-            [note drawAtPoint:NSMakePoint(cellFrame.origin.x + f.size.width - width - rightMargin,
-                                           cellFrame.origin.y + cellFrame.size.height*.5 - fontSize/2.0 - 6)
-                withAttributes:noteAttributes];
+            
+            [note drawAtPoint:NSMakePoint(self.bounds.origin.x + f.size.width - width - rightMargin,
+                                          self.bounds.origin.y + self.bounds.size.height*.5 - fontSize/2.0 - 6)
+               withAttributes:noteAttributes];
         }
     }
 }
 
 - (NSString *)string:(NSString *)s
-     clippedToWidth:(CGFloat)maxWidth
-      forAttributes:(NSDictionary *)att
+      clippedToWidth:(CGFloat)maxWidth
+       forAttributes:(NSDictionary *)att
 {
     NSUInteger fullLength = [s length];
     
@@ -272,12 +253,13 @@
         
         s = [s substringToIndex:[s length] -1];
     }
-           
+    
     return @"";
 }
 
 // --- mouse down ---
 
+/*
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
     NSLog(@"NSCell trackMouse"); // why isn't this working?
@@ -294,5 +276,6 @@
 {
     return YES; // why isn't this working?
 }
+*/
 
 @end

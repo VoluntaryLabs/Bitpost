@@ -18,4 +18,7 @@
 - (NSMutableArray *)getSentMessagesBySender:(NSString *)sender;
 - (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName class:(Class)aClass;
 
+- (NSMutableArray *)inboxMessagesFromAddress:(NSString *)anAddress;
+- (NSMutableArray *)sentMessagesFromAddress:(NSString *)anAddress;
+
 @end

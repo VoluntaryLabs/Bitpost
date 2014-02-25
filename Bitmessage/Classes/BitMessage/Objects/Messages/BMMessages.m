@@ -9,6 +9,7 @@
 #import "BMMessages.h"
 #import "BMMessage.h"
 #import "BMProxyMessage.h"
+#import "BMReceivedMessage.h"
 
 
 @implementation BMMessages
@@ -122,6 +123,38 @@
     //NSLog(@"\n\n messages = %@", messages);
     
     return messages;
+}
+
+- (NSMutableArray *)inboxMessagesFromAddress:(NSString *)anAddress
+{
+    NSArray *messages = [[self received] children];
+    NSMutableArray *filtered = [NSMutableArray array];
+    
+    for (BMReceivedMessage *message in messages)
+    {
+        if ([[message fromAddress] isEqualToString:anAddress])
+        {
+            [filtered addObject:message];
+        }
+    }
+    
+    return filtered;
+}
+
+- (NSMutableArray *)sentMessagesFromAddress:(NSString *)anAddress
+{
+    NSArray *messages = [[self sent] children];
+    NSMutableArray *filtered = [NSMutableArray array];
+    
+    for (BMReceivedMessage *message in messages)
+    {
+        if ([[message fromAddress] isEqualToString:anAddress])
+        {
+            [filtered addObject:message];
+        }
+    }
+    
+    return filtered;
 }
 
 @end

@@ -109,7 +109,7 @@ static InfoPanelController *shared = nil;
                                     attributes:[self bodyHeaderAttributes]]];
     
     [string appendAttributedString:[[NSMutableAttributedString alloc]
-                                    initWithString:@"Steve Dekorte\nAdam Thorsen"
+                                    initWithString:@"Steve Dekorte\nAdam Thorsen\nDru Nelson"
                                     attributes:[self bodyAttributes]]];
 
     [string addAttribute:NSParagraphStyleAttributeName

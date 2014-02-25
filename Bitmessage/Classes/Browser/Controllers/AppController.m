@@ -16,6 +16,11 @@
     self.dockTile = [[NSApplication sharedApplication] dockTile];
 }
 
+- (void)draftOpened:(NSNotification *)note
+{
+    [self.drafts addObject:[note object]];
+}
+
 - (void)draftClosed:(NSNotification *)note
 {
     [self.drafts removeObject:[note object]];
@@ -33,8 +38,7 @@
 
 - (DraftController *)newDraft
 {
-    DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
-    [[[draft view] window] makeKeyAndOrderFront:self];
+    DraftController *draft = [DraftController openNewDraft];
     [self.drafts addObject:draft];
     return draft;
 }
@@ -47,6 +51,11 @@
     [self connectToServer];
     //[self performSelector:@selector(connectToServer) withObject:self afterDelay:1];
     //[[BMClient sharedBMClient] performSelector:@selector(refresh) withObject:self afterDelay:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(draftOpened:)
+                                                 name:@"draftOpened"
+                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(draftClosed:)
@@ -90,7 +99,6 @@
 - (void)timer:(id)sender
 {
     //NSLog(@"timer start");
-    //[[[[BMClient sharedBMClient] messages] received] refresh];
     [[BMClient sharedBMClient] refresh];
     //NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
 /*

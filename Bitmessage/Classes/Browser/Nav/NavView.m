@@ -18,7 +18,6 @@
 {
     self = [super initWithFrame:frameRect];
     self.navColumns = [NSMutableArray array];
-    
     return self;
 }
 
@@ -34,6 +33,7 @@
     {
         [column removeFromSuperview];
     }
+    
     self.navColumns = [NSMutableArray array];
     
     [self addColumnForNode:self.rootNode];
@@ -43,14 +43,27 @@
 {
     NavColumn *column = nil;
     
+    /*
+    column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.frame.size.height)];
+
     if ([node respondsToSelector:@selector(nodeView)] && [node nodeView])
+    {
+        NSView *nodeView = [node nodeView];
+        [column setupHeaderView:nodeView];
+        [column setWidth:self.frame.size.width - self.columnsWidth];
+        [nodeView setFrameSize:NSMakeSize(self.frame.size.width - self.columnsWidth, 200)];
+    }
+    */
+    
+    
+    if ([node respondsToSelector:@selector(nodeView)] && [node nodeView] && [[node children] count] == 0)
     {
         column = [node nodeView];
         [column setFrameSize:NSMakeSize(self.frame.size.width - self.columnsWidth, self.frame.size.height)];
     }
     else
     {
-        column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 250, self.frame.size.height)];
+        column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.frame.size.height)];
     }
 
     [self.navColumns addObject:column];
@@ -86,7 +99,6 @@
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn
 {
-    
     NSMutableArray *toRemove = [NSMutableArray array];
     
     BOOL hitColumn = NO;
@@ -238,6 +250,7 @@
     
     id lastColumn = [self.navColumns lastObject];
     id <NavNode> lastNode = [lastColumn node];
+    
     [lastNode performSelector:NSSelectorFromString(action) withObject:nil];
 }
 
@@ -252,5 +265,38 @@
     NSLog(@"class %@ got key down", NSStringFromClass([self class]));
 }
 */
+
+- (void)leftArrowFrom:aColumn
+{
+    NSInteger index = [self.navColumns indexOfObject:aColumn];
+    
+    if (index == -1 || index == 0)
+    {
+        return;
+    }
+    
+    NavColumn *inColumn = [self.navColumns objectAtIndex:index - 1];
+    
+    [self shouldSelectNode:[inColumn selectedNode] inColumn:inColumn];
+    [inColumn.window makeFirstResponder:inColumn.tableView];
+//    [inColumn.tableView becomeFirstResponder];
+}
+
+- (void)rightArrowFrom:aColumn
+{
+    NSInteger index = [self.navColumns indexOfObject:aColumn];
+
+    if (index == self.navColumns.count - 1)
+    {
+        return;
+    }
+    
+    NavColumn *inColumn = [self.navColumns objectAtIndex:index + 1];
+    [inColumn selectRowIndex:0];
+    //[self shouldSelectNode:[inColumn nodeA] inColumn:inColumn];
+    [inColumn.window makeFirstResponder:inColumn.tableView];
+    //[inColumn.tableView becomeFirstResponder];
+}
+
 
 @end

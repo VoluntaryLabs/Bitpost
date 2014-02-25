@@ -29,5 +29,8 @@
 - (void)centerYInSuperview;
 
 - (void)stackSubviewsRightToLeft;
+- (void)stackSubviewsTopToBottom;
+
+- (CGFloat)sumOfSubviewHeights;
 
 @end

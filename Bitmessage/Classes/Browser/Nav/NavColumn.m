@@ -10,6 +10,7 @@
 #import "TableCell.h"
 #import "NSView+sizing.h"
 #import "NSEvent+keys.h"
+#import "NavRowView.h"
 
 @implementation NavColumn
 
@@ -19,8 +20,12 @@
     [self setAutoresizesSubviews:YES];
     [self setAutoresizingMask:NSViewHeightSizable /* | NSViewWidthSizable*/];
     [self setupTable];
-    
     return self;
+}
+
+- (void)setFrame:(NSRect)frameRect
+{
+    [super setFrame:frameRect];
 }
 
 - (void)dealloc
@@ -35,7 +40,9 @@
 
 - (void)reloadData
 {
+    NSInteger selectedRow = self.tableView.selectedRow;
     [self.tableView reloadData];
+    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
     [self.navView reloadedColumn:self];
 }
 
@@ -60,24 +67,7 @@
 
 - (void)nodeChanged:(NSNotification *)note
 {
-    //BOOL removedSelected = [self selectedNodeWasRemoved];
-    //NSInteger selectedIndex = [self.tableView selectedRow];
-
     [self reloadData];
-    /*
-     
-    if (removedSelected)
-    {
-        NSInteger max = self.node.children.count - 1;
-        
-        if (selectedIndex > max)
-        {
-            selectedIndex = max;
-        }
-        
-        [self selectRowIndex:selectedIndex];
-    }
-    */
 }
 
 - (void)selectRowIndex:(NSInteger)rowIndex
@@ -96,10 +86,10 @@
 {
     [self.tableColumn setMaxWidth:w];
     
-    [self setWidth:w];
     [self.scrollView setWidth:w];
     [self.tableView setWidth:w];
     [self.navView stackViews];
+    [self setWidth:w];
 }
 
 - (void)setNode:(id<NavNode>)node
@@ -126,9 +116,39 @@
     }
 }
 
+- (void)updateDocumentView:(NSNotification *)note
+{
+    NSLog(@"tableFrameDidChangeNotification");
+    if (!self.isUpdating &&
+        //[note object] == self.tableView &&
+        !NSEqualRects(self.documentView.bounds, self.tableView.bounds))
+    {
+        CGFloat fullHeight = [self.documentView sumOfSubviewHeights];
+        
+        if (fullHeight < self.scrollView.height)
+        {
+            fullHeight = self.scrollView.height;
+        }
+        
+        NSRect newFrame = self.tableView.bounds;
+        newFrame.size.height = fullHeight;
+        
+        self.isUpdating = YES;
+        [self.documentView setFrame:newFrame];
+        
+        [self.documentView stackSubviewsTopToBottom];
+        
+        //[self.tableView setY:newFrame.size.height - self.tableView.height];
+        self.isUpdating = NO;
+    }
+}
+
 - (void)setupTable
 {
+    // scrollview
+    
     self.scrollView = [[NSScrollView alloc] initWithFrame:self.frame];
+    [self addSubview:self.scrollView];
     [self.scrollView setHasVerticalScroller:YES];
     [self.scrollView setHasHorizontalRuler:NO];
     [self.scrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
@@ -136,7 +156,10 @@
     [self.scrollView setAutoresizesSubviews:YES];
     [self.scrollView setAutoresizingMask:NSViewHeightSizable /*| NSViewWidthSizable*/];
     
+    // table
+    
     self.tableView = [[NSTableView alloc] initWithFrame:self.scrollView.bounds];
+    [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
     
     [self.tableView setAutoresizesSubviews:YES];
     [self.tableView setAutoresizingMask:NSViewHeightSizable /*| NSViewWidthSizable*/];
@@ -151,11 +174,54 @@
     [self.tableView setHeaderView:nil];
     [self.tableView setFocusRingType:NSFocusRingTypeNone];
     
-    [self.scrollView setDocumentView:self.tableView];
-    [self addSubview:self.scrollView];
+    if (NO)
+    {
+        self.documentView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+        [self.documentView setBackgroundColor:self.tableView.backgroundColor];
+        [self.scrollView setDocumentView:self.documentView];
+        [self.documentView setFrame:NSMakeRect(0, 0, 1000, 1000)];
+        [self.scrollView setBackgroundColor:[NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0]];
+        
+
+        // document
+        
+        /*
+        self.headerView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, self.width, 150)];
+        [self.headerView setBackgroundColor:[NSColor redColor]];
+        if (self.headerView)
+        {
+            [self.documentView addSubview:self.headerView];
+        }
+        */
+
+        [self.documentView addSubview:self.tableView];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateDocumentView:)
+                                                     name:@"NSViewFrameDidChangeNotification"
+                                                   object:self.tableView];
+    }
+    else
+    {
+        [self.scrollView setDocumentView:self.tableView];
+    }
 
     [self setRowHeight:60];
     [self setMaxWidth:400];
+}
+
+- (void)setupHeaderView:(NSView *)aView
+{
+    [self.tableView removeFromSuperview]; // so views are in correct order
+
+    if (self.headerView)
+    {
+        [self.headerView removeFromSuperview];
+    }
+    
+    self.headerView = (ColoredView *)aView;
+    [self.documentView addSubview:aView];
+    [self.documentView addSubview:self.tableView];
+    [self updateDocumentView:nil];
 }
 
 - (id <NavNode>)nodeForRow:(NSInteger)rowIndex
@@ -164,6 +230,7 @@
     {
         return [self.node.children objectAtIndex:rowIndex];
     }
+    
     return nil;
 }
 
@@ -183,12 +250,59 @@
 
 // table delegate
 
+// --- methods to deal with header ---
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)rowIndex
+{
+    /*
+    if (self.headerView && rowIndex == 0)
+    {
+        return self.headerView.height;
+    }
+     */
+    
+    
+    return self.tableView.rowHeight;
+}
+
+
+// --- normal delegate methods ---
+
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
+    /*
+    if (self.headerView)
+    {
+        if (rowIndex == 0)
+        {
+            return NO;
+        }
+        rowIndex --;
+    }
+     */
+    
     id <NavNode> node = [self nodeForRow:rowIndex];
-    //if ([node respondsToSelector:@selector(<#selector#>)])
     return [self.navView shouldSelectNode:node inColumn:self];
 }
+
+/*
+- (NSView *)tableView:(NSTableView *)aTableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)rowIndex
+{
+    NavRowView *rowView = [aTableView makeViewWithIdentifier:@"NavRowView" owner:self];
+    //NavRowView *rowView = [[NavRowView alloc] initWithFrame:NSMakeRect(0, 0, self.width, aTableView.rowHeight)];
+    //NavRowView *rowView = [[NavRowView alloc] initWithFrame:NSMakeRect(0, 0, self.width, aTableView.rowHeight)];
+    if (!rowView)
+    {
+        rowView = [[NavRowView alloc] initWithFrame:NSZeroRect];
+    }
+    ///[rowView setIsSelected:[aTableView selectedRow] == rowIndex];
+    [rowView setNode:[self nodeForRow:rowIndex]];
+    rowView.tableView = aTableView;
+    rowView.rowIndex = rowIndex;
+    return rowView;
+}
+*/
+
 
 - (void)tableView:(NSTableView *)aTableView
     willDisplayCell:(id)aCell
@@ -210,6 +324,8 @@
     
     return nil;
 }
+
+// --- actions ---
 
 - (BOOL)canHandleAction:(SEL)aSel
 {
@@ -237,6 +353,14 @@
     {
         [self delete];
     }
+    else if ([event isLeftArrow])
+    {
+        [self leftArrow];
+    }
+    else if ([event isRightArrow])
+    {
+        [self rightArrow];
+    }
 }
 
 - (void)delete
@@ -249,4 +373,13 @@
     }
 }
 
+- (void)leftArrow
+{
+    [self.navView leftArrowFrom:self];
+}
+
+- (void)rightArrow
+{
+    [self.navView rightArrowFrom:self];
+}
 @end
