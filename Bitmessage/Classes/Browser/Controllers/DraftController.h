@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ColoredView.h"
 #import "MarginTextView.h"
+#import "AddressCompletor.h"
 
 @interface DraftController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
 
@@ -24,7 +25,9 @@
 
 @property (strong, nonatomic) ColoredView *bodyArea;
 @property (assign, nonatomic) IBOutlet ColoredView *topBackground;
-//@property (assign, nonatomic) BOOL hasValidAddresses;
+
+@property (strong, nonatomic) AddressCompletor *fromCompletor;
+@property (strong, nonatomic) AddressCompletor *toCompletor;
 
 + (DraftController *)openNewDraft;
 

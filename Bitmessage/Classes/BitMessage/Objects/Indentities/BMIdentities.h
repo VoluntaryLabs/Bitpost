@@ -14,6 +14,6 @@
 
 - (void)add;
 
-- (NSString *)firstIdentityAddress;
+- (BMIdentity *)firstIdentity;
 
 @end

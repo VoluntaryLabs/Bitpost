@@ -22,12 +22,6 @@
 + (DraftController *)openNewDraft
 {
     DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
-    
-    //[draft placeWindow];
-    
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"draftOpened" object:self];
-    //AppController *appDelegate = (AppController *)[[NSApplication sharedApplication] delegate];
-    //[appDelegate.drafts addObject:self];
     [draft open];
     return draft;
 }
@@ -47,6 +41,7 @@
 - (id)init
 {
     self = [super init];
+
     return self;
 }
 
@@ -63,6 +58,13 @@
 - (void)loadView
 {
     [super loadView];
+
+    self.fromCompletor = [[AddressCompletor alloc] init];
+    self.fromCompletor.addressLabels = [[BMClient sharedBMClient] fromAddressLabels];
+    
+    self.toCompletor   = [[AddressCompletor alloc] init];
+    self.toCompletor.addressLabels = [[BMClient sharedBMClient] toAddressLabels];
+    
     [self setupViewPositions];
     [self setupHighlightColors];
     [self setupNotifications];
@@ -70,8 +72,11 @@
     [self updateWindow];
     [self.window setDelegate:self];
     
-    [self.to setDelegate:self];
-    [self.from setDelegate:self];
+    //[self.from setDelegate:self.fromCompletor];
+    //[self.to   setDelegate:self.toCompletor];
+    
+    [self.fromCompletor setTextField:self.from];
+    [self.toCompletor setTextField:self.to];
 }
 
 
@@ -170,12 +175,18 @@
 
 - (NSString *)fromAddress
 {
-    return self.from.stringValue;
+    NSString *s = self.from.stringValue;
+    NSString *address = [[BMClient sharedBMClient] addressForLabel:s];
+    if (address) { s = address; }
+    return s;
 }
 
 - (NSString *)toAddress
 {
-    return self.to.stringValue;
+    NSString *s = self.to.stringValue;
+    NSString *address = [[BMClient sharedBMClient] addressForLabel:s];
+    if (address) { s = address; }
+    return s;
 }
 
 - (BOOL)canSend
@@ -244,9 +255,7 @@
 
 - (BOOL)hasValidAddresses
 {
-    return
-        [BMAddress isValidAddress:[self.to.stringValue strip]] &&
-        [BMAddress isValidAddress:[self.from.stringValue strip]];
+    return self.toCompletor.isValid && self.fromCompletor.isValid;
 }
 
 -(void)controlTextDidChange:(NSNotification *)note

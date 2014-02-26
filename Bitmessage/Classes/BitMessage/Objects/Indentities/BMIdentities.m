@@ -9,6 +9,7 @@
 #import "BMIdentities.h"
 #import "BMProxyMessage.h"
 #import "BMIdentity.h"
+//#import "BMAddressed.h"
 
 @implementation BMIdentities
 
@@ -76,6 +77,25 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
 
+- (BMIdentity *)firstIdentity
+{
+    return (BMIdentity *)self.children.firstObject;
+}
+
+/*
+- (NSString *)firstIdentityLabel
+{
+    BMIdentity *identity = (BMIdentity *)self.children.firstObject;
+    
+    if (identity)
+    {
+        return identity.label;
+    }
+    
+    return nil;
+}
+
+
 - (NSString *)firstIdentityAddress
 {
     BMIdentity *identity = (BMIdentity *)self.children.firstObject;
@@ -87,6 +107,7 @@
     
     return nil;
 }
+ */
 
 - (NSString *)nodeTitle
 {

@@ -28,6 +28,10 @@
 + (BMClient *)sharedBMClient;
 
 - (void)refresh;
-- (NSString *)labelForAddress:(NSString *)addressString;
+- (NSString *)labelForAddress:(NSString *)addressString; // returns address if none found
+- (NSString *)addressForLabel:(NSString *)labelString; // returns address if none found
+
+- (NSMutableArray *)fromAddressLabels;
+- (NSMutableArray *)toAddressLabels;
 
 @end

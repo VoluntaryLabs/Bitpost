@@ -66,20 +66,69 @@ static BMClient *sharedBMClient;
 
 - (NSString *)labelForAddress:(NSString *)addressString
 {
-    for (id child in self.children)
+    for (BMAddressed *child in self.allAddressed)
     {
-        if ([child respondsToSelector:@selector(childWithAddress:)])
+        //NSLog(@"child.label '%@' '%@'", child.label, child.address);
+        if ([child.address isEqualToString:addressString])
         {
-            BMAddressed *addr = [child childWithAddress:addressString];
-            if (addr && addr.label && ![addr.label isEqualToString:@""])
-            {
-                return addr.label;
-            }
+            return child.label;
+        }
+    }
+    
+    return addressString;
+}
+
+- (NSString *)addressForLabel:(NSString *)labelString // returns nil if none found
+{
+    for (BMAddressed *child in self.allAddressed)
+    {
+        if ([child.label isEqualToString:labelString])
+        {
+            return child.address;
         }
     }
     
     return nil;
 }
 
+- (NSMutableArray *)fromAddressLabels
+{
+    NSMutableArray *addressLabels = [NSMutableArray array];
+    
+    for (BMAddressed *child in self.identities.children)
+    {
+        [addressLabels addObject:child.label];
+    }
+    
+    return addressLabels;
+}
+
+- (NSMutableArray *)allAddressed
+{
+    NSMutableArray *results = [self noneIdentityAddressed];
+    [results addObjectsFromArray:self.identities.children];
+    return results;
+}
+
+- (NSMutableArray *)noneIdentityAddressed
+{
+    NSMutableArray *results = [NSMutableArray array];
+    [results addObjectsFromArray:self.contacts.children];
+    [results addObjectsFromArray:self.subscriptions.children];
+    [results addObjectsFromArray:self.channels.children];
+    return results;
+}
+
+- (NSMutableArray *)toAddressLabels
+{
+    NSMutableArray *addressLabels = [NSMutableArray array];
+    
+    for (BMAddressed *child in self.noneIdentityAddressed)
+    {
+        [addressLabels addObject:child.label];
+    }
+    
+    return addressLabels;
+}
 
 @end

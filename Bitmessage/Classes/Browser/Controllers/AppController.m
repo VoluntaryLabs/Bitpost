@@ -83,7 +83,7 @@
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    [self startRefreshTimer];
+    //[self startRefreshTimer];
     [self.navView.window setTitle:@""];
 }
 

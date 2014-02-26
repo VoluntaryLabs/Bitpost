@@ -45,7 +45,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" id="irf-38-Vxg">
+                            <textField verticalHuggingPriority="750" id="irf-38-Vxg" customClass="AddressTextField">
                                 <rect key="frame" x="99" y="14" width="434" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="b0L-ov-EbK">
@@ -69,7 +69,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" id="VHv-NU-7E7">
+                            <textField verticalHuggingPriority="750" id="VHv-NU-7E7" customClass="AddressTextField">
                                 <rect key="frame" x="99" y="14" width="434" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="RPM-04-gsI">

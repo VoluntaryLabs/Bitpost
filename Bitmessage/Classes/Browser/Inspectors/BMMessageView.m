@@ -286,11 +286,17 @@
 
     // set to
     
-    [draftController.to setStringValue:self.fromAddress];
+    NSString *to = [[BMClient sharedBMClient] labelForAddress:self.fromAddress];
+    if ([to hasPrefix:@"BM-"])
+    {
+        to = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
+    }
+    
+    [draftController.to setStringValue:to];
     
     // set from
     
-    NSString *from = [[[BMClient sharedBMClient] identities] firstIdentityAddress];
+    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] label];
     if (from)
     {
         [draftController.from setStringValue:from];

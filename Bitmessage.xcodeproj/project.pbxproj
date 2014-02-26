@@ -121,6 +121,8 @@
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
 		AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */; };
 		AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */; };
+		AAE0EEAC18BC3D1000B7E9F3 /* AddressCompletor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEAB18BC3D1000B7E9F3 /* AddressCompletor.m */; };
+		AAE22E7F18BE7BDA002DBC9F /* AddressTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE22E7E18BE7BDA002DBC9F /* AddressTextField.m */; };
 		AAF40CB018B56183005BA55E /* refresh_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAE18B56183005BA55E /* refresh_active.png */; };
 		AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAF18B56183005BA55E /* refresh_inactive.png */; };
 		AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF40CB318B59543005BA55E /* NSEvent+keys.m */; };
@@ -335,6 +337,10 @@
 		AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDatabase.m; sourceTree = "<group>"; };
 		AAE0EEA418BC34DE00B7E9F3 /* NSScrollView+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScrollView+extra.h"; sourceTree = "<group>"; };
 		AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScrollView+extra.m"; sourceTree = "<group>"; };
+		AAE0EEAA18BC3D1000B7E9F3 /* AddressCompletor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCompletor.h; sourceTree = "<group>"; };
+		AAE0EEAB18BC3D1000B7E9F3 /* AddressCompletor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressCompletor.m; sourceTree = "<group>"; };
+		AAE22E7D18BE7BDA002DBC9F /* AddressTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTextField.h; sourceTree = "<group>"; };
+		AAE22E7E18BE7BDA002DBC9F /* AddressTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTextField.m; sourceTree = "<group>"; };
 		AAF40CAE18B56183005BA55E /* refresh_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_active.png; sourceTree = "<group>"; };
 		AAF40CAF18B56183005BA55E /* refresh_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_inactive.png; sourceTree = "<group>"; };
 		AAF40CB218B59543005BA55E /* NSEvent+keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEvent+keys.h"; sourceTree = "<group>"; };
@@ -397,12 +403,16 @@
 				AA2AC84518B7FBFE008CEEB4 /* AppController.m */,
 				AA2AC84618B7FBFE008CEEB4 /* DraftController.h */,
 				AA2AC84718B7FBFE008CEEB4 /* DraftController.m */,
+				AAE0EEAA18BC3D1000B7E9F3 /* AddressCompletor.h */,
+				AAE0EEAB18BC3D1000B7E9F3 /* AddressCompletor.m */,
 				AA2AC84818B7FBFE008CEEB4 /* InfoPanelController.h */,
 				AA2AC84918B7FBFE008CEEB4 /* InfoPanelController.m */,
 				AA2AC84A18B7FBFE008CEEB4 /* ProgressController.h */,
 				AA2AC84B18B7FBFE008CEEB4 /* ProgressController.m */,
 				AA2AC86F18B81D76008CEEB4 /* SignalHandler.h */,
 				AA2AC87018B81D76008CEEB4 /* SignalHandler.m */,
+				AAE22E7D18BE7BDA002DBC9F /* AddressTextField.h */,
+				AAE22E7E18BE7BDA002DBC9F /* AddressTextField.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1044,6 +1054,7 @@
 				AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */,
 				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
+				AAE22E7F18BE7BDA002DBC9F /* AddressTextField.m in Sources */,
 				AAF40CB818B59FF7005BA55E /* BMSentMessage.m in Sources */,
 				AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
@@ -1065,6 +1076,7 @@
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
+				AAE0EEAC18BC3D1000B7E9F3 /* AddressCompletor.m in Sources */,
 				AA31569118AAE0E00017E94F /* BMChannel.m in Sources */,
 				AA31568A18AAE0E00017E94F /* BMAddress.m in Sources */,
 			);

@@ -14,7 +14,7 @@
 
 + (BOOL)isValidAddress:(NSString *)address
 {
-    if (![address hasPrefix:@"BM-"] || ![address length] > 30)
+    if (![address hasPrefix:@"BM-"] || !([address length] > 30))
     {
         return NO;
     }
@@ -38,13 +38,13 @@
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"decodeAddress"];
     [message setParameters:[NSArray arrayWithObject:self.address]];
-    //message.debug = YES;
+    message.debug = YES;
     [message sendSync];
     id dict = [message parsedResponseValue];
 
     //NSLog(@"response %@", dict);
 
-    if ([[dict objectForKey:@"status"] isEqualToString:@"checksumfailed"])
+    if (![[dict objectForKey:@"status"] isEqualToString:@"success"])
     {
         self.isValid = NO;
     }
@@ -53,8 +53,6 @@
         self.isValid = YES;
         [self setDict:dict];
     }
-    
-    
 }
 
 
