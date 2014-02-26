@@ -53,6 +53,9 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="VHv-NU-7E7" id="SJq-Gb-DPP"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </customView>
@@ -77,6 +80,9 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="Hj0-vj-3JM" id="10N-QA-IR7"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </customView>
@@ -101,6 +107,9 @@
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="9pB-sB-vzm" id="eXG-eT-bjf"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </customView>
@@ -146,6 +155,9 @@
                     </scrollView>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="9pB-sB-vzm" id="0Hk-FJ-mce"/>
+            </connections>
         </window>
     </objects>
     <resources>

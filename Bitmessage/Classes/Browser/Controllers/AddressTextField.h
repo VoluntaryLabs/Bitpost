@@ -10,4 +10,10 @@
 
 @interface AddressTextField : NSTextField
 
+@property (assign, nonatomic) unichar eventCharacter;
+
+- (BOOL)eventIsSpace;
+- (BOOL)eventIsDelete;
+- (void)resetEventCharacter;
+
 @end

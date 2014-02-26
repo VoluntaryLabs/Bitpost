@@ -41,49 +41,44 @@
 
 - (void)controlTextDidChange:(NSNotification *)note
 {
-    //NSText *text = [self.textField.window fieldEditor:YES forObject:self.textField];
-/*
-    
-    NSLog(@"selectedString = '%@'", self.selectedString);
-    NSLog(@"unselectedString = '%@'", self.unselectedString);
- */
- 
-    /*
-    self.isDeleting = (self.lastString != nil &&
-                       self.lastString.length > self.unselectedString.length);
-    
-    //NSLog(@"last = %i current = %i", (int)self.lastString.length, (int)self.textField.stringValue.length);
-    NSLog(@"last = '%@' current = '%@'", self.lastString, self.unselectedString);
-    
-    if (self.isDeleting)
-    {
-        NSLog(@"don't complete delete!");
-        return;
-    }
-    
-    self.lastString = self.unselectedString;
-    */
-    
-    if(self.isCompleting)
+    if (self.isCompleting)
     {
         return;
     }
     else
     {
-        self.isCompleting = YES;
-        //NSText *text = [self.textField.window fieldEditor:YES forObject:self.textField];
-        id editor = [[note userInfo] objectForKey:@"NSFieldEditor"];
-        if ([editor respondsToSelector:@selector(complete:)])
+        self.shouldComplete = YES;
+        
+        if (self.textField.eventIsDelete)
         {
+            //NSLog(@"delete - returning");
+            self.shouldComplete = NO;
+        }
+
+        if (self.textField.eventIsSpace)
+        {
+            //NSLog(@"space - returning");
+            self.textField.stringValue = [self.textField.stringValue stringByAppendingString:@" "];
+            self.shouldComplete = NO;
+        }
+        
+        if (self.shouldComplete)
+        {
+            self.isCompleting = YES;
+            
             //NSText *text = [self.textField.window fieldEditor:YES forObject:self.textField];
-            //[text complete:nil];
-            [editor complete:nil];
+            id editor = [[note userInfo] objectForKey:@"NSFieldEditor"];
+            if ([editor respondsToSelector:@selector(complete:)])
+            {
+                [editor complete:nil];
+            }
+            else
+            {
+                NSLog(@"can't call complete:");
+            }
+            
+            self.isCompleting = NO;
         }
-        else
-        {
-            NSLog(@"can't call complete:");
-        }
-        self.isCompleting = NO;
     }
     
     if (self.isValid)
@@ -96,6 +91,8 @@
         self.textField.textColor = [NSColor redColor];
         [self.textField setFont:[NSFont fontWithName:@"Open Sans Bold" size:self.textField.font.pointSize]];
     }
+    
+    [self.textField resetEventCharacter];
 }
 
 - (NSArray *)control:(NSControl *)control
@@ -104,16 +101,42 @@
  forPartialWordRange:(NSRange)charRange
  indexOfSelectedItem:(NSInteger *)index
 {
-    //return [NSArray array];
+    if (!self.shouldComplete)
+    {
+        //NSLog(@"skip complete");
+        return [NSArray array];
+    }
     
     NSMutableArray *matches = [NSMutableArray array];
+    NSInteger end = charRange.location + charRange.length;
+    NSRange fullRange = NSMakeRange(0, end);
+    
+    NSString *full = [[textView string] substringWithRange:fullRange];
     NSString *selected = [[textView string] substringWithRange:charRange];
+    
+    //NSLog(@"selected '%@' full '%@'", selected, full);
     
     for (NSString *label in self.addressLabels)
     {
-        if ([label hasPrefix:selected])
+        
+        if ([full containsString:@" "])
         {
-            [matches addObject:label];
+            NSArray *words = [label componentsSeparatedByString:@" "];
+            
+            for (NSString *word in words)
+            {
+                if (word.length && [word hasPrefix:selected])
+                {
+                    [matches addObject:word];
+                }
+            }
+        }
+        else
+        {
+            if (label.length && [label hasPrefix:full])
+            {
+                [matches addObject:label];
+            }
         }
     }
     
@@ -140,10 +163,9 @@
     return self.isMatched || [BMAddress isValidAddress:[self.textField.stringValue strip]];
 }
 
-- (BOOL)control:(NSControl *)control isValidObject:(id)object
+- (void)textDidEndEditing:(NSNotification *)notification
 {
-    NSLog(@"isValidObject '%@'", object);
-    return YES;
+    [self.textField textDidEndEditing:notification];
 }
 
 @end

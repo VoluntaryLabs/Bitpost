@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AddressTextField.h"
 
 @interface AddressCompletor : NSObject <NSTextFieldDelegate>
 
 @property (assign, nonatomic) id delegate;
 @property (assign, nonatomic) BOOL isCompleting;
-@property (strong, nonatomic) NSTextField *textField;
+@property (strong, nonatomic) AddressTextField *textField;
 @property (strong, nonatomic) NSMutableArray *addressLabels;
 @property (strong, nonatomic) NSString *lastString;
-@property (assign, nonatomic) BOOL isDeleting;
+@property (assign, nonatomic) BOOL shouldComplete;
 
 
 - (void)controlTextDidChange:(NSNotification *)note;

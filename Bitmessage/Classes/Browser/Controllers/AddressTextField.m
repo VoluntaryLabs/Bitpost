@@ -5,31 +5,68 @@
 //  Created by Steve Dekorte on 2/26/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
+// This is needed to get auto complete to behave properly
 
 #import "AddressTextField.h"
 
 @implementation AddressTextField
 
-- (id)initWithFrame:(NSRect)frame
+- (BOOL)eventIsDelete
 {
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-
-    }
-    return self;
+    //return self.eventCharacter == NSDeleteCharacter;
+    return self.eventCharacter == 127;
 }
 
-- (void)keyDown:(NSEvent *)theEvent
+- (BOOL)eventIsSpace
 {
-    NSLog(@"keyDown %@", theEvent);
+    return self.eventCharacter == 32;
+}
+
+static NSEvent *keyEvent = nil;
+
+- (void)resetEventCharacter
+{
+    self.eventCharacter = 0;
+}
+
+- (BOOL)becomeFirstResponder
+{
+    BOOL okToChange = [super becomeFirstResponder];
     
-    [super keyDown:theEvent];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(textDidEndEditing:)
+                                                 name:NSTextDidEndEditingNotification
+                                               object:self];
+    
+    if (okToChange)
+    {
+        [self setKeyboardFocusRingNeedsDisplayInRect: [self bounds]];
+        
+        if (!keyEvent)
+        {
+            keyEvent =  [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
+                
+                NSString *characters = [event characters];
+                unichar character = [characters characterAtIndex:0];
+                self.eventCharacter = character;
+                //NSLog(@"character = %i", (int)character);
+                return event;
+            } ];
+            
+        }
+    }
+    //NSLog(@"become first responder");
+    return okToChange;
 }
 
-- (void)deleteBackward:(id)sender
+- (void)textDidEndEditing:(NSNotification *)notification
 {
-    NSLog(@"deleteBackward");
+    [NSEvent removeMonitor:keyEvent];
+    keyEvent = nil;
+    
+    NSTextView *textView = [notification object];
+    
+    self.stringValue = textView.string;
 }
 
 @end

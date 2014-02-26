@@ -405,14 +405,14 @@
 				AA2AC84718B7FBFE008CEEB4 /* DraftController.m */,
 				AAE0EEAA18BC3D1000B7E9F3 /* AddressCompletor.h */,
 				AAE0EEAB18BC3D1000B7E9F3 /* AddressCompletor.m */,
+				AAE22E7D18BE7BDA002DBC9F /* AddressTextField.h */,
+				AAE22E7E18BE7BDA002DBC9F /* AddressTextField.m */,
 				AA2AC84818B7FBFE008CEEB4 /* InfoPanelController.h */,
 				AA2AC84918B7FBFE008CEEB4 /* InfoPanelController.m */,
 				AA2AC84A18B7FBFE008CEEB4 /* ProgressController.h */,
 				AA2AC84B18B7FBFE008CEEB4 /* ProgressController.m */,
 				AA2AC86F18B81D76008CEEB4 /* SignalHandler.h */,
 				AA2AC87018B81D76008CEEB4 /* SignalHandler.m */,
-				AAE22E7D18BE7BDA002DBC9F /* AddressTextField.h */,
-				AAE22E7E18BE7BDA002DBC9F /* AddressTextField.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
