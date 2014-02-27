@@ -119,6 +119,7 @@
 		AAB79BCF18AB14170041B6B1 /* Top.psd in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC818AB14170041B6B1 /* Top.psd */; };
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
+		AAD2848A18BFF33400FC0C6F /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */; };
 		AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */; };
 		AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */; };
 		AAE0EEAC18BC3D1000B7E9F3 /* AddressCompletor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE0EEAB18BC3D1000B7E9F3 /* AddressCompletor.m */; };
@@ -333,6 +334,8 @@
 		AAB79BC818AB14170041B6B1 /* Top.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Top.psd; sourceTree = "<group>"; };
 		AAB79BD618AEEAB70041B6B1 /* send_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_active.png; sourceTree = "<group>"; };
 		AAB79BD718AEEAB70041B6B1 /* send_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_inactive.png; sourceTree = "<group>"; };
+		AAD2848818BFF33400FC0C6F /* BMMessage+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMMessage+NodeView.h"; sourceTree = "<group>"; };
+		AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMMessage+NodeView.m"; sourceTree = "<group>"; };
 		AAE0EE9E18BA92D100B7E9F3 /* BMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDatabase.h; sourceTree = "<group>"; };
 		AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDatabase.m; sourceTree = "<group>"; };
 		AAE0EEA418BC34DE00B7E9F3 /* NSScrollView+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScrollView+extra.h"; sourceTree = "<group>"; };
@@ -823,6 +826,8 @@
 				AA2AC85C18B8175A008CEEB4 /* Addressed */,
 				AA7F6A8D18B17B15009285EA /* BMMessageView.h */,
 				AA7F6A8E18B17B15009285EA /* BMMessageView.m */,
+				AAD2848818BFF33400FC0C6F /* BMMessage+NodeView.h */,
+				AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */,
 			);
 			path = Inspectors;
 			sourceTree = "<group>";
@@ -1031,6 +1036,7 @@
 				AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */,
 				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
+				AAD2848A18BFF33400FC0C6F /* BMMessage+NodeView.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
 				AA2AC84C18B7FBFE008CEEB4 /* AppController.m in Sources */,
 				AA31569218AAE0E00017E94F /* BMChannels.m in Sources */,

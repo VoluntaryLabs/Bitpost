@@ -125,6 +125,32 @@
     return YES;
 }
 
+- (void)clearColumns
+{
+    for (NavColumn *column in self.navColumns)
+    {
+        [column removeFromSuperview];
+    }
+    
+    [self.navColumns removeAllObjects];
+}
+
+- (void)selectPath:(NSArray *)pathComponents
+{
+    NSArray *nodes = [self.rootNode nodeTitlePath:pathComponents];
+    [self selectNodePath:nodes];
+}
+
+- (void)selectNodePath:(NSArray *)nodes
+{
+    [self clearColumns];
+    
+    for (id <NavNode> node in nodes)
+    {
+        [self addColumnForNode:node];
+    }
+}
+
 - (NSColor *)bgColor
 {
     return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
@@ -136,6 +162,8 @@
     [NSBezierPath fillRect:dirtyRect];
     [super drawRect:dirtyRect];
 }
+
+// --- actions ---------------------------------------------------
 
 - (BOOL)canHandleAction:(SEL)aSel
 {

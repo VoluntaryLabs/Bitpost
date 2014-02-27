@@ -17,6 +17,8 @@
 - (NSString *)nodeSubtitle;
 - (NSString *)nodeNote;
 
+- (NSArray *)nodeTitlePath:(NSArray *)pathComponents;
+
 - (NSString *)iconName; // so it can add "Selected" for highlighted version?
 
 - nodeView; // NavColumn view if nil, otherwise an effective preview view

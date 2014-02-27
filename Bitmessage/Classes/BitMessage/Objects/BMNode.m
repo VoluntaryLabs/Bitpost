@@ -75,6 +75,39 @@
     [[NSNotificationCenter defaultCenter] postNotification:note];
 }
 
+- (BMNode *)childWithTitle:(NSString *)aTitle
+{
+    for (BMNode *child in self.children)
+    {
+        if ([[child nodeTitle] isEqualToString:aTitle])
+        {
+            return child;
+        }
+    }
+    
+    return nil;
+}
+
+- (NSArray *)nodeTitlePath:(NSArray *)pathComponents
+{
+    BMNode *node = self;
+    NSMutableArray *nodes = [NSMutableArray array];
+    
+    for (NSString *title in pathComponents)
+    {
+        node = [node childWithTitle:title];
+        
+        if (node == nil)
+        {
+            break;
+        }
+        
+        [nodes addObject:node];
+    }
+    
+    return nodes;
+}
+
 
 - (NSString *)nodeTitle
 {

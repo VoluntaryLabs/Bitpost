@@ -31,4 +31,6 @@
 - (void)leftArrowFrom:aColumn;
 - (void)rightArrowFrom:aColumn;
 
+- (void)selectNodePath:(NSArray *)nodes;
+
 @end

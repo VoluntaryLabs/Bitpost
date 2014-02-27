@@ -15,10 +15,12 @@
     return self.toAddressLabel;
 }
 
+/*
 + (BMMessage *)withDict:(NSDictionary *)dict
 {
     NSLog(@"sent dict %@", dict);
     return [super withDict:dict];
 }
+ */
 
 @end

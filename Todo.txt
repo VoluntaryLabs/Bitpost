@@ -1,10 +1,11 @@
 
 todo
 
+11:50
+
 - easy UI to add contact for an address
 
 - add link for contact
-
 
 - fix trach icon delete not removing item
 

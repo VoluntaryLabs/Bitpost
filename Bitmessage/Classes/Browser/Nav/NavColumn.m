@@ -77,6 +77,25 @@
     [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
 }
 
+
+- (BOOL)selectItemNamed:(NSString *)aName
+{
+    NSInteger rowIndex = 0;
+    
+    for (id <NavNode> child in self.node.children)
+    {
+        if ([[child nodeTitle] isEqualToString:aName])
+        {
+            [self selectRowIndex:rowIndex];
+            return YES;
+        }
+        
+        rowIndex ++;
+    }
+    
+    return NO;
+}
+
 - (void)setRowHeight:(CGFloat)height
 {
     [self.tableView setRowHeight:height];

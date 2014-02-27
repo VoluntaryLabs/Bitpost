@@ -22,6 +22,9 @@
 - (void)addChild:(id)aChild;
 - (void)removeChild:(id)aChild;
 
+- (BMNode *)childWithTitle:(NSString *)aTitle;
+- (NSArray *)nodeTitlePath:(NSArray *)pathComponents;
+
 - (NSString *)nodeTitle;
 - (NSImage *)nodeIconForState:(NSString *)aState;
 

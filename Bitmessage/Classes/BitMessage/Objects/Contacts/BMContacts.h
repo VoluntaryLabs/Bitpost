@@ -13,6 +13,7 @@
 @interface BMContacts : BMNode
 
 - (void)fetch;
+- (BMContact *)justAdd;
 
 
 @end

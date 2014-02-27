@@ -27,4 +27,6 @@
 - (void)selectRowIndex:(NSInteger)rowIndex;
 - (void)setupHeaderView:(NSView *)aView;
 
+- (BOOL)selectItemNamed:(NSString *)aName;
+
 @end

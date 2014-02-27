@@ -50,14 +50,19 @@
     return contacts;
 }
 
-- (void)add
+- (BMContact *)justAdd
 {
     BMContact *newContact = [[BMContact alloc] init];
     [newContact setLabel:@"Enter Name"];
     [newContact setAddress:@"Enter Bitmessage Address"];
     [newContact insert];
     [self addChild:newContact];
-    
+    return newContact;
+}
+
+- (void)add
+{
+    [self justAdd];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
 

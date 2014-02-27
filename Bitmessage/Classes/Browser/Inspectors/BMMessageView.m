@@ -11,10 +11,11 @@
 #import "BMClient.h"
 #import "NSView+sizing.h"
 #import "ResizingScrollView.h"
-#import "DraftController.h"
-#import "AppController.h"
+//#import "DraftController.h"
+//#import "AppController.h"
 #import "NSString+BM.h"
 #import "MarginTextView.h"
+#import "BMContacts.h"
 
 @implementation BMMessageView
 
@@ -73,7 +74,7 @@
     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                 //[NSColor colorWithRed:0.70/2.0 green:0.69/2.0 blue:0.98/2.0 alpha:1.0f], NSForegroundColorAttributeName,
-                                [NSColor colorWithRed:0.70 green:0.69 blue:0.98 alpha:0.5], NSForegroundColorAttributeName,
+                                [NSColor colorWithRed:0.70 green:0.69 blue:0.98 alpha:1.0], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                          [NSNumber numberWithInt:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
                          nil];
@@ -88,7 +89,7 @@
     if ([address hasPrefix:@"BM-"])
     {
         att = [self linkAttributes];
-        [att setObject:[NSString stringWithFormat:@"BitmessageAddContact://%@/", address] forKey:NSLinkAttributeName];
+        [att setObject:[NSString stringWithFormat:@"BitmessageAddContact://%@", address] forKey:NSLinkAttributeName];
     }
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]
                                                 initWithString:address
@@ -234,6 +235,7 @@
     [self.textView setBackgroundColor:[NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0]];
     
     [self.textView setLinkTextAttributes:[self linkAttributes]];
+    [self.textView setDelegate:self];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -249,173 +251,32 @@
             substringWithRange:[self.textView selectedRange]];
 }
 
-@end
-
-// ---------------------------------------------
-
-#import "Theme.h"
-
-@implementation BMMessage (NodeView)
-
-/*
-- (NSView *)nodeView
+- (BOOL)textView:(NSTextView *)aTextView
+   clickedOnLink:(id)link
+        atIndex:(NSUInteger)charIndex
 {
-    if (![super nodeView])
+    NSArray *parts = [link componentsSeparatedByString:@"://"];
+    NSString *command = [parts objectAtIndex:0];
+    NSString *argument = [parts objectAtIndex:1];
+
+    NSLog(@"clickedOnLink %@", link);
+    
+    if ([command isEqualToString:@"BitmessageAddContact"])
     {
-        self.nodeView = [[BMMessageView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
-    }
-    return [super nodeView];
-}
-*/
-
-- (NSColor *)textColor
-{
-    NSString *className = NSStringFromClass([self class]);
-    
-    if (!self.read || [self.status isEqualToString:@"msgsent"])
-    {
-        return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
-    }
-    
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
-}
-/*
-- (NSColor *)textColor
-{
-    NSString *className = NSStringFromClass([self class]);
-    
-    if (self.read)
-    {
-        return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
-    }
-    
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
-}
- */
-
-- (NSColor *)textColorActive
-{
-    NSString *className = NSStringFromClass([self class]);
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-textColorActive", className]];
-}
-
-- (NSString *)nodeNote
-{
-    NSDate *date = self.date;
-    
-    if (date)
-    {
-        //return [NSString stringWithFormat:@"%@", date];
-
-        NSTimeInterval dt = -[date timeIntervalSinceNow];
-        NSInteger mins = dt/60;
-        NSInteger hours = mins/60;
-        NSInteger days = hours/24;
-        //NSInteger weeks = days/7;
-
-        NSString *messageYear = [date
-                                 descriptionWithCalendarFormat:@"%Y" timeZone:nil
-                                 locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
-        NSString *currentYear = [[NSDate date]
-                                 descriptionWithCalendarFormat:@"%Y" timeZone:nil
-                                 locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+        BMClient *client = [BMClient sharedBMClient];
+        BMContacts *contacts = [client contacts];
+        BMContact *newContact = [contacts justAdd];
+        [newContact setAddress:argument];
         
-        BOOL sameYear = [messageYear isEqualToString:currentYear];
-        
-        /*
-        if (hours < 1)
-        {
-            return [NSString stringWithFormat:@"%imin", (int)mins];
-        }
-        */
-        
-        if (days < 1)
-        {
-            //return [NSString stringWithFormat:@"%ihr", (int)hours];
-            return @"Today";
-        }
-        
-        if (days < 2)
-        {
-            return @"Yesterday";
-        }
-
-        /*
-        if (weeks < 1)
-        {
-            return [NSString stringWithFormat:@"%iwk", (int)days];
-        }
-        */
-
-        if (!sameYear)
-        {
-            return [date
-                    descriptionWithCalendarFormat:@"%b %d %Y" timeZone:nil
-                    locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
-        }
-        
-        return [date
-                  descriptionWithCalendarFormat:@"%b %d" timeZone:nil
-                  locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+        NSArray *nodes = [NSArray arrayWithObjects:client, contacts, newContact, nil];
+        [self.navView selectNodePath:nodes];
+        return YES; // yes, we handled it
     }
-    
-    return @"";
-}
-
-- (NSString *)quotedMessage
-{
-    NSString *date = [[self date]
-                                descriptionWithCalendarFormat:@"%b %d" timeZone:nil
-                      locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
-    
-    NSString *s = ((BMMessageView *)self.nodeView).selectedContent;
-    
-    if (s == nil || [s length] == 0)
-    {
-        s = self.message.decodedBase64;
-    }
-    
-    NSString *q =  [s stringByReplacingOccurrencesOfString:@"\n" withString:@"\n> "];
-    q =  [@"> " stringByAppendingString:q];
-    
-    
-    return [NSString stringWithFormat:@"\n\n\nOn %@, %@ wrote:\n%@\n", date, [self fromAddressLabel], q];
-}
-
-- (void)reply // hack!
-{
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draft = [appController newDraft];
-
-    // set to
-    
-    NSString *to = [[BMClient sharedBMClient] labelForAddress:self.fromAddress];
-    if ([to hasPrefix:@"BM-"])
-    {
-        to = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
-    }
-    
-    [draft.to setStringValue:to];
-    
-    [draft setDefaultFrom];
-    
-    // set subject
-    
-    NSString *reSubject = self.subjectString;
-    if (![reSubject hasPrefix:@"Re: "])
-    {
-        reSubject = [@"Re: " stringByAppendingString:reSubject];
-    }
-    
-    [draft.subject setStringValue:reSubject];
-    [draft.bodyText insertText:self.quotedMessage];
-    [draft setCursorForReply];
-    [draft open];
-}
-
-- (Class)viewClass
-{
-    return [BMMessageView class];
+     
+    return NO;
 }
 
 @end
+
+
+
