@@ -116,7 +116,7 @@
         }
     }
     
-    NSLog(@"shouldSelectNode - removing old columns");
+    //NSLog(@"shouldSelectNode - removing old columns");
     
     [self.navColumns removeObjectsInArray:toRemove];
     
@@ -174,7 +174,7 @@
 
 - (void)updateActionStrip
 {
-    NSLog(@"updateActionStrip");
+    //NSLog(@"updateActionStrip");
     
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
     {

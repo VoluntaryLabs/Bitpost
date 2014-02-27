@@ -255,6 +255,11 @@
     //[self.bodyText becomeFirstResponder];
 }
 
+- (void)setCursorOnTo
+{
+    [self.to becomeFirstResponder];
+}
+
 // --- delegate ---
 
 - (BOOL)hasValidAddresses
@@ -287,6 +292,15 @@
 {
     
     return @[@"foobar", @"foobaz", @"fooqaz"];
+}
+
+- (void)setDefaultFrom
+{
+    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] label];
+    if (from)
+    {
+        [self.from setStringValue:from];
+    }
 }
 
 @end

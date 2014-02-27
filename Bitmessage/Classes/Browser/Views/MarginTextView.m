@@ -18,9 +18,12 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        [super setTextContainerInset:NSMakeSize(30.0f, 5.0f)];
+    
+    if (self)
+    {
+        //[super setTextContainerInset:NSMakeSize(30.0f, 30.0f)];
     }
+    
     return self;
 }
 
@@ -34,7 +37,7 @@
 - (NSPoint)textContainerOrigin
 {
     NSPoint origin = [super textContainerOrigin];
-    NSPoint newOrigin = NSMakePoint(origin.x + 5.0f, origin.y);
+    NSPoint newOrigin = NSMakePoint(origin.x + 30.0f, origin.y + 30.0);
     return newOrigin;
 }
 

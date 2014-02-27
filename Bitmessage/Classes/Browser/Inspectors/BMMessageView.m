@@ -47,6 +47,17 @@
     return att;
 }
 
+- (NSDictionary *)infoAttributes
+{
+    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
+    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSColor colorWithCalibratedWhite:.2 alpha:1.0], NSForegroundColorAttributeName,
+                         font, NSFontAttributeName,
+                         nil];
+    return att;
+}
+
+
 - (NSDictionary *)bodyAttributes
 {
     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
@@ -72,10 +83,19 @@
     [self.message markAsRead];
     
     NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc]
-                                                initWithString:[NSString stringWithFormat:@"\n%@\n", self.message.subjectString]
+                                                initWithString:[NSString stringWithFormat:@"%@\n", self.message.subjectString]
                                                 attributes:[self subjectAttributes]];
 
- 
+
+    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                           initWithString:[NSString stringWithFormat:@"%@ → %@\n", self.message.fromAddressLabel, self.message.toAddressLabel]
+                                           attributes:[self infoAttributes]]];
+    /*
+    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                           initWithString:[NSString stringWithFormat:@"to  \t%@\n", self.message.toAddressLabel]
+                                           attributes:[self infoAttributes]]];
+
+    */
     NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
                                                 initWithString:[@"\n" stringByAppendingString:self.message.messageString]
                                                 attributes:[self bodyAttributes]];
@@ -117,8 +137,7 @@
     [self.textView setWidth:self.frame.size.width];
     
 
-    NSPoint pointToScrollTo = NSMakePoint (0, 0);  // Any point you like.
-    [[self.scrollView contentView] scrollToPoint: pointToScrollTo];
+    [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
     [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
 }
 
@@ -282,7 +301,7 @@
 - (void)reply // hack!
 {
     AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draftController = [appController newDraft];
+    DraftController *draft = [appController newDraft];
 
     // set to
     
@@ -292,15 +311,9 @@
         to = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
     }
     
-    [draftController.to setStringValue:to];
+    [draft.to setStringValue:to];
     
-    // set from
-    
-    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] label];
-    if (from)
-    {
-        [draftController.from setStringValue:from];
-    }
+    [draft setDefaultFrom];
     
     // set subject
     
@@ -310,13 +323,10 @@
         reSubject = [@"Re: " stringByAppendingString:reSubject];
     }
     
-    [draftController.subject setStringValue:reSubject];
-    
-    [draftController.bodyText insertText:self.quotedMessage];
-    
-    [draftController setCursorForReply];
-
-    [draftController open];
+    [draft.subject setStringValue:reSubject];
+    [draft.bodyText insertText:self.quotedMessage];
+    [draft setCursorForReply];
+    [draft open];
 }
 
 - (Class)viewClass

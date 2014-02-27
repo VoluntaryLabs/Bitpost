@@ -22,5 +22,7 @@
 - (NSInteger)unreadMessageCount;
 
 - (IBAction)openInfoPanel:(id)sender;
+- (IBAction)compose:(id)sender;
+
 
 @end

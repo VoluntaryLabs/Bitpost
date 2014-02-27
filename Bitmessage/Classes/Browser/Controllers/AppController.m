@@ -83,7 +83,7 @@
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    //[self startRefreshTimer];
+    [self startRefreshTimer];
     [self.navView.window setTitle:@""];
 }
 
@@ -163,6 +163,15 @@
 - (IBAction)openInfoPanel:(id)sender
 {
     [[InfoPanelController sharedInfoPanelController] open];
+}
+
+- (IBAction)compose:(id)sender // hack - consolidate into DraftController
+{
+    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
+    DraftController *draft = [appController newDraft];
+    [draft setDefaultFrom];
+    [draft setCursorOnTo];
+    [draft open];
 }
 
 @end

@@ -33,10 +33,13 @@
 + (DraftController *)openNewDraft;
 
 - (IBAction)send:(id)sender;
+
 - (void)setCursorForReply;
+- (void)setCursorOnTo;
 
 - (void)open;
 
 - (void)updateSendButton;
+- (void)setDefaultFrom;
 
 @end
