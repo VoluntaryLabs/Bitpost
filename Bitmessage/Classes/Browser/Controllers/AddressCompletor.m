@@ -21,7 +21,7 @@
 
 - (void)setTextField:(NSTextField *)textField
 {
-    _textField = textField;
+    _textField = (AddressTextField *) textField;
     [_textField setDelegate:self];
 }
 
@@ -62,6 +62,12 @@
             self.shouldComplete = NO;
         }
         
+        if (self.textField.eventIsTab)
+        {
+            [[self.textField nextKeyView] becomeFirstResponder];
+            self.shouldComplete = NO;
+        }
+        
         if (self.shouldComplete)
         {
             self.isCompleting = YES;
@@ -83,7 +89,7 @@
     
     if (self.isValid)
     {
-        self.textField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
+        self.textField.textColor = [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
         [self.textField setFont:[NSFont fontWithName:@"Open Sans Light" size:self.textField.font.pointSize]];
     }
     else
@@ -166,6 +172,32 @@
 - (void)textDidEndEditing:(NSNotification *)notification
 {
     [self.textField textDidEndEditing:notification];
+}
+
+//- (BOOL)textView:(NSTextView *)aTextView doCommandBySelector:(SEL)aSelector
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)textView doCommandBySelector:(SEL)command
+{
+    //NSLog(@"command '%@'", NSStringFromSelector(command));
+    
+    if (command == @selector(insertTab:) || command == @selector(insertNewline:))
+    {
+        NSView *next = self.textField.nextKeyView;
+        //NSLog(@"selectNextKeyView %@", next);
+        [next becomeFirstResponder];
+        //[[self window] selectNextKeyView:nil];
+        return YES;
+    }
+    
+    return NO;
+}
+
+-(void)controlTextDidEndEditing:(NSNotification *)notification
+{
+    // See if it was due to a return
+    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement )
+    {
+        //NSLog(@"Return was pressed!");
+    }
 }
 
 @end

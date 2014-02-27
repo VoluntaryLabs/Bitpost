@@ -22,6 +22,7 @@
 + (DraftController *)openNewDraft
 {
     DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
+    [draft view]; // it lazy loads?
     [draft open];
     return draft;
 }
@@ -226,6 +227,9 @@
 
 - (void)open
 {
+    [self.from setNextKeyView:self.to];
+    [self.to setNextKeyView:self.subject];
+    [self.subject  setNextKeyView:self.bodyText];
     [self placeWindow];
     [self updateSendButton];
     [self.scrollView scrollToTop];

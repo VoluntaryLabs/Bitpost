@@ -315,6 +315,7 @@
     [draftController.bodyText insertText:self.quotedMessage];
     
     [draftController setCursorForReply];
+
     [draftController open];
 }
 

@@ -10,13 +10,14 @@
 #import "ColoredView.h"
 #import "MarginTextView.h"
 #import "AddressCompletor.h"
+#import "AddressTextField.h"
 
 @interface DraftController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
 
 @property (assign, nonatomic) IBOutlet NSButton *sendButton;
 
-@property (assign, nonatomic) IBOutlet NSTextField *from;
-@property (assign, nonatomic) IBOutlet NSTextField *to;
+@property (assign, nonatomic) IBOutlet AddressTextField *from;
+@property (assign, nonatomic) IBOutlet AddressTextField *to;
 @property (assign, nonatomic) IBOutlet NSTextField *subject;
 
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;

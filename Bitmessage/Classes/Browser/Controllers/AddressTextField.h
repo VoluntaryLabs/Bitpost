@@ -14,6 +14,8 @@
 
 - (BOOL)eventIsSpace;
 - (BOOL)eventIsDelete;
+- (BOOL)eventIsTab;
+
 - (void)resetEventCharacter;
 
 @end

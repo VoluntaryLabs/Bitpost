@@ -13,13 +13,18 @@
 
 - (BOOL)eventIsDelete
 {
-    //return self.eventCharacter == NSDeleteCharacter;
-    return self.eventCharacter == 127;
+    return self.eventCharacter == NSDeleteCharacter;
+    //return self.eventCharacter == 127;
 }
 
 - (BOOL)eventIsSpace
 {
     return self.eventCharacter == 32;
+}
+
+- (BOOL)eventIsTab
+{
+    return self.eventCharacter == NSTabCharacter;
 }
 
 static NSEvent *keyEvent = nil;
@@ -50,6 +55,7 @@ static NSEvent *keyEvent = nil;
                 unichar character = [characters characterAtIndex:0];
                 self.eventCharacter = character;
                 //NSLog(@"character = %i", (int)character);
+                
                 return event;
             } ];
             
