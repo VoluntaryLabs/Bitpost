@@ -659,10 +659,10 @@
 			children = (
 				AA31567418AAE0E00017E94F /* NSView+sizing.h */,
 				AA31567518AAE0E00017E94F /* NSView+sizing.m */,
+				AAF40CB318B59543005BA55E /* NSEvent+keys.m */,
 				AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */,
 				AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */,
 				AAF40CB218B59543005BA55E /* NSEvent+keys.h */,
-				AAF40CB318B59543005BA55E /* NSEvent+keys.m */,
 				AA2AC86C18B81815008CEEB4 /* NSTextView+extra.h */,
 				AA2AC86D18B81815008CEEB4 /* NSTextView+extra.m */,
 				AAE0EEA418BC34DE00B7E9F3 /* NSScrollView+extra.h */,

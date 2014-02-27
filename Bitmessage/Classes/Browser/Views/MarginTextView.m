@@ -10,9 +10,14 @@
 
 @implementation MarginTextView
 
+- (void)setupInset
+{
+    [super setTextContainerInset:NSMakeSize(30.0f, 30.0f)];
+
+}
 - (void)awakeFromNib
 {
-    //[super setTextContainerInset:NSMakeSize(15.0f, 5.0f)]; // needed?
+    [self setupInset];
 }
 
 - (id)initWithFrame:(NSRect)frame
@@ -21,24 +26,28 @@
     
     if (self)
     {
-        //[super setTextContainerInset:NSMakeSize(30.0f, 30.0f)];
+        [self setupInset];
     }
     
     return self;
 }
 
+/*
 - (void)drawRect:(NSRect)dirtyRect
 {
 	[super drawRect:dirtyRect];
 	
     // Drawing code here.
 }
+*/
 
+/*
 - (NSPoint)textContainerOrigin
 {
     NSPoint origin = [super textContainerOrigin];
     NSPoint newOrigin = NSMakePoint(origin.x + 30.0f, origin.y + 30.0);
     return newOrigin;
 }
+*/
 
 @end

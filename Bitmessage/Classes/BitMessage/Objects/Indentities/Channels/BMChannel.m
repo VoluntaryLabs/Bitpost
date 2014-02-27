@@ -110,7 +110,9 @@
 
 - (void)justLeave
 {
-    // leaveChan <address>	 0.4.2	 Leave a chan. Outputs "success". Note that at this time, the address is still shown in the UI until a restart.
+    // leaveChan <address>	 0.4.2	 Leave a chan.
+    // Outputs "success". Note that at this time,
+    // the address is still shown in the UI until a restart.
     
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"leaveChan"];

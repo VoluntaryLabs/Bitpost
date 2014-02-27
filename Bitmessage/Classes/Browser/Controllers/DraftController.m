@@ -230,6 +230,7 @@
     [self.from setNextKeyView:self.to];
     [self.to setNextKeyView:self.subject];
     [self.subject  setNextKeyView:self.bodyText];
+    [self setAddressesToLabels];
     [self placeWindow];
     [self updateSendButton];
     [self.scrollView scrollToTop];
@@ -301,6 +302,12 @@
     {
         [self.from setStringValue:from];
     }
+}
+
+- (void)setAddressesToLabels
+{
+    self.to.stringValue = [[BMClient sharedBMClient] labelForAddress:self.to.stringValue];
+    self.from.stringValue = [[BMClient sharedBMClient] labelForAddress:self.from.stringValue];
 }
 
 @end

@@ -1,6 +1,7 @@
 
 todo
 
+- fill right side
 - easy UI to add contact for an address
 - use address labels in message reply
 - autoselect contact name upon add
