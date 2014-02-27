@@ -47,11 +47,11 @@
     return att;
 }
 
-- (NSDictionary *)infoAttributes
+- (NSMutableDictionary *)infoAttributes
 {
     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.2 alpha:1.0], NSForegroundColorAttributeName,
+    NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                         [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                          nil];
     return att;
@@ -62,10 +62,39 @@
 {
     NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSColor colorWithCalibratedWhite:.5 alpha:1.0], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+                         [NSColor colorWithCalibratedWhite:.5 alpha:1.0], NSForegroundColorAttributeName,
+                         font, NSFontAttributeName,
+                        nil];
     return att;
+}
+
+- (NSMutableDictionary *)linkAttributes
+{
+    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
+    NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                //[NSColor colorWithRed:0.70/2.0 green:0.69/2.0 blue:0.98/2.0 alpha:1.0f], NSForegroundColorAttributeName,
+                                [NSColor colorWithRed:0.70 green:0.69 blue:0.98 alpha:0.5], NSForegroundColorAttributeName,
+                         font, NSFontAttributeName,
+                         [NSNumber numberWithInt:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
+                         nil];
+    return att;
+}
+
+
+- (NSMutableAttributedString *)linkForAddress:(NSString *)address
+{
+    NSMutableDictionary *att = [self infoAttributes];
+    
+    if ([address hasPrefix:@"BM-"])
+    {
+        att = [self linkAttributes];
+        [att setObject:[NSString stringWithFormat:@"BitmessageAddContact://%@/", address] forKey:NSLinkAttributeName];
+    }
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc]
+                                                initWithString:address
+                                                attributes:att];
+
+    return string;
 }
 
 - (NSAttributedString *)bodyString
@@ -86,11 +115,55 @@
                                                 initWithString:[NSString stringWithFormat:@"%@\n", self.message.subjectString]
                                                 attributes:[self subjectAttributes]];
 
-
+    [subjectString appendAttributedString:[self linkForAddress:self.message.fromAddressLabel]];
+    
     [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
-                                           initWithString:[NSString stringWithFormat:@"%@ → %@\n", self.message.fromAddressLabel, self.message.toAddressLabel]
+                                           initWithString:@" → "
                                            attributes:[self infoAttributes]]];
+    
+    [subjectString appendAttributedString:[self linkForAddress:self.message.toAddressLabel]];
+    
+    if ([self.message.status isEqualToString:@"ackreceived"])
+    {
+        [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                               initWithString:@" (received)"
+                                               attributes:[self infoAttributes]]];
+    }
+    else if ([self.message.status isEqualToString:@"msgsent"])
+    {
+        [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                               initWithString:@" (unacknowledged)"
+                                               attributes:[self infoAttributes]]];
+    }
+    
+    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                           initWithString:@"\n"
+                                           attributes:[self infoAttributes]]];
+    
+    
 
+    
+     /*
+     NSMutableAttributedString *string; // assume string exists
+     NSRange selectedRange; // assume this is set
+     
+     NSURL *linkURL = [NSURL URLWithString:@"http://www.apple.com/"];
+     
+     [string beginEditing];
+     [string addAttribute:NSLinkAttributeName
+     value:linkURL
+     range:selectedRange];
+     
+     [string addAttribute:NSForegroundColorAttributeName
+     value:[NSColor blueColor]
+     range:selectedRange];
+     
+     [string addAttribute:NSUnderlineStyleAttributeName
+     value:[NSNumber numberWithInt:NSSingleUnderlineStyle]
+     range:selectedRange];
+     [string endEditing];
+     */
+    
     NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
                                                 initWithString:[@"\n" stringByAppendingString:self.message.messageString]
                                                 attributes:[self bodyAttributes]];
@@ -119,6 +192,7 @@
     
     //[self.textView setString:message.messageString];
     //[self.textView setFont:nil];
+    
     [self.textView setEditable:YES];
     [self.textView setString:@""];
     [self.textView insertText:self.bodyString];
@@ -158,6 +232,8 @@
       nil]];
 
     [self.textView setBackgroundColor:[NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0]];
+    
+    [self.textView setLinkTextAttributes:[self linkAttributes]];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -196,6 +272,18 @@
 {
     NSString *className = NSStringFromClass([self class]);
     
+    if (!self.read || [self.status isEqualToString:@"msgsent"])
+    {
+        return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
+    }
+    
+    return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
+}
+/*
+- (NSColor *)textColor
+{
+    NSString *className = NSStringFromClass([self class]);
+    
     if (self.read)
     {
         return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
@@ -203,6 +291,7 @@
     
     return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
 }
+ */
 
 - (NSColor *)textColorActive
 {

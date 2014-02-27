@@ -1,24 +1,25 @@
 
 todo
 
-- fill right side
 - easy UI to add contact for an address
-- use address labels in message reply
+
+- add link for contact
+
+
+- fix trach icon delete not removing item
+
+- fill right side
 - autoselect contact name upon add
 - autoselect full text on click of "Enter Label" or "Enter Address"
 
 - cleanup keys.dat backups
-- use address labels in compose & autocomplete
 - find
 
 [adam]
 - alphabetically sort identities, channels, subscriptions
 - fix for font 
 
-
 - tab to move to next input in contact views
-
-- on normal shutdown, turn off daemon mode so default client can work?
 
 - select item after add/update
 

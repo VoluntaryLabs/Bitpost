@@ -18,6 +18,7 @@
 @property (retain, nonatomic) NSNumber *receivedTime; // RECEIVED
 @property (retain, nonatomic) NSNumber *lastActionTime; // SENT
 @property (retain, nonatomic) NSString *subject;
+@property (retain, nonatomic) NSString *status; // SENT?
 @property (assign, nonatomic) BOOL read;
 
 + (BMMessage *)withDict:(NSDictionary *)dict;

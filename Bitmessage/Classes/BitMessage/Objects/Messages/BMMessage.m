@@ -38,6 +38,7 @@
     [dict setObject:self.receivedTime forKey:@"receivedTime"];
     [dict setObject:self.lastActionTime forKey:@"lastActionTime"];
     [dict setObject:self.subject forKey:@"subject"];
+    //[dict setObject:self.status forKey:@"status"];
     [dict setObject:[NSNumber numberWithBool:self.read] forKey:@"read"];
     return dict;
 }
@@ -53,6 +54,7 @@
     self.lastActionTime = [dict objectForKey:@"lastActionTime"];
     self.subject = [dict objectForKey:@"subject"];
     self.read = [[dict objectForKey:@"read"] boolValue];
+    self.status = [dict objectForKey:@"status"];
 }
 
 - (NSString *)subjectString

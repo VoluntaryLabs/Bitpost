@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Inspectors/BMMessageView.m"
-            timestampString = "415155833.951616"
+            timestampString = "415212649.107219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-reply"
             landmarkType = "5">
          </BreakpointContent>
