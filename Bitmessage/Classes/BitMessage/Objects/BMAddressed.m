@@ -17,6 +17,11 @@
 
 @implementation BMAddressed
 
++ (NSString *)defaultLabel
+{
+    return @"Enter Name";
+}
+
 - (id)init
 {
     self = [super init];

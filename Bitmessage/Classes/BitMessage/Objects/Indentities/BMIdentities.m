@@ -56,11 +56,9 @@
     return identities;
 }
 
-
-
 - (void)add
 {
-    [self createRandomAddressWithLabel:@"Enter Label"];
+    [self createRandomAddressWithLabel:[BMAddressed defaultLabel]];
 }
 
 - (void)createRandomAddressWithLabel:(NSString *)label

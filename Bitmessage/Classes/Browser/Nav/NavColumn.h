@@ -22,6 +22,8 @@
 @property (strong, nonatomic) ColoredView *headerView;
 @property (assign, nonatomic) BOOL isUpdating;
 
+- (void)prepareToDisplay;
+
 - (id <NavNode>)selectedNode;
 
 - (void)selectRowIndex:(NSInteger)rowIndex;

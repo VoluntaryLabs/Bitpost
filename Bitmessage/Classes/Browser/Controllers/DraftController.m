@@ -60,11 +60,14 @@
 {
     [super loadView];
 
+    NSMutableArray *labels = [[BMClient sharedBMClient] allAddressLabels];
     self.fromCompletor = [[AddressCompletor alloc] init];
-    self.fromCompletor.addressLabels = [[BMClient sharedBMClient] fromAddressLabels];
+    //self.fromCompletor.addressLabels = [[BMClient sharedBMClient] fromAddressLabels];
+    self.fromCompletor.addressLabels = labels;
     
     self.toCompletor   = [[AddressCompletor alloc] init];
-    self.toCompletor.addressLabels = [[BMClient sharedBMClient] toAddressLabels];
+    //self.toCompletor.addressLabels = [[BMClient sharedBMClient] allAddressLabels];
+    self.toCompletor.addressLabels = labels;
     
     [self setupViewPositions];
     [self setupHighlightColors];

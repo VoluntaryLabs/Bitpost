@@ -33,5 +33,6 @@
 
 - (NSMutableArray *)fromAddressLabels;
 - (NSMutableArray *)toAddressLabels;
+- (NSMutableArray *)allAddressLabels;
 
 @end

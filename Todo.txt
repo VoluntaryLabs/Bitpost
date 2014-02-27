@@ -1,16 +1,14 @@
 
 todo
 
-11:50
 
 - easy UI to add contact for an address
 
-- add link for contact
-
 - fix trach icon delete not removing item
 
+- seperate SentMessage specific fields
+
 - fill right side
-- autoselect contact name upon add
 - autoselect full text on click of "Enter Label" or "Enter Address"
 
 - cleanup keys.dat backups
@@ -35,6 +33,8 @@ todo
 - after a item remove, nav to prev column if column is empty
 
 - error panel if can't connect to server - option to quit
+
+- panel for adding contact
 
 
 

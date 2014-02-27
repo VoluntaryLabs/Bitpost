@@ -10,4 +10,7 @@
 
 @interface BMSentMessage : BMMessage
 
+- (NSString *)getStatus;
+- (NSString *)getHumanReadbleStatus;
+
 @end

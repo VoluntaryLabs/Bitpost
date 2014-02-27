@@ -78,8 +78,16 @@
     [(NSTextView *)self.labelField setInsertionPointColor:[NSColor whiteColor]];
     [(NSTextView *)self.addressField setInsertionPointColor:[NSColor whiteColor]];
     
-    [self.labelField becomeFirstResponder];
-    [self.labelField selectAll:nil];
+}
+
+- (void)prepareToDisplay
+{
+    if ([self.labelField.string isEqualToString:[BMAddressed defaultLabel]])
+    {        
+        [self.window makeFirstResponder:self.labelField];
+        //[self.labelField becomeFirstResponder];
+        [self.labelField selectAll:nil];
+    }
 }
 
 - (void)dealloc

@@ -7,6 +7,7 @@
 //
 
 #import "BMSentMessage.h"
+#import "BMProxyMessage.h"
 
 @implementation BMSentMessage
 
@@ -21,6 +22,45 @@
     NSLog(@"sent dict %@", dict);
     return [super withDict:dict];
 }
- */
+*/
+
+- (NSDictionary *)statusDict
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            @"not found", @"notfound",
+            @"queued", @"msgqueued",
+            @"broadcast queued", @"broadcastqueued",
+            @"broadcast sent", @"broadcastsent",
+            @"doing public key proof of work", @"doingpubkeypow",
+            @"awaiting public key", @"awaitingpubkey",
+            @"doing message proof of work", @"doingmsgpow",
+            @"force proof of work", @"forcepow",
+            @"sent but unacknowledged", @"msgsent",
+            @"sent, no acknowledge expected", @"msgsentnoackexpected",
+            @"received", @"ackreceived", nil];
+}
+
+- (NSString *)getHumanReadbleStatus
+{
+    NSString *status = self.getStatus;
+    status = [self.statusDict objectForKey:status];
+    return status;
+}
+
+- (NSString *)getStatus
+{
+    BMProxyMessage *message = [[BMProxyMessage alloc] init];
+    [message setMethodName:@"getStatus"];
+    NSArray *params = [NSArray arrayWithObjects:self.ackData, nil];
+    [message setParameters:params];
+    message.debug = YES;
+    [message sendSync];
+    id result = [message responseValue];
+    NSLog(@"getStatus result %@", result);
+    
+    /* responses: notfound, msgqueued, broadcastqueued, broadcastsent, doingpubkeypow, awaitingpubkey, doingmsgpow, forcepow, msgsent, msgsentnoackexpected, or ackreceived */
+    
+    return result;
+}
 
 @end

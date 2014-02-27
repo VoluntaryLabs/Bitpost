@@ -55,6 +55,7 @@
     self.subject = [dict objectForKey:@"subject"];
     self.read = [[dict objectForKey:@"read"] boolValue];
     self.status = [dict objectForKey:@"status"];
+    self.ackData = [dict objectForKey:@"ackData"];
 }
 
 - (NSString *)subjectString

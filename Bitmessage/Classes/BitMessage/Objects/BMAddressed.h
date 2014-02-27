@@ -13,6 +13,8 @@
 @property (retain, nonatomic) NSString *label;
 @property (retain, nonatomic) NSString *address; // base64
 
++ (NSString *)defaultLabel;
+
 + (id)withDict:(NSDictionary *)dict;
 - (void)setDict:(NSDictionary *)dict;
 - (NSMutableDictionary *)dict;

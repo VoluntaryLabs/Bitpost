@@ -16,6 +16,7 @@
 #import "NSString+BM.h"
 #import "MarginTextView.h"
 #import "BMContacts.h"
+#import "BMSentMessage.h"
 
 @implementation BMMessageView
 
@@ -124,17 +125,16 @@
     
     [subjectString appendAttributedString:[self linkForAddress:self.message.toAddressLabel]];
     
-    if ([self.message.status isEqualToString:@"ackreceived"])
+    if (self.message.class == [BMSentMessage class])
     {
-        [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
-                                               initWithString:@" (received)"
-                                               attributes:[self infoAttributes]]];
-    }
-    else if ([self.message.status isEqualToString:@"msgsent"])
-    {
-        [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
-                                               initWithString:@" (unacknowledged)"
-                                               attributes:[self infoAttributes]]];
+        NSString *status = ((BMSentMessage *)self.message).getHumanReadbleStatus;
+        
+        if (status)
+        {
+            [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                                   initWithString:[NSString stringWithFormat:@" (%@)", status]
+                                                   attributes:[self infoAttributes]]];
+        }
     }
     
     [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
@@ -249,6 +249,11 @@
 {
     return [[self.textView string]
             substringWithRange:[self.textView selectedRange]];
+}
+
+- (void)prepareToDisplay
+{
+    
 }
 
 - (BOOL)textView:(NSTextView *)aTextView

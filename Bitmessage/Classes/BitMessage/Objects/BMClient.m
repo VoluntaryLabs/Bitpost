@@ -131,4 +131,13 @@ static BMClient *sharedBMClient;
     return addressLabels;
 }
 
+- (NSMutableArray *)allAddressLabels
+{
+    NSMutableArray *all = [NSMutableArray array];
+    [all addObjectsFromArray:self.fromAddressLabels];
+    [all addObjectsFromArray:self.toAddressLabels];
+    return all;
+}
+
+
 @end

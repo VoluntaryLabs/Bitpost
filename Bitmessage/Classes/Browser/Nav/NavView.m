@@ -39,7 +39,7 @@
     [self addColumnForNode:self.rootNode];
 }
 
-- (void)addColumnForNode:(id <NavNode>)node
+- (NavColumn *)addColumnForNode:(id <NavNode>)node
 {
     NavColumn *column = nil;
     
@@ -74,6 +74,8 @@
     [column setNode:node];
 
     [self stackViews];
+    
+    return column;
 }
 
 - (CGFloat)columnsWidth
@@ -120,7 +122,8 @@
     
     [self.navColumns removeObjectsInArray:toRemove];
     
-    [self addColumnForNode:node];
+    NavColumn *newColumn = [self addColumnForNode:node];
+    [newColumn prepareToDisplay];
     [self updateActionStrip];
     return YES;
 }
@@ -145,9 +148,16 @@
 {
     [self clearColumns];
     
+    NavColumn *column = nil;
+    
     for (id <NavNode> node in nodes)
     {
-        [self addColumnForNode:node];
+        column = [self addColumnForNode:node];
+    }
+    
+    if ([column respondsToSelector:@selector(prepareToDisplay)])
+    {
+        [column prepareToDisplay];
     }
 }
 

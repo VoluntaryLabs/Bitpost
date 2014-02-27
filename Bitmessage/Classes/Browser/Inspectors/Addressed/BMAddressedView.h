@@ -20,6 +20,7 @@
 @property (assign, nonatomic) BOOL isUpdating;
 
 - (void)setup;
+- (void)prepareToDisplay;
 
 - (BOOL)isSynced;
 - (void)syncToNode;

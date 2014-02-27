@@ -228,6 +228,12 @@
     [self setMaxWidth:400];
 }
 
+- (void)prepareToDisplay
+{
+    
+}
+
+
 - (void)setupHeaderView:(NSView *)aView
 {
     [self.tableView removeFromSuperview]; // so views are in correct order
