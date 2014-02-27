@@ -140,6 +140,7 @@ static BMServerProcess *shared = nil;
     NSLog(@"Killing pybitmessage process...");
     [_task terminate];
     self.task = nil;
+    [self.keysFile setupForNonDaemon];
 }
 
 - (BOOL)isRunning

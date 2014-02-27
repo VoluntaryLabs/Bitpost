@@ -124,6 +124,14 @@
     [self write];
 }
 
+- (void)setupForNonDaemon
+{
+    [self read];
+    [self.settings setObject:@"daemon" forKey:@"false"];
+    [self write];
+}
+
+
 - (BOOL)setApiUsername:(NSString *)aString
 {
     [self read];

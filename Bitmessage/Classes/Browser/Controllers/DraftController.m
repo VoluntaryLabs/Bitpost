@@ -249,7 +249,7 @@
 
 - (void)setCursorForReply
 {
-    NSInteger charIndex = 1;
+    NSInteger charIndex = 0;
     [self.bodyText setSelectedRange: NSMakeRange(charIndex, 0)];
     [self.scrollView becomeFirstResponder];
     //[self.bodyText becomeFirstResponder];

@@ -90,12 +90,7 @@
     [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
                                            initWithString:[NSString stringWithFormat:@"%@ → %@\n", self.message.fromAddressLabel, self.message.toAddressLabel]
                                            attributes:[self infoAttributes]]];
-    /*
-    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
-                                           initWithString:[NSString stringWithFormat:@"to  \t%@\n", self.message.toAddressLabel]
-                                           attributes:[self infoAttributes]]];
 
-    */
     NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
                                                 initWithString:[@"\n" stringByAppendingString:self.message.messageString]
                                                 attributes:[self bodyAttributes]];

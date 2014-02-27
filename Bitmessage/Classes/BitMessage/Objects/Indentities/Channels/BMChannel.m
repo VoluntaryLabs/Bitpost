@@ -25,7 +25,7 @@
 {
     id instance = [[[self class] alloc] init];
     [instance setDict:dict];
-    NSLog(@"channel dict: %@", dict);
+    //NSLog(@"channel dict: %@", dict);
     return instance;
 }
 
@@ -118,8 +118,8 @@
     [message setParameters:params];
     //message.debug = YES;
     [message sendSync];
-    id response = [message parsedResponseValue];
-    NSLog(@"response %@", response);
+    //id response = [message parsedResponseValue];
+    //NSLog(@"response %@", response);
     
     [self.nodeParent removeChild:self];
 }

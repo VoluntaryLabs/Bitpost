@@ -13,6 +13,8 @@
 @property (strong) NSMutableDictionary *dict;
 
 - (void)setupForDaemon;
+- (void)setupForNonDaemon; // call this when shutting down
+
 - (BOOL)setApiUsername:(NSString *)aString;
 - (BOOL)setApiPassword:(NSString *)aString;
 - (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress;

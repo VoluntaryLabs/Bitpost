@@ -1,12 +1,18 @@
 
 todo
 
+- easy UI to add contact for an address
+- use address labels in message reply
+- autoselect contact name upon add
+- autoselect full text on click of "Enter Label" or "Enter Address"
+
+- cleanup keys.dat backups
 - use address labels in compose & autocomplete
 - find
-- scroll compose window to top
 
 [adam]
 - alphabetically sort identities, channels, subscriptions
+- fix for font 
 
 
 - tab to move to next input in contact views
@@ -15,12 +21,7 @@ todo
 
 - select item after add/update
 
-- compose button/menu
-
 - fix selection after reload (stay on same message if possible, not row index)
-
-
-- stack draft windows when opening?
 
 - menus?
 
@@ -29,6 +30,8 @@ todo
 - cleanup base64 in dicts
 
 - after a item remove, nav to prev column if column is empty
+
+- error panel if can't connect to server - option to quit
 
 
 
