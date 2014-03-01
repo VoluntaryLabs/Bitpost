@@ -30,6 +30,8 @@
 	<string>Copyright © 2014 Bitmarkets.org. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
+	<key>ATSApplicationFontsPath</key>
+	<string>fonts/Open_Sans</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>
