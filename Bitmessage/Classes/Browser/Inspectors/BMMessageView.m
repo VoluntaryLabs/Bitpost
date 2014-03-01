@@ -142,8 +142,6 @@
                                            attributes:[self infoAttributes]]];
     
     
-
-    
      /*
      NSMutableAttributedString *string; // assume string exists
      NSRange selectedRange; // assume this is set
@@ -194,6 +192,7 @@
     //[self.textView setString:message.messageString];
     //[self.textView setFont:nil];
     
+    [self.textView setRichText:NO];
     [self.textView setEditable:YES];
     [self.textView setString:@""];
     [self.textView insertText:self.bodyString];

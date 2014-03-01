@@ -113,14 +113,27 @@
 
 - (void)setNode:(id<NavNode>)node
 {
+    
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"BMNodeChanged"
+                                                  object:_node];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:@"BMMessageRemovedChild"
+                                                  object:_node];
+
     _node = node;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(nodeChanged:)
+                                                 name:@"BMNodeChanged"
+                                               object:_node];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"BMNodeChanged" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"BMMessageRemovedChild" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeChanged:) name:@"BMNodeChanged" object:node];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nodeRemovedChild:) name:@"BMMessageRemovedChild" object:node];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(nodeRemovedChild:)
+                                                 name:@"BMMessageRemovedChild"
+                                               object:_node];
     
     
     [self setMaxWidth:node.nodeSuggestedWidth];
@@ -138,6 +151,7 @@
 - (void)updateDocumentView:(NSNotification *)note
 {
     NSLog(@"tableFrameDidChangeNotification");
+    
     if (!self.isUpdating &&
         //[note object] == self.tableView &&
         !NSEqualRects(self.documentView.bounds, self.tableView.bounds))

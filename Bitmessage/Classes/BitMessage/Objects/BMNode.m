@@ -68,9 +68,11 @@
 - (void)removeChild:(id)aChild
 {
     [self.children removeObject:aChild];
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"BMMessageRemovedChild" object:self.nodeParent];
 
-    NSNotification *note = [NSNotification  notificationWithName:@"BMMessageRemovedChild" object:self userInfo:[NSDictionary dictionaryWithObject:aChild forKey:@"child"]];
+    NSDictionary *info = [NSDictionary dictionaryWithObject:aChild forKey:@"child"];
+    NSNotification *note = [NSNotification notificationWithName:@"BMMessageRemovedChild"
+                                                         object:self
+                                                       userInfo:info];
     
     [[NSNotificationCenter defaultCenter] postNotification:note];
 }
@@ -107,7 +109,6 @@
     
     return nodes;
 }
-
 
 - (NSString *)nodeTitle
 {
@@ -156,7 +157,7 @@
 
 - (void)postParentChanged
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self.nodeParent];
+    [self.nodeParent postSelfChanged];
 }
 
 - (void)postSelfChanged

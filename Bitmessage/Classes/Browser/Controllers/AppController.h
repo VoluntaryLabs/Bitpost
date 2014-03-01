@@ -8,7 +8,6 @@
 
 @property (strong) id <NavNode> rootNode;
 @property (strong) IBOutlet NavView *navView;
-@property (strong) NSMutableArray *drafts;
 @property (strong) NSTimer *timer;
 @property (strong) BMServerProcess *bitmessageProcess;
 @property (strong) IBOutlet NSTextView *infoText;

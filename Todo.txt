@@ -1,18 +1,21 @@
 
 todo
 
-
 - easy UI to add contact for an address
 
 - fix trach icon delete not removing item
 
 - seperate SentMessage specific fields
 
+- move BMServerProcess to be owned by client
+
 - fill right side
 - autoselect full text on click of "Enter Label" or "Enter Address"
 
 - cleanup keys.dat backups
 - find
+
+- themable alert sounds
 
 [adam]
 - alphabetically sort identities, channels, subscriptions
@@ -35,6 +38,8 @@ todo
 - error panel if can't connect to server - option to quit
 
 - panel for adding contact
+
+- compose text color changes for quoted text?
 
 
 

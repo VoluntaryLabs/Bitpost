@@ -11,6 +11,7 @@
 #import "NSView+sizing.h"
 #import <objc/runtime.h>
 #import "CustomSearchField.h"
+#import "BMAddressedView.h"
 
 @implementation NavView
 
@@ -233,7 +234,7 @@
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
         NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
-        NSImage *image = [NSImage imageNamed:imageName];
+        NSImage *image = nil; //[NSImage imageNamed:imageName];
         if (image)
         {
             [button setImage:image];
@@ -330,6 +331,7 @@
     }
     
     NavColumn *inColumn = [self.navColumns objectAtIndex:index + 1];
+    
     if ([inColumn respondsToSelector:@selector(selectRowIndex:)])
     {
         [inColumn selectRowIndex:0];

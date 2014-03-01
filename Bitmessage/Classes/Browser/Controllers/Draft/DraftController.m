@@ -17,12 +17,25 @@
 #import "AppController.h"
 #import "NSScrollView+extra.h"
 
+NSMutableArray *sharedDrafts = nil;
+
 @implementation DraftController
+
++ (NSMutableArray *)drafts
+{
+    if (!sharedDrafts)
+    {
+        sharedDrafts = [NSMutableArray array];
+    }
+    
+    return sharedDrafts;
+}
 
 + (DraftController *)openNewDraft
 {
     DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
-    [draft view]; // it lazy loads?
+    [[[self class] drafts] addObject:draft];
+    [draft view]; // to force lazy load
     [draft open];
     return draft;
 }
@@ -39,12 +52,14 @@
     [window makeKeyAndOrderFront:self];
 }
 
+/*
 - (id)init
 {
     self = [super init];
 
     return self;
 }
+*/
 
 - (NSWindow *)window
 {
@@ -247,7 +262,9 @@
 
 - (BOOL)windowShouldClose:(id)sender
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"draftClosed" object:self];
+    [[[self class] drafts] removeObject:self];
+
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"draftClosed" object:self];
     return YES;
 }
 
@@ -273,7 +290,7 @@
 
 -(void)controlTextDidChange:(NSNotification *)note
 {
-    NSLog(@"draft controlTextDidChange");
+    //NSLog(@"draft controlTextDidChange");
 
     NSTextField *field = [note object];
     NSString *address = [field.stringValue strip];
@@ -286,16 +303,6 @@
     {
         field.textColor = [NSColor redColor];
     }
-}
-
-- (NSArray *)control:(NSControl *)control
-            textView:(NSTextView *)textView
-         completions:(NSArray *)words
- forPartialWordRange:(NSRange)charRange
- indexOfSelectedItem:(NSInteger *)index
-{
-    
-    return @[@"foobar", @"foobaz", @"fooqaz"];
 }
 
 - (void)setDefaultFrom

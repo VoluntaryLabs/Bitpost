@@ -56,6 +56,16 @@
     return identities;
 }
 
+- (BMIdentity *)createFirstIdentity
+{
+    if (!self.firstIdentity)
+    {
+        [self add];
+    }
+    
+    return self.firstIdentity;
+}
+
 - (void)add
 {
     [self createRandomAddressWithLabel:[BMAddressed defaultLabel]];

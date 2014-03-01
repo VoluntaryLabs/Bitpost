@@ -4,6 +4,7 @@
 #import "DraftController.h"
 #import "NavColumn.h"
 #import "InfoPanelController.h"
+#import "NewUserPanelController.h"
 
 @implementation AppController
 
@@ -14,16 +15,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
     
     self.dockTile = [[NSApplication sharedApplication] dockTile];
-}
-
-- (void)draftOpened:(NSNotification *)note
-{
-    [self.drafts addObject:[note object]];
-}
-
-- (void)draftClosed:(NSNotification *)note
-{
-    [self.drafts removeObject:[note object]];
 }
 
 - (void)handleAction:(SEL)aSelector
@@ -39,7 +30,6 @@
 - (DraftController *)newDraft
 {
     DraftController *draft = [DraftController openNewDraft];
-    [self.drafts addObject:draft];
     return draft;
 }
 
@@ -49,27 +39,13 @@
     [self.bitmessageProcess launch];
 
     [self connectToServer];
-    //[self performSelector:@selector(connectToServer) withObject:self afterDelay:1];
-    //[[BMClient sharedBMClient] performSelector:@selector(refresh) withObject:self afterDelay:1];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(draftOpened:)
-                                                 name:@"draftOpened"
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(draftClosed:)
-                                                 name:@"draftClosed"
-                                               object:nil];
- 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(unreadCountChanged:)
                                                  name:@"BMReceivedMessagesUnreadCountChanged"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];
-    
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];    
 }
 
 
@@ -78,13 +54,23 @@
     [self.navView.window setTitle:@"connecting..."];
     
     [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
-    self.drafts = [NSMutableArray array];
+    //self.drafts = [NSMutableArray array];
     
     NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    [self startRefreshTimer];
     [self.navView.window setTitle:@""];
+
+    [self checkForNewUser];
+    [self startRefreshTimer];
+}
+
+- (void)checkForNewUser
+{
+    if(YES || [[BMClient sharedBMClient] hasNoIdentites])
+    {
+        //[NewUserPanelController openNewUserPanel];
+    }
 }
 
 - (void)startRefreshTimer
@@ -98,28 +84,7 @@
 
 - (void)timer:(id)sender
 {
-    //NSLog(@"timer start");
     [[BMClient sharedBMClient] refresh];
-    //NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
-/*
- /System/Library/Sounds
- Here the list of sounds found in that directory:
- Basso
- Blow
- Bottle
- Frog
- Funk
- Glass
- Hero
- Morse
- Ping
- Pop
- Purr
- Sosumi
- Submarine
- Tink
- */
-    //NSLog(@"timer stop");
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -142,20 +107,19 @@
 {
     // replace with notification -> sound mapping with theme lookup
     NSLog(@"unreadCountChanged");
-    
     [self displayUnreadMessageCountBadge];
-//    NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
-    
-    //[newMessageSound play];
 }
 
 - (void)displayUnreadMessageCountBadge
 {
     NSInteger unreadMessageCount = [self unreadMessageCount];
-    if (unreadMessageCount > 0) {
+    
+    if (unreadMessageCount > 0)
+    {
         [self.dockTile setBadgeLabel:[NSString stringWithFormat: @"%ld", (long)unreadMessageCount]];
     }
-    else {
+    else
+    {
         [self.dockTile setBadgeLabel: nil];
     }
 }

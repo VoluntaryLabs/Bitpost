@@ -282,6 +282,7 @@
 
 // --- mouse down ---
 
+/*
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
     NSLog(@"NSCell trackMouse"); // why isn't this working?
@@ -298,5 +299,6 @@
 {
     return YES; // why isn't this working?
 }
+ */
 
 @end

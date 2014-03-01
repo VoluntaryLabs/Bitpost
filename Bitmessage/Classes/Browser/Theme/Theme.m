@@ -6,6 +6,31 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
+
+//NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+/*
+ /System/Library/Sounds
+ Here the list of sounds found in that directory:
+ Basso
+ Blow
+ Bottle
+ Frog
+ Funk
+ Glass
+ Hero
+ Morse
+ Ping
+ Pop
+ Purr
+ Sosumi
+ Submarine
+ Tink
+ */
+
+//    NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
+
+//[newMessageSound play];
+
 #import "Theme.h"
 
 @implementation Theme

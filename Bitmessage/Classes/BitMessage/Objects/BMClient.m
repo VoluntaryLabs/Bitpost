@@ -139,5 +139,9 @@ static BMClient *sharedBMClient;
     return all;
 }
 
+- (BOOL)hasNoIdentites
+{
+    return [self.identities.children count] == 0;
+}
 
 @end

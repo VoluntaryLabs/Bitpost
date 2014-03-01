@@ -14,6 +14,15 @@
 #import "BMChannels.h"
 #import "BMDatabase.h"
 
+// extra
+
+#import "BMMessage.h"
+#import "BMChannel.h"
+#import "BMSubscription.h"
+#import "BMContact.h"
+#import "BMIdentity.h"
+
+
 @interface BMClient : BMNode
 
 @property (strong, nonatomic) BMIdentities *identities;
@@ -34,5 +43,7 @@
 - (NSMutableArray *)fromAddressLabels;
 - (NSMutableArray *)toAddressLabels;
 - (NSMutableArray *)allAddressLabels;
+
+- (BOOL)hasNoIdentites;
 
 @end
