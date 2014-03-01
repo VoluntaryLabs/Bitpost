@@ -968,11 +968,8 @@
 				AAB79BCE18AB14170041B6B1 /* reply_inactive.png in Resources */,
 				AA3156E118AAE0E60017E94F /* icon_16x16.png in Resources */,
 				AAB79BCD18AB14170041B6B1 /* reply_active.png in Resources */,
-<<<<<<< HEAD
 				AA3156D718AAE0E60017E94F /* OpenSans-ExtraBold.ttf in Resources */,
 				AAD2848F18C01DD500FC0C6F /* NewUser.xib in Resources */,
-=======
->>>>>>> 0a88b6d1be8078aa170fa6a0d9ff6bae1b87ab76
 				AA3156EA18AAE0E60017E94F /* BMContacts_inactive.png in Resources */,
 				AA3156E018AAE0E60017E94F /* icon_128x128@2x.png in Resources */,
 				AA3156EE18AAE0E60017E94F /* BMReceivedMessages_inactive.png in Resources */,
