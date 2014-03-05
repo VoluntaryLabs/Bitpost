@@ -164,7 +164,8 @@
 
 - (NSColor *)bgColor
 {
-    return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
+    //return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
+    return [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

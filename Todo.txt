@@ -18,7 +18,7 @@ todo
 
 [adam]
 - alphabetically sort identities, channels, subscriptions
-- fix for font 
+
 
 - tab to move to next input in contact views
 

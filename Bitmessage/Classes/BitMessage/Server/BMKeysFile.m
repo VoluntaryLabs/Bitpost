@@ -115,7 +115,7 @@
 - (void)setupForDaemon
 {
     [self read];
-    [self.settings setObject:@"daemon" forKey:@"true"];
+    [self.settings setObject:@"true" forKey:@"daemon"];
     [self.settings setObject:@"8442" forKey:@"apiport"];
     [self.settings setObject:@"true" forKey:@"apienabled"];
     [self.settings setObject:@"false" forKey:@"startonlogon"];
@@ -127,7 +127,7 @@
 - (void)setupForNonDaemon
 {
     [self read];
-    [self.settings setObject:@"daemon" forKey:@"false"];
+    [self.settings setObject:@"false" forKey:@"daemon"];
     [self write];
 }
 
