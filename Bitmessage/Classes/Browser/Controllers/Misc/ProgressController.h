@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet NSProgressIndicator *progress;
 @property (assign, nonatomic) NSInteger progressCount;
+@property (assign, nonatomic) NSInteger useCount;
+@property (assign, nonatomic) NSInteger startUseCount;
 
 @end

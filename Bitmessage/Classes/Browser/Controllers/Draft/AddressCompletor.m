@@ -131,7 +131,7 @@
             
             for (NSString *word in words)
             {
-                if (word.length && [word hasPrefix:selected])
+                if (word.length && [[word lowercaseString] hasPrefix:[selected lowercaseString]])
                 {
                     [matches addObject:word];
                 }
@@ -139,7 +139,7 @@
         }
         else
         {
-            if (label.length && [label hasPrefix:full])
+            if (label.length && [[label lowercaseString] hasPrefix:[full lowercaseString]])
             {
                 [matches addObject:label];
             }

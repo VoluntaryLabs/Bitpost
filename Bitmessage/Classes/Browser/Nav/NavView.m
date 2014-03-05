@@ -271,12 +271,13 @@
         lastButton = button;
     }
     
-    
+    /*
     if ([lastNode canSearch])
     {
         NSSearchField *search = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
         [self.actionStrip addSubview:search];
     }
+    */
 
     [self.actionStrip stackSubviewsRightToLeft];
     

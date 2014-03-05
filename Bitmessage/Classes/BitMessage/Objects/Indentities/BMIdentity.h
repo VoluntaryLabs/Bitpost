@@ -17,4 +17,6 @@
 
 + (BMIdentity *)withDict:(NSDictionary *)dict;
 
+- (void)update;
+
 @end

@@ -63,12 +63,24 @@
 {
     if (self.progressCount)
     {
-        [self.progress startAnimation:self];
-        [self.progress display];
+        self.useCount ++; // not pretty but simpler than managing thread
+        
+        [self performSelectorInBackground:@selector(startIfNeeded:)
+                               withObject:[NSNumber numberWithInteger:self.useCount]];
     }
     else
     {
         [self.progress stopAnimation:self];
+    }
+}
+
+- (void)startIfNeeded:(NSNumber *)startCount
+{
+    sleep(1);
+    
+    if (self.progressCount && startCount.integerValue == self.useCount)
+    {
+        [self.progress startAnimation:self];
     }
 }
 

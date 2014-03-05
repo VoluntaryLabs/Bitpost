@@ -56,7 +56,7 @@
     return identities;
 }
 
-- (BMIdentity *)createFirstIdentity
+- (BMIdentity *)createFirstIdentityIfAbsent
 {
     if (!self.firstIdentity)
     {

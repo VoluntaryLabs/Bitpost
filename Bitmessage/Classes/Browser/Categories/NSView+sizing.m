@@ -141,5 +141,19 @@
     return sum;
 }
 
+- (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin
+{
+    NSRect f = self.frame;
+    f.origin.y = aView.frame.origin.y + aView.frame.size.height + margin;
+    self.frame = f;
+}
+
+- (void)placeYBelow:(NSView *)aView margin:(CGFloat)margin
+{
+    NSRect f = self.frame;
+    f.origin.y = aView.frame.origin.y - self.frame.size.height - margin;
+    self.frame = f;
+}
+
 
 @end

@@ -1,15 +1,14 @@
 
 todo
 
-- easy UI to add contact for an address
+- fix window resize
 
-- fix trach icon delete not removing item
+- fix window background color on right
 
-- seperate SentMessage specific fields
+- fix trash icon delete not removing item
 
 - move BMServerProcess to be owned by client
 
-- fill right side
 - autoselect full text on click of "Enter Label" or "Enter Address"
 
 - cleanup keys.dat backups

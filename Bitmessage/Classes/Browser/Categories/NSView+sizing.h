@@ -33,4 +33,7 @@
 
 - (CGFloat)sumOfSubviewHeights;
 
+- (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin;
+- (void)placeYBelow:(NSView *)aView margin:(CGFloat)margin;
+
 @end

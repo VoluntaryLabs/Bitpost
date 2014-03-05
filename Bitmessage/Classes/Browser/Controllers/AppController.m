@@ -4,7 +4,7 @@
 #import "DraftController.h"
 #import "NavColumn.h"
 #import "InfoPanelController.h"
-#import "NewUserPanelController.h"
+#import "BMNewUserView.h"
 
 @implementation AppController
 
@@ -67,9 +67,11 @@
 
 - (void)checkForNewUser
 {
-    if(YES || [[BMClient sharedBMClient] hasNoIdentites])
+    if([[BMClient sharedBMClient] hasNoIdentites])
     {
-        //[NewUserPanelController openNewUserPanel];
+        BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navView.frame];
+        nuv.replacementView = self.navView;
+        [nuv open];
     }
 }
 
@@ -116,7 +118,8 @@
     
     if (unreadMessageCount > 0)
     {
-        [self.dockTile setBadgeLabel:[NSString stringWithFormat: @"%ld", (long)unreadMessageCount]];
+        [self.dockTile setBadgeLabel:[NSString stringWithFormat: @"%ld",
+                                      (long)unreadMessageCount]];
     }
     else
     {

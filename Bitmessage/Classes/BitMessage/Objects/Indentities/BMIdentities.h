@@ -12,7 +12,7 @@
 
 @interface BMIdentities : BMNode
 
-- (BMIdentity *)createFirstIdentity;
+- (BMIdentity *)createFirstIdentityIfAbsent;
 
 - (void)add;
 
