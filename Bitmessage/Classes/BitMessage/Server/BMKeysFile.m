@@ -175,7 +175,11 @@
 {
     NSString *data = [self readString];
     NSError *error;
-    [data writeToFile:self.newBackupPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    
+    [data writeToFile:self.newBackupPath
+           atomically:YES
+             encoding:NSUTF8StringEncoding
+                error:&error];
 }
 
 

@@ -15,7 +15,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"reply", @"delete", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"reply", @"forward", @"delete", nil];
     return self;
 }
 

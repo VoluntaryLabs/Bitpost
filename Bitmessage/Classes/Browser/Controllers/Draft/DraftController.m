@@ -155,14 +155,25 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)setupNotifications
 {
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.from];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.to];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.subject];
-
 }
+
+- (void)setBodyString:(NSString *)aString
+{
+    [self.bodyText insertText:aString];
+    [self.bodyText setSelectedRange:NSMakeRange(0, 0)];
+}
+
+/*
+ NSTextView * fieldEditor = [thePanel fieldEditor:NO forObject:theTextField];
+ 
+ NSUInteger text_len = [[fieldEditor string] length];
+ [fieldEditor setSelectedRange:(NSRange){text_len, 0}];
+*/
 
 - (void)setupDefaultValues
 {
@@ -318,6 +329,16 @@ NSMutableArray *sharedDrafts = nil;
 {
     self.to.stringValue = [[BMClient sharedBMClient] labelForAddress:self.to.stringValue];
     self.from.stringValue = [[BMClient sharedBMClient] labelForAddress:self.from.stringValue];
+}
+
+- (void)addSubjectPrefix:(NSString *)prefix
+{
+    NSString *subject = self.subject.stringValue;
+    
+    if (![subject.lowercaseString hasPrefix:prefix.lowercaseString])
+    {
+        self.subject.stringValue = [prefix stringByAppendingString:subject];
+    }
 }
 
 @end

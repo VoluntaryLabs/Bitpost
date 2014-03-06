@@ -140,36 +140,35 @@
     return [NSString stringWithFormat:@"\n\n\nOn %@, %@ wrote:\n%@\n", date, [self fromAddressLabel], q];
 }
 
-- (void)reply // hack!
+- (void)reply // move to draft class
 {
     AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
     DraftController *draft = [appController newDraft];
     
-    // set to
-    
-    NSString *to = [[BMClient sharedBMClient] labelForAddress:self.fromAddress];
-    if ([to hasPrefix:@"BM-"])
-    {
-        to = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
-    }
-    
-    [draft.to setStringValue:to];
-    
+    [draft.to setStringValue:self.fromAddress];
     [draft setDefaultFrom];
-    
-    // set subject
-    
-    NSString *reSubject = self.subjectString;
-    if (![reSubject hasPrefix:@"Re: "])
-    {
-        reSubject = [@"Re: " stringByAppendingString:reSubject];
-    }
-    
-    [draft.subject setStringValue:reSubject];
-    [draft.bodyText insertText:self.quotedMessage];
+    [draft setAddressesToLabels];
+    [draft.subject setStringValue:self.subjectString];
+    [draft addSubjectPrefix:@"Re: "];
+    [draft setBodyString:self.quotedMessage];
     [draft setCursorForReply];
     [draft open];
 }
+
+- (void)forward // move to draft class
+{
+    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
+    DraftController *draft = [appController newDraft];
+    
+    [draft setDefaultFrom];
+    [draft setAddressesToLabels];
+    [draft.subject setStringValue:self.subjectString];
+    [draft addSubjectPrefix:@"Fwd: "];
+    [draft setBodyString:self.quotedMessage];
+    [draft setCursorOnTo];
+    [draft open];
+}
+
 
 - (Class)viewClass
 {

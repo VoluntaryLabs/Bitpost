@@ -42,4 +42,9 @@
 - (void)updateSendButton;
 - (void)setDefaultFrom;
 
+- (void)setAddressesToLabels;
+- (void)addSubjectPrefix:(NSString *)prefix;
+
+- (void)setBodyString:(NSString *)aString;
+
 @end
