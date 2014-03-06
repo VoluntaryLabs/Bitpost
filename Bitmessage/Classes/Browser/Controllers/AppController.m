@@ -67,12 +67,18 @@
 
 - (void)checkForNewUser
 {
-    if([[BMClient sharedBMClient] hasNoIdentites])
+    if ([[BMClient sharedBMClient] hasNoIdentites] ||
+        [[[[BMClient sharedBMClient] identities] firstIdentity] hasUnsetLabel])
     {
-        BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navView.frame];
-        nuv.replacementView = self.navView;
-        [nuv open];
+        [self openNewUserView];
     }
+}
+
+- (void)openNewUserView
+{
+    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navView.frame];
+    nuv.replacementView = self.navView;
+    [nuv open];
 }
 
 - (void)startRefreshTimer

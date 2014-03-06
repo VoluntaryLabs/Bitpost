@@ -23,7 +23,6 @@
 @property (strong, nonatomic) NSColor *mediumColor;
 @property (strong, nonatomic) NSColor *lightColor;
 
-- (void)prepareToDisplay;
 - (void)open;
 
 @end

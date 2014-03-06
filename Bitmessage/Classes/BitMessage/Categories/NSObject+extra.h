@@ -13,4 +13,7 @@
 + (Class)viewClass;
 + (Class)firstViewClass;
 
+- (void)noWarningPerformSelector:(SEL)aSelector;
+- (void)noWarningPerformSelector:(SEL)aSelector withObject:anArgument;
+
 @end

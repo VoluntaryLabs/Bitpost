@@ -12,6 +12,7 @@
 #import <objc/runtime.h>
 #import "CustomSearchField.h"
 #import "BMAddressedView.h"
+#import "NSObject+extra.h"
 
 @implementation NavView
 
@@ -203,7 +204,6 @@
     {
         if ([column respondsToSelector:@selector(node)])
         {
-            //id node = [column performSelector:@selector(node)];
             id node = [column node];
             return node;
         }
@@ -234,14 +234,16 @@
         [button setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
+        /*
         NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
-        NSImage *image = nil; //[NSImage imageNamed:imageName];
+        NSImage *image = [NSImage imageNamed:imageName];
         if (image)
         {
             [button setImage:image];
             [button setWidth:image.size.width*3];
         }
         else
+            */
         {
             NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                     [button font], NSFontAttributeName,
@@ -290,9 +292,9 @@
     NSLog(@"hit action %@", action);
     
     id lastColumn = [self.navColumns lastObject];
-    id <NavNode> lastNode = [lastColumn node];
+    id lastNode = [lastColumn node];
     
-    [lastNode performSelector:NSSelectorFromString(action) withObject:nil];
+    [lastNode noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
 }
 
 /*
@@ -343,7 +345,7 @@
     }
     else if ([inColumn respondsToSelector:@selector(selectFirstResponder)])
     {
-        [inColumn performSelector:@selector(selectFirstResponder)];
+        [inColumn noWarningPerformSelector:@selector(selectFirstResponder)];
     }
 }
 

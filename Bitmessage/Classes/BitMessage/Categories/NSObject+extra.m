@@ -34,4 +34,21 @@
     return nil;
 }
 
+- (void)noWarningPerformSelector:(SEL)aSelector
+{
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:aSelector];
+    #pragma clang diagnostic pop
+}
+
+
+- (void)noWarningPerformSelector:(SEL)aSelector withObject:anArgument
+{
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:aSelector withObject:anArgument];
+    #pragma clang diagnostic pop
+}
+
 @end

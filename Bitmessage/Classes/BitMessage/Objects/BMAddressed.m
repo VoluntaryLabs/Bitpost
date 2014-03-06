@@ -50,6 +50,11 @@
     self.address = [dict objectForKey:@"address"];
 }
 
+- (BOOL)hasUnsetLabel
+{
+    return [self.label isEqualToString:[[self class] defaultLabel]];
+}
+
 - (NSString *)nodeTitle
 {
     return self.label;

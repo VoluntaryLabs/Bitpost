@@ -11,6 +11,7 @@
 #import "NSView+sizing.h"
 #import "NSEvent+keys.h"
 //#import "NavRowView.h"
+#import "NSObject+extra.h"
 
 @implementation NavColumn
 
@@ -377,7 +378,7 @@
 {
     if ([self.node respondsToSelector:aSel])
     {
-        [self.node performSelector:aSel];
+        [(NSObject *)self.node noWarningPerformSelector:aSel];
     }
 }
 
@@ -406,11 +407,11 @@
 
 - (void)delete
 {
-    id <NavNode> node = [self selectedNode];
+    id node = [self selectedNode];
     
     if ([node respondsToSelector:@selector(delete)])
     {
-        [node performSelector:@selector(delete)];
+        [node noWarningPerformSelector:@selector(delete)];
     }
 }
 

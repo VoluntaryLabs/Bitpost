@@ -10,6 +10,5 @@
 
 @interface BMChannels : BMNode
 
-- (id)childWithAddress:(NSString *)address;
 
 @end

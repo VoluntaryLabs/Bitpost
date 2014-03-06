@@ -19,6 +19,8 @@
 - (void)setDict:(NSDictionary *)dict;
 - (NSMutableDictionary *)dict;
 
+- (BOOL)hasUnsetLabel;
+
 - (NSString *)nodeTitle;
 
 - (BOOL)isValidAddress;
