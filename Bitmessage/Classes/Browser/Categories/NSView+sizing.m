@@ -7,6 +7,7 @@
 //
 
 #import "NSView+sizing.h"
+#import <objc/runtime.h>
 
 @implementation NSView (sizing)
 
@@ -109,8 +110,11 @@
 
 - (void)stackSubviewsTopToBottom
 {
-    CGFloat margin = 0.0;
-    
+    [self stackSubviewsTopToBottomWithMargin:0];
+}
+
+- (void)stackSubviewsTopToBottomWithMargin:(CGFloat)margin
+{
     NSView *lastView = nil;
     
     for (NSView *view in self.subviews)
@@ -141,6 +145,71 @@
     return sum;
 }
 
+- (CGFloat)minSubviewY
+{
+    CGFloat v = 0;
+    
+    for (NSView *view in self.subviews)
+    {
+        if (view.y < v)
+        {
+            v = view.y;
+        }
+    }
+    
+    return v;
+}
+
+- (CGFloat)maxSubviewY
+{
+    CGFloat v = self.height;
+    
+    for (NSView *view in self.subviews)
+    {
+        if (view.maxY < v)
+        {
+            v = view.maxY;
+        }
+    }
+    
+    return v;
+}
+
+- (void)centerSubviewsX
+{
+    for (NSView *view in self.subviews)
+    {
+        [view centerXInSuperview];
+    }
+}
+
+- (void)centerSubviewsY
+{
+    for (NSView *view in self.subviews)
+    {
+        [view centerYInSuperview];
+    }
+}
+
+- (void)centerStackedSubviewsY
+{
+    if (self.subviews.count == 0)
+    {
+        return;
+    }
+    
+    CGFloat ymin = self.minSubviewY;
+    CGFloat ymax = self.maxSubviewY;
+    CGFloat h = ymax - ymin;
+    NSView *firstView = self.subviews.firstObject;
+    CGFloat offset = (self.height - h/2) - firstView.y;
+    
+    for (NSView *view in self.subviews)
+    {
+        [view setY: view.y + offset];
+    }
+}
+
 - (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin
 {
     NSRect f = self.frame;
@@ -153,6 +222,83 @@
     NSRect f = self.frame;
     f.origin.y = aView.frame.origin.y - self.frame.size.height - margin;
     self.frame = f;
+}
+
+/*
+- (BOOL)isOpaque
+{
+    NSNumber *isOpaque = objc_getAssociatedObject(self, @"isOpaque");
+    
+    if (isOpaque && !isOpaque.boolValue)
+    {
+        return NO;
+    }
+ 
+    return NO;
+}
+
+- (void)setIsOpaque:(BOOL)aBool
+{
+    objc_setAssociatedObject(self, @"isOpaque", [NSNumber numberWithBool:aBool], OBJC_ASSOCIATION_RETAIN);
+}
+*/
+
+- (void)animateUpFadeIn
+{
+    CGFloat dy = 15;
+    
+    NSRect oldFrame = self.frame;
+    NSRect startFrame = self.frame;
+    startFrame.origin.y -= dy;
+    self.frame = startFrame;
+    self.alphaValue = 0.0;
+    
+    //[self setIsOpaque:NO];
+    
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1.0f];
+    
+    [[self animator] setFrame:oldFrame];
+    [[self animator] setAlphaValue:1.0];
+    
+    [NSAnimationContext endGrouping];
+}
+
+- (void)animateDownFadeOut
+{
+    CGFloat dy = 15;
+    
+    NSRect oldFrame = self.frame;
+    NSRect startFrame = self.frame;
+    startFrame.origin.y += dy;
+    self.frame = startFrame;
+    //self.alphaValue = 0.0;
+    
+    //[self setIsOpaque:NO];
+    
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1.0f];
+    
+    [[self animator] setFrame:oldFrame];
+    [[self animator] setAlphaValue:0.0];
+    
+    [NSAnimationContext endGrouping];
+}
+
+- (void)animateFadeOut
+{
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1.0f];
+    [[self animator] setAlphaValue:0.0];
+    [NSAnimationContext endGrouping];
+}
+
+- (void)animateFadeIn
+{
+    [NSAnimationContext beginGrouping];
+    [[NSAnimationContext currentContext] setDuration:1.0f];
+    [[self animator] setAlphaValue:1.0];
+    [NSAnimationContext endGrouping];
 }
 
 

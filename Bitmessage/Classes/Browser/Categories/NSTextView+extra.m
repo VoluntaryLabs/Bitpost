@@ -9,7 +9,6 @@
 #import "NSTextView+extra.h"
 #import "NSString+BM.h"
 
-
 @implementation NSTextView (extra)
 
 - (void)endEditing
@@ -34,5 +33,6 @@
 {
     [self setString:[self.string stringWithReturnsRemoved]];
 }
+
 
 @end

@@ -11,6 +11,11 @@
 
 @implementation BMButton
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
@@ -21,6 +26,7 @@
         [self setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
         [self setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         self.textColor = [NSColor whiteColor];
+        [self setAlignment:NSCenterTextAlignment];
     }
     return self;
 }
@@ -70,6 +76,10 @@
 
 - (void)updateTitle
 {
+    NSMutableParagraphStyle *indented = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    
+    [indented setAlignment:NSCenterTextAlignment];
+    
     NSMutableAttributedString *coloredTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[self attributedTitle]];
     
     [coloredTitle addAttribute:NSForegroundColorAttributeName
@@ -79,7 +89,11 @@
     [coloredTitle addAttribute:NSFontAttributeName
                          value:[self font]
                          range:NSMakeRange(0, [coloredTitle length])];
-   
+
+    [coloredTitle addAttribute:NSParagraphStyleAttributeName
+                          value:indented
+                          range:NSMakeRange(0, [coloredTitle length])];
+    
     [self setAttributedTitle:coloredTitle];
     [self sizeWidthToFit];
 }

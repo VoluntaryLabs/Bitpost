@@ -15,6 +15,12 @@
 
 @implementation NavColumn
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
+
 - (id)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];

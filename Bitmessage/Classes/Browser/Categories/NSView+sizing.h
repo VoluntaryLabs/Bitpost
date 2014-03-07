@@ -28,12 +28,26 @@
 - (void)centerXInSuperview;
 - (void)centerYInSuperview;
 
+- (void)centerSubviewsX;
+- (void)centerSubviewsY;
+
 - (void)stackSubviewsRightToLeft;
 - (void)stackSubviewsTopToBottom;
+- (void)stackSubviewsTopToBottomWithMargin:(CGFloat)margin;
 
 - (CGFloat)sumOfSubviewHeights;
 
+- (void)centerStackedSubviewsY;
+
 - (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin;
 - (void)placeYBelow:(NSView *)aView margin:(CGFloat)margin;
+
+
+// animation
+
+- (void)animateUpFadeIn;
+- (void)animateDownFadeOut;
+- (void)animateFadeOut;
+- (void)animateFadeIn;
 
 @end

@@ -10,10 +10,10 @@
 #import "BMTextView.h"
 #import "BMButton.h"
 
-@interface BMNewUserView : NSView <NSTextViewDelegate, NSWindowDelegate>
+@interface BMNewUserView : NSView <NSWindowDelegate>
 
 @property (strong, nonatomic) BMTextView *instructionsText;
-@property (strong, nonatomic) BMTextView *usernameField;
+//@property (strong, nonatomic) BMTextView *usernameField;
 @property (strong, nonatomic) NSView *replacementView;
 @property (strong, nonatomic) BMTextView *addressText;
 @property (strong, nonatomic) BMTextView *instructionsText2;

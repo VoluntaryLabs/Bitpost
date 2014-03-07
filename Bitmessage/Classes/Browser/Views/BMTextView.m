@@ -10,6 +10,11 @@
 
 @implementation BMTextView
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];

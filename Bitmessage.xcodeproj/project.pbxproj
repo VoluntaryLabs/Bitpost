@@ -89,13 +89,14 @@
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
-		AA7F6A9118B17B15009285EA /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8E18B17B15009285EA /* BMMessageView.m */; };
 		AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A9418B17B19009285EA /* NavColumn.m */; };
 		AA7F6A9B18B17B19009285EA /* NavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A9718B17B19009285EA /* NavView.m */; };
 		AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A9918B17B19009285EA /* TableCell.m */; };
-		AA9413B518C699610092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413B418C699610092FEF4 /* BMNewUserView.m */; };
 		AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413B718C6B1EE0092FEF4 /* BMTextView.m */; };
 		AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413BA18C6B7250092FEF4 /* BMButton.m */; };
+		AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */; };
+		AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C018C952F80092FEF4 /* BMMessageView.m */; };
+		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -105,7 +106,6 @@
 		AAB79BCF18AB14170041B6B1 /* Top.psd in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC818AB14170041B6B1 /* Top.psd */; };
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
-		AAD2848A18BFF33400FC0C6F /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */; };
 		AAD284A518C01EE500FC0C6F /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849218C01EE500FC0C6F /* AppController.m */; };
 		AAD284A618C01EE500FC0C6F /* AddressCompletor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849518C01EE500FC0C6F /* AddressCompletor.m */; };
 		AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849718C01EE500FC0C6F /* AddressTextField.m */; };
@@ -284,8 +284,6 @@
 		AA7F6A8318B17A7E009285EA /* ColoredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColoredView.m; sourceTree = "<group>"; };
 		AA7F6A8518B17A98009285EA /* ResizingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizingScrollView.h; sourceTree = "<group>"; };
 		AA7F6A8618B17A98009285EA /* ResizingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizingScrollView.m; sourceTree = "<group>"; };
-		AA7F6A8D18B17B15009285EA /* BMMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMessageView.h; sourceTree = "<group>"; };
-		AA7F6A8E18B17B15009285EA /* BMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageView.m; sourceTree = "<group>"; };
 		AA7F6A9318B17B19009285EA /* NavColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavColumn.h; sourceTree = "<group>"; };
 		AA7F6A9418B17B19009285EA /* NavColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavColumn.m; sourceTree = "<group>"; };
 		AA7F6A9518B17B19009285EA /* NavNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavNode.h; sourceTree = "<group>"; };
@@ -293,12 +291,16 @@
 		AA7F6A9718B17B19009285EA /* NavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavView.m; sourceTree = "<group>"; };
 		AA7F6A9818B17B19009285EA /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		AA7F6A9918B17B19009285EA /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
-		AA9413B318C699610092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
-		AA9413B418C699610092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
 		AA9413B618C6B1EE0092FEF4 /* BMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTextView.h; sourceTree = "<group>"; };
 		AA9413B718C6B1EE0092FEF4 /* BMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTextView.m; sourceTree = "<group>"; };
 		AA9413B918C6B7250092FEF4 /* BMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMButton.h; sourceTree = "<group>"; };
 		AA9413BA18C6B7250092FEF4 /* BMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMButton.m; sourceTree = "<group>"; };
+		AA9413BD18C952F80092FEF4 /* BMMessage+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMMessage+NodeView.h"; sourceTree = "<group>"; };
+		AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMMessage+NodeView.m"; sourceTree = "<group>"; };
+		AA9413BF18C952F80092FEF4 /* BMMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMessageView.h; sourceTree = "<group>"; };
+		AA9413C018C952F80092FEF4 /* BMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageView.m; sourceTree = "<group>"; };
+		AA9413C218C952F80092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
+		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -308,8 +310,6 @@
 		AAB79BC818AB14170041B6B1 /* Top.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Top.psd; sourceTree = "<group>"; };
 		AAB79BD618AEEAB70041B6B1 /* send_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_active.png; sourceTree = "<group>"; };
 		AAB79BD718AEEAB70041B6B1 /* send_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = send_inactive.png; sourceTree = "<group>"; };
-		AAD2848818BFF33400FC0C6F /* BMMessage+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMMessage+NodeView.h"; sourceTree = "<group>"; };
-		AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMMessage+NodeView.m"; sourceTree = "<group>"; };
 		AAD2849118C01EE500FC0C6F /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		AAD2849218C01EE500FC0C6F /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		AAD2849418C01EE500FC0C6F /* AddressCompletor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressCompletor.h; sourceTree = "<group>"; };
@@ -752,13 +752,9 @@
 		AA7F6A8818B17B15009285EA /* Inspectors */ = {
 			isa = PBXGroup;
 			children = (
+				AA9413BC18C952F80092FEF4 /* Message */,
+				AA9413C118C952F80092FEF4 /* NewUser */,
 				AA2AC85C18B8175A008CEEB4 /* Addressed */,
-				AA9413B318C699610092FEF4 /* BMNewUserView.h */,
-				AA9413B418C699610092FEF4 /* BMNewUserView.m */,
-				AA7F6A8D18B17B15009285EA /* BMMessageView.h */,
-				AA7F6A8E18B17B15009285EA /* BMMessageView.m */,
-				AAD2848818BFF33400FC0C6F /* BMMessage+NodeView.h */,
-				AAD2848918BFF33400FC0C6F /* BMMessage+NodeView.m */,
 			);
 			path = Inspectors;
 			sourceTree = "<group>";
@@ -775,6 +771,26 @@
 				AA7F6A9918B17B19009285EA /* TableCell.m */,
 			);
 			path = Nav;
+			sourceTree = "<group>";
+		};
+		AA9413BC18C952F80092FEF4 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				AA9413BD18C952F80092FEF4 /* BMMessage+NodeView.h */,
+				AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */,
+				AA9413BF18C952F80092FEF4 /* BMMessageView.h */,
+				AA9413C018C952F80092FEF4 /* BMMessageView.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		AA9413C118C952F80092FEF4 /* NewUser */ = {
+			isa = PBXGroup;
+			children = (
+				AA9413C218C952F80092FEF4 /* BMNewUserView.h */,
+				AA9413C318C952F80092FEF4 /* BMNewUserView.m */,
+			);
+			path = NewUser;
 			sourceTree = "<group>";
 		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
@@ -1001,18 +1017,18 @@
 				AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */,
 				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
-				AAD2848A18BFF33400FC0C6F /* BMMessage+NodeView.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
 				AA31569218AAE0E00017E94F /* BMChannels.m in Sources */,
 				AA31569818AAE0E00017E94F /* BMSubscriptions.m in Sources */,
 				AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */,
-				AA9413B518C699610092FEF4 /* BMNewUserView.m in Sources */,
 				AA31569918AAE0E00017E94F /* BMProxyMessage.m in Sources */,
+				AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */,
 				AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */,
 				AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */,
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
+				AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */,
 				AAD284A518C01EE500FC0C6F /* AppController.m in Sources */,
 				AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */,
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
@@ -1041,10 +1057,10 @@
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
-				AA7F6A9118B17B15009285EA /* BMMessageView.m in Sources */,
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
+				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* DraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,

@@ -16,6 +16,18 @@
 
 @implementation NavView
 
+/*
+- (void)animateFadeIn
+{
+    for (NSView *)
+}
+*/
+
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
 - (id)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];
