@@ -1,11 +1,7 @@
 
 todo
 
-- forward message
-
 - fix window resize
-
-- fix window background color on right
 
 - fix trash icon delete not removing item
 

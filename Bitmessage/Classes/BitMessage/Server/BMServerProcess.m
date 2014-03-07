@@ -82,7 +82,7 @@ static BMServerProcess *shared = nil;
         return;
     }
     
-    _task = (Task *)[[NSTask alloc] init];
+    _task = [[NSTask alloc] init];
     _inpipe = [NSPipe pipe];
     NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
     NSMutableDictionary *environment = [NSMutableDictionary dictionaryWithDictionary:environmentDict];

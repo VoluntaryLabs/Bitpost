@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Task.h"
+//#import "Task.h"
 #import "BMKeysFile.h"
 
 @interface BMServerProcess : NSObject
 
 + (BMServerProcess *)sharedBMServerProcess;
 
-@property (strong) Task *task;
+@property (strong) NSTask *task;
 @property (strong) NSPipe *inpipe;
 
 @property (retain, nonatomic) NSString *host;

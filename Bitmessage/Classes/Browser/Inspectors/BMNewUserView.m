@@ -19,12 +19,16 @@
     
     if (self)
     {
-        self.darkColor = [NSColor colorWithCalibratedWhite:.3 alpha:1.0];
+        self.darkColor   = [NSColor colorWithCalibratedWhite:.3 alpha:1.0];
         self.mediumColor = [NSColor colorWithCalibratedWhite:.4 alpha:1.0];
-        self.lightColor = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
+        self.lightColor  = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
         
-        [self setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin |
-                                    NSViewHeightSizable | NSViewMinXMargin | NSViewMaxXMargin];
+        [self setAutoresizingMask:  NSViewWidthSizable |
+                                    NSViewMinYMargin |
+                                    NSViewMaxYMargin |
+                                    NSViewHeightSizable |
+                                    NSViewMinXMargin |
+                                    NSViewMaxXMargin];
 
         
         self.instructionsText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 30)];
@@ -39,6 +43,7 @@
         self.instructionsText2.string = @"";
         [self.instructionsText2 setupForDisplay];
         self.instructionsText2.textColor = self.darkColor;
+        
         
         self.usernameField = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 30)];
         [self addSubview:self.usernameField];
