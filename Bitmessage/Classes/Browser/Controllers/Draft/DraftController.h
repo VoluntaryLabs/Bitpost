@@ -20,6 +20,11 @@
 @property (assign, nonatomic) IBOutlet AddressTextField *to;
 @property (assign, nonatomic) IBOutlet NSTextField *subject;
 
+@property (assign, nonatomic) IBOutlet NSTextField *fromLabel;
+@property (assign, nonatomic) IBOutlet NSTextField *toLabel;
+@property (assign, nonatomic) IBOutlet NSTextField *subjectLabel;
+
+
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;
 @property (assign, nonatomic) IBOutlet MarginTextView *bodyText;
 

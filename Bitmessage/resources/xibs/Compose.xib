@@ -8,10 +8,13 @@
             <connections>
                 <outlet property="bodyText" destination="9pB-sB-vzm" id="wgf-xM-WAp"/>
                 <outlet property="from" destination="irf-38-Vxg" id="9Bb-qH-Cru"/>
+                <outlet property="fromLabel" destination="pvJ-c4-y2y" id="gfT-EH-BOs"/>
                 <outlet property="scrollView" destination="FFi-oG-JYe" id="Q0u-nq-XwJ"/>
                 <outlet property="sendButton" destination="Iel-wg-lzM" id="fow-Sb-NCZ"/>
                 <outlet property="subject" destination="Hj0-vj-3JM" id="fe1-ib-YRg"/>
+                <outlet property="subjectLabel" destination="TJw-B2-wUd" id="eIG-EB-ZIM"/>
                 <outlet property="to" destination="VHv-NU-7E7" id="KMO-zr-tcL"/>
+                <outlet property="toLabel" destination="Q2v-Ld-AeC" id="asJ-sT-2GL"/>
                 <outlet property="topBackground" destination="BTF-aW-ju0" id="tM9-qR-7Tx"/>
                 <outlet property="view" destination="tGR-mk-tOY" id="Vja-a1-rlZ"/>
             </connections>
@@ -40,7 +43,7 @@
                                 <rect key="frame" x="52" y="20" width="41" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="From:" id="Erb-fL-q7d">
-                                    <font key="font" size="13" name="OpenSans"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -67,7 +70,7 @@
                                 <rect key="frame" x="52" y="19" width="41" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="To:" id="rCk-bM-Ez0">
-                                    <font key="font" size="13" name="OpenSans"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -94,7 +97,7 @@
                                 <rect key="frame" x="41" y="21" width="52" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Subject:" id="YsE-Xc-mdK">
-                                    <font key="font" size="13" name="OpenSans"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
