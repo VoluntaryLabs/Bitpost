@@ -134,6 +134,11 @@ NSMutableArray *sharedDrafts = nil;
     [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans" size:13]];
     NSColor *bodyTextColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
     [[self bodyText] setTextColor:bodyTextColor];
+    
+    [self.to setFont:[NSFont fontWithName:@"Open Sans" size:13]];
+    [self.from setFont:[NSFont fontWithName:@"Open Sans" size:13]];
+    [self.subject setFont:[NSFont fontWithName:@"Open Sans" size:13]];
+
 }
 
 - (void)setupHighlightColors

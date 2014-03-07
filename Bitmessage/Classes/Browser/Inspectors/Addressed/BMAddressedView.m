@@ -180,7 +180,7 @@
 {
     if (!self.isUpdating && self.contact.isValidAddress)
     {
-        [self.checkbox setImage:[NSImage imageNamed:@"refresh_active"]];
+        [self.checkbox setImage:[NSImage imageNamed:@"icon_tick"]];
     }
     else
     {
