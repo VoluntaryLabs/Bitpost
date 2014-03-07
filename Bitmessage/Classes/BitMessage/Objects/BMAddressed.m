@@ -77,7 +77,7 @@
 
 - (BOOL)canLiveUpdate
 {
-    return YES;
+    return NO;
 }
 
 // -----------------------
@@ -119,7 +119,6 @@
 {
     return [Theme objectForKey:[NSString stringWithFormat:@"Messages-columnBgColor"]];
 }
-
 
 @end
 

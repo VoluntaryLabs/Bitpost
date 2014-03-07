@@ -1,22 +1,21 @@
 
 todo
 
+- have process check for existance of keys.dat
+  - if not there, start server, wait until keys.dat is there, bring down
+
+
 - fix window resize
 
 - fix trash icon delete not removing item
 
-- move BMServerProcess to be owned by client
+- fix adding contact
 
-- autoselect full text on click of "Enter Label" or "Enter Address"
-
-- cleanup keys.dat backups
-- find
-
-- themable alert sounds
 
 [adam]
 - alphabetically sort identities, channels, subscriptions
 
+- autoselect full text on click of "Enter Label" or "Enter Address"
 
 - tab to move to next input in contact views
 
@@ -24,19 +23,22 @@ todo
 
 - fix selection after reload (stay on same message if possible, not row index)
 
-- menus?
-
-- possible ref loop with node and BMMessageView?
-
-- cleanup base64 in dicts
-
 - after a item remove, nav to prev column if column is empty
 
+
+
+- move BMServerProcess to be owned by client
+- find
+- cleanup keys.dat backups
+
+
+
+- force pastes into compose not to promote to rich text
+- possible ref loop with node and BMMessageView?
+- cleanup base64 in dicts
 - error panel if can't connect to server - option to quit
-
-- panel for adding contact
-
 - compose text color changes for quoted text?
+- themable alert sounds
 
 
 

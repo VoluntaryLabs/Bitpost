@@ -98,7 +98,7 @@
     [message setMethodName:@"addAddressBookEntry"];
     NSArray *params = [NSArray arrayWithObjects:self.address, self.label.encodedBase64, nil];
     [message setParameters:params];
-    //message.debug = YES;
+    message.debug = YES;
     [message sendSync];
     
     id response = [message parsedResponseValue];

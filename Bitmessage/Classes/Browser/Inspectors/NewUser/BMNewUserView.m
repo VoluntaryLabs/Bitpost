@@ -114,16 +114,14 @@
 
 - (void)open
 {
-    [self.identity update]; // this will restart the server in daemon mode
-
     self.frame = self.replacementView.frame;
     [self.replacementView.superview addSubview:self];
     [self.replacementView removeFromSuperview];
 
-    
     if (self.identity.hasUnsetLabel)
     {
         self.identity.label = NSFullUserName();
+        [self.identity update];
     }
 
     [self layout];

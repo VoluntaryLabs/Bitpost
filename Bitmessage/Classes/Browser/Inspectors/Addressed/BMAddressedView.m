@@ -78,6 +78,10 @@
     [(NSTextView *)self.labelField setInsertionPointColor:[NSColor whiteColor]];
     [(NSTextView *)self.addressField setInsertionPointColor:[NSColor whiteColor]];
     
+    self.checkbox = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 30, 30)];
+    [self.checkbox setImage:nil];
+    [self addSubview:self.checkbox];
+    
 }
 
 - (void)prepareToDisplay
@@ -110,12 +114,17 @@
     [self.addressField centerXInSuperview];
     [self.addressField centerYInSuperview];
     [self.addressField setY:self.addressField.y - 0];
+    
+    [self.checkbox centerXInSuperview];
+    [self.checkbox placeYBelow:self.addressField margin:30];
 }
 
 - (void)setNode:(id <NavNode>)node
 {
     _node = node;
     [self syncFromNode];
+    [self updateCheckbox];
+    [self updateAddressColor];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -160,17 +169,37 @@
             self.isUpdating = YES;
             [self.labelField endEditingOnReturn];
             [self.addressField endEditingOnReturn];
+            [self updateAddressColor];
+            [self updateCheckbox];
             self.isUpdating = NO;
         }
     }
 }
 
+- (void)updateCheckbox
+{
+    if (!self.isUpdating && self.contact.isValidAddress)
+    {
+        [self.checkbox setImage:[NSImage imageNamed:@"refresh_active"]];
+    }
+    else
+    {
+        [self.checkbox setImage:nil];
+    }
+    
+    [self.checkbox display];
+}
+
 - (void)update
 {
+    [self updateCheckbox];
+    [self updateAddressColor];
+
     if (!self.isUpdating) // still needed?
     {
         self.isUpdating = YES;
-        
+        [self updateCheckbox];
+       
         // if return removed some text, we may need to commit it
         
         [self.labelField endEditingOnReturn];
@@ -189,6 +218,7 @@
         }
         
         self.isUpdating = NO;
+        [self updateCheckbox];
     }
 }
 

@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) NSTextView *labelField;
 @property (strong, nonatomic) NSTextView *addressField;
+@property (strong, nonatomic) NSImageView *checkbox;
 
 @property (assign, nonatomic) BOOL isUpdating;
 
