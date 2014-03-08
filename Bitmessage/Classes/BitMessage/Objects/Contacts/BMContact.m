@@ -68,10 +68,10 @@
     [message setMethodName:@"deleteAddressBookEntry"];
     NSArray *params = [NSArray arrayWithObjects:self.address, nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
-    id response = [message parsedResponseValue];
-    NSLog(@"delete response = %@", response);
+    //id response = [message parsedResponseValue];
+    //NSLog(@"delete response = %@", response);
 }
 
 - (void)delete
@@ -82,7 +82,7 @@
 
 - (void)update
 {
-    NSLog(@"updating contact '%@' '%@'", self.address, self.label);
+    //NSLog(@"updating contact '%@' '%@'", self.address, self.label);
     
     [self justDelete];
     
@@ -101,7 +101,7 @@
     [message setMethodName:@"addAddressBookEntry"];
     NSArray *params = [NSArray arrayWithObjects:self.address, self.label.encodedBase64, nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
  
     NSLog(@"insert responseValue = %@", [message responseValue]);

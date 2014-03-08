@@ -38,7 +38,7 @@
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"decodeAddress"];
     [message setParameters:[NSArray arrayWithObject:self.address]];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
     id dict = [message parsedResponseValue];
 
