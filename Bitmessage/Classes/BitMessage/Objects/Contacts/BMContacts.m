@@ -55,7 +55,7 @@
     BMContact *newContact = [[BMContact alloc] init];
     [newContact setLabel:@"Enter Name"];
     [newContact setAddress:@"Enter Bitmessage Address"];
-    [newContact insert];
+    //[newContact insert];
     [self addChild:newContact];
     return newContact;
 }

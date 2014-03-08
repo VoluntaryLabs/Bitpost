@@ -22,6 +22,7 @@
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"message", @"delete", nil];
+    self.isSynced = NO;
     return self;
 }
 
@@ -42,6 +43,7 @@
 
 - (void)setDict:(NSDictionary *)dict
 {
+    self.isSynced = YES;
     self.label   = [[dict objectForKey:@"label"] decodedBase64];
     self.address = [dict objectForKey:@"address"];
 }
@@ -92,6 +94,7 @@
 
 - (BOOL)insert
 {
+    self.isSynced = NO;
     NSLog(@"inserting contact '%@' '%@'", self.address, self.label);
     
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
@@ -100,15 +103,25 @@
     [message setParameters:params];
     message.debug = YES;
     [message sendSync];
-    
-    id response = [message parsedResponseValue];
-    NSLog(@"insert response = %@", response);
-    
-    if ([response isKindOfClass:[NSString class]] && [response containsString:@"Error"])
+ 
+    NSLog(@"insert responseValue = %@", [message responseValue]);
+
+    if (![[message responseValue] hasPrefix:@"Added address"])
     {
         return NO;
     }
+    /*
+    NSDictionary *response = [message parsedResponseValue];
+    NSLog(@"insert response = %@", response);
+    
+    if (![response isKindOfClass:[NSDictionary class]] ||
+        ![[response objectForKey:@"status"] isEqualToString:@"success"])
+    {
+        return NO;
+    }
+     */
 
+    self.isSynced = YES;
     [self.nodeParent addChild:self];
 
     return YES;
