@@ -21,6 +21,7 @@
 #import "BMSubscription.h"
 #import "BMContact.h"
 #import "BMIdentity.h"
+#import "BMAddress.h"
 
 
 @interface BMClient : BMNode

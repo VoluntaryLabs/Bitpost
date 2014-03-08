@@ -110,6 +110,7 @@
     {
         return NO;
     }
+    
     /*
     NSDictionary *response = [message parsedResponseValue];
     NSLog(@"insert response = %@", response);
@@ -119,7 +120,7 @@
     {
         return NO;
     }
-     */
+    */
 
     self.isSynced = YES;
     [self.nodeParent addChild:self];

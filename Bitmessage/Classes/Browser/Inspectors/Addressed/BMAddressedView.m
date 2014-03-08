@@ -10,7 +10,7 @@
 #import "NSTextView+extra.h"
 #import "NSView+sizing.h"
 #import "Theme.h"
-#import "BMContact.h"
+#import "BMClient.h"
 
 @implementation BMAddressedView
 
@@ -135,11 +135,14 @@
     [NSBezierPath fillRect:dirtyRect];
 }
 
+- (BOOL)hasValidAddress
+{
+    return [BMAddress isValidAddress:self.addressField.string];
+}
+
 - (void)updateAddressColor
 {
-    self.contact.address = self.addressField.string;
-    
-    if (self.contact.isValidAddress)
+    if (self.hasValidAddress)
     {
         self.addressField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
     }
@@ -158,19 +161,23 @@
 
 - (void)textDidChange:(NSNotification *)aNotification
 {
-    if (self.contact.canLiveUpdate)
+    if (!self.isUpdating) // to avoid textDidChange call from endEditingOnReturn
     {
-        [self update];
-    }
-    else
-    {
-        if (!self.isUpdating) // still needed?
+        self.isUpdating = YES;
+        
+        @try
         {
-            self.isUpdating = YES;
             [self.labelField endEditingOnReturn];
             [self.addressField endEditingOnReturn];
             [self updateAddressColor];
             [self updateCheckbox];
+        }
+        @catch (NSException *exception)
+        {
+            NSLog(@"exception %@", exception);
+        }
+        @finally
+        {
             self.isUpdating = NO;
         }
     }
@@ -178,7 +185,7 @@
 
 - (void)updateCheckbox
 {
-    if (!self.isUpdating && self.isSynced && self.contact.isSynced && self.contact.isValidAddress)
+    if (!self.isUpdating && self.isSynced && self.contact.isSynced && self.hasValidAddress)
     {
         [self.checkbox setImage:[NSImage imageNamed:@"icon_tick"]];
     }
@@ -190,56 +197,45 @@
     [self.checkbox display];
 }
 
-- (void)update
+- (void)textDidEndEditing:(NSNotification *)aNotification
+{
+    NSLog(@"textDidEndEditing");
+    [[aNotification object] endEditing];
+    [self saveChanges];
+}
+
+- (void)saveChanges
 {
     [self updateCheckbox];
     [self updateAddressColor];
-
-    if (!self.isUpdating) // still needed?
+    
+    //if (!self.isSynced)
     {
-        self.isUpdating = YES;
-        [self updateCheckbox];
-       
-        // if return removed some text, we may need to commit it
+        [self syncToNode];
         
-        [self.labelField endEditingOnReturn];
-        [self.addressField endEditingOnReturn];
-        
-        [self updateAddressColor];
-        
-        if (!self.isSynced)
+        if (self.contact.isValidAddress)
         {
-            [self syncToNode];
-            
-            if (self.contact.isValidAddress)
-            {
-                [self.contact update];
-            }
+            [self.contact update];
         }
-        
-        self.isUpdating = NO;
-        [self updateCheckbox];
     }
-}
-
-- (void)textDidEndEditing:(NSNotification *)aNotification
-{
-    [[aNotification object] endEditing];
-    [self update];
+    
+    [self updateCheckbox];
+    [self updateAddressColor];
 }
 
 // -- sync ----
 
 - (BOOL)isSynced
 {
-    return [self.contact.visibleLabel isEqualToString:[self.labelField.string strip]] &&
-    [self.contact.address isEqualToString:[self.addressField.string strip]];
+    return
+        [self.contact.visibleLabel isEqualToString:[self.labelField.string strip]] &&
+        [self.contact.address isEqualToString:[self.addressField.string strip]];
 }
 
 - (void)syncToNode
 {
     self.contact.visibleLabel   = [self.labelField.string strip];
-    self.contact.address = [self.addressField.string strip];
+    self.contact.address        = [self.addressField.string strip];
 }
 
 - (void)syncFromNode
@@ -254,6 +250,5 @@
     [self.labelField selectAll:nil];
 //    [labelField becomeFirstResponder];
 }
-
 
 @end
