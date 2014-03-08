@@ -178,7 +178,7 @@
 
 - (void)updateCheckbox
 {
-    if (!self.isUpdating && self.contact.isValidAddress)
+    if (!self.isUpdating && self.isSynced && self.contact.isValidAddress)
     {
         [self.checkbox setImage:[NSImage imageNamed:@"icon_tick"]];
     }
