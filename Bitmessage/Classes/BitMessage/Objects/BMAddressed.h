@@ -12,6 +12,7 @@
 
 @property (retain, nonatomic) NSString *label;
 @property (retain, nonatomic) NSString *address; // base64
+@property (assign, nonatomic) BOOL isSynced;
 
 + (NSString *)defaultLabel;
 

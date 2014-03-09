@@ -29,6 +29,17 @@
     return NO;
 }
 
+- (BOOL)didTab
+{
+    if ([self.string containsString:@"\n"])
+    {
+        [self setString:[self.string stringByReplacingOccurrencesOfString:@"\t" withString:@""]];
+        [self endEditing];
+        return YES;
+    }
+    return NO;
+}
+
 - (void)removeReturns
 {
     [self setString:[self.string stringWithReturnsRemoved]];

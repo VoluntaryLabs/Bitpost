@@ -73,7 +73,11 @@
             {
                 NSArray *parts = [line componentsSeparatedByString:@"="];
                 NSString *key = [[parts objectAtIndex:0] strip];
-                NSString *value = [[parts objectAtIndex:1] strip];
+                NSString *value = @"";
+                if (parts.count > 1)
+                {
+                    value = [[parts objectAtIndex:1] strip];
+                }
                 [subDict setObject:value forKey:key];
             }
         }

@@ -137,7 +137,7 @@
 
 - (BOOL)hasValidAddress
 {
-    return [BMAddress isValidAddress:self.addressField.string];
+    return [BMAddress isValidAddress:self.addressField.string.strip];
 }
 
 - (void)updateAddressColor
@@ -167,6 +167,13 @@
         
         @try
         {
+            if ([self.labelField didTab])
+            {
+                [self.window makeFirstResponder:[self.labelField nextKeyView]];
+                self.isUpdating = NO;
+                return;
+            }
+            
             [self.labelField endEditingOnReturn];
             [self.addressField endEditingOnReturn];
             [self updateAddressColor];
@@ -248,7 +255,7 @@
 {
     [self.window makeFirstResponder:self.labelField];
     [self.labelField selectAll:nil];
-//    [labelField becomeFirstResponder];
+    //[labelField becomeFirstResponder];
 }
 
 @end

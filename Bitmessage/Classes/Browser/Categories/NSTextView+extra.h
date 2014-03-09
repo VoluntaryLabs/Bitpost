@@ -10,6 +10,7 @@
 
 @interface NSTextView (extra)
 
+- (BOOL)didTab;
 - (void)endEditing;
 - (BOOL)endEditingOnReturn;
 - (void)removeReturns;

@@ -13,6 +13,7 @@
 - (void)setupForEditing;
 - (void)setupForDisplay;
 
+
 - (void)setFontSize:(CGFloat)pointSize;
 
 @end

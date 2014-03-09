@@ -1,6 +1,8 @@
 
 todo
 
+- warning for critical ops like delete identity
+
 - have process check for existance of keys.dat
   - if not there, start server, wait until keys.dat is there, bring down
 

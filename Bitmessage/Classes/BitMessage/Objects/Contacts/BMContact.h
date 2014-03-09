@@ -10,8 +10,6 @@
 
 @interface BMContact : BMAddressed
 
-@property (assign, nonatomic) BOOL isSynced;
-
 + (BMContact *)withDict:(NSDictionary *)dict;
 
 - (void)delete;
