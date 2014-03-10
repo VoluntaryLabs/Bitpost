@@ -95,9 +95,4 @@
     */
 }
 
-- (BOOL)canLiveUpdate
-{
-    return NO;
-}
-
 @end

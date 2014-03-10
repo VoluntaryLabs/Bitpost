@@ -154,9 +154,4 @@
     [self create];
 }
 
-- (BOOL)canLiveUpdate
-{
-    return NO;
-}
-
 @end

@@ -24,4 +24,7 @@
 - (NSString *)strip;
 - (NSString *)stringWithReturnsRemoved;
 
+- (NSRange)rangeBetweenString:(NSString *)startString andString:(NSString *)endString afterIndex:(NSUInteger)searchIndex;
+- (NSMutableArray *)splitBetweenFirst:(NSString *)startString andString:(NSString *)endString;
+
 @end

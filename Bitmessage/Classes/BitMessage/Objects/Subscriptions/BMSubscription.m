@@ -111,9 +111,4 @@
     self.label = aLabel;
 }
 
-- (BOOL)canLiveUpdate
-{
-    return NO;
-}
-
 @end

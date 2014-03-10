@@ -120,5 +120,51 @@
     return [self stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 }
 
+
+- (NSRange)rangeBetweenString:(NSString *)startString andString:(NSString *)endString afterIndex:(NSUInteger)searchIndex
+{
+    NSRange startRange = [self rangeOfString:startString];
+    
+    if (startRange.location != NSNotFound)
+    {
+        NSInteger start = startRange.location + startRange.length;
+        NSRange endRange = [self rangeOfString:endString options:0 range:NSMakeRange(start, self.length - start)];
+        NSRange matchRange = NSMakeRange(start, endRange.location-start);
+        return matchRange;
+    }
+    
+    return NSMakeRange(NSNotFound, 0);
+}
+
+- (NSMutableArray *)splitBetweenFirst:(NSString *)startString andString:(NSString *)endString
+{
+    NSMutableArray *results = [NSMutableArray array];
+    NSRange startRange = [self rangeOfString:startString];
+    
+    if (startRange.location != NSNotFound)
+    {
+        NSInteger start = startRange.location + startRange.length;
+        NSRange endRange = [self rangeOfString:endString options:0 range:NSMakeRange(start, self.length - start)];
+        NSRange matchRange = NSMakeRange(start, endRange.location-start);
+        
+        NSString *before = [self substringWithRange:NSMakeRange(0, startRange.location)];
+        NSString *middle = [self substringWithRange:matchRange];
+        
+        NSInteger afterIndex = endRange.location + endRange.length;
+        NSString *after = [self substringWithRange:NSMakeRange(afterIndex, self.length - afterIndex)];
+        
+        [results addObject:before];
+        [results addObject:middle];
+        [results addObject:after];
+    }
+    else
+    {
+        [results addObject:[NSString stringWithString:self]];
+    }
+    
+    return results;
+    
+}
+
 @end
 

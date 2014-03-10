@@ -86,6 +86,7 @@
 		AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576E18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m */; };
 		AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577018AAE1610017E94F /* XMLRPCRequest.m */; };
 		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
+		AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
@@ -282,6 +283,8 @@
 		AA31577018AAE1610017E94F /* XMLRPCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCRequest.m; sourceTree = "<group>"; };
 		AA31577118AAE1610017E94F /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
 		AA31577218AAE1610017E94F /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
+		AA70C80118CE5E8D001D77FB /* NSMutableAttributedString+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+extra.h"; sourceTree = "<group>"; };
+		AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+extra.m"; sourceTree = "<group>"; };
 		AA7F6A7F18B17A5B009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginTextView.h; sourceTree = "<group>"; };
 		AA7F6A8018B17A5B009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginTextView.m; sourceTree = "<group>"; };
 		AA7F6A8218B17A7E009285EA /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
@@ -508,6 +511,8 @@
 				AA31564418AAE0E00017E94F /* NSString+BM.m */,
 				AA2AC85918B814A3008CEEB4 /* NSObject+extra.h */,
 				AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */,
+				AA70C80118CE5E8D001D77FB /* NSMutableAttributedString+extra.h */,
+				AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1093,6 +1098,7 @@
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
+				AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* DraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
