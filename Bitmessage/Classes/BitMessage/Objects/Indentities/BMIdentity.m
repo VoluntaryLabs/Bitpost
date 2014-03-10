@@ -36,6 +36,7 @@
 
 - (void)setDict:(NSDictionary *)dict
 {
+    self.isSynced = YES;
     self.label   = [[dict objectForKey:@"label"] decodedBase64];
     self.address = [dict objectForKey:@"address"];
 }
@@ -65,6 +66,7 @@
 
 - (void)update
 {
+    self.isSynced = NO;
     NSLog(@"updating identity '%@' '%@'", self.address, self.label);
     
     [[BMServerProcess sharedBMServerProcess] setLabel:self.label onAddress:self.address];
@@ -73,6 +75,7 @@
     //[self insert];
     
     [self postParentChanged];
+    self.isSynced = YES;
 }
 
 - (void)insert

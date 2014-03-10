@@ -12,6 +12,7 @@
 
 - (NSString *)encodedBase64;
 - (NSString *)decodedBase64;
+- (NSData *)decodedBase64Data;
 
 - (BOOL)containsString:(NSString *)other;
 

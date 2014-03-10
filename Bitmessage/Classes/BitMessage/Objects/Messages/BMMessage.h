@@ -42,4 +42,6 @@
 - (void)markAsRead;
 - (void)markAsUnread;
 
+- (NSMutableAttributedString *)messageAttributedString;
+
 @end

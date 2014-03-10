@@ -1,6 +1,10 @@
 
 todo
 
+- fix trash icon delete not removing item
+
+- fix channel add try BTCXINDIA
+
 - warning for critical ops like delete identity
 
 - have process check for existance of keys.dat
@@ -8,10 +12,6 @@ todo
 
 
 - fix window resize
-
-- fix trash icon delete not removing item
-
-- fix adding contact
 
 
 [adam]

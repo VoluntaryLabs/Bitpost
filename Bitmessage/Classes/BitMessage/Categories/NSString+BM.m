@@ -18,22 +18,33 @@
 
 - (NSString *)decodedBase64
 {
+    NSData *data = self.decodedBase64Data;
+    
+    if (data)
+    {
+        return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    
+    return nil;
+}
+
+- (NSData *)decodedBase64Data
+{
     NSData *data = [[NSData alloc] initWithBase64EncodedString:self options:0];
     
     if (!data)
     {
         //NSLog(@"warning: attempt to decode base 64 with unknown characters");
-
+        
         data = [[NSData alloc] initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
     }
     
     if (!data)
     {
         NSLog(@"warning: failed to decode base 64 string");
-        return nil;
     }
     
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return data;
 }
 
 - (BOOL)containsString:(NSString *)other

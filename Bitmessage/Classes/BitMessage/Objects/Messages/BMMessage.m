@@ -221,4 +221,65 @@
     }
 }
 
+// below is work in progress, not meant for final use
+
+- (NSRange)imageAttachmentRange
+{
+    NSString *s = self.messageString;
+    
+    NSRange startRange = [s rangeOfString:@"<img src=\"data:image/jpg;base64,"];
+    
+    if (startRange.location != NSNotFound)
+    {
+        NSInteger start = startRange.location + startRange.length;
+        NSRange endRange = [s rangeOfString:@"\"/>" options:0 range:NSMakeRange(start, s.length - start)];
+        NSRange dataRange = NSMakeRange(start, endRange.location-start);
+        
+        return dataRange;
+    }
+    
+    return startRange;
+}
+
+- (NSImage *)imageAttachment
+{
+    NSRange r = self.imageAttachmentRange;
+    
+    if (r.location != NSNotFound)
+    {
+        NSData *data = [self.messageString substringWithRange:r].decodedBase64Data;
+        
+        //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
+
+        NSImage *image = [[NSImage alloc] initWithData:data];
+        return image;
+    }
+    
+    return nil;
+}
+
+- (NSMutableAttributedString *)messageAttributedString
+{
+    NSImage *image = self.imageAttachment;
+    
+    if (image)
+    {
+        NSLog(@"image %i x %i", (int)image.size.width, (int)image.size.height);
+        
+        NSTextAttachmentCell *cell = [[NSTextAttachmentCell alloc] init];
+        [cell setImage:image];
+        
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        [attachment setAttachmentCell:cell];
+        
+        NSAttributedString *as = [NSAttributedString attributedStringWithAttachment:attachment];
+        
+        NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithAttributedString:as];
+        return mas;
+    }
+
+    NSMutableAttributedString *as = [[NSMutableAttributedString alloc] initWithString:self.messageString attributes:nil];
+    return as;
+}
+
 @end

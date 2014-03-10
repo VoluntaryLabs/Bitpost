@@ -163,15 +163,25 @@
      [string endEditing];
      */
     
+    /*
     NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
-                                                initWithString:[@"\n" stringByAppendingString:self.message.messageString]
+                                                initWithString:self.message.messageString
                                                 attributes:[self bodyAttributes]];
+    
+     */
+    
+    NSMutableAttributedString *bodyString = self.message.messageAttributedString;
+
+    [bodyString setAttributes:[self bodyAttributes] range:NSMakeRange(0, [bodyString length])];
+
+    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+                                 initWithString:@"\n"
+                                 attributes:[self bodyAttributes]]];
     
     [subjectString appendAttributedString:bodyString];
     
     //NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc] initWithString:aString];
 
-    //[subjectString setAttributes:[self subjectAttributes] range:NSMakeRange(0, [aString length])];
 
     [subjectString addAttribute:NSParagraphStyleAttributeName
                       value:indented
@@ -192,16 +202,10 @@
     //[self.textView setString:message.messageString];
     //[self.textView setFont:nil];
     
-    [self.textView setRichText:NO];
-    [self.textView setEditable:YES];
-    [self.textView setString:@""];
-    [self.textView insertText:self.bodyString];
-    /*
-    [self.textView insertText:message.subjectString];
-    [self.textView insertText:@"\n\n\n"];
-    [self.textView insertText:message.messageString];
-     */
+    [self.textView setRichText:YES];
     [self.textView setEditable:NO];
+    [self.textView setString:@""];
+    //[self.textView insertText:self.bodyString];
     [self.textView.textStorage setAttributedString:[self bodyString]];
     [self.textView setWidth:self.frame.size.width];
     

@@ -26,6 +26,7 @@
         [self endEditing];
         return YES;
     }
+    
     return NO;
 }
 
@@ -34,9 +35,10 @@
     if ([self.string containsString:@"\n"])
     {
         [self setString:[self.string stringByReplacingOccurrencesOfString:@"\t" withString:@""]];
-        [self endEditing];
+        //[self endEditing];
         return YES;
     }
+    
     return NO;
 }
 
