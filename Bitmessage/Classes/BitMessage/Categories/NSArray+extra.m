@@ -49,6 +49,7 @@
     NSMutableSet *selfSet = [NSMutableSet setWithArray:self];
     NSMutableSet *otherSet = [NSMutableSet setWithArray:otherArray];
 
+    //NSLog(@"begin merge");
     if (NO)
     {
         NSMutableSet *addSet = [NSMutableSet setWithArray:otherArray];
@@ -65,11 +66,14 @@
         // we want to keep around our existing objects
         
         // but remove those not in the other set
+        //NSLog(@"intersect");
         [selfSet intersectSet:otherSet];
         
+        //NSLog(@"union");
         // and any new items in the after
         [selfSet unionSet:otherSet];
     }
+    //NSLog(@"done merge");
     
     [self removeAllObjects];
     [self addObjectsFromArray:[selfSet allObjects]];

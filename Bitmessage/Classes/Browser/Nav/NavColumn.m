@@ -127,37 +127,38 @@
 
 - (void)setNode:(id<NavNode>)node
 {
-    
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"BMNodeChanged"
-                                                  object:_node];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:@"BMMessageRemovedChild"
-                                                  object:_node];
-
-    _node = node;
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(nodeChanged:)
-                                                 name:@"BMNodeChanged"
-                                               object:_node];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(nodeRemovedChild:)
-                                                 name:@"BMMessageRemovedChild"
-                                               object:_node];
-    
-    
-    [self setMaxWidth:node.nodeSuggestedWidth];
-    [self.tableView reloadData];
-
-    if ([node respondsToSelector:@selector(columnBgColor)])
+    if (_node != node)
     {
-        if ([node columnBgColor])
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:@"BMNodeChanged"
+                                                      object:_node];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:@"BMMessageRemovedChild"
+                                                      object:_node];
+
+        _node = node;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(nodeChanged:)
+                                                     name:@"BMNodeChanged"
+                                                   object:_node];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(nodeRemovedChild:)
+                                                     name:@"BMMessageRemovedChild"
+                                                   object:_node];
+        
+        
+        [self setMaxWidth:node.nodeSuggestedWidth];
+        [self.tableView reloadData];
+
+        if ([node respondsToSelector:@selector(columnBgColor)])
         {
-            [self.tableView setBackgroundColor:[node columnBgColor]];
+            if ([node columnBgColor])
+            {
+                [self.tableView setBackgroundColor:[node columnBgColor]];
+            }
         }
     }
 }

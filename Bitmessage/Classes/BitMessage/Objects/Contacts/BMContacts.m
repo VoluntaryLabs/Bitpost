@@ -20,7 +20,7 @@
 
 - (void)fetch
 {
-    self.children = [self listAddressBookEntries];
+    [self setChildren:[self listAddressBookEntries]];
     [self sortChildren];
 }
 

@@ -167,12 +167,12 @@
     
     // subject and message in base64
     NSArray *params = [NSArray arrayWithObjects:self.toAddress, self.fromAddress, self.subject.encodedBase64, self.message.encodedBase64, nil];
-    message.debug = YES;
+    //message.debug = YES;
     [message setParameters:params];
     [message sendSync];
     
     id result = [message parsedResponseValue];
-    NSLog(@"send result %@", result);
+    //NSLog(@"send result %@", result);
 }
 
 - (void)broadcast
@@ -213,7 +213,7 @@
     NSArray *params = [NSArray arrayWithObjects:self.msgid, [NSNumber numberWithBool:isRead], nil];
     //NSArray *params = [NSArray arrayWithObjects:self.msgid, [NSNumber numberWithInt:isRead], nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
     
     NSDictionary *response = [message parsedResponseValue];

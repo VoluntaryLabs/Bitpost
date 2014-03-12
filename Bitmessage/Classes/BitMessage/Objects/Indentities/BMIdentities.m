@@ -22,7 +22,7 @@
 
 - (void)fetch
 {
-    self.children = [self listAddresses2];
+    [self setChildren:[self listAddresses2]];
     [self sortChildren];
 }
 

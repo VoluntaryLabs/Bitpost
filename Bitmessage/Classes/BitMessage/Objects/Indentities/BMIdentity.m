@@ -55,7 +55,7 @@
     [message setMethodName:@"deleteAddress"];
     NSArray *params = [NSArray arrayWithObjects:self.address, nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
     id response = [message parsedResponseValue];
     NSLog(@"delete response = %@", response);

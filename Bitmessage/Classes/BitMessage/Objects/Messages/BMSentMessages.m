@@ -28,6 +28,7 @@
     //[self.children reverse];
     
     [self.children mergeWith:[self getAllSentMessages]];
+    [self setChildren:self.children]; // so node parents set
     [self sortChildren];
     
     // hack to use unread color

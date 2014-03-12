@@ -215,6 +215,7 @@
         [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
         [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
     }
+    [self configBody];
 }
 
 - (void)setupBody
@@ -232,12 +233,18 @@
     self.textView = [[MarginTextView alloc] initWithFrame:self.scrollView.bounds];
     [self.scrollView setDocumentView:self.textView];
     
+    [self configBody];
+}
+
+- (void)configBody
+{
+    /*
     [self.textView setSelectedTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      //[NSColor blackColor], NSBackgroundColorAttributeName,
       [NSColor colorWithCalibratedWhite:1.0 alpha:0.15], NSBackgroundColorAttributeName, //NSForegroundColorAttributeName,
       nil]];
-
+    */
+    
     [self.textView setBackgroundColor:[NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0]];
     
     [self.textView setLinkTextAttributes:[self linkAttributes]];

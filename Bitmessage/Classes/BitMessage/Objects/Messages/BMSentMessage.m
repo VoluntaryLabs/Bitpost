@@ -53,10 +53,10 @@
     [message setMethodName:@"getStatus"];
     NSArray *params = [NSArray arrayWithObjects:self.ackData, nil];
     [message setParameters:params];
-    message.debug = YES;
+    //message.debug = YES;
     [message sendSync];
     id result = [message responseValue];
-    NSLog(@"getStatus result %@", result);
+    //NSLog(@"getStatus result %@", result);
     
     /* responses: notfound, msgqueued, broadcastqueued, broadcastsent, doingpubkeypow, awaitingpubkey, doingmsgpow, forcepow, msgsent, msgsentnoackexpected, or ackreceived */
     

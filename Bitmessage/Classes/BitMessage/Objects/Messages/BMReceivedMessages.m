@@ -28,6 +28,7 @@
     
     //self.children = [self getAllInboxMessages];
     [self.children mergeWith:[self getAllInboxMessages]];
+    [self setChildren:self.children]; // so node parents set
     
     [self sortChildren];
     
