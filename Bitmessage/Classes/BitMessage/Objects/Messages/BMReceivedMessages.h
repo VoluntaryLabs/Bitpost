@@ -11,6 +11,8 @@
 
 @interface BMReceivedMessages : BMNode
 
+@property (assign, nonatomic) BOOL hasFetchedBefore;
+
 - (NSInteger)unreadCount;
 
 @end

@@ -43,5 +43,6 @@ todo
 - compose text color changes for quoted text?
 - themable alert sounds
 
+- cleanup sent message isRead - separate SentMessage class
 
 

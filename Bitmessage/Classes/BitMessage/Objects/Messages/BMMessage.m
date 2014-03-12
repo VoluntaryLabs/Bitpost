@@ -35,6 +35,7 @@
     return [_msgid isEqual:[(BMMessage *)object msgid]];
 }
 
+/*
 - (NSComparisonResult)sortCompare:(id)object
 {
     if (![object isKindOfClass:[BMMessage class]])
@@ -50,6 +51,7 @@
     NSLog(@"%@ %i %@", [self receivedTime], (int)r, [(BMMessage *)object receivedTime]);
     return r;
 }
+ */
 
 + (BMMessage *)withDict:(NSDictionary *)dict
 {

@@ -24,11 +24,15 @@
 
 - (void)fetch
 {
-    self.children = [self getAllSentMessages];
-    [self.children reverse];
+    //self.children = [self getAllSentMessages];
+    //[self.children reverse];
+    
+    [self.children mergeWith:[self getAllSentMessages]];
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     
     // hack to use unread color
-    
+
     for (BMMessage *child in self.children)
     {
         [child setRead:YES];
