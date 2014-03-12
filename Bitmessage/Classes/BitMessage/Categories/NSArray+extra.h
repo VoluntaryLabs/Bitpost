@@ -11,11 +11,13 @@
 @interface NSArray (extra)
 
 - (NSArray *)reversedArray;
+- (NSArray *)objectsNotIn:(NSArray *)otherArray;
 
 @end
 
 @interface NSMutableArray (extra)
 
 - (void)reverse;
+- (void)mergeWith:(NSArray *)otherArray;
 
 @end

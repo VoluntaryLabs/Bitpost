@@ -65,20 +65,8 @@
 - (void)nodeRemovedChild:(NSNotification *)note
 {
     //id childNode = [[note userInfo] objectForKey:@"child"];
-
-  /*
-    NSInteger max = self.node.children.count - 1;
-    NSInteger selectedIndex = [self.tableView selectedRow];
-    
-    
-    if (selectedIndex > max || selectedIndex == -1)
-    {
-        selectedIndex = max;
-    }
-*/
     [self reloadData];
 }
-
 
 - (void)nodeChanged:(NSNotification *)note
 {

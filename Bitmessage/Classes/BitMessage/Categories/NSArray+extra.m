@@ -20,6 +20,23 @@
     return array;
 }
 
+/*
+- (NSArray *)objectsNotIn:(NSArray *)otherArray
+{
+    NSMutableArray *notInOther = [NSMutableArray array];
+    
+    for (id item in self)
+    {
+        if (![otherArray containsObject:item])
+        {
+            [notInOther addObject:item];
+        }
+    }
+    
+    return notInOther;
+}
+*/
+
 @end
 
 @implementation NSMutableArray (extra)
@@ -38,5 +55,18 @@
         j--;
     }
 }
+
+- (void)mergeWith:(NSArray *)otherArray
+{
+    NSMutableSet *selfSet = [NSMutableSet setWithArray:self];
+    NSMutableSet *otherSet = [NSMutableSet setWithArray:otherArray];
+    
+    [otherSet minusSet:selfSet];
+    [selfSet unionSet:otherSet];
+    
+    [self removeAllObjects];
+    [self addObjectsFromArray:[selfSet allObjects]];
+}
+
 
 @end

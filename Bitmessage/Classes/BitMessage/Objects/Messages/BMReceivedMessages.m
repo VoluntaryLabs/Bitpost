@@ -18,17 +18,23 @@
 {
     self = [super init];
     //self.actions = [NSMutableArray arrayWithObjects:@"refresh", nil];
+    self.children = [NSMutableArray array];
     return self;
 }
 
 - (void)fetch
 {
     NSInteger lastUnreadCount = self.unreadCount;
-    BOOL isFirstFetch = self.children == nil;
+    BOOL isFirstFetch = (self.children == nil);
     
     self.children = [self getAllInboxMessages];
     [self.children reverse];
-
+    //[self.children mergeWith:[self getAllInboxMessages]];
+    
+    //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"lastActionTime" ascending:YES];
+    //[self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    //[self.children sortedArrayUsingSelector:@selector(sortCompare:)];
+    
     if (!isFirstFetch && (lastUnreadCount != self.unreadCount))
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
@@ -52,7 +58,6 @@
             [results addObject:message];
         }
     }
-    
     
     return results;
 }

@@ -1,7 +1,10 @@
 
 todo
 
-- fix trash icon delete not removing item
+- fix for refresh reseting BMMessageView scroll
+
+- top view for buttons on each column
+  - always use navcolumns - put inspectors in navcol header?
 
 - fix channel add try BTCXINDIA
 
@@ -9,7 +12,6 @@ todo
 
 - have process check for existance of keys.dat
   - if not there, start server, wait until keys.dat is there, bring down
-
 
 - fix window resize
 
@@ -33,6 +35,7 @@ todo
 - find
 - cleanup keys.dat backups
 
+- undo delete
 
 
 - force pastes into compose not to promote to rich text

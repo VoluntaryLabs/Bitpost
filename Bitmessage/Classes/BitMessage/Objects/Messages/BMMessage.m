@@ -20,6 +20,32 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[BMMessage class]])
+    {
+        return NO;
+    }
+
+    return [_msgid isEqual:[(BMMessage *)object msgid]];
+}
+
+- (NSComparisonResult)sortCompare:(id)object
+{
+    if (![object isKindOfClass:[BMMessage class]])
+    {
+        return NO;
+    }
+    
+    //return [self.lastActionTime compare:[(BMMessage *)object lastActionTime]];
+    //return [[(BMMessage *)object receivedTime] compare:[self receivedTime]];
+    //NSComparisonResult r = [[self receivedTime] compare:[(BMMessage *)object receivedTime]];
+    NSComparisonResult r = [[(BMMessage *)object receivedTime] compare:[self receivedTime]];
+
+    NSLog(@"%@ %i %@", [self receivedTime], (int)r, [(BMMessage *)object receivedTime]);
+    return r;
+}
+
 + (BMMessage *)withDict:(NSDictionary *)dict
 {
     id instance = [[[self class] alloc] init];

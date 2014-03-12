@@ -85,12 +85,12 @@
 {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0
                                                   target:self
-                                                selector:@selector(timer:)
+                                                selector:@selector(refreshTimer:)
                                                 userInfo:Nil
                                                  repeats:YES];
 }
 
-- (void)timer:(id)sender
+- (void)refreshTimer:(id)sender
 {
     [[BMClient sharedBMClient] refresh];
 }

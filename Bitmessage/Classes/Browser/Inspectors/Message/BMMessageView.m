@@ -197,6 +197,7 @@
 
 - (void)setNode:(id<NavNode>)node
 {
+    BOOL isFirstTime = (_node == nil);
     _node = node;
     
     //[self.textView setString:message.messageString];
@@ -209,9 +210,11 @@
     [self.textView.textStorage setAttributedString:[self bodyString]];
     [self.textView setWidth:self.frame.size.width];
     
-
-    [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
-    [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
+    if (isFirstTime)
+    {
+        [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
+        [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
+    }
 }
 
 - (void)setupBody
