@@ -35,11 +35,14 @@
 {
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
     
+    // need to generalize this bit
     NSString *startString = @"<img src=\"data:image/jpg;base64,";
-    NSString *endString = @"\"/>";
+    NSString *endString = @"\"";
 
     while (YES)
     {
+        // spliting isn't efficient, but simple and good enough for reasonably sized messages
+        
         NSMutableArray *parts = [aString splitBetweenFirst:startString andString:endString];
 
         if (parts.count < 3)
@@ -48,10 +51,9 @@
             break;
         }
 
-
         NSString *before = [parts objectAtIndex:0];
         NSString *middle = [parts objectAtIndex:1];
-        NSString *after = [parts objectAtIndex:2];
+        NSString *after  = [parts objectAtIndex:2];
 
         NSData *data = middle.decodedBase64Data;
         //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
@@ -60,7 +62,6 @@
         
         [result appendString:before];
         [result appendAttributedString:attachment];
- 
 
         aString = after;
     }

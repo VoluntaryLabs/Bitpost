@@ -48,8 +48,17 @@
 - (void)reloadData
 {
     NSInteger selectedRow = self.tableView.selectedRow;
+    NSInteger max = self.node.children.count - 1;
+    
+    if (selectedRow > max || selectedRow == -1)
+    {
+        selectedRow = max;
+    }
+
+    
     [self.tableView reloadData];
-    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
+    [self selectRowIndex:selectedRow];
+    //[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
     [self.navView reloadedColumn:self];
 }
 
@@ -57,8 +66,7 @@
 {
     //id childNode = [[note userInfo] objectForKey:@"child"];
 
-    [self reloadData];
-    
+  /*
     NSInteger max = self.node.children.count - 1;
     NSInteger selectedIndex = [self.tableView selectedRow];
     
@@ -67,8 +75,8 @@
     {
         selectedIndex = max;
     }
-    
-    [self selectRowIndex:selectedIndex];
+*/
+    [self reloadData];
 }
 
 
