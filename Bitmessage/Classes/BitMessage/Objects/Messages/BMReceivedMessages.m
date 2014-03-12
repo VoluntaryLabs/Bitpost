@@ -27,12 +27,12 @@
     NSInteger lastUnreadCount = self.unreadCount;
     BOOL isFirstFetch = (self.children == nil);
     
-    self.children = [self getAllInboxMessages];
-    [self.children reverse];
-    //[self.children mergeWith:[self getAllInboxMessages]];
+    //self.children = [self getAllInboxMessages];
+    //[self.children reverse];
+    [self.children mergeWith:[self getAllInboxMessages]];
     
-    //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"lastActionTime" ascending:YES];
-    //[self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     //[self.children sortedArrayUsingSelector:@selector(sortCompare:)];
     
     if (!isFirstFetch && (lastUnreadCount != self.unreadCount))

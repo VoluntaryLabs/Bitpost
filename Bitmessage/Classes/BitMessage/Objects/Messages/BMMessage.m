@@ -20,6 +20,11 @@
     return self;
 }
 
+- (NSUInteger)hash
+{
+    return [_msgid hash];
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[BMMessage class]])

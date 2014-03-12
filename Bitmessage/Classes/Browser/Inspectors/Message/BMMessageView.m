@@ -197,21 +197,21 @@
 
 - (void)setNode:(id<NavNode>)node
 {
-    BOOL isFirstTime = (_node == nil);
-    _node = node;
-    
-    //[self.textView setString:message.messageString];
-    //[self.textView setFont:nil];
-    
-    [self.textView setRichText:YES];
-    [self.textView setEditable:NO];
-    [self.textView setString:@""];
-    //[self.textView insertText:self.bodyString];
-    [self.textView.textStorage setAttributedString:[self bodyString]];
-    [self.textView setWidth:self.frame.size.width];
-    
-    if (isFirstTime)
+    if (_node != node)
     {
+        _node = node;
+        
+        //[self.textView setString:message.messageString];
+        //[self.textView setFont:nil];
+        
+        [self.textView setRichText:YES];
+        [self.textView setEditable:NO];
+        [self.textView setString:@""];
+        //[self.textView insertText:self.bodyString];
+        [self.textView.textStorage setAttributedString:[self bodyString]];
+        [self.textView setWidth:self.frame.size.width];
+        
+
         [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
         [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
     }

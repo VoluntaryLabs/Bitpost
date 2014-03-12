@@ -1,8 +1,6 @@
 
 todo
 
-- fix for refresh reseting BMMessageView scroll
-
 - top view for buttons on each column
   - always use navcolumns - put inspectors in navcol header?
 
