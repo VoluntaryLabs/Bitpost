@@ -23,6 +23,13 @@
 - (void)fetch
 {
     self.children = [self listSubscriptions];
+    [self sortChildren];
+}
+
+- (void)sortChildren
+{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 
 - (NSMutableArray *)listSubscriptions

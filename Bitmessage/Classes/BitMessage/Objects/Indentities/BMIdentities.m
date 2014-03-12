@@ -23,6 +23,7 @@
 - (void)fetch
 {
     self.children = [self listAddresses2];
+    [self sortChildren];
 }
 
 - (NSMutableArray *)listAddresses2 // identities

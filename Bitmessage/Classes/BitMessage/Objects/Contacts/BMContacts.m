@@ -21,6 +21,7 @@
 - (void)fetch
 {
     self.children = [self listAddressBookEntries];
+    [self sortChildren];
 }
 
 

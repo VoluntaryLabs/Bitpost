@@ -27,9 +27,7 @@
     NSInteger lastUnreadCount = self.unreadCount;
     
     [self.children mergeWith:[self getAllInboxMessages]];
-    
-    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
-    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    [self sortChildren];
     
     if (!_hasFetchedBefore && (lastUnreadCount != self.unreadCount))
     {
@@ -37,6 +35,12 @@
     }
     
     _hasFetchedBefore = YES;
+}
+
+- (void)sortChildren
+{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 
 - (NSMutableArray *)getAllInboxMessages

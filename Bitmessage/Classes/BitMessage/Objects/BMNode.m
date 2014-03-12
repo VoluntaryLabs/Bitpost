@@ -77,6 +77,16 @@
     [[NSNotificationCenter defaultCenter] postNotification:note];
 }
 
+- (void)sortChildren
+{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle"
+                                                             ascending:YES
+                                                              selector:@selector(caseInsensitiveCompare:)];
+
+    //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+}
+
 - (BMNode *)childWithTitle:(NSString *)aTitle
 {
     for (BMNode *child in self.children)

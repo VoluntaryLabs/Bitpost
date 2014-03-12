@@ -21,6 +21,7 @@
 
 - (void)addChild:(id)aChild;
 - (void)removeChild:(id)aChild;
+- (void)sortChildren;
 
 - (BMNode *)childWithTitle:(NSString *)aTitle;
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;

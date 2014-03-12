@@ -28,8 +28,7 @@
     //[self.children reverse];
     
     [self.children mergeWith:[self getAllSentMessages]];
-    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
-    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    [self sortChildren];
     
     // hack to use unread color
 
@@ -37,6 +36,12 @@
     {
         [child setRead:YES];
     }
+}
+
+- (void)sortChildren
+{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 
 - (NSMutableArray *)getAllSentMessages
