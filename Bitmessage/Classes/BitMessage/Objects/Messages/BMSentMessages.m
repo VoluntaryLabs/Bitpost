@@ -40,7 +40,7 @@
 
 - (void)sortChildren
 {
-    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"lastActionTime" ascending:NO];
     [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 

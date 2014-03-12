@@ -1,6 +1,11 @@
 
 todo
 
+- maintain selected row item on reload
+  - since merge, we can use object identity and revert to index if that fails
+
+- checkboxes for channels and subscriptions?
+
 - top view for buttons on each column
   - always use navcolumns - put inspectors in navcol header?
 
@@ -13,9 +18,7 @@ todo
 
 - fix window resize
 
-
-[adam]
-- alphabetically sort identities, channels, subscriptions
+- fix contact label editing layout weirdness
 
 - autoselect full text on click of "Enter Label" or "Enter Address"
 
@@ -45,4 +48,4 @@ todo
 
 - cleanup sent message isRead - separate SentMessage class
 
-
+- delloc cached nodeViews when not in use

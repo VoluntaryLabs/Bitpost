@@ -47,17 +47,28 @@
 
 - (void)reloadData
 {
-    NSInteger selectedRow = self.tableView.selectedRow;
-    NSInteger max = self.node.children.count - 1;
+    NSInteger row = self.tableView.selectedRow;
+    NSInteger maxRow = self.node.children.count - 1;
     
-    if (selectedRow > max || selectedRow == -1)
+    if (row > maxRow || row == -1)
     {
-        selectedRow = max;
+        row = maxRow;
     }
-
     
     [self.tableView reloadData];
-    [self selectRowIndex:selectedRow];
+    
+    if (_lastSelectedChild)
+    {
+        NSInteger nodeRow = [self rowForNode:_lastSelectedChild];
+        NSLog(@"get _lastSelectedChild %@ row %i", _lastSelectedChild, (int)nodeRow);
+        
+        if (nodeRow != -1)
+        {
+            row = nodeRow;
+        }
+    }
+    
+    [self selectRowIndex:row];
     //[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
     [self.navView reloadedColumn:self];
 }
@@ -276,6 +287,23 @@
     return nil;
 }
 
+- (NSInteger)rowForNode:(id <NavNode>)aNode
+{
+    NSInteger rowIndex = 0;
+    
+    for (id childNode in self.node.children)
+    {
+        if (childNode == aNode)
+        {
+            return rowIndex;
+        }
+        
+        rowIndex ++;
+    }
+    
+    return -1;
+}
+
 // table data source
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
@@ -324,6 +352,7 @@
      */
     
     id <NavNode> node = [self nodeForRow:rowIndex];
+    //_lastSelectedChild = node;
     return [self.navView shouldSelectNode:node inColumn:self];
 }
 

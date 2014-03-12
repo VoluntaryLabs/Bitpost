@@ -22,6 +22,8 @@
 @property (strong, nonatomic) ColoredView *headerView;
 @property (assign, nonatomic) BOOL isUpdating;
 
+@property (strong, nonatomic) id <NavNode> lastSelectedChild;
+
 - (void)prepareToDisplay;
 
 - (id <NavNode>)selectedNode;

@@ -11,7 +11,6 @@
 @interface NSArray (extra)
 
 - (NSArray *)reversedArray;
-- (NSArray *)objectsNotIn:(NSArray *)otherArray;
 
 @end
 

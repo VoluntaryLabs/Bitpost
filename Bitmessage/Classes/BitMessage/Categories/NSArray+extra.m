@@ -20,23 +20,6 @@
     return array;
 }
 
-/*
-- (NSArray *)objectsNotIn:(NSArray *)otherArray
-{
-    NSMutableArray *notInOther = [NSMutableArray array];
-    
-    for (id item in self)
-    {
-        if (![otherArray containsObject:item])
-        {
-            [notInOther addObject:item];
-        }
-    }
-    
-    return notInOther;
-}
-*/
-
 @end
 
 @implementation NSMutableArray (extra)
@@ -44,10 +27,15 @@
 - (void)reverse
 {
     if ([self count] == 0)
+    {
         return;
+    }
+    
     NSUInteger i = 0;
     NSUInteger j = [self count] - 1;
-    while (i < j) {
+    
+    while (i < j)
+    {
         [self exchangeObjectAtIndex:i
                   withObjectAtIndex:j];
         
@@ -60,13 +48,31 @@
 {
     NSMutableSet *selfSet = [NSMutableSet setWithArray:self];
     NSMutableSet *otherSet = [NSMutableSet setWithArray:otherArray];
-    
-    [otherSet minusSet:selfSet];
-    [selfSet unionSet:otherSet];
+
+    if (NO)
+    {
+        NSMutableSet *addSet = [NSMutableSet setWithArray:otherArray];
+        [addSet minusSet:selfSet];
+        
+        NSMutableSet *removeSet = [NSMutableSet setWithArray:self];
+        [removeSet minusSet:otherSet];
+        
+        [selfSet minusSet:removeSet];
+        [selfSet unionSet:addSet];
+    }
+    else
+    {
+        // we want to keep around our existing objects
+        
+        // but remove those not in the other set
+        [selfSet intersectSet:otherSet];
+        
+        // and any new items in the after
+        [selfSet unionSet:otherSet];
+    }
     
     [self removeAllObjects];
     [self addObjectsFromArray:[selfSet allObjects]];
 }
-
 
 @end

@@ -26,7 +26,9 @@
 {
     NSInteger lastUnreadCount = self.unreadCount;
     
+    //self.children = [self getAllInboxMessages];
     [self.children mergeWith:[self getAllInboxMessages]];
+    
     [self sortChildren];
     
     if (!_hasFetchedBefore && (lastUnreadCount != self.unreadCount))
