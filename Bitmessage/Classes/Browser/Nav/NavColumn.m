@@ -20,7 +20,6 @@
     return NO;
 }
 
-
 - (id)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];
@@ -100,6 +99,26 @@
     [self reloadData];
 }
 
+- (void)nodeAddedChild:(NSNotification *)note
+{
+    id <NavNode> node = self.node;
+    
+    if (node)
+    {
+        if([node shouldSelectChildOnAdd])
+        {
+            id child = [[note userInfo] objectForKey:@"child"];
+            if ([child respondsToSelector:@selector(label)])
+            {
+                NSLog(@"child.label = '%@'", [child label]);
+            }
+            _lastSelectedChild = child;
+        }
+    }
+    
+    [self reloadData];
+}
+
 - (void)nodeChanged:(NSNotification *)note
 {
     [self reloadData];
@@ -151,11 +170,7 @@
     if (_node != node)
     {
         [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:@"BMNodeChanged"
-                                                      object:_node];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:@"BMMessageRemovedChild"
+                                                        name:nil
                                                       object:_node];
 
         _node = node;
@@ -167,7 +182,12 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(nodeRemovedChild:)
-                                                     name:@"BMMessageRemovedChild"
+                                                     name:@"BMNodeRemovedChild"
+                                                   object:_node];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(nodeAddedChild:)
+                                                     name:@"BMNodeAddedChild"
                                                    object:_node];
         
         

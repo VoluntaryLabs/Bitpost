@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *children;
 @property (strong, nonatomic) NSMutableArray *actions;
 @property (strong, nonatomic) NSView *nodeView;
+@property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 
 - (void)addChild:(id)aChild;
 - (void)removeChild:(id)aChild;
@@ -39,6 +40,7 @@
 - (void)postSelfChanged;
 
 - (id)childWithAddress:(NSString *)address; // hack - move to node subclass
+
 
 // --- search ---
 

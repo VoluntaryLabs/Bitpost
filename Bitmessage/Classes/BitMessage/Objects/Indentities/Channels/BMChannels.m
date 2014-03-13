@@ -16,6 +16,7 @@
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
+    self.shouldSelectChildOnAdd = YES;
     return self;
 }
 
@@ -58,9 +59,9 @@
 - (void)add
 {
     BMChannel *channel = [[BMChannel alloc] init];
-    [channel setPassphrase:@"Enter channel name"];
-    [channel create];
-    [self refresh];
+    [self addChild:channel];
+    //[channel create];
+    //[self refresh];
 }
 
 - (NSString *)nodeTitle

@@ -1,7 +1,10 @@
 
 todo
 
+- sort after address-add and select new entry 
+
 - on delete, set _lastSelected before reload
+
 - remember selected row of nav columns?
   - cache these somehow? association?
 
@@ -41,6 +44,7 @@ todo
 
 - undo delete
 
+- channel replies should go to channel, not poster? offer option?
 
 - force pastes into compose not to promote to rich text
 - possible ref loop with node and BMMessageView?
@@ -54,4 +58,7 @@ todo
 - delloc cached nodeViews when not in use?
 
 - choose default identity
+
+- scroll to visible on selected child index changes (e.g. editing name of contact)
+ 
 

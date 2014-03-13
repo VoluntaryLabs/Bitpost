@@ -13,10 +13,16 @@
 
 @implementation BMSubscription
 
++ (NSString *)defaultLabel
+{
+    return @"Enter subscription label";
+}
+
 - (id)init
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"message", @"delete", nil];
+    self.label = self.class.defaultLabel;
     return self;
 }
 
@@ -87,6 +93,8 @@
     [message sendSync];
     id response = [message parsedResponseValue];
     NSLog(@"response %@", response);
+    
+    [self.nodeParent removeChild:self];
 }
 
 - (void)update

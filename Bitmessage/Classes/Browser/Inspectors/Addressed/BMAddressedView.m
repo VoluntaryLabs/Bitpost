@@ -86,7 +86,7 @@
 
 - (void)prepareToDisplay
 {
-    if ([self.labelField.string isEqualToString:[BMAddressed defaultLabel]])
+    if ([self.labelField.string isEqualToString:[[self.node class] defaultLabel]])
     {        
         [self.window makeFirstResponder:self.labelField];
         //[self.labelField becomeFirstResponder];

@@ -16,13 +16,14 @@
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
+    self.shouldSelectChildOnAdd = YES;
     [self fetch];
     return self;
 }
 
 - (void)fetch
 {
-    self.children = [self listSubscriptions];
+    [self setChildren:[self listSubscriptions]];
     [self sortChildren];
 }
 
@@ -60,7 +61,6 @@
 - (void)add
 {
     BMSubscription *sub = [[BMSubscription alloc] init];
-    sub.label = @"Enter subscription label";
     sub.address = @"Enter address";
     [self addChild:sub];
     [self postSelfChanged];

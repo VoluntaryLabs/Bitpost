@@ -38,6 +38,7 @@
 
 - (void)fetch
 {
+    
 }
 
 - (void)refresh
@@ -62,6 +63,20 @@
     {
         [aChild setNodeParent:self];
         [self.children addObject:aChild];
+        [self sortChildren];
+       
+        NSMutableDictionary *info = [NSMutableDictionary dictionary];
+        [info setObject:aChild forKey:@"child"];
+        
+        NSNotification *note = [NSNotification notificationWithName:@"BMNodeAddedChild"
+                                                             object:self
+                                                           userInfo:info];
+        
+        [[NSNotificationCenter defaultCenter] postNotification:note];
+    }
+    else
+    {
+        [self sortChildren];
     }
 }
 
@@ -81,7 +96,7 @@
     
     [self.children removeObject:aChild];
 
-    NSNotification *note = [NSNotification notificationWithName:@"BMMessageRemovedChild"
+    NSNotification *note = [NSNotification notificationWithName:@"BMNodeRemovedChild"
                                                          object:self
                                                        userInfo:info];
     

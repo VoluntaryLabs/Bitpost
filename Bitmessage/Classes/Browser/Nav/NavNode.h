@@ -10,6 +10,8 @@
 
 @protocol NavNode <NSObject>
 
+- (id <NavNode>)nodeParent;
+
 - (NSMutableArray *)children;
 - (NSMutableArray *)actions;
 
@@ -25,6 +27,8 @@
 - (NSImage *)nodeIconForState:(NSString *)aState;
 - (CGFloat)nodeSuggestedWidth;
 - (NSColor *)columnBgColor;
+
+- (BOOL)shouldSelectChildOnAdd;
 
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
