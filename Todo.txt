@@ -1,11 +1,9 @@
 
 todo
 
+- on delete, set _lastSelected before reload
 - remember selected row of nav columns?
   - cache these somehow? association?
-
-- maintain selected row item on reload
-  - since merge, we can use object identity and revert to index if that fails
 
 - checkboxes for channels and subscriptions?
 
@@ -53,4 +51,7 @@ todo
 
 - cleanup sent message isRead - separate SentMessage class
 
-- delloc cached nodeViews when not in use
+- delloc cached nodeViews when not in use?
+
+- choose default identity
+

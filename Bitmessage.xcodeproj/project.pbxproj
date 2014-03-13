@@ -87,6 +87,7 @@
 		AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577018AAE1610017E94F /* XMLRPCRequest.m */; };
 		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
 		AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */; };
+		AA70C80618D0345F001D77FB /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80518D0345F001D77FB /* InfoButton.m */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
@@ -285,6 +286,8 @@
 		AA31577218AAE1610017E94F /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
 		AA70C80118CE5E8D001D77FB /* NSMutableAttributedString+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+extra.h"; sourceTree = "<group>"; };
 		AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+extra.m"; sourceTree = "<group>"; };
+		AA70C80418D0345F001D77FB /* InfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoButton.h; sourceTree = "<group>"; };
+		AA70C80518D0345F001D77FB /* InfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoButton.m; sourceTree = "<group>"; };
 		AA7F6A7F18B17A5B009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginTextView.h; sourceTree = "<group>"; };
 		AA7F6A8018B17A5B009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginTextView.m; sourceTree = "<group>"; };
 		AA7F6A8218B17A7E009285EA /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
@@ -866,6 +869,8 @@
 			children = (
 				AAD2849B18C01EE500FC0C6F /* InfoPanelController.h */,
 				AAD2849C18C01EE500FC0C6F /* InfoPanelController.m */,
+				AA70C80418D0345F001D77FB /* InfoButton.h */,
+				AA70C80518D0345F001D77FB /* InfoButton.m */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1070,6 +1075,7 @@
 				AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */,
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
 				AA31568B18AAE0E00017E94F /* BMClient.m in Sources */,
+				AA70C80618D0345F001D77FB /* InfoButton.m in Sources */,
 				AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */,
 				AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */,
 				AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */,

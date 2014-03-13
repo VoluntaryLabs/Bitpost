@@ -50,7 +50,12 @@
     NSInteger row = self.tableView.selectedRow;
     NSInteger maxRow = self.node.children.count - 1;
     
-    if (row > maxRow || row == -1)
+    if (row < 0)
+    {
+        row = 0;
+    }
+    
+    if (row > maxRow)
     {
         row = maxRow;
     }
@@ -60,7 +65,7 @@
     if (_lastSelectedChild)
     {
         NSInteger nodeRow = [self rowForNode:_lastSelectedChild];
-        NSLog(@"get _lastSelectedChild %@ row %i", _lastSelectedChild, (int)nodeRow);
+        //NSLog(@"get _lastSelectedChild %@ row %i", _lastSelectedChild, (int)nodeRow);
         
         if (nodeRow != -1)
         {
@@ -75,7 +80,23 @@
 
 - (void)nodeRemovedChild:(NSNotification *)note
 {
-    //id childNode = [[note userInfo] objectForKey:@"child"];
+    // note should ideally include hint at next to select in case
+    // children change before notification is received?
+    
+    /*
+    id nextObject = [[note userInfo] objectForKey:@"nextObjectHint"];
+    
+    if (nextObject)
+    {
+        NSInteger row = [self rowForNode:nextObject];
+        
+        if (row != -1)
+        {
+            [self selectRowIndex:row];
+        }
+    }
+    */
+
     [self reloadData];
 }
 
@@ -87,8 +108,8 @@
 - (void)selectRowIndex:(NSInteger)rowIndex
 {
     [self tableView:self.tableView shouldSelectRow:rowIndex];
-
     [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
+    _lastSelectedChild = self.selectedNode;
 }
 
 
@@ -353,7 +374,7 @@
      */
     
     id <NavNode> node = [self nodeForRow:rowIndex];
-    //_lastSelectedChild = node;
+    _lastSelectedChild = node;
     return [self.navView shouldSelectNode:node inColumn:self];
 }
 

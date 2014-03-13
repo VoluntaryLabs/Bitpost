@@ -7,6 +7,9 @@
 //
 
 #import "InfoPanelController.h"
+#import "NSView+sizing.h"
+#import "InfoButton.h"
+#import "ColoredView.h"
 
 @implementation InfoPanelController
 
@@ -37,6 +40,7 @@ static InfoPanelController *shared = nil;
     [self.window makeKeyAndOrderFront:self];
     [self.window center];
     [self.window setLevel:NSTornOffMenuWindowLevel];
+    [(ColoredView *)self.view setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:.05]];
 }
 
 - (NSDictionary *)subjectAttributes
@@ -74,6 +78,7 @@ static InfoPanelController *shared = nil;
     [self.window setDelegate:self];
     [self.infoText setEditable:NO];
     
+    /*
     [self.infoText setSelectedTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [NSColor colorWithCalibratedWhite:1.0 alpha:.05], NSBackgroundColorAttributeName,
@@ -111,6 +116,7 @@ static InfoPanelController *shared = nil;
     [string appendAttributedString:[[NSMutableAttributedString alloc]
                                     initWithString:@"Steve Dekorte\nAdam Thorsen\nDru Nelson"
                                     attributes:[self bodyAttributes]]];
+    
 
     [string addAttribute:NSParagraphStyleAttributeName
                            value:indented
@@ -118,6 +124,7 @@ static InfoPanelController *shared = nil;
     
     [self.infoText setBackgroundColor:[NSColor colorWithCalibratedWhite:.1 alpha:1.0]];
     [[self.infoText textStorage] setAttributedString:string];
+     */
 }
 
 

@@ -67,9 +67,20 @@
 
 - (void)removeChild:(id)aChild
 {
+    NSInteger i = [self.children indexOfObject:aChild];
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    [info setObject:aChild forKey:@"child"];
+    [info setObject:[NSNumber numberWithUnsignedInteger:i] forKey:@"index"];
+    
+    NSInteger nextIndex = i + 1;
+    if (nextIndex < self.children.count)
+    {
+        id nextObject = [self.children objectAtIndex:nextIndex];
+        [info setObject:nextObject forKey:@"nextObjectHint"];
+    }
+    
     [self.children removeObject:aChild];
 
-    NSDictionary *info = [NSDictionary dictionaryWithObject:aChild forKey:@"child"];
     NSNotification *note = [NSNotification notificationWithName:@"BMMessageRemovedChild"
                                                          object:self
                                                        userInfo:info];
