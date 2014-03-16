@@ -1,14 +1,7 @@
 
 todo
 
-- sort after address-add and select new entry 
-
-- on delete, set _lastSelected before reload
-
-- remember selected row of nav columns?
-  - cache these somehow? association?
-
-- checkboxes for channels and subscriptions?
+- maintain selected item offset on table reload? 
 
 - replace entered BM addresses with labels in compose window
 

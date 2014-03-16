@@ -10,6 +10,7 @@
 #import "NSView+sizing.h"
 #import "InfoButton.h"
 #import "ColoredView.h"
+#import "Theme.h"
 
 @implementation InfoPanelController
 
@@ -45,7 +46,7 @@ static InfoPanelController *shared = nil;
 
 - (NSDictionary *)subjectAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans" size:22.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:22.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
@@ -55,7 +56,7 @@ static InfoPanelController *shared = nil;
 
 - (NSDictionary *)bodyAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:16.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [NSColor colorWithCalibratedWhite:.5 alpha:1.0], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
@@ -65,7 +66,7 @@ static InfoPanelController *shared = nil;
 
 - (NSDictionary *)bodyHeaderAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:16.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
@@ -76,7 +77,7 @@ static InfoPanelController *shared = nil;
 - (void)awakeFromNib
 {
     [self.window setDelegate:self];
-    [self.infoText setEditable:NO];
+    //[self.infoText setEditable:NO];
     
     /*
     [self.infoText setSelectedTextAttributes:

@@ -115,10 +115,5 @@
     return 350.0;
 }
 
-- (NSColor *)columnBgColor
-{
-    return [Theme objectForKey:[NSString stringWithFormat:@"Messages-columnBgColor"]];
-}
-
 @end
 

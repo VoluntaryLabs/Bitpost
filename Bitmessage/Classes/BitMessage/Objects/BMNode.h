@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSView *nodeView;
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
 
+- (NSUInteger)nodeDepth;
+
 - (void)addChild:(id)aChild;
 - (void)removeChild:(id)aChild;
 - (void)sortChildren;

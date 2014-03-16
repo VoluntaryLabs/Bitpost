@@ -15,46 +15,21 @@
 
 @implementation BMMessage (NodeView)
 
-/*
- - (NSView *)nodeView
- {
- if (![super nodeView])
- {
- self.nodeView = [[BMMessageView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
- }
- return [super nodeView];
- }
- */
-
 - (NSColor *)textColor
 {
-    NSString *className = NSStringFromClass([self class]);
+    //NSString *className = NSStringFromClass([self class]);
     
     if (!self.read || [self.status isEqualToString:@"msgsent"])
     {
-        return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
+        return [Theme.sharedTheme themeForColumn:1].unreadTextColor;
     }
     
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
+    return [Theme.sharedTheme themeForColumn:1].readTextColor;
 }
-/*
- - (NSColor *)textColor
- {
- NSString *className = NSStringFromClass([self class]);
- 
- if (self.read)
- {
- return [Theme objectForKey:[NSString stringWithFormat:@"%@-readTextColor", className]];
- }
- 
- return [Theme objectForKey:[NSString stringWithFormat:@"%@-unreadTextColor", className]];
- }
- */
 
-- (NSColor *)textColorActive
+- (NSColor *)textActiveColor
 {
-    NSString *className = NSStringFromClass([self class]);
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-textColorActive", className]];
+    return [Theme.sharedTheme themeForColumn:1].textActiveColor;
 }
 
 - (NSString *)nodeNote

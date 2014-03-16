@@ -88,6 +88,14 @@
 		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
 		AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */; };
 		AA70C80618D0345F001D77FB /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80518D0345F001D77FB /* InfoButton.m */; };
+		AA70C83B18D27127001D77FB /* MKMarkets.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C83A18D27127001D77FB /* MKMarkets.m */; };
+		AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C84018D273E0001D77FB /* MKMarketChannel.m */; };
+		AA70C86218D2778E001D77FB /* MKWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86118D2778E001D77FB /* MKWallet.m */; };
+		AA70C86518D27799001D77FB /* MKBuys.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86418D27799001D77FB /* MKBuys.m */; };
+		AA70C86818D277AB001D77FB /* MKSells.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86718D277AB001D77FB /* MKSells.m */; };
+		AA70C86B18D39219001D77FB /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = AA70C86A18D39219001D77FB /* themes.json */; };
+		AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86D18D39753001D77FB /* ThemeDictionary.m */; };
+		AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C87318D3B107001D77FB /* NSColor+array.m */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
@@ -288,6 +296,21 @@
 		AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+extra.m"; sourceTree = "<group>"; };
 		AA70C80418D0345F001D77FB /* InfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoButton.h; sourceTree = "<group>"; };
 		AA70C80518D0345F001D77FB /* InfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoButton.m; sourceTree = "<group>"; };
+		AA70C83918D27127001D77FB /* MKMarkets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMarkets.h; sourceTree = "<group>"; };
+		AA70C83A18D27127001D77FB /* MKMarkets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMarkets.m; sourceTree = "<group>"; };
+		AA70C83F18D273E0001D77FB /* MKMarketChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMarketChannel.h; sourceTree = "<group>"; };
+		AA70C84018D273E0001D77FB /* MKMarketChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMarketChannel.m; sourceTree = "<group>"; };
+		AA70C86018D2778E001D77FB /* MKWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKWallet.h; sourceTree = "<group>"; };
+		AA70C86118D2778E001D77FB /* MKWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKWallet.m; sourceTree = "<group>"; };
+		AA70C86318D27799001D77FB /* MKBuys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBuys.h; sourceTree = "<group>"; };
+		AA70C86418D27799001D77FB /* MKBuys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBuys.m; sourceTree = "<group>"; };
+		AA70C86618D277AB001D77FB /* MKSells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSells.h; sourceTree = "<group>"; };
+		AA70C86718D277AB001D77FB /* MKSells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSells.m; sourceTree = "<group>"; };
+		AA70C86A18D39219001D77FB /* themes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = themes.json; sourceTree = "<group>"; };
+		AA70C86C18D39753001D77FB /* ThemeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDictionary.h; sourceTree = "<group>"; };
+		AA70C86D18D39753001D77FB /* ThemeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDictionary.m; sourceTree = "<group>"; };
+		AA70C87218D3B107001D77FB /* NSColor+array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+array.h"; sourceTree = "<group>"; };
+		AA70C87318D3B107001D77FB /* NSColor+array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+array.m"; sourceTree = "<group>"; };
 		AA7F6A7F18B17A5B009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginTextView.h; sourceTree = "<group>"; };
 		AA7F6A8018B17A5B009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginTextView.m; sourceTree = "<group>"; };
 		AA7F6A8218B17A7E009285EA /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
@@ -488,6 +511,7 @@
 		AA31563E18AAE0E00017E94F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AA70C80718D270FC001D77FB /* Market */,
 				AA31566E18AAE0E00017E94F /* Browser */,
 				AA31563F18AAE0E00017E94F /* BitMessage */,
 			);
@@ -525,12 +549,12 @@
 			children = (
 				AA31564A18AAE0E00017E94F /* BMNode.h */,
 				AA31564B18AAE0E00017E94F /* BMNode.m */,
+				AA31564818AAE0E00017E94F /* BMClient.h */,
+				AA31564918AAE0E00017E94F /* BMClient.m */,
 				AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */,
 				AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */,
 				AA31564618AAE0E00017E94F /* BMAddress.h */,
 				AA31564718AAE0E00017E94F /* BMAddress.m */,
-				AA31564818AAE0E00017E94F /* BMClient.h */,
-				AA31564918AAE0E00017E94F /* BMClient.m */,
 				AA31564C18AAE0E00017E94F /* Contacts */,
 				AA31565118AAE0E00017E94F /* Indentities */,
 				AA31565B18AAE0E00017E94F /* Messages */,
@@ -649,6 +673,10 @@
 				AA31568518AAE0E00017E94F /* BMNode+theme.m */,
 				AA31568618AAE0E00017E94F /* Theme.h */,
 				AA31568718AAE0E00017E94F /* Theme.m */,
+				AA70C86C18D39753001D77FB /* ThemeDictionary.h */,
+				AA70C86D18D39753001D77FB /* ThemeDictionary.m */,
+				AA70C87218D3B107001D77FB /* NSColor+array.h */,
+				AA70C87318D3B107001D77FB /* NSColor+array.m */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -656,6 +684,7 @@
 		AA3156A618AAE0E60017E94F /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA70C86918D39219001D77FB /* themes */,
 				AA3156FB18AAE1130017E94F /* xibs */,
 				AA3156B418AAE0E60017E94F /* icons */,
 			);
@@ -747,6 +776,31 @@
 			name = xmlrpc;
 			path = Vendor/xmlrpc;
 			sourceTree = SOURCE_ROOT;
+		};
+		AA70C80718D270FC001D77FB /* Market */ = {
+			isa = PBXGroup;
+			children = (
+				AA70C83918D27127001D77FB /* MKMarkets.h */,
+				AA70C83A18D27127001D77FB /* MKMarkets.m */,
+				AA70C83F18D273E0001D77FB /* MKMarketChannel.h */,
+				AA70C84018D273E0001D77FB /* MKMarketChannel.m */,
+				AA70C86018D2778E001D77FB /* MKWallet.h */,
+				AA70C86118D2778E001D77FB /* MKWallet.m */,
+				AA70C86318D27799001D77FB /* MKBuys.h */,
+				AA70C86418D27799001D77FB /* MKBuys.m */,
+				AA70C86618D277AB001D77FB /* MKSells.h */,
+				AA70C86718D277AB001D77FB /* MKSells.m */,
+			);
+			path = Market;
+			sourceTree = "<group>";
+		};
+		AA70C86918D39219001D77FB /* themes */ = {
+			isa = PBXGroup;
+			children = (
+				AA70C86A18D39219001D77FB /* themes.json */,
+			);
+			path = themes;
+			sourceTree = "<group>";
 		};
 		AA7F6A7E18B17A5B009285EA /* Views */ = {
 			isa = PBXGroup;
@@ -992,6 +1046,7 @@
 				AA3156EB18AAE0E60017E94F /* BMIdentities_active.png in Resources */,
 				AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */,
 				AA3156DF18AAE0E60017E94F /* icon_128x128.png in Resources */,
+				AA70C86B18D39219001D77FB /* themes.json in Resources */,
 				AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */,
 				AAE61DD718CA8CCE00C6AEB7 /* icon_tick.png in Resources */,
 				AA3156E318AAE0E60017E94F /* icon_256x256.png in Resources */,
@@ -1051,6 +1106,7 @@
 				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,
 				AA31569018AAE0E00017E94F /* BMIdentity.m in Sources */,
 				AAD284AB18C01EE500FC0C6F /* SignalHandler.m in Sources */,
+				AA70C86818D277AB001D77FB /* MKSells.m in Sources */,
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
 				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
@@ -1067,6 +1123,7 @@
 				AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */,
 				AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */,
 				AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */,
+				AA70C86518D27799001D77FB /* MKBuys.m in Sources */,
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
@@ -1077,6 +1134,7 @@
 				AA31568B18AAE0E00017E94F /* BMClient.m in Sources */,
 				AA70C80618D0345F001D77FB /* InfoButton.m in Sources */,
 				AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */,
+				AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */,
 				AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */,
 				AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */,
 				AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */,
@@ -1092,14 +1150,18 @@
 				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,
 				AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */,
+				AA70C83B18D27127001D77FB /* MKMarkets.m in Sources */,
 				AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */,
 				AA31568E18AAE0E00017E94F /* BMContacts.m in Sources */,
 				AAD284A918C01EE500FC0C6F /* InfoPanelController.m in Sources */,
 				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,
+				AA70C86218D2778E001D77FB /* MKWallet.m in Sources */,
+				AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
+				AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */,
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,

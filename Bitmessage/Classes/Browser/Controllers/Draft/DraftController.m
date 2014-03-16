@@ -16,6 +16,7 @@
 #import "BMAddress.h"
 #import "AppController.h"
 #import "NSScrollView+extra.h"
+#import "Theme.h"
 
 NSMutableArray *sharedDrafts = nil;
 
@@ -101,14 +102,14 @@ NSMutableArray *sharedDrafts = nil;
 
 - (NSColor *)fieldTextColor
 {
-    return [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
+    return [Theme.sharedTheme draftBodyTextColor];
 }
 
 - (void)setupViewPositions
 {
-    [self.bodyArea setBackgroundColor:[NSColor whiteColor]];
+    [self.bodyArea setBackgroundColor:[Theme.sharedTheme draftBgColor]];
     [self.bodyArea setNeedsDisplay:YES];
-    [self.topBackground setBackgroundColor:[NSColor colorWithCalibratedWhite:.95 alpha:1.0]];
+    [self.topBackground setBackgroundColor:[Theme.sharedTheme draftTopBgColor]];
     [self removeFocusRings];
 
     [self.to setTextColor:self.fieldTextColor];
@@ -131,11 +132,10 @@ NSMutableArray *sharedDrafts = nil;
     [self.scrollView setHeight:self.topBackground.y -0];
     [self.scrollView setWidth:self.scrollView.superview.width];
     
-    [[self bodyText] setFont:[NSFont fontWithName:@"Open Sans" size:13]];
-    NSColor *bodyTextColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
-    [[self bodyText] setTextColor:bodyTextColor];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:13];
+    [[self bodyText] setFont:font];
     
-    NSFont *font = [NSFont fontWithName:@"Open Sans" size:13];
+    [[self bodyText] setTextColor:[Theme.sharedTheme draftBodyTextColor]];
     [self.to setFont:font];
     [self.from setFont:font];
     [self.subject setFont:font];
@@ -147,7 +147,7 @@ NSMutableArray *sharedDrafts = nil;
 - (void)setupHighlightColors
 {
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.01 alpha:0.15], NSBackgroundColorAttributeName,
+                         [Theme.sharedTheme draftBodyTextSelectedColor], NSBackgroundColorAttributeName,
                          nil];
     NSTextView *tv;
     
@@ -320,13 +320,14 @@ NSMutableArray *sharedDrafts = nil;
     }
     else
     {
-        field.textColor = [NSColor redColor];
+        field.textColor = [Theme.sharedTheme formTextErrorColor];
     }
 }
 
 - (void)setDefaultFrom
 {
     NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] label];
+    
     if (from)
     {
         [self.from setStringValue:from];

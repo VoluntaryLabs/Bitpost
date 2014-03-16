@@ -171,7 +171,7 @@
     [message setParameters:params];
     [message sendSync];
     
-    id result = [message parsedResponseValue];
+    //id result = [message parsedResponseValue];
     //NSLog(@"send result %@", result);
 }
 
@@ -230,7 +230,8 @@
 
 - (BOOL)read
 {
-    return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
+    return _read;
+    //return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
     //return ([self.client.deletedMessagesDB hasMarked:self.msgid]);
 }
 
@@ -241,8 +242,8 @@
         [self.client.readMessagesDB mark:self.msgid];
         [self setReadState:YES];
         [self postParentChanged];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
-
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
     }
 }
 

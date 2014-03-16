@@ -7,6 +7,7 @@
 //
 
 #import "AddressCompletor.h"
+#import "Theme.h"
 #import "BMClient.h"
 #import "BMAddress.h"
 
@@ -89,12 +90,12 @@
     
     if (self.isValid)
     {
-        self.textField.textColor = [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
-        [self.textField setFont:[NSFont fontWithName:@"Open Sans Light" size:self.textField.font.pointSize]];
+        self.textField.textColor = [Theme.sharedTheme formText2Color];
+        [self.textField setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:self.textField.font.pointSize]];
     }
     else
     {
-        self.textField.textColor = [NSColor redColor];
+        self.textField.textColor = [Theme.sharedTheme formTextErrorColor];
         [self.textField setFont:[NSFont fontWithName:@"Open Sans Bold" size:self.textField.font.pointSize]];
     }
     

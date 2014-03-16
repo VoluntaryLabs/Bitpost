@@ -46,6 +46,7 @@
 
 - (void)setDict:(NSDictionary *)dict
 {
+    self.isSynced = YES;
     self.label   = [[dict objectForKey:@"label"] decodedBase64];
     self.address = [dict objectForKey:@"address"];
 }
@@ -80,7 +81,13 @@
     //message.debug = YES;
     [message sendSync];
     self.address = [message responseValue];
-    //NSLog(@"self.address %@", self.address);
+    
+    NSLog(@"self.address %@", self.address);
+    
+    if ([self.address hasPrefix:@"BM"])
+    {
+        self.isSynced = YES;
+    }
 }
 
 - (void)create
@@ -112,6 +119,7 @@
 
 - (void)delete
 {
+    self.isSynced = NO;
     [self leave];
 }
 

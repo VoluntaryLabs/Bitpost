@@ -36,14 +36,15 @@
 
 - (NSString *)fontName
 {
-    return @"Open Sans Light";
+    return [Theme.sharedTheme lightFontName];
 }
 
 - (NSDictionary *)subjectAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:25.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:25.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSColor colorWithCalibratedWhite:.9 alpha:1.0], NSForegroundColorAttributeName,
+                                    [Theme.sharedTheme formText1Color],
+                                    NSForegroundColorAttributeName,
                                     font, NSFontAttributeName,
                                     nil];
     return att;
@@ -51,9 +52,9 @@
 
 - (NSMutableDictionary *)infoAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
+                         [Theme.sharedTheme formText4Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                          nil];
     return att;
@@ -62,9 +63,9 @@
 
 - (NSDictionary *)bodyAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.5 alpha:1.0], NSForegroundColorAttributeName,
+                         [Theme.sharedTheme formText3Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                         nil];
     return att;
@@ -72,10 +73,9 @@
 
 - (NSMutableDictionary *)linkAttributes
 {
-    NSFont *font = [NSFont fontWithName:@"Open Sans Light" size:14.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                //[NSColor colorWithRed:0.70/2.0 green:0.69/2.0 blue:0.98/2.0 alpha:1.0f], NSForegroundColorAttributeName,
-                                [NSColor colorWithRed:0.70 green:0.69 blue:0.98 alpha:1.0], NSForegroundColorAttributeName,
+                                [Theme.sharedTheme formTextLinkColor], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                          [NSNumber numberWithInt:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
                          nil];
@@ -141,35 +141,6 @@
                                            initWithString:@"\n"
                                            attributes:[self infoAttributes]]];
     
-    
-     /*
-     NSMutableAttributedString *string; // assume string exists
-     NSRange selectedRange; // assume this is set
-     
-     NSURL *linkURL = [NSURL URLWithString:@"http://www.apple.com/"];
-     
-     [string beginEditing];
-     [string addAttribute:NSLinkAttributeName
-     value:linkURL
-     range:selectedRange];
-     
-     [string addAttribute:NSForegroundColorAttributeName
-     value:[NSColor blueColor]
-     range:selectedRange];
-     
-     [string addAttribute:NSUnderlineStyleAttributeName
-     value:[NSNumber numberWithInt:NSSingleUnderlineStyle]
-     range:selectedRange];
-     [string endEditing];
-     */
-    
-    /*
-    NSMutableAttributedString *bodyString = [[NSMutableAttributedString alloc]
-                                                initWithString:self.message.messageString
-                                                attributes:[self bodyAttributes]];
-    
-     */
-    
     NSMutableAttributedString *bodyString = self.message.messageAttributedString;
 
     [bodyString setAttributes:[self bodyAttributes] range:NSMakeRange(0, [bodyString length])];
@@ -179,8 +150,6 @@
                                  attributes:[self bodyAttributes]]];
     
     [subjectString appendAttributedString:bodyString];
-    
-    //NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc] initWithString:aString];
 
 
     [subjectString addAttribute:NSParagraphStyleAttributeName
@@ -238,15 +207,7 @@
 
 - (void)configBody
 {
-    /*
-    [self.textView setSelectedTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [NSColor colorWithCalibratedWhite:1.0 alpha:0.15], NSBackgroundColorAttributeName, //NSForegroundColorAttributeName,
-      nil]];
-    */
-    
-    [self.textView setBackgroundColor:[NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0]];
-    
+    [self.textView setBackgroundColor:[Theme.sharedTheme formBackgroundColor]];
     [self.textView setLinkTextAttributes:[self linkAttributes]];
     [self.textView setDelegate:self];
 }

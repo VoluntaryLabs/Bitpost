@@ -10,6 +10,7 @@
 #import "NSView+sizing.h"
 #import "NSString+BM.h"
 #import "BMClient.h"
+#import "Theme.h"
 
 @implementation BMNewUserView
 
@@ -19,9 +20,9 @@
     
     if (self)
     {
-        self.darkColor   = [NSColor colorWithCalibratedWhite:.45 alpha:1.0];
-        self.mediumColor = [NSColor colorWithCalibratedWhite:.66 alpha:1.0];
-        self.lightColor  = [NSColor colorWithCalibratedWhite:1.0 alpha:1.0];
+        self.darkColor   = [Theme.sharedTheme formText3Color];
+        self.mediumColor = [Theme.sharedTheme formText2Color];
+        self.lightColor  = [Theme.sharedTheme formText1Color];
         
         [self setAutoresizingMask:  NSViewWidthSizable |
                                     NSViewMinYMargin |
@@ -103,7 +104,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    [[NSColor colorWithCalibratedWhite:0.1 alpha:1.0] set];
+    [[Theme.sharedTheme formBackgroundColor] set];
     [NSBezierPath fillRect:dirtyRect];
 }
 

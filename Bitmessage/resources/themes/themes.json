@@ -1,0 +1,132 @@
+{
+	"default": 
+	{
+		"columns": 
+		[
+    		{
+        		"columnBgColor":   [0.12],
+        		
+        		"unreadTextColor": [0.7, 0.69, 0.98],
+        		"readTextColor":   [0.5],
+        		
+        		"textInactiveColor": [0.27],
+        		"textActiveColor": [1.0],
+        		
+        		"activeFontName": "Open Sans",
+        		"bgActiveColor":   [0.07],
+        		"bgInactiveColor": [0.12]
+    		},
+    		
+    		{
+        		"columnBgColor":   [0.09],
+        		
+        		"unreadTextColor": [0.7, 0.69, 0.98],
+        		"readTextColor":   [0.5],
+        		
+        		"textActiveColor": [1.0],
+        		"textInactiveColor": [0.27],
+        		
+        		"activeFontName": "Open Sans",
+       		    "bgActiveColor":   [0.03],
+        		"bgInactiveColor": [0.09]
+    		},
+    		
+    		{
+        		"columnBgColor":   [0.03],
+        		
+        		"unreadTextColor": [0.7, 0.69, 0.98],
+        		"readTextColor":   [0.5],
+        		
+        		"textActiveColor": [1.0],
+        		"textInactiveColor": [0.27],
+        		
+        		"activeFontName": "Open Sans",
+        		"bgActiveColor":   [0.03],
+        		"bgInactiveColor": [0.09]
+    		}
+		],
+		
+		"formBackgroundColor": [0.03],
+		"formText1Color": [1],
+		"formText2Color": [0.7],
+		"formText3Color": [0.5],
+		"formText4Color": [0.3],
+		"formTextErrorColor": [1, 0, 0],
+		"formTextSelectedBgColor": [0.3],
+		"formTextCursorColor": [1],
+		"formTextLinkColor": [0.7],
+		
+		"lightFontName": "Open Sans Light",
+		"mediumFontName": "Open Sans",
+	
+	    "draftTopBgColor": [0.95],
+	    "draftBgColor": [1],
+	    "draftBodyTextColor": [0.7],
+	    "draftFieldTextColor": [0.7],
+	    "draftBodyTextSelectedColor": [0.1, 0.15],
+	    "draftLabelTextColor": [0.7]
+	},
+	
+	"light": 
+	{
+		"columns": 
+		[
+    		{        		
+        		"unreadTextColor": [0.5],
+        		"readTextColor":   [0.5],
+        		
+        		"textInactiveColor": [0.5],
+        		"textActiveColor": [0.0],
+        		
+        		"bgActiveColor":   [0.95],
+        		"activeFontName": "Open Sans",
+        		"bgInactiveColor": [0.985]
+    		},
+    		
+    		{        		
+        		"unreadTextColor": [0.4],
+        		"readTextColor":   [0.75],
+        		
+        		"textInactiveColor": [0.5],
+        		"textActiveColor": [0.0],
+        		
+        		"bgActiveColor":   [0.95],
+        		"activeFontName": "Open Sans",
+        		"bgInactiveColor": [0.985]
+    		},
+    		
+    		{        		
+        		"unreadTextColor": [0.7, 0.69, 0.98],
+        		"readTextColor":   [0.5],
+        		
+        		"textActiveColor": [1.0],
+        		"textInactiveColor": [0.27],
+        		
+        		"bgActiveColor":   [0.03],
+        		"activeFontName":   "Open Sans",
+        		"bgInactiveColor": [0.09]
+    		}
+		],
+		
+		"formBackgroundColor": [1],
+		"formText1Color": [0.0],
+		"formText2Color": [0.0],
+		"formText3Color": [0.4],
+		"formText4Color": [0.6],
+		"formTextErrorColor": [1, 0, 0],
+		"formTextSelectedBgColor": [0.5],
+		"formTextCursorColor": [0],
+		"formTextLinkColor": [0.7],
+		
+		"lightFontName": "Open Sans Light",
+		"mediumFontName": "Open Sans Bold",
+	
+	    "draftTopBgColor": [0.95],
+	    "draftBgColor": [1],
+	    "draftBodyTextColor": [0.7],
+	    "draftFieldTextColor": [0.7],
+	    "draftBodyTextSelectedColor": [0.1, 0.15],
+	    "draftLabelTextColor": [0.7]
+	},
+	
+}

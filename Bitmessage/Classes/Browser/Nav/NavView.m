@@ -16,13 +16,6 @@
 
 @implementation NavView
 
-/*
-- (void)animateFadeIn
-{
-    for (NSView *)
-}
-*/
-
 - (BOOL)isOpaque
 {
     return NO;
@@ -80,16 +73,23 @@
         column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.frame.size.height)];
     }
 
-    [self.navColumns addObject:column];
-    [self addSubview:column];
-    
-    [column setNavView:self];
-
+    [self addNavColumn:column];
     [column setNode:node];
-
+    
     [self stackViews];
     
     return column;
+}
+
+- (void)addNavColumn:(NavColumn *)column
+{
+    [self.navColumns addObject:column];
+    [self addSubview:column];
+    [column setNavView:self];
+    if ([column respondsToSelector:@selector(didAddToNavView)])
+    {
+        [column didAddToNavView];
+    }
 }
 
 - (CGFloat)columnsWidth
@@ -177,8 +177,7 @@
 
 - (NSColor *)bgColor
 {
-    //return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
-    return [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
+    return [Theme.sharedTheme formBackgroundColor];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -243,7 +242,7 @@
         NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, 20)];
         [button setButtonType:NSMomentaryChangeButton];
         [button setBordered:NO];
-        [button setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
+        [button setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0]];
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
         /*
@@ -360,6 +359,12 @@
         [inColumn noWarningPerformSelector:@selector(selectFirstResponder)];
     }
 }
+
+- (NSInteger)indexOfColumn:(NavColumn *)aColumn
+{
+    return [self.navColumns indexOfObject:aColumn];
+}
+
 
 
 @end

@@ -26,7 +26,11 @@
 {
 	[super drawRect:dirtyRect];
 
-    [self.backgroundColor setFill];
+    if (self.backgroundColor)
+    {
+        [self.backgroundColor setFill];
+    }
+    
     NSRectFill(dirtyRect);
 }
 

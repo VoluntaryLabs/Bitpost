@@ -24,7 +24,9 @@
 
 @property (strong, nonatomic) id <NavNode> lastSelectedChild;
 
+- (void)didAddToNavView;
 - (void)prepareToDisplay;
+- (ThemeDictionary *)themeDict;
 
 - (id <NavNode>)selectedNode;
 

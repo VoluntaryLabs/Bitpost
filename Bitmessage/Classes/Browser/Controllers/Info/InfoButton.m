@@ -7,6 +7,7 @@
 //
 
 #import "InfoButton.h"
+#import "Theme.h"
 
 @implementation InfoButton
 
@@ -18,7 +19,7 @@
     {
         [self setButtonType:NSMomentaryChangeButton];
         [self setBordered:NO];
-        [self setFont:[NSFont fontWithName:@"Open Sans Light" size:16.0]];
+        [self setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0]];
         [self setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         self.textColor = [NSColor whiteColor];
         [self setAlignment:NSCenterTextAlignment];

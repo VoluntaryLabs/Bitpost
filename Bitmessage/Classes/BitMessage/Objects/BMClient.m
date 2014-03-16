@@ -50,6 +50,11 @@ static BMClient *sharedBMClient;
     
     [self deepFetch];
     
+    // market
+    
+    self.markets = [[MKMarkets alloc] init];
+    [self.children addObject:self.markets];
+    
     return self;
 }
 

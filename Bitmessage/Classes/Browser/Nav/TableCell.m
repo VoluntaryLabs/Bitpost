@@ -1,7 +1,8 @@
 
 
 #import "TableCell.h"
-//#import "BrowserNode.h"
+#import "NavColumn.h"
+#import "Theme.h"
 
 @implementation TableCell
 
@@ -9,9 +10,6 @@
 {
     self = [super init];
     self.leftMarginRatio = 0.5;
-	//[self setTextColor:[NSColor whiteColor]];
-	//[self setBackgroundColor:[NSColor blackColor]];
-
     return self;
 }
 
@@ -39,25 +37,25 @@
     */
 }
 
-- (NSColor *)textColorActive
+- (NSColor *)textActiveColor
 {
-    if ([self.node respondsToSelector:@selector(textColorActive)])
+    if ([self.node respondsToSelector:@selector(textActiveColor)])
     {
-        NSColor *color = [(id)self.node textColorActive];
+        NSColor *color = [(id)self.node textActiveColor];
         if (color)
         {
             return color;
         }
     }
     
-    return [NSColor whiteColor];
+    return self.navColumn.themeDict.textActiveColor;
 }
 
 - (NSColor *)textColor
 {
     if ([self isHighlighted])
     {
-        return self.textColorActive;
+        return self.textActiveColor;
     }
     else
     {
@@ -71,9 +69,10 @@
         }
     }
     
+
 	return [self isHighlighted] ?
-        [NSColor whiteColor] :
-        [NSColor colorWithCalibratedWhite:071.0/255.0 alpha:1.0];
+        self.navColumn.themeDict.textActiveColor :
+        self.navColumn.themeDict.textInactiveColor;
 }
 
 - (NSColor *)bgColorActive
@@ -86,7 +85,8 @@
             return color;
         }
     }
-    return [NSColor colorWithCalibratedWhite:023.0/255.0 alpha:1.0];
+
+    return self.navColumn.themeDict.bgActiveColor;
 }
 
 - (NSColor *)bgColorInactive
@@ -99,20 +99,14 @@
             return color;
         }
     }
-    return [NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0];
+    
+    return self.navColumn.themeDict.bgInactiveColor;
 }
 
 - (NSColor *)bgColor
 {
     return [self isHighlighted] ? [self bgColorActive] : [self bgColorInactive];
 }
-
-/*
-+ (NSColor *)selectedControlTextColor
-{
-    return [NSColor blueColor]; // does this DO anything?
-}
-*/
 
 - (NSRect)expansionFrameWithFrame:(NSRect)cellFrame inView:(NSView *)view
 {
@@ -121,13 +115,19 @@
 
 - (NSString *)fontName
 {
-    return @"Open Sans Light";
+    if ([self isHighlighted])
+    {
+        return [self.navColumn.themeDict activeFontName];
+    }
+    
+    return [Theme.sharedTheme lightFontName];
 }
 
 - (NSDictionary *)titleAttributes
 {
     CGFloat fontSize = 14.0;
-    NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
+    NSString *fontName = [self fontName];
+    NSFont *font = [NSFont fontWithName:fontName size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
                                     [self textColor], NSForegroundColorAttributeName,
                                     font, NSFontAttributeName,

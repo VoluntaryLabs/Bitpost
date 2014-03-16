@@ -37,9 +37,9 @@
     
     self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
     [self addSubview:self.labelField];
-    self.labelField.backgroundColor = [NSColor clearColor];
-    self.labelField.textColor = [NSColor whiteColor];
-    self.labelField.font = [NSFont fontWithName:@"Open Sans Light" size:24.0];
+    [self.labelField setDrawsBackground:NO];
+    self.labelField.textColor = [Theme.sharedTheme formText1Color];
+    self.labelField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
     [self.labelField centerXInSuperview];
     [self.labelField centerYInSuperview];
     [self.labelField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
@@ -49,16 +49,16 @@
     
     [self.labelField setSelectedTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSBackgroundColorAttributeName,
-      [NSColor whiteColor], NSForegroundColorAttributeName,
+      [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
+      //[Theme.sharedTheme formText1Color], NSForegroundColorAttributeName,
       nil]];
     
     
     self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 30)];
     [self addSubview:self.addressField];
-    self.addressField.backgroundColor = [NSColor clearColor];
-    self.addressField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
-    self.addressField.font = [NSFont fontWithName:@"Open Sans Light" size:16.0];
+    [self.addressField setDrawsBackground:NO];
+    self.addressField.textColor = [Theme.sharedTheme formText2Color];
+    self.addressField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
     [self.addressField centerXInSuperview];
     [self.addressField setY:self.labelField.maxY + 10];
     [self.addressField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
@@ -68,15 +68,15 @@
     
     [self.addressField setSelectedTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
-      [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSBackgroundColorAttributeName,
-      [NSColor whiteColor], NSForegroundColorAttributeName,
+      [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
+      //[Theme.sharedTheme formText1Color], NSForegroundColorAttributeName,
       nil]];
     
     [self.labelField setFocusRingType:NSFocusRingTypeNone];
     [self.addressField setFocusRingType:NSFocusRingTypeNone];
     
-    [(NSTextView *)self.labelField setInsertionPointColor:[NSColor whiteColor]];
-    [(NSTextView *)self.addressField setInsertionPointColor:[NSColor whiteColor]];
+    [(NSTextView *)self.labelField setInsertionPointColor:[Theme.sharedTheme formTextCursorColor]];
+    [(NSTextView *)self.addressField setInsertionPointColor:[Theme.sharedTheme formTextCursorColor]];
     
     self.checkbox = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 30, 30)];
     [self.checkbox setImage:nil];
@@ -130,7 +130,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
 	[super drawRect:dirtyRect];
-    NSColor *bgColor = [Theme objectForKey:@"BMContact-bgColorActive"];
+    NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
     [bgColor set];
     [NSBezierPath fillRect:dirtyRect];
 }
@@ -144,11 +144,11 @@
 {
     if (self.hasValidAddress)
     {
-        self.addressField.textColor = [NSColor colorWithCalibratedWhite:.5 alpha:1.0];
+        self.addressField.textColor = [Theme.sharedTheme formText2Color];
     }
     else
     {
-        self.addressField.textColor = [NSColor redColor];
+        self.addressField.textColor = [Theme.sharedTheme formTextErrorColor];
     }
 }
 
@@ -234,9 +234,10 @@
 
 - (BOOL)isSynced
 {
-    return
-        [self.contact.visibleLabel isEqualToString:[self.labelField.string strip]] &&
-        [self.contact.address isEqualToString:[self.addressField.string strip]];
+    BOOL labelMatches = [self.contact.visibleLabel isEqualToString:self.labelField.string.strip];
+    BOOL addressMatches = [self.contact.address isEqualToString:self.addressField.string.strip];
+    
+    return labelMatches && addressMatches;
 }
 
 - (void)syncToNode

@@ -47,6 +47,21 @@
     [self postSelfChanged];
 }
 
+- (NSUInteger)nodeDepth
+{
+    NSUInteger depth = 0;
+    BMNode *nodeParent = self.nodeParent;
+    
+    while (nodeParent)
+    {
+        depth ++;
+        nodeParent = nodeParent.nodeParent;
+    }
+    
+    return depth;
+}
+
+
 - (void)setChildren:(NSMutableArray *)children
 {
     _children = children;

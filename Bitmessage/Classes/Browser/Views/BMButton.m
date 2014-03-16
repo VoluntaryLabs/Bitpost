@@ -8,6 +8,7 @@
 
 #import "BMButton.h"
 #import "NSView+sizing.h"
+#import "Theme.h"
 
 @implementation BMButton
 
@@ -23,9 +24,9 @@
     {
         [self setButtonType:NSMomentaryChangeButton];
         [self setBordered:NO];
-        [self setFont:[NSFont fontWithName:@"Open Sans Light" size:14.0]];
+        [self setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0]];
         [self setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
-        self.textColor = [NSColor whiteColor];
+        self.textColor = [Theme.sharedTheme formText1Color];
         [self setAlignment:NSCenterTextAlignment];
     }
     return self;
@@ -33,7 +34,7 @@
 
 - (void)setFontSize:(CGFloat)pointSize
 {
-    self.font = [NSFont fontWithName:@"Open Sans Light" size:pointSize];
+    self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:pointSize];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

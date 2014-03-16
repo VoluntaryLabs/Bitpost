@@ -24,6 +24,11 @@
 #import "BMAddress.h"
 
 
+// market
+
+#import "MKMarkets.h"
+
+
 @interface BMClient : BMNode
 
 @property (strong, nonatomic) BMIdentities *identities;
@@ -33,6 +38,8 @@
 @property (strong, nonatomic) BMChannels *channels;
 @property (strong, nonatomic) BMDatabase *readMessagesDB;
 @property (strong, nonatomic) BMDatabase *deletedMessagesDB;
+
+@property (strong, nonatomic) MKMarkets *markets;
 
 
 + (BMClient *)sharedBMClient;

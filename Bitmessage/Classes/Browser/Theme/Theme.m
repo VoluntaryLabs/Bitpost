@@ -6,32 +6,8 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-
-//NSSound *systemSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
-/*
- /System/Library/Sounds
- Here the list of sounds found in that directory:
- Basso
- Blow
- Bottle
- Frog
- Funk
- Glass
- Hero
- Morse
- Ping
- Pop
- Purr
- Sosumi
- Submarine
- Tink
- */
-
-//    NSSound *newMessageSound = [[NSSound alloc] initWithContentsOfFile:@"/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/dock/drag to trash.aif" byReference:YES];
-
-//[newMessageSound play];
-
 #import "Theme.h"
+#import "NSColor+array.h"
 
 @implementation Theme
 
@@ -51,86 +27,203 @@ static Theme *sharedTheme = nil;
 {
     self = [super init];
     self.dict = [NSMutableDictionary dictionary];
-    [self setup];
+    [self load];
     return self;
 }
 
-- (void)setup
+- (void)load
 {
-    [self setObject:[NSColor colorWithCalibratedWhite:.12 alpha:1.0] forKey:@"BMClient-columnBgColor"];
-    [self setObject:[NSNumber numberWithInteger:100] forKey:@"BMClient-nodeSuggestedWidth"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"themes" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:path];
+    NSError *error;
     
-    //[self setObject:[NSColor blueColor] forKey:@"BMSentMessages-active"];
-    //[self setObject:[NSColor blueColor] forKey:@"BMSentMessages-inactive"];
+    id jsonObject = [NSJSONSerialization
+                 JSONObjectWithData:jsonData
+                 options:0
+                 error:&error];
     
-    NSColor *column1Color = [NSColor colorWithCalibratedWhite:.09 alpha:1.0];
-    NSColor *column2Color = [NSColor colorWithCalibratedWhite:.09 alpha:1.0];
+    self.themeDicts = jsonObject;
     
-    [self setObject:column2Color forKey:@"Messages-columnBgColor"];
+    if (error)
+    {
+        NSLog(@"JSON Parse Error: %@", [[error userInfo] objectForKey:@"NSDebugDescription"]);
+        [NSException raise:@"JSON Parse Error" format:@""];
+    }
     
-    
-    [self setObject:column1Color forKey:@"BMSentMessages-columnBgColor"];
-    [self setObject:column1Color forKey:@"BMReceivedMessages-columnBgColor"];
-    [self setObject:column1Color forKey:@"BMContacts-columnBgColor"];
-    [self setObject:column1Color forKey:@"BMIdentities-columnBgColor"];
-    [self setObject:column1Color forKey:@"BMChannels-columnBgColor"];
-    [self setObject:column1Color forKey:@"BMSubscriptions-columnBgColor"];
-
-    
-    NSColor *bgColorActive = [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
-    NSColor *bgColorInactive = [NSColor colorWithCalibratedWhite:023.0/255.0 alpha:1.0];
-    
-    
-    [self setObject:bgColorActive forKey:@"BMIdentity-bgColorActive"];
-    [self setObject:bgColorInactive forKey:@"BMIdentity-bgColorInactive"];
-    
-    [self setObject:[NSColor whiteColor] forKey:@"BMContact-textColor"];
-    [self setObject:bgColorActive forKey:@"BMContact-bgColorActive"];
-    [self setObject:bgColorInactive forKey:@"BMContact-bgColorInactive"];
-    
-    [self setColorsOn:@"BMSentMessage"];
-    [self setColorsOn:@"BMReceivedMessage"];
-    [self setColorsOn:@"BMChannel"];
-    [self setColorsOn:@"BMSubscription"];
+    //NSLog(@"themeDicts: %@", self.themeDicts);
 }
 
-- (void)setColorsOn:(NSString *)aName
+- (NSDictionary *)currentTheme
 {
-    NSColor *bgColorActive = [NSColor colorWithCalibratedWhite:018.0/255.0 alpha:1.0];
-    NSColor *bgColorInactive = [NSColor colorWithCalibratedWhite:023.0/255.0 alpha:1.0];
-    
-    [self setObject:[NSColor colorWithRed:0.70f green:0.69f blue:0.98f alpha:1.0f]
-             forKey:[aName stringByAppendingString:@"-unreadTextColor"]];
-    [self setObject:[NSColor colorWithCalibratedWhite:.5 alpha:1.0]
-             forKey:[aName stringByAppendingString:@"-readTextColor"]];
-    [self setObject:[NSColor colorWithCalibratedWhite:1.0 alpha:1.0]
-             forKey:[aName stringByAppendingString:@"-textColorActive"]];
-    [self setObject:bgColorActive
-             forKey:[aName stringByAppendingString:@"-bgColorActive"]];
-    [self setObject:bgColorInactive
-             forKey:[aName stringByAppendingString:@"-bgColorInactive"]];
+    return [self.themeDicts objectForKey:@"default"];
 }
 
 - (id)objectForKey:(NSString *)k
 {
-    return [self.dict objectForKey:k];
+    return [self.currentTheme objectForKey:k];
 }
 
-- (void)setObject:(id)anObject forKey:(NSString *)k
+- (NSColor *)colorForKey:(NSString *)k
 {
-    [self.dict setObject:anObject forKey:k];
+    return [NSColor withArray:[self.currentTheme objectForKey:k]];
 }
-
-// ----------------------
 
 + (id)objectForKey:(NSString *)k
 {
     return [self.sharedTheme objectForKey:k];
 }
 
-+ (void)setObject:(id)anObject forKey:(NSString *)k
+// --- column themes ---------------------------
+
+- (ThemeDictionary *)themeForColumn:(NSInteger)columnIndex
 {
-    return [self.sharedTheme setObject:anObject forKey:k];
+    NSArray *columnThemes = [self.currentTheme objectForKey:@"columns"];
+    NSDictionary *dict = columnThemes.firstObject;
+    
+    if (columnIndex < columnThemes.count)
+    {
+        dict = [columnThemes objectAtIndex:columnIndex];
+    }
+    
+    return [ThemeDictionary withDict:dict];
 }
+
+// helpers
+
+
+- (NSColor *)formBackgroundColor
+{
+    return [self colorForKey:@"formBackgroundColor"];
+}
+
+- (NSColor *)formText1Color
+{
+    return [self colorForKey:@"formText1Color"];
+}
+
+- (NSColor *)formText2Color
+{
+    return [self colorForKey:@"formText2Color"];
+}
+
+- (NSColor *)formText3Color
+{
+    return [self colorForKey:@"formText3Color"];
+}
+
+- (NSColor *)formText4Color
+{
+    return [self colorForKey:@"formText4Color"];
+}
+
+- (NSColor *)formTextErrorColor
+{
+    return [self colorForKey:@"formTextErrorColor"];
+}
+
+- (NSColor *)formTextSelectedBgColor
+{
+    return [self colorForKey:@"formTextSelectedBgColor"];
+}
+
+- (NSColor *)formTextCursorColor
+{
+    return [self colorForKey:@"formTextCursorColor"];
+}
+
+- (NSColor *)formTextLinkColor
+{
+    return [self colorForKey:@"formTextLinkColor"];
+}
+
+// draft
+
+- (NSColor *)draftTopBgColor
+{
+    return [self colorForKey:@"draftTopBgColor"];
+}
+
+- (NSColor *)draftBgColor
+{
+    return [self colorForKey:@"draftBgColor"];
+}
+
+- (NSColor *)draftBodyTextColor
+{
+    return [self colorForKey:@"draftBodyTextColor"];
+}
+
+- (NSColor *)draftBodyTextSelectedColor
+{
+    return [self colorForKey:@"draftBodyTextSelectedColor"];
+}
+
+- (NSColor *)draftFieldTextColor
+{
+    return [self colorForKey:@"draftFieldTextColor"];
+}
+
+- (NSColor *)draftLabelTextColor
+{
+    return [self colorForKey:@"draftLabelTextColor"];
+}
+
+// font
+
+- (NSString *)lightFontName
+{
+    return [self.currentTheme objectForKey:@"lightFontName"];
+}
+
+- (NSString *)mediumFontName
+{
+    return [self.currentTheme objectForKey:@"mediumFontName"];
+}
+
+// forward
+
+/*
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
+{
+    NSMethodSignature* signature = [super methodSignatureForSelector:selector];
+    
+    if (!signature)
+    {
+        signature = [super methodSignatureForSelector:@selector(init)];
+    }
+    
+    return signature;
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    NSString *propertyName = NSStringFromSelector(aSelector);
+    //return [self.currentTheme objectForKey:propertyName] != nil;
+    return YES;
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation
+{
+    NSString *propertyName = NSStringFromSelector([anInvocation selector]);
+    id result = nil;
+    
+    if ([propertyName hasSuffix:@"Color"])
+    {
+        result = [self colorForKey:propertyName]];
+    }
+    else
+    {
+        result = [self.currentTheme objectForKey:propertyName];
+    }
+    
+    if (result == nil)
+    {
+        NSLog(@"nil result");
+    }
+    
+    [anInvocation setReturnValue:(void *)result];
+    [anInvocation retainArguments];
+}
+*/
 
 @end

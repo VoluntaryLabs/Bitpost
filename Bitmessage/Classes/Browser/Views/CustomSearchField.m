@@ -17,7 +17,6 @@
     [self setFocusRingType:NSFocusRingTypeNone];
     [self setEditable:NO];
     [self setSelectable:NO];
-    //[self setBackgroundColor:[NSColor clearColor]];
     [self setDrawsBackground:NO];
     [self setNeedsDisplay];
 }

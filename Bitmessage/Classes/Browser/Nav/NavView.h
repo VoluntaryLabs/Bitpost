@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NavNode.h"
+#import "Theme.h"
 
 @class NavColumn;
 
@@ -32,5 +33,7 @@
 - (void)rightArrowFrom:aColumn;
 
 - (void)selectNodePath:(NSArray *)nodes;
+
+- (NSInteger)indexOfColumn:(NavColumn *)aColumn;
 
 @end

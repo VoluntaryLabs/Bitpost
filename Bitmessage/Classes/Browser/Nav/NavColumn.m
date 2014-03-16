@@ -12,6 +12,7 @@
 #import "NSEvent+keys.h"
 //#import "NavRowView.h"
 #import "NSObject+extra.h"
+#import "Theme.h"
 
 @implementation NavColumn
 
@@ -169,9 +170,7 @@
 {
     if (_node != node)
     {
-        [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:nil
-                                                      object:_node];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
 
         _node = node;
         
@@ -232,6 +231,11 @@
     }
 }
 
+- (NSInteger)columnIndex
+{
+    return [self.navView indexOfColumn:self];
+}
+
 - (void)setupTable
 {
     // scrollview
@@ -253,7 +257,6 @@
     [self.tableView setAutoresizesSubviews:YES];
     [self.tableView setAutoresizingMask:NSViewHeightSizable /*| NSViewWidthSizable*/];
     
-    [self.tableView setBackgroundColor:[NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0]];
     self.tableColumn = [[NSTableColumn alloc] init];
     [self.tableColumn setDataCell:[[TableCell alloc] init]];
     [self.tableView addTableColumn:self.tableColumn];
@@ -266,17 +269,14 @@
     if (NO)
     {
         self.documentView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
-        [self.documentView setBackgroundColor:self.tableView.backgroundColor];
         [self.scrollView setDocumentView:self.documentView];
         [self.documentView setFrame:NSMakeRect(0, 0, 1000, 1000)];
-        [self.scrollView setBackgroundColor:[NSColor colorWithCalibratedWhite:031.0/255.0 alpha:1.0]];
         
 
         // document
         
         /*
         self.headerView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, self.width, 150)];
-        [self.headerView setBackgroundColor:[NSColor redColor]];
         if (self.headerView)
         {
             [self.documentView addSubview:self.headerView];
@@ -300,9 +300,22 @@
 
 - (void)prepareToDisplay
 {
-    
 }
 
+- (ThemeDictionary *)themeDict
+{
+    return [Theme.sharedTheme themeForColumn:self.columnIndex];
+}
+
+- (void)didAddToNavView
+{
+    NSLog(@"self.columnIndex %i", (int)self.columnIndex);
+    [self.tableView setBackgroundColor:self.themeDict.bgInactiveColor];
+    
+    // if using document view
+    [self.documentView setBackgroundColor:self.tableView.backgroundColor];
+    //[self.scrollView setBackgroundColor:self.tableView.backgroundColor];
+}
 
 - (void)setupHeaderView:(NSView *)aView
 {
@@ -426,6 +439,7 @@
 {
     [aCell setIsSelected:[aTableView selectedRow] == rowIndex];
     [aCell setNode:[self nodeForRow:rowIndex]];
+    [aCell setNavColumn:self];
 }
 
 - (id <NavNode>)selectedNode

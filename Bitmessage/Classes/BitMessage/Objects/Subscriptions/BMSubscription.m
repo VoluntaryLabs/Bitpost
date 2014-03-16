@@ -42,6 +42,7 @@
 
 - (void)setDict:(NSDictionary *)dict
 {
+    self.isSynced = YES;
     [super setDict:dict];
     self.enabled = [[dict objectForKey:@"enabled"] boolValue];
 }
@@ -64,7 +65,7 @@
 
 // ----------------------
 
-- (BOOL)subscribe
+- (BOOL)justSubscribe
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"addSubscription"];
@@ -78,12 +79,12 @@
     return YES;
 }
 
-- (void)delete
+- (BOOL)subscribe
 {
-    [self unsubscribe];
+    return [self justSubscribe];
 }
 
-- (void)unsubscribe
+- (void)justDelete
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"deleteSubscription"];
@@ -93,7 +94,11 @@
     [message sendSync];
     id response = [message parsedResponseValue];
     NSLog(@"response %@", response);
-    
+}
+
+- (void)delete
+{
+    [self justDelete];
     [self.nodeParent removeChild:self];
 }
 
@@ -101,9 +106,9 @@
 {
     NSLog(@"updating subscription '%@' '%@'", self.address, self.label);
     
-    [self delete];
+    [self justDelete];
     
-    if ([self subscribe])
+    if ([self justSubscribe])
     {
         [self postParentChanged];
     }
