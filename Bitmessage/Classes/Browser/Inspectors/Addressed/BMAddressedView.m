@@ -34,8 +34,8 @@
     self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
     [self addSubview:self.labelField];
     
-    //[self.labelField setDrawsBackground:NO];
-    [self.labelField setBackgroundColor:[NSColor colorWithCalibratedWhite:.3 alpha:1.0]];
+    [self.labelField setDrawsBackground:NO];
+    //[self.labelField setBackgroundColor:[NSColor colorWithCalibratedWhite:.3 alpha:1.0]];
     
     self.labelField.textColor = [Theme.sharedTheme formText1Color];
     self.labelField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
@@ -118,7 +118,7 @@
     //[self.labelField centerYInSuperview];
     //[self.labelField setY:self.labelField.y + 40];
     [self.labelField setY:h/2 + 10];
-    NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
+    //NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
     
     [self.addressField centerXInSuperview];
     [self.addressField placeYBelow:self.labelField margin:30];
@@ -215,7 +215,7 @@
 
 - (void)textDidEndEditing:(NSNotification *)aNotification
 {
-    NSLog(@"textDidEndEditing");
+    //NSLog(@"textDidEndEditing");
     [[aNotification object] endEditing];
     [self saveChanges];
 }
