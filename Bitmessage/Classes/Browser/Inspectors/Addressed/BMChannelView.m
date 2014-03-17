@@ -14,6 +14,7 @@
 {
     [super setup];
     [self.addressField setEditable:NO];
+    [self.addressField setDelegate:nil];
 }
 
 @end

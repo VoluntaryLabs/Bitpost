@@ -31,13 +31,12 @@
 
 - (void)setup
 {
-    //NSColor *textColor = [Theme objectForKey:@"BMContact-textColor"];
-    //NSColor *bgColor   = [Theme objectForKey:@"BMContact-bgColorActive"];
-    
-    
     self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
     [self addSubview:self.labelField];
-    [self.labelField setDrawsBackground:NO];
+    
+    //[self.labelField setDrawsBackground:NO];
+    [self.labelField setBackgroundColor:[NSColor colorWithCalibratedWhite:.3 alpha:1.0]];
+    
     self.labelField.textColor = [Theme.sharedTheme formText1Color];
     self.labelField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
     [self.labelField centerXInSuperview];
@@ -82,6 +81,8 @@
     [self.checkbox setImage:nil];
     [self addSubview:self.checkbox];
     
+    [self setPositions];
+    
 }
 
 - (void)prepareToDisplay
@@ -92,6 +93,7 @@
         //[self.labelField becomeFirstResponder];
         [self.labelField selectAll:nil];
     }
+    [self setPositions];
 }
 
 - (void)dealloc
@@ -103,17 +105,23 @@
 {
     [super setFrame:frameRect];
     [self setPositions];
+    //[self updateCheckbox];
+    //[self updateAddressColor];
 }
 
 - (void)setPositions
 {
+    CGFloat h = self.labelField.superview.height;
+    //NSLog(@"h = %i", (int)h);
+    
     [self.labelField centerXInSuperview];
-    [self.labelField centerYInSuperview];
-    [self.labelField setY:self.labelField.y + 40];
+    //[self.labelField centerYInSuperview];
+    //[self.labelField setY:self.labelField.y + 40];
+    [self.labelField setY:h/2 + 10];
+    NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
     
     [self.addressField centerXInSuperview];
-    [self.addressField centerYInSuperview];
-    [self.addressField setY:self.addressField.y - 0];
+    [self.addressField placeYBelow:self.labelField margin:30];
     
     [self.checkbox centerXInSuperview];
     [self.checkbox placeYBelow:self.addressField margin:30];
@@ -129,6 +137,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    [self setPositions]; // don't like this here but couldn't find who was moving the label
 	[super drawRect:dirtyRect];
     NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
     [bgColor set];
@@ -228,6 +237,7 @@
     
     [self updateCheckbox];
     [self updateAddressColor];
+    [self setPositions];
 }
 
 // -- sync ----

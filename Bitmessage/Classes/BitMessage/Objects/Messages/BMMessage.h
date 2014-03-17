@@ -25,7 +25,6 @@
 + (BMMessage *)withDict:(NSDictionary *)dict;
 
 - (BOOL)isEqual:(id)object;
-//- (NSComparisonResult)sortCompare:(id)object;
 
 - (void)setDict:(NSDictionary *)dict;
 - (NSDictionary *)dict;

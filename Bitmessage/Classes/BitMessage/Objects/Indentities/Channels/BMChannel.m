@@ -73,6 +73,7 @@
 - (void)justCreate
 {
     // createChan	 <passphrase>	 0.4.2	 Creates a new chan. passphrase must be base64 encoded. Outputs the corresponding Bitmessage address.
+    NSLog(@"BMChannel createChan '%@'", self.passphrase);
     
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"createChan"];
@@ -128,7 +129,8 @@
     // leaveChan <address>	 0.4.2	 Leave a chan.
     // Outputs "success". Note that at this time,
     // the address is still shown in the UI until a restart.
-    
+    NSLog(@"BMChannel justLeave '%@'", self.address);
+
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:@"leaveChan"];
     NSArray *params = [NSArray arrayWithObjects:self.address, nil];
@@ -138,7 +140,7 @@
     //id response = [message parsedResponseValue];
     //NSLog(@"response %@", response);
     
-    [self.nodeParent removeChild:self];
+    //[self.nodeParent removeChild:self];
 }
 
 - (void)leave
@@ -165,8 +167,10 @@
 
 - (void)update
 {
+    self.isSynced = NO;
     [self justLeave];
     [self create];
+    self.isSynced = YES;
 }
 
 @end

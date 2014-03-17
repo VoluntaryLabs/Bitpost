@@ -35,31 +35,12 @@
     return [_msgid isEqual:[(BMMessage *)object msgid]];
 }
 
-/*
-- (NSComparisonResult)sortCompare:(id)object
-{
-    if (![object isKindOfClass:[BMMessage class]])
-    {
-        return NO;
-    }
-    
-    //return [self.lastActionTime compare:[(BMMessage *)object lastActionTime]];
-    //return [[(BMMessage *)object receivedTime] compare:[self receivedTime]];
-    //NSComparisonResult r = [[self receivedTime] compare:[(BMMessage *)object receivedTime]];
-    NSComparisonResult r = [[(BMMessage *)object receivedTime] compare:[self receivedTime]];
-
-    NSLog(@"%@ %i %@", [self receivedTime], (int)r, [(BMMessage *)object receivedTime]);
-    return r;
-}
- */
-
 + (BMMessage *)withDict:(NSDictionary *)dict
 {
     id instance = [[[self class] alloc] init];
     [instance setDict:dict];
     return instance;
 }
-
 
 - (NSDictionary *)dict
 {
@@ -199,8 +180,8 @@
     NSArray *params = [NSArray arrayWithObjects:self.msgid, nil];
     [message setParameters:params];
     [message sendSync];
-    id result = [message parsedResponseValue];
-    NSLog(@"delete result %@", result);
+    //id result = [message parsedResponseValue];
+    //NSLog(@"delete result %@", result);
 
     [self.nodeParent removeChild:self];
     //[self postParentChanged];
@@ -230,9 +211,7 @@
 
 - (BOOL)read
 {
-    return _read;
-    //return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
-    //return ([self.client.deletedMessagesDB hasMarked:self.msgid]);
+    return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
 }
 
 - (void)markAsRead

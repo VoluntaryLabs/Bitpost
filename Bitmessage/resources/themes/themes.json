@@ -12,7 +12,7 @@
         		"textInactiveColor": [0.27],
         		"textActiveColor": [1.0],
         		
-        		"activeFontName": "Open Sans",
+        		"activeFontName": "Open Sans Light",
         		"bgActiveColor":   [0.07],
         		"bgInactiveColor": [0.12]
     		},
@@ -26,8 +26,8 @@
         		"textActiveColor": [1.0],
         		"textInactiveColor": [0.27],
         		
-        		"activeFontName": "Open Sans",
-       		    "bgActiveColor":   [0.03],
+        		"activeFontName": "Open Sans Light",
+       		   	"bgActiveColor":   [0.03],
         		"bgInactiveColor": [0.09]
     		},
     		
@@ -40,7 +40,7 @@
         		"textActiveColor": [1.0],
         		"textInactiveColor": [0.27],
         		
-        		"activeFontName": "Open Sans",
+        		"activeFontName": "Open Sans Light",
         		"bgActiveColor":   [0.03],
         		"bgInactiveColor": [0.09]
     		}

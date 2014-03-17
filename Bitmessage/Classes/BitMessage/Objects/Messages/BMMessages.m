@@ -27,7 +27,9 @@
 }
 
 
-- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName andKey:(NSString *)keyName class:(Class)aClass
+- (NSMutableArray *)getMessagesWithMethod:(NSString *)methodName
+                                   andKey:(NSString *)keyName
+                                    class:(Class)aClass
 {
     BMProxyMessage *message = [[BMProxyMessage alloc] init];
     [message setMethodName:methodName];

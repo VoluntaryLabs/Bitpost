@@ -309,7 +309,7 @@
 
 - (void)didAddToNavView
 {
-    NSLog(@"self.columnIndex %i", (int)self.columnIndex);
+    //NSLog(@"self.columnIndex %i", (int)self.columnIndex);
     [self.tableView setBackgroundColor:self.themeDict.bgInactiveColor];
     
     // if using document view
