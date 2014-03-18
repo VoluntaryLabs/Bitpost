@@ -18,9 +18,15 @@
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTableView *tableView;
 @property (strong, nonatomic) NSTableColumn *tableColumn;
-@property (strong, nonatomic) ColoredView *documentView;
-@property (strong, nonatomic) ColoredView *headerView;
+@property (strong, nonatomic) ColoredView *documentView; // view within scrollview containing headerView and tableView
+
+@property (strong, nonatomic) ColoredView *headerView; // top of document view
+
+@property (strong, nonatomic) NSView *contentView; // replaces scrollview
+
+@property (strong, nonatomic) ColoredView *actionStrip;
 @property (assign, nonatomic) BOOL isUpdating;
+@property (assign, nonatomic) CGFloat actionStripHeight;
 
 @property (strong, nonatomic) id <NavNode> lastSelectedChild;
 
@@ -31,7 +37,9 @@
 - (id <NavNode>)selectedNode;
 
 - (void)selectRowIndex:(NSInteger)rowIndex;
+
 - (void)setupHeaderView:(NSView *)aView;
+- (void)setContentView:(NSView *)aView;
 
 - (BOOL)selectItemNamed:(NSString *)aName;
 

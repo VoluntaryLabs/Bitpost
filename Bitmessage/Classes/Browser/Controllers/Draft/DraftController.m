@@ -110,6 +110,9 @@ NSMutableArray *sharedDrafts = nil;
     [self.bodyArea setBackgroundColor:[Theme.sharedTheme draftBgColor]];
     [self.bodyArea setNeedsDisplay:YES];
     [self.topBackground setBackgroundColor:[Theme.sharedTheme draftTopBgColor]];
+    [self.fromBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
+    [self.toBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
+    [self.subjectBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
     [self removeFocusRings];
 
     [self.to setTextColor:self.fieldTextColor];

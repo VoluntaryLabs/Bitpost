@@ -8,12 +8,15 @@
             <connections>
                 <outlet property="bodyText" destination="9pB-sB-vzm" id="wgf-xM-WAp"/>
                 <outlet property="from" destination="irf-38-Vxg" id="9Bb-qH-Cru"/>
+                <outlet property="fromBackground" destination="ZKq-YS-sLY" id="kfa-p0-yq8"/>
                 <outlet property="fromLabel" destination="pvJ-c4-y2y" id="gfT-EH-BOs"/>
                 <outlet property="scrollView" destination="FFi-oG-JYe" id="Q0u-nq-XwJ"/>
                 <outlet property="sendButton" destination="Iel-wg-lzM" id="fow-Sb-NCZ"/>
                 <outlet property="subject" destination="Hj0-vj-3JM" id="fe1-ib-YRg"/>
+                <outlet property="subjectBackground" destination="vTT-aB-84r" id="dtB-Os-b2L"/>
                 <outlet property="subjectLabel" destination="TJw-B2-wUd" id="eIG-EB-ZIM"/>
                 <outlet property="to" destination="VHv-NU-7E7" id="KMO-zr-tcL"/>
+                <outlet property="toBackground" destination="DMZ-r7-bMH" id="Kgo-0s-hhW"/>
                 <outlet property="toLabel" destination="Q2v-Ld-AeC" id="asJ-sT-2GL"/>
                 <outlet property="topBackground" destination="BTF-aW-ju0" id="tM9-qR-7Tx"/>
                 <outlet property="view" destination="tGR-mk-tOY" id="Vja-a1-rlZ"/>

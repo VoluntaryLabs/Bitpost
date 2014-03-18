@@ -65,6 +65,9 @@
     [self.addressField setDelegate:self];
     [self.addressField setRichText:NO];
     
+    //[self.labelField setNextKeyView:self.addressField];
+    //[self.addressField setNextKeyView:self.labelField];
+    
     [self.addressField setSelectedTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
@@ -112,13 +115,13 @@
 - (void)setPositions
 {
     CGFloat h = self.labelField.superview.height;
-    //NSLog(@"h = %i", (int)h);
+    NSLog(@"h = %i", (int)h);
     
     [self.labelField centerXInSuperview];
     //[self.labelField centerYInSuperview];
     //[self.labelField setY:self.labelField.y + 40];
     [self.labelField setY:h/2 + 10];
-    //NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
+    NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
     
     [self.addressField centerXInSuperview];
     [self.addressField placeYBelow:self.labelField margin:30];
@@ -137,11 +140,11 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [self setPositions]; // don't like this here but couldn't find who was moving the label
+    //[self setPositions]; // don't like this here but couldn't find who was moving the label
 	[super drawRect:dirtyRect];
     NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
     [bgColor set];
-    [NSBezierPath fillRect:dirtyRect];
+    NSRectFill(dirtyRect);
 }
 
 - (BOOL)hasValidAddress
@@ -178,11 +181,19 @@
         {
             if ([self.labelField didTab])
             {
-                [self.window makeFirstResponder:[self.labelField nextKeyView]];
+                [self.labelField removeTabs];
+                
+                NSTextView *next = (NSTextView *)[self.labelField nextKeyView];
+                
+                if (next && [next isEditable])
+                {
+                    [self.window makeFirstResponder:next];
+                    [next selectAll:nil];
+                }
+                
                 self.isUpdating = NO;
                 return;
             }
-            
             [self.labelField endEditingOnReturn];
             [self.addressField endEditingOnReturn];
             [self updateAddressColor];
@@ -237,7 +248,7 @@
     
     [self updateCheckbox];
     [self updateAddressColor];
-    [self setPositions];
+    //[self setPositions];
 }
 
 // -- sync ----

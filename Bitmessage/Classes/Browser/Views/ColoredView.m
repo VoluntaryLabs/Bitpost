@@ -10,13 +10,18 @@
 
 @implementation ColoredView
 
+- (BOOL)isOpaque
+{
+    return NO;
+}
+
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     
     if (self)
     {
-        self.backgroundColor = [NSColor whiteColor];
+        self.backgroundColor = [NSColor blueColor];
     }
     
     return self;
@@ -24,13 +29,12 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-	[super drawRect:dirtyRect];
-
     if (self.backgroundColor)
     {
         [self.backgroundColor setFill];
     }
     
+    //NSRectFill(self.frame);
     NSRectFill(dirtyRect);
 }
 

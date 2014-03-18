@@ -15,7 +15,10 @@
 {
     //[self resignFirstResponder];
     [self setSelectedRange:NSMakeRange(0, 0)];
-    [self.window makeFirstResponder:nil];
+    if (self.window.firstResponder == self)
+    {
+        [self.window makeFirstResponder:nil];
+    }
 }
 
 - (BOOL)endEditingOnReturn
@@ -32,9 +35,9 @@
 
 - (BOOL)didTab
 {
-    if ([self.string containsString:@"\n"])
+    if ([self.string containsString:@"\t"])
     {
-        [self setString:[self.string stringByReplacingOccurrencesOfString:@"\t" withString:@""]];
+        [self removeTabs];
         //[self endEditing];
         return YES;
     }
@@ -42,9 +45,16 @@
     return NO;
 }
 
+- (void)removeTabs
+{
+    [self setString:[self.string stringByReplacingOccurrencesOfString:@"\t" withString:@""]];
+    [self display];
+}
+
 - (void)removeReturns
 {
     [self setString:[self.string stringWithReturnsRemoved]];
+    [self display];
 }
 
 

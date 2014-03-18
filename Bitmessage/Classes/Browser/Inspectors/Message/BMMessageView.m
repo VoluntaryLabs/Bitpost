@@ -216,7 +216,7 @@
 {
     [super drawRect:dirtyRect];
     [self.textView.backgroundColor set];
-    [NSBezierPath fillRect:dirtyRect];
+    NSRectFill(dirtyRect);
 }
 
 - (NSString *)selectedContent

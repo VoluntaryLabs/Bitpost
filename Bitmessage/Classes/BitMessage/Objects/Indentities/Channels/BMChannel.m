@@ -22,7 +22,7 @@
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"message", @"delete", nil];
     [self setPassphrase:self.class.defaultLabel];
-    [self setAddress:@"Enter channel address"];
+    [self setAddress:@""];
     return self;
 }
 

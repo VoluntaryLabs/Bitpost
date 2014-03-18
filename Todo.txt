@@ -1,6 +1,8 @@
 
 todo
 
+- SEARCH
+
 - maintain selected item offset on table reload? 
 
 - replace entered BM addresses with labels in compose window
@@ -8,7 +10,7 @@ todo
 - top view for buttons on each column
   - always use navcolumns - put inspectors in navcol header?
 
-- fix channel add try BTCXINDIA
+- fix channel add try BTCXINDIA?
 
 - warning for critical ops like delete identity
 

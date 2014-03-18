@@ -633,20 +633,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView id="EhG-Gy-s1m" customClass="NavView">
-                        <rect key="frame" x="0.0" y="0.0" width="688" height="278"/>
+                        <rect key="frame" x="0.0" y="0.0" width="688" height="317"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <connections>
-                            <outlet property="actionStrip" destination="gKD-24-toZ" id="mEL-A1-5ai"/>
-                        </connections>
+                        <subviews>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="nRx-Du-Nnp">
+                                <rect key="frame" x="14" y="294" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
+                        </subviews>
                     </customView>
-                    <customView id="gKD-24-toZ">
-                        <rect key="frame" x="102" y="290" width="561" height="27"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    </customView>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="nRx-Du-Nnp">
-                        <rect key="frame" x="20" y="293" width="16" height="16"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </progressIndicator>
                 </subviews>
             </view>
         </window>

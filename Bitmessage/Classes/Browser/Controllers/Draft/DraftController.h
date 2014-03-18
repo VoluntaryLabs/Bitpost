@@ -31,6 +31,9 @@
 
 @property (strong, nonatomic) ColoredView *bodyArea;
 @property (assign, nonatomic) IBOutlet ColoredView *topBackground;
+@property (assign, nonatomic) IBOutlet ColoredView *fromBackground;
+@property (assign, nonatomic) IBOutlet ColoredView *toBackground;
+@property (assign, nonatomic) IBOutlet ColoredView *subjectBackground;
 
 @property (strong, nonatomic) AddressCompletor *fromCompletor;
 @property (strong, nonatomic) AddressCompletor *toCompletor;

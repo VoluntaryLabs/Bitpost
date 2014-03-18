@@ -37,13 +37,6 @@
     self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:pointSize];
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-	[super drawRect:dirtyRect];
-	
-    // Drawing code here.
-}
-
 - (void)setActionTitle:(NSString *)anAction
 {
     [super setTitle:anAction];

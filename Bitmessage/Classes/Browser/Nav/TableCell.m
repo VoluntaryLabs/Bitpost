@@ -176,7 +176,7 @@
     
     
     [[self bgColor] set];
-    [NSBezierPath fillRect:f];
+    NSRectFill(f);
     
     NSString *title = [self.node nodeTitle];
     NSString *subtitle = [self.node nodeSubtitle];

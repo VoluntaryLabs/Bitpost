@@ -42,6 +42,8 @@
 - (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin;
 - (void)placeYBelow:(NSView *)aView margin:(CGFloat)margin;
 
+- (void)adjustSubviewsX:(CGFloat)dx;
+- (void)adjustSubviewsY:(CGFloat)dy;
 
 // animation
 

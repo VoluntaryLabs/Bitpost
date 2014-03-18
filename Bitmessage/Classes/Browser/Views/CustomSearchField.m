@@ -27,7 +27,7 @@
     [self setFocusRingType:NSFocusRingTypeExterior];
     [self setEditable:YES];
     [self setSelectable:YES];
-    [self setBackgroundColor:[NSColor whiteColor]];
+    [self setBackgroundColor:[NSColor colorWithCalibratedWhite:.5 alpha:1.0]];
     [self setBezeled:YES];
     [self setBezelStyle:NSTextFieldRoundedBezel];
     [self setDrawsBackground:YES];

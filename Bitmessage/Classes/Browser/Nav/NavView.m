@@ -25,6 +25,7 @@
 {
     self = [super initWithFrame:frameRect];
     self.navColumns = [NSMutableArray array];
+    self.actionStripHeight = 40.0;
     return self;
 }
 
@@ -50,27 +51,34 @@
 {
     NavColumn *column = nil;
     
-    /*
-    column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.frame.size.height)];
+    if (YES)
+    {
+        column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.height)];
 
-    if ([node respondsToSelector:@selector(nodeView)] && [node nodeView])
-    {
-        NSView *nodeView = [node nodeView];
-        [column setupHeaderView:nodeView];
-        [column setWidth:self.frame.size.width - self.columnsWidth];
-        [nodeView setFrameSize:NSMakeSize(self.frame.size.width - self.columnsWidth, 200)];
-    }
-    */
-    
-    
-    if ([node respondsToSelector:@selector(nodeView)] && [node nodeView] && [[node children] count] == 0)
-    {
-        column = [node nodeView];
-        [column setFrameSize:NSMakeSize(self.frame.size.width - self.columnsWidth, self.frame.size.height)];
+        if ([node respondsToSelector:@selector(nodeView)] &&
+            [node nodeView] &&
+            [[node children] count] == 0)
+        {
+            NSView *nodeView = [node nodeView];
+            [column setWidth:self.width - self.columnsWidth];
+            [column setHeight:self.height];
+            [column setContentView:nodeView];
+            //[nodeView setFrameSize:NSMakeSize(self.width - self.columnsWidth, self.height)];
+       }
     }
     else
     {
-        column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.frame.size.height)];
+        if ([node respondsToSelector:@selector(nodeView)] &&
+            [node nodeView] &&
+            [[node children] count] == 0)
+        {
+            column = [node nodeView];
+            [column setFrameSize:NSMakeSize(self.width - self.columnsWidth, self.height)];
+        }
+        else
+        {
+            column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.height)];
+        }
     }
 
     [self addNavColumn:column];
@@ -138,7 +146,7 @@
     
     NavColumn *newColumn = [self addColumnForNode:node];
     [newColumn prepareToDisplay];
-    [self updateActionStrip];
+    //[self updateActionStrip];
     return YES;
 }
 
@@ -180,11 +188,20 @@
     return [Theme.sharedTheme formBackgroundColor];
 }
 
+- (NSRect)drawFrame
+{
+    NSRect frame = self.frame;
+    frame.size.height -= self.actionStripHeight;
+    return frame;
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
+    NSRect f = self.drawFrame;
     [[self bgColor] set];
-    [NSBezierPath fillRect:dirtyRect];
-    [super drawRect:dirtyRect];
+    //[[NSColor blueColor] set];
+    NSRectFill(f);
+    //[super drawRect:f];
 }
 
 // --- actions ---------------------------------------------------
@@ -203,7 +220,7 @@
 
 - (void)reloadedColumn:(NavColumn *)aColumn
 {
-    [self updateActionStrip];
+    //[self updateActionStrip];
 }
 
 - (id <NavNode>)lastNode
@@ -223,90 +240,6 @@
     return nil;
 }
 
-- (void)updateActionStrip
-{
-    //NSLog(@"updateActionStrip");
-    
-    for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
-    {
-        [view removeFromSuperview];
-    }
-    
-    id <NavNode> lastNode = [self lastNode];
-    id lastButton = nil;
-    
-    [self setAutoresizesSubviews:YES];
-        
-    for (NSString *action in lastNode.actions)
-    {
-        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, 20)];
-        [button setButtonType:NSMomentaryChangeButton];
-        [button setBordered:NO];
-        [button setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0]];
-        [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
-        
-        /*
-        NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
-        NSImage *image = [NSImage imageNamed:imageName];
-        if (image)
-        {
-            [button setImage:image];
-            [button setWidth:image.size.width*3];
-        }
-        else
-            */
-        {
-            NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                    [button font], NSFontAttributeName,
-                    nil];
-            CGFloat width = [[[NSAttributedString alloc] initWithString:action attributes:att] size].width;
-            [button setTitle:action];
-            [button setWidth:width+10];
-        }
-        
-        [button setTarget:self];
-        [button setAction:@selector(hitActionButton:)];
-        [self.actionStrip addSubview:button];
-        
-        /*
-        if (lastButton)
-        {
-            //[button setX:[lastButton maxX] + 15];
-            [button setX:[lastButton x] - 15 - [button width]];
-        }
-        else
-        {
-            [button setX:self.actionStrip.width - button.width];
-        }
-        */
-        
-        objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
-        
-        lastButton = button;
-    }
-    
-    /*
-    if ([lastNode canSearch])
-    {
-        NSSearchField *search = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
-        [self.actionStrip addSubview:search];
-    }
-    */
-
-    [self.actionStrip stackSubviewsRightToLeft];
-    
-}
-
-- (void)hitActionButton:(id)aButton
-{
-    NSString *action = objc_getAssociatedObject(aButton, @"action");
-    NSLog(@"hit action %@", action);
-    
-    id lastColumn = [self.navColumns lastObject];
-    id lastNode = [lastColumn node];
-    
-    [lastNode noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
-}
 
 /*
 - (BOOL)acceptsFirstResponder
@@ -364,7 +297,5 @@
 {
     return [self.navColumns indexOfObject:aColumn];
 }
-
-
 
 @end

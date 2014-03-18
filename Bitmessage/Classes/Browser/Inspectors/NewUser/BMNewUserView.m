@@ -105,7 +105,8 @@
 {
     [super drawRect:dirtyRect];
     [[Theme.sharedTheme formBackgroundColor] set];
-    [NSBezierPath fillRect:dirtyRect];
+    NSRectFill(dirtyRect);
+
 }
 
 - (BMIdentity *)identity

@@ -16,8 +16,8 @@
 
 @property (strong, nonatomic) NSMutableArray *navColumns;
 @property (strong, nonatomic) id <NavNode> rootNode;
-@property (strong, nonatomic) IBOutlet NSView *actionStrip;
 //@property (strong, nonatomic) IBOutlet NSSearchField *searchField;
+@property (assign, nonatomic) CGFloat actionStripHeight;
 
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn;
@@ -27,7 +27,6 @@
 - (void)handleAction:(SEL)aSel;
 
 - (void)reloadedColumn:(NavColumn *)aColumn;
-- (void)updateActionStrip;
 
 - (void)leftArrowFrom:aColumn;
 - (void)rightArrowFrom:aColumn;

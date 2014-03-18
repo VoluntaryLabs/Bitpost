@@ -224,6 +224,23 @@
     self.frame = f;
 }
 
+- (void)adjustSubviewsX:(CGFloat)dx
+{
+    for (NSView *subview in self.subviews)
+    {
+        [subview setX:subview.x + dx];
+    }
+}
+
+- (void)adjustSubviewsY:(CGFloat)dy
+{
+    for (NSView *subview in self.subviews)
+    {
+        [subview setY:subview.y + dy];
+    }
+}
+
+
 /*
 - (BOOL)isOpaque
 {
