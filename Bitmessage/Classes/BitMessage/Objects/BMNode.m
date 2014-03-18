@@ -225,6 +225,8 @@
         if (viewClass)
         {
             _nodeView = [(NSView *)[viewClass alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+            
+            //SEL aSelector = NSSelectorFromString(@"setNode:");
             if ([_nodeView respondsToSelector:@selector(setNode:)])
             {
                 [_nodeView performSelector:@selector(setNode:) withObject:self];

@@ -7,6 +7,7 @@
 //
 
 #import "MKMarkets.h"
+#import "JSONDB.h"
 
 @implementation MKMarkets
 
@@ -31,5 +32,6 @@
 {
     return @"Markets";
 }
+
 
 @end

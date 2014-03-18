@@ -13,44 +13,14 @@
 - (id)init
 {
     self = [super init];
-    self.name = @"default";
-    self.daysToCache = 10;
+    self.daysToCache = 5;
     return self;
 }
-// --- read / write ---
-
-- (NSString *)dbKey
-{
-    return [NSString stringWithFormat:@"BMDB_%@", self.name];
-}
-
-- (void)setName:(NSString *)name
-{
-    _name = name;
-    [self read];
-    [self removeOldKeys];
-}
-
-// should probably move dbs to same folder as keys.dat
 
 - (void)read
 {
-    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:self.dbKey];
-    
-    if (dict)
-    {
-        self.dict = [NSMutableDictionary dictionaryWithDictionary:dict]; // WARNING: only works for 1 level
-    }
-    else
-    {
-        self.dict = [NSMutableDictionary dictionary];
-    }
-}
-
-- (void)write
-{
-    [[NSUserDefaults standardUserDefaults] setObject:self.dict forKey:self.dbKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [super read];
+    [self removeOldKeys];
 }
 
 // --- mark ---
@@ -78,8 +48,9 @@
     {
         NSNumber *d = [self.dict objectForKey:key];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[d longLongValue]];
-        int secondsInDay = 60*60*24;
-        if ([date timeIntervalSinceNow] > secondsInDay*self.daysToCache)
+        int secondsInDay = 60 * 60 * 24;
+        
+        if ([date timeIntervalSinceNow] > secondsInDay * self.daysToCache)
         {
             [self.dict removeObjectForKey:key];
         }

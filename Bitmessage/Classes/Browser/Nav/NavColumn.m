@@ -41,8 +41,6 @@
 {
     CGFloat h = self.actionStripHeight;
     self.actionStrip = [[NSView alloc] initWithFrame:NSMakeRect(0, self.height - h, self.width, h)];
-    //[self.actionStrip setBackgroundColor:[NSColor colorWithCalibratedWhite:200.0/255.0 alpha:1.0]];
-    //[self.actionStrip setBackgroundColor:[NSColor clearColor]];
     [self addSubview:self.actionStrip];
     
     // scrollview

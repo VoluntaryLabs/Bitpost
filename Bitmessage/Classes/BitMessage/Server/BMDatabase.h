@@ -8,12 +8,10 @@
 
 // database to workaround bitmessage bugs like reappearing deleted messages
 
-#import <Foundation/Foundation.h>
+#import "JSONDB.h"
 
-@interface BMDatabase : NSObject
+@interface BMDatabase : JSONDB
 
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSMutableDictionary *dict;
 @property (assign, nonatomic) int daysToCache;
 
 - (void)mark:(NSString *)messageId;

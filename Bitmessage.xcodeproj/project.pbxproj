@@ -17,6 +17,10 @@
 		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
 		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
+		AA21F9F318D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F218D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m */; };
+		AA21F9F618D7FF1500D0F064 /* JSONDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F518D7FF1500D0F064 /* JSONDB.m */; };
+		AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F818D809D000D0F064 /* MKBuy.m */; };
+		AA21F9FC18D80FBD00D0F064 /* MKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9FB18D80FBD00D0F064 /* MKMessage.m */; };
 		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
 		AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */; };
 		AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */; };
@@ -175,6 +179,14 @@
 		AA1AA6A318B427C100AE72F6 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+positioning.h"; sourceTree = "<group>"; };
 		AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+positioning.m"; sourceTree = "<group>"; };
+		AA21F9F118D7F1A000D0F064 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
+		AA21F9F218D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		AA21F9F418D7FF1500D0F064 /* JSONDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDB.h; sourceTree = "<group>"; };
+		AA21F9F518D7FF1500D0F064 /* JSONDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDB.m; sourceTree = "<group>"; };
+		AA21F9F718D809D000D0F064 /* MKBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBuy.h; sourceTree = "<group>"; };
+		AA21F9F818D809D000D0F064 /* MKBuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBuy.m; sourceTree = "<group>"; };
+		AA21F9FA18D80FBD00D0F064 /* MKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMessage.h; sourceTree = "<group>"; };
+		AA21F9FB18D80FBD00D0F064 /* MKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMessage.m; sourceTree = "<group>"; };
 		AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchField.h; sourceTree = "<group>"; };
 		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
 		AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressed.h; sourceTree = "<group>"; };
@@ -405,6 +417,8 @@
 				AA1A11C018B909B300E61591 /* BMKeysFile.m */,
 				AAE0EE9E18BA92D100B7E9F3 /* BMDatabase.h */,
 				AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */,
+				AA21F9F418D7FF1500D0F064 /* JSONDB.h */,
+				AA21F9F518D7FF1500D0F064 /* JSONDB.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -532,6 +546,8 @@
 		AA31564018AAE0E00017E94F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AA21F9F118D7F1A000D0F064 /* NSFileManager+DirectoryLocations.h */,
+				AA21F9F218D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m */,
 				AA31564118AAE0E00017E94F /* NSArray+extra.h */,
 				AA31564218AAE0E00017E94F /* NSArray+extra.m */,
 				AA31564318AAE0E00017E94F /* NSString+BM.h */,
@@ -788,8 +804,12 @@
 				AA70C86118D2778E001D77FB /* MKWallet.m */,
 				AA70C86318D27799001D77FB /* MKBuys.h */,
 				AA70C86418D27799001D77FB /* MKBuys.m */,
+				AA21F9F718D809D000D0F064 /* MKBuy.h */,
+				AA21F9F818D809D000D0F064 /* MKBuy.m */,
 				AA70C86618D277AB001D77FB /* MKSells.h */,
 				AA70C86718D277AB001D77FB /* MKSells.m */,
+				AA21F9FA18D80FBD00D0F064 /* MKMessage.h */,
+				AA21F9FB18D80FBD00D0F064 /* MKMessage.m */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -1110,12 +1130,14 @@
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
 				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
+				AA21F9F318D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m in Sources */,
 				AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */,
 				AA31569518AAE0E00017E94F /* BMReceivedMessages.m in Sources */,
 				AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */,
 				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
+				AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */,
 				AA31569218AAE0E00017E94F /* BMChannels.m in Sources */,
 				AA31569818AAE0E00017E94F /* BMSubscriptions.m in Sources */,
 				AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */,
@@ -1166,9 +1188,11 @@
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
+				AA21F9FC18D80FBD00D0F064 /* MKMessage.m in Sources */,
 				AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* DraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */,
+				AA21F9F618D7FF1500D0F064 /* JSONDB.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AAD284AA18C01EE500FC0C6F /* ProgressController.m in Sources */,
 				AA31569118AAE0E00017E94F /* BMChannel.m in Sources */,

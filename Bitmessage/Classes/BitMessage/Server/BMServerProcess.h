@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "Task.h"
 #import "BMKeysFile.h"
 
 @interface BMServerProcess : NSObject
@@ -30,7 +29,7 @@
 - (BOOL)canConnect;
 
 
-// hack around API's inability to do this for all identities
+// hack around BitMessage server API's inability to do this for all identities
 // this method shuts down the server and modifies the keys.dat file directly
 
 - (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress;

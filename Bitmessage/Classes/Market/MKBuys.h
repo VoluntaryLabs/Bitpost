@@ -7,7 +7,10 @@
 //
 
 #import "BMNode.h"
+#import "JSONDB.h"
 
 @interface MKBuys : BMNode
+
+@property (strong, nonatomic) JSONDB *db;
 
 @end
