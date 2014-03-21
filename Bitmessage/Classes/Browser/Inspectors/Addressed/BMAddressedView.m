@@ -244,6 +244,7 @@
         {
             [self.contact update];
         }
+        [self syncFromNode];
     }
     
     [self updateCheckbox];

@@ -49,55 +49,30 @@
 
 - (NavColumn *)addColumnForNode:(id <NavNode>)node
 {
-    NavColumn *column = nil;
-    
-    if (YES)
-    {
-        column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.height)];
+    NavColumn *column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 100, self.height)];
+    [column setNode:node];
 
-        if ([node respondsToSelector:@selector(nodeView)] &&
-            [node nodeView] &&
-            [[node children] count] == 0)
-        {
-            NSView *nodeView = [node nodeView];
-            [column setWidth:self.width - self.columnsWidth];
-            [column setHeight:self.height];
-            [column setContentView:nodeView];
-            //[nodeView setFrameSize:NSMakeSize(self.width - self.columnsWidth, self.height)];
-       }
+    NSView *lastColumn = self.navColumns.lastObject;
+    [self.navColumns addObject:column];
+    [self addSubview:column];
+
+    [column setNavView:self];
+    //[self stackViews];
+    
+    [column setHeight:self.height];
+    
+    if (lastColumn)
+    {
+        [column setX:lastColumn.x + lastColumn.width];
     }
     else
     {
-        if ([node respondsToSelector:@selector(nodeView)] &&
-            [node nodeView] &&
-            [[node children] count] == 0)
-        {
-            column = [node nodeView];
-            [column setFrameSize:NSMakeSize(self.width - self.columnsWidth, self.height)];
-        }
-        else
-        {
-            column = [[NavColumn alloc] initWithFrame:NSMakeRect(0, 0, 1000, self.height)];
-        }
+        [column setX:0];
     }
 
-    [self addNavColumn:column];
-    [column setNode:node];
-    
-    [self stackViews];
+    [column didAddToNavView];
     
     return column;
-}
-
-- (void)addNavColumn:(NavColumn *)column
-{
-    [self.navColumns addObject:column];
-    [self addSubview:column];
-    [column setNavView:self];
-    if ([column respondsToSelector:@selector(didAddToNavView)])
-    {
-        [column didAddToNavView];
-    }
 }
 
 - (CGFloat)columnsWidth
@@ -107,19 +82,28 @@
     return f.origin.x + f.size.width;
 }
 
+/*
 - (void)stackViews
 {
     CGFloat x = 0;
+    int i = 0;
 
     for (NavColumn *column in self.navColumns)
     {
         NSRect f = [column frame];
         f.origin.x = x;
         x += f.size.width;
-        f.size.height = self.frame.size.height;
+        f.size.height = self.height;
         column.frame = f;
+        NSLog(@"%i stack %@ x %i w %i", i,
+              NSStringFromClass(column.class),
+              (int)f.origin.x,
+              (int)f.size.width);
+        i ++;
     }
+    NSLog(@"---");
 }
+*/
 
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn
 {

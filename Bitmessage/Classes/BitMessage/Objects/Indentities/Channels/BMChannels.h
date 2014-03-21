@@ -7,8 +7,10 @@
 //
 
 #import "BMNode.h"
+#import "BMChannel.h"
 
 @interface BMChannels : BMNode
 
+- (BMChannel *)channelWithPassphraseJoinIfNeeded:(NSString *)aTitle;
 
 @end

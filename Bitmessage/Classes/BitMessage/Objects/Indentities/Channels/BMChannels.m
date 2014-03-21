@@ -69,4 +69,34 @@
     return @"Channels";
 }
 
+- (BMChannel *)channelWithPassphrase:(NSString *)aPassphrase
+{
+    for (BMChannel *channel in self.children)
+    {
+        NSLog(@"channel.passphrase = '%@'", channel.passphrase);
+        
+        if ([channel.passphrase isEqualToString:aPassphrase])
+        {
+            return channel;
+        }
+    }
+    return nil;
+}
+
+
+- (BMChannel *)channelWithPassphraseJoinIfNeeded:(NSString *)aPassphrase
+{
+    BMChannel *channel = [self channelWithPassphrase:aPassphrase];
+    
+    if (!channel)
+    {
+        channel = [[BMChannel alloc] init];
+        [channel setPassphrase:aPassphrase];
+        [channel create];
+        // need to add error checking
+    }
+    
+    return channel;
+}
+
 @end

@@ -18,6 +18,7 @@
 
 - (void)setDict:(NSMutableDictionary *)aDict
 {
+    /*
     NSMutableArray *children = [NSMutableArray array];
     
     for (NSString *k in aDict.allKeys)
@@ -28,6 +29,7 @@
     }
     
     [self setChildren:children];
+    */
 }
 
 - (NSMutableDictionary *)dict

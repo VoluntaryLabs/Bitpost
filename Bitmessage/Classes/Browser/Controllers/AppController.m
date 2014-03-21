@@ -83,7 +83,7 @@
 
 - (void)startRefreshTimer
 {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:15.0
                                                   target:self
                                                 selector:@selector(refreshTimer:)
                                                 userInfo:Nil

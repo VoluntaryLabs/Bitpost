@@ -10,6 +10,8 @@
 		8E56ACB418C22426001136F9 /* fonts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E56ACB318C22426001136F9 /* fonts */; };
 		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
 		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
+		AA04868318DB934D0034018E /* MKAskMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868218DB934D0034018E /* MKAskMessage.m */; };
+		AA04868618DCCA050034018E /* NSDictionary+json.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868518DCCA050034018E /* NSDictionary+json.m */; };
 		AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11BD18B9097A00E61591 /* BMServerProcess.m */; };
 		AA1A11C118B909B300E61591 /* BMKeysFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11C018B909B300E61591 /* BMKeysFile.m */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
@@ -169,6 +171,10 @@
 		8E56ACB318C22426001136F9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = Vendor/fonts; sourceTree = "<group>"; };
 		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
 		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
+		AA04868118DB934D0034018E /* MKAskMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKAskMessage.h; path = Messages/MKAskMessage.h; sourceTree = "<group>"; };
+		AA04868218DB934D0034018E /* MKAskMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKAskMessage.m; path = Messages/MKAskMessage.m; sourceTree = "<group>"; };
+		AA04868418DCCA050034018E /* NSDictionary+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+json.h"; sourceTree = "<group>"; };
+		AA04868518DCCA050034018E /* NSDictionary+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+json.m"; sourceTree = "<group>"; };
 		AA1A11BC18B9097A00E61591 /* BMServerProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerProcess.h; sourceTree = "<group>"; };
 		AA1A11BD18B9097A00E61591 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerProcess.m; sourceTree = "<group>"; };
 		AA1A11BF18B909B300E61591 /* BMKeysFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKeysFile.h; sourceTree = "<group>"; };
@@ -556,6 +562,8 @@
 				AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */,
 				AA70C80118CE5E8D001D77FB /* NSMutableAttributedString+extra.h */,
 				AA70C80218CE5E8D001D77FB /* NSMutableAttributedString+extra.m */,
+				AA04868418DCCA050034018E /* NSDictionary+json.h */,
+				AA04868518DCCA050034018E /* NSDictionary+json.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -800,6 +808,10 @@
 				AA70C83A18D27127001D77FB /* MKMarkets.m */,
 				AA70C83F18D273E0001D77FB /* MKMarketChannel.h */,
 				AA70C84018D273E0001D77FB /* MKMarketChannel.m */,
+				AA21F9FA18D80FBD00D0F064 /* MKMessage.h */,
+				AA21F9FB18D80FBD00D0F064 /* MKMessage.m */,
+				AA04868118DB934D0034018E /* MKAskMessage.h */,
+				AA04868218DB934D0034018E /* MKAskMessage.m */,
 				AA70C86018D2778E001D77FB /* MKWallet.h */,
 				AA70C86118D2778E001D77FB /* MKWallet.m */,
 				AA70C86318D27799001D77FB /* MKBuys.h */,
@@ -808,8 +820,6 @@
 				AA21F9F818D809D000D0F064 /* MKBuy.m */,
 				AA70C86618D277AB001D77FB /* MKSells.h */,
 				AA70C86718D277AB001D77FB /* MKSells.m */,
-				AA21F9FA18D80FBD00D0F064 /* MKMessage.h */,
-				AA21F9FB18D80FBD00D0F064 /* MKMessage.m */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -1129,6 +1139,7 @@
 				AA70C86818D277AB001D77FB /* MKSells.m in Sources */,
 				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
 				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,
+				AA04868618DCCA050034018E /* NSDictionary+json.m in Sources */,
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
 				AA21F9F318D7F1A000D0F064 /* NSFileManager+DirectoryLocations.m in Sources */,
 				AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */,
@@ -1164,6 +1175,7 @@
 				AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */,
 				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
+				AA04868318DB934D0034018E /* MKAskMessage.m in Sources */,
 				AAD284A618C01EE500FC0C6F /* AddressCompletor.m in Sources */,
 				AAF40CB818B59FF7005BA55E /* BMSentMessage.m in Sources */,
 				AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */,

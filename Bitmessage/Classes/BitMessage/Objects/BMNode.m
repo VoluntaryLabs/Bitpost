@@ -31,6 +31,7 @@
     {
         if ([child respondsToSelector:@selector(fetch)])
         {
+            //NSLog(@"child %@", child);
             [child deepFetch];
         }
     }

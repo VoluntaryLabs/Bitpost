@@ -48,13 +48,14 @@ static BMClient *sharedBMClient;
     self.deletedMessagesDB = [[BMDatabase alloc] init];
     [self.deletedMessagesDB setName:@"deletedMessagesDB"];
     
-    [self deepFetch];
     
     // market
     
     self.markets = [[MKMarkets alloc] init];
     [self.children addObject:self.markets];
-    
+
+    [self deepFetch];
+
     return self;
 }
 

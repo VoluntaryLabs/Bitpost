@@ -45,7 +45,7 @@
     
     // scrollview
     
-    self.scrollView = [[NSScrollView alloc] initWithFrame:self.frameSansStrip];
+    self.scrollView = [[NSScrollView alloc] initWithFrame:self.scollFrameSansStrip];
     [self addSubview:self.scrollView];
     [self.scrollView setHasVerticalScroller:YES];
     [self.scrollView setHasHorizontalRuler:NO];
@@ -104,9 +104,11 @@
     [self.actionStrip setWidth:frameRect.size.width];
 }
 
-- (NSRect)frameSansStrip
+- (NSRect)scollFrameSansStrip
 {
     NSRect frame = self.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
     frame.size.height -= self.actionStripHeight;
     return frame;
 }
@@ -247,7 +249,7 @@
     [self.tableColumn setMaxWidth:w];
     [self.scrollView setWidth:w];
     [self.tableView setWidth:w];
-    [self.navView stackViews];
+    //[self.navView stackViews];
     [self setWidth:w];
 }
 
@@ -275,7 +277,7 @@
                                                    object:_node];
         
         
-        if (!node.nodeView)
+        if (![node nodeView])
         {
             [self setMaxWidth:node.nodeSuggestedWidth];
         }
@@ -291,7 +293,33 @@
         }
         
         [self updateActionStrip];
+        
     }
+}
+
+- (void)didAddToNavView
+{
+    if ([self.node nodeView] && [[self.node children] count] == 0)
+    {
+        NSView *nodeView = [self.node nodeView];
+        
+        [self setWidth:fabs(self.navView.width - self.x)];
+        /*
+        [self setHeight:self.navView.height];
+        [nodeView setX:0];
+        [nodeView setY:0];
+        */
+        [nodeView setFrameSize:self.frame.size];
+        
+        NSLog(@"nodeView x %i", (int)nodeView.x);
+        
+        [self setContentView:nodeView];
+    }
+    
+    [self.tableView setBackgroundColor:self.themeDict.bgInactiveColor];
+    // if using document view
+    [self.documentView setBackgroundColor:self.tableView.backgroundColor];
+    //[self.scrollView setBackgroundColor:self.tableView.backgroundColor];
 }
 
 - (void)updateDocumentView:(NSNotification *)note
@@ -322,6 +350,8 @@
     }
 }
 
+
+
 - (NSInteger)columnIndex
 {
     return [self.navView indexOfColumn:self];
@@ -347,14 +377,6 @@
     return [Theme.sharedTheme themeForColumn:self.columnIndex];
 }
 
-- (void)didAddToNavView
-{
-    [self.tableView setBackgroundColor:self.themeDict.bgInactiveColor];
-    
-    // if using document view
-    [self.documentView setBackgroundColor:self.tableView.backgroundColor];
-    //[self.scrollView setBackgroundColor:self.tableView.backgroundColor];
-}
 
 - (void)setContentView:(NSView *)aView
 {
@@ -367,8 +389,9 @@
     [self.contentView removeFromSuperview];
     _contentView = aView;
     
-    self.contentView.frame = self.frameSansStrip;
+    self.contentView.frame = self.scollFrameSansStrip;
     [self addSubview:self.contentView];
+    [self setNeedsDisplay:YES];
 }
 
 - (void)setupHeaderView:(NSView *)aView

@@ -201,6 +201,7 @@
     
     self.textView = [[MarginTextView alloc] initWithFrame:self.scrollView.bounds];
     [self.scrollView setDocumentView:self.textView];
+    [self.textView setDelegate:self];
     
     [self configBody];
 }
@@ -209,7 +210,6 @@
 {
     [self.textView setBackgroundColor:[Theme.sharedTheme formBackgroundColor]];
     [self.textView setLinkTextAttributes:[self linkAttributes]];
-    [self.textView setDelegate:self];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

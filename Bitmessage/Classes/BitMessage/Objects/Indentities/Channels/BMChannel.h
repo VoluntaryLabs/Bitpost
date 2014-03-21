@@ -14,6 +14,8 @@
 
 + (BMChannel *)withDict:(NSDictionary *)dict;
 
+- (void)setPassphrase:(NSString *)passphrase;
+- (NSString *)passphrase;
 
 - (void)create;
 //- (void)join;

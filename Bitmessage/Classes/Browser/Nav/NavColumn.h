@@ -12,7 +12,7 @@
 
 @interface NavColumn : NSView <NSTableViewDataSource, NSTableViewDelegate>
 
-@property (assign, nonatomic) id navView;
+@property (assign, nonatomic) NavView *navView;
 @property (strong, nonatomic) id <NavNode> node;
 
 @property (strong, nonatomic) NSScrollView *scrollView;

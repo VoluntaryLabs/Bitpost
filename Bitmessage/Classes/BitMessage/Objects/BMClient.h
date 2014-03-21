@@ -23,6 +23,9 @@
 #import "BMIdentity.h"
 #import "BMAddress.h"
 
+// categories
+
+#import "NSString+BM.h"
 
 // market
 

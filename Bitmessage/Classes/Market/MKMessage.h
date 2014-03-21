@@ -7,11 +7,14 @@
 //
 
 #import "BMNode.h"
+#import "BMMessage.h"
+#import "NSDictionary+json.h"
 
 @interface MKMessage : BMNode
 
-@property (strong, nonatomic) NSString *msgid;
+@property (strong, nonatomic) BMMessage *bmMessage;
 
-+ (MKMessage *)withDict:(NSMutableDictionary *)dict;
+- (NSMutableDictionary *)standardHeader;
++ (MKMessage *)withBMMessage:(BMMessage *)bmMessage;
 
 @end

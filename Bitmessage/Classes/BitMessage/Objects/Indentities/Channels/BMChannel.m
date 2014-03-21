@@ -9,6 +9,7 @@
 #import "BMChannel.h"
 #import "BMProxyMessage.h"
 #import "BMAddress.h"
+#import "BMClient.h"
 
 @implementation BMChannel
 
@@ -49,6 +50,26 @@
     self.isSynced = YES;
     self.label   = [[dict objectForKey:@"label"] decodedBase64];
     self.address = [dict objectForKey:@"address"];
+}
+
+- (void)fetch
+{
+    NSMutableArray *children = [NSMutableArray array];
+    
+    NSArray *messages = [[[BMClient sharedBMClient] messages] received].children;
+    
+    for (BMMessage *message in messages)
+    {
+        if ([message.toAddress isEqualToString:self.address])
+        {
+            NSLog(@"fetch channel '%@' '%@'", self.passphrase, message.msgid);
+
+            [children addObject:message];
+        }
+    }
+    
+    [self setChildren:children];
+    
 }
 
 // -----------------------------
