@@ -12,6 +12,7 @@
 		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
 		AA04868318DB934D0034018E /* MKAskMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868218DB934D0034018E /* MKAskMessage.m */; };
 		AA04868618DCCA050034018E /* NSDictionary+json.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868518DCCA050034018E /* NSDictionary+json.m */; };
+		AA04868918DCF3140034018E /* MKSell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868818DCF3140034018E /* MKSell.m */; };
 		AA1A11BE18B9097A00E61591 /* BMServerProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11BD18B9097A00E61591 /* BMServerProcess.m */; };
 		AA1A11C118B909B300E61591 /* BMKeysFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1A11C018B909B300E61591 /* BMKeysFile.m */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
@@ -175,6 +176,8 @@
 		AA04868218DB934D0034018E /* MKAskMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKAskMessage.m; path = Messages/MKAskMessage.m; sourceTree = "<group>"; };
 		AA04868418DCCA050034018E /* NSDictionary+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+json.h"; sourceTree = "<group>"; };
 		AA04868518DCCA050034018E /* NSDictionary+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+json.m"; sourceTree = "<group>"; };
+		AA04868718DCF3140034018E /* MKSell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSell.h; sourceTree = "<group>"; };
+		AA04868818DCF3140034018E /* MKSell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSell.m; sourceTree = "<group>"; };
 		AA1A11BC18B9097A00E61591 /* BMServerProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMServerProcess.h; sourceTree = "<group>"; };
 		AA1A11BD18B9097A00E61591 /* BMServerProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMServerProcess.m; sourceTree = "<group>"; };
 		AA1A11BF18B909B300E61591 /* BMKeysFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKeysFile.h; sourceTree = "<group>"; };
@@ -820,6 +823,8 @@
 				AA21F9F818D809D000D0F064 /* MKBuy.m */,
 				AA70C86618D277AB001D77FB /* MKSells.h */,
 				AA70C86718D277AB001D77FB /* MKSells.m */,
+				AA04868718DCF3140034018E /* MKSell.h */,
+				AA04868818DCF3140034018E /* MKSell.m */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -1197,6 +1202,7 @@
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
 				AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */,
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
+				AA04868918DCF3140034018E /* MKSell.m in Sources */,
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,

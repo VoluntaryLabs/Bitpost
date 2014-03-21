@@ -245,6 +245,9 @@
     
     [self updateCheckbox];
     [self updateAddressColor];
+    
+    [self.labelField display];
+    [self.addressField display];
     //[self setPositions];
 }
 

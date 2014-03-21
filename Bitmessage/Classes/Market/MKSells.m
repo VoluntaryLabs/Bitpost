@@ -7,15 +7,14 @@
 //
 
 #import "MKSells.h"
+#import "MKSell.h"
 
 @implementation MKSells
 
 - (id)init
 {
     self = [super init];
-    
     self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
-    
     return self;
 }
 
@@ -24,5 +23,11 @@
     return @"Sells";
 }
 
+- (void)add
+{
+    MKSell *sell = [[MKSell alloc] init];
+    [self addChild:sell];
+    [self postParentChanged];
+}
 
 @end

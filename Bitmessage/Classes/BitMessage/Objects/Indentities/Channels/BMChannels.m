@@ -15,7 +15,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"add", @"refresh", nil];
+    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
     self.shouldSelectChildOnAdd = YES;
     return self;
 }

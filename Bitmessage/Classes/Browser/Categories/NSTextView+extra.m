@@ -13,8 +13,8 @@
 
 - (void)endEditing
 {
-    //[self resignFirstResponder];
     NSRange r = self.selectedRange;
+    
     if (r.length)
     {
         [self setSelectedRange:NSMakeRange(r.location, 0)];
@@ -61,6 +61,5 @@
     [self setString:[self.string stringWithReturnsRemoved]];
     [self display];
 }
-
 
 @end
