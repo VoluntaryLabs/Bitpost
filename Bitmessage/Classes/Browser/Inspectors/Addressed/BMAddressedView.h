@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
+#import "BMContact.h"
 
 @interface BMAddressedView : NSView <NSTextViewDelegate>
 
@@ -19,6 +20,8 @@
 @property (strong, nonatomic) NSImageView *checkbox;
 
 @property (assign, nonatomic) BOOL isUpdating;
+
+- (BMContact *)contact;
 
 - (void)setup;
 - (void)prepareToDisplay;

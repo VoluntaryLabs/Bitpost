@@ -17,4 +17,12 @@
     [self.addressField setDelegate:nil];
 }
 
+- (void)updateContact
+{
+    //if (self.contact.isValidAddress)
+    {
+        [self.contact update];
+    }
+}
+
 @end

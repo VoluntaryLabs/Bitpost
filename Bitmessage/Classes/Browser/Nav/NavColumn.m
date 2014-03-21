@@ -249,7 +249,6 @@
     [self.tableColumn setMaxWidth:w];
     [self.scrollView setWidth:w];
     [self.tableView setWidth:w];
-    //[self.navView stackViews];
     [self setWidth:w];
 }
 
@@ -310,9 +309,6 @@
         [nodeView setY:0];
         */
         [nodeView setFrameSize:self.frame.size];
-        
-        NSLog(@"nodeView x %i", (int)nodeView.x);
-        
         [self setContentView:nodeView];
     }
     

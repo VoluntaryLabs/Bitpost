@@ -10,6 +10,15 @@
 
 @implementation MKSells
 
+- (id)init
+{
+    self = [super init];
+    
+    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    
+    return self;
+}
+
 - (NSString *)nodeTitle
 {
     return @"Sells";

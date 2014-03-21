@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417131065.566302"
+            timestampString = "417132219.550704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "-setContentView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417131065.566302"
+            timestampString = "417132219.550704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "591"
-            endingLineNumber = "591"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
             landmarkName = "-updateActionStrip"
             landmarkType = "5">
             <Locations>
@@ -178,11 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Categories/NSTextView+extra.m"
-            timestampString = "416797436.512716"
+            timestampString = "417133104.235397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "-endEditingOnReturn"
             landmarkType = "5">
          </BreakpointContent>
@@ -194,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Categories/NSTextView+extra.m"
-            timestampString = "416797436.512716"
+            timestampString = "417133104.235397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "-endEditingOnReturn"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Categories/NSTextView+extra.m"
-            timestampString = "416797436.512716"
+            timestampString = "417133104.235397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-didTab"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,22 +264,6 @@
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "-textDidEndEditing:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bitmessage/Classes/Browser/Inspectors/Addressed/BMAddressedView.m"
-            timestampString = "416969900.156579"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-saveChanges"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -498,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417131065.566302"
+            timestampString = "417131497.498989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-didAddToNavView"
             landmarkType = "5">
          </BreakpointContent>
@@ -514,11 +498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417131065.566302"
+            timestampString = "417131497.498989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "-didAddToNavView"
             landmarkType = "5">
          </BreakpointContent>
@@ -529,14 +513,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bitmessage/Classes/Browser/Nav/NavView.m"
-            timestampString = "417131310.701847"
+            filePath = "Bitmessage/Classes/Market/MKMarketChannel.m"
+            timestampString = "417132240.781637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "@implementation NavView"
-            landmarkType = "3">
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-fetch"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bitmessage/Classes/Market/MKMessage.m"
+            timestampString = "417132269.916236"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "+withBMMessage:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -14,7 +14,12 @@
 - (void)endEditing
 {
     //[self resignFirstResponder];
-    [self setSelectedRange:NSMakeRange(0, 0)];
+    NSRange r = self.selectedRange;
+    if (r.length)
+    {
+        [self setSelectedRange:NSMakeRange(r.location, 0)];
+    }
+    
     if (self.window.firstResponder == self)
     {
         [self.window makeFirstResponder:nil];

@@ -239,17 +239,21 @@
     //if (!self.isSynced)
     {
         [self syncToNode];
-        
-        if (self.contact.isValidAddress)
-        {
-            [self.contact update];
-        }
+        [self updateContact];
         [self syncFromNode];
     }
     
     [self updateCheckbox];
     [self updateAddressColor];
     //[self setPositions];
+}
+
+- (void)updateContact
+{
+    if (self.contact.isValidAddress)
+    {
+        [self.contact update];
+    }
 }
 
 // -- sync ----

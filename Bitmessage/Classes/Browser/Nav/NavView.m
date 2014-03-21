@@ -82,29 +82,6 @@
     return f.origin.x + f.size.width;
 }
 
-/*
-- (void)stackViews
-{
-    CGFloat x = 0;
-    int i = 0;
-
-    for (NavColumn *column in self.navColumns)
-    {
-        NSRect f = [column frame];
-        f.origin.x = x;
-        x += f.size.width;
-        f.size.height = self.height;
-        column.frame = f;
-        NSLog(@"%i stack %@ x %i w %i", i,
-              NSStringFromClass(column.class),
-              (int)f.origin.x,
-              (int)f.size.width);
-        i ++;
-    }
-    NSLog(@"---");
-}
-*/
-
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn
 {
     NSMutableArray *toRemove = [NSMutableArray array];
@@ -130,7 +107,6 @@
     
     NavColumn *newColumn = [self addColumnForNode:node];
     [newColumn prepareToDisplay];
-    //[self updateActionStrip];
     return YES;
 }
 
