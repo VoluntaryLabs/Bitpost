@@ -590,16 +590,15 @@
         [button setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0]];
         [button setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
         
-        /*
          NSString *imageName = [NSString stringWithFormat:@"%@_active", action];
          NSImage *image = [NSImage imageNamed:imageName];
-         if (image)
+        
+         if (image && YES)
          {
-         [button setImage:image];
-         [button setWidth:image.size.width*3];
+             [button setImage:image];
+             [button setWidth:image.size.width*3];
          }
          else
-         */
         {
             NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [button font], NSFontAttributeName,

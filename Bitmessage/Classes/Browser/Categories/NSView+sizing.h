@@ -23,7 +23,10 @@
 - (CGFloat)height;
 
 - (CGFloat)maxX;
+- (CGFloat)maxXOfSubviews;
+
 - (CGFloat)maxY;
+- (CGFloat)maxYOfSubviews;
 
 - (void)centerXInSuperview;
 - (void)centerYInSuperview;
@@ -32,8 +35,12 @@
 - (void)centerSubviewsY;
 
 - (void)stackSubviewsRightToLeft;
+
+- (void)stackSubviewsLeftToRightWithMargin:(CGFloat)margin;
+
 - (void)stackSubviewsTopToBottom;
 - (void)stackSubviewsTopToBottomWithMargin:(CGFloat)margin;
+- (void)stackSubviewsBottomToTopWithMargin:(CGFloat)margin;
 
 - (CGFloat)sumOfSubviewHeights;
 
@@ -51,5 +58,9 @@
 - (void)animateDownFadeOut;
 - (void)animateFadeOut;
 - (void)animateFadeIn;
+
+// subviews
+
+- (void)removeAllSubviews;
 
 @end

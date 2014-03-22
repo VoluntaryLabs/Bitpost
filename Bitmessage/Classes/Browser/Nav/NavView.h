@@ -19,9 +19,7 @@
 //@property (strong, nonatomic) IBOutlet NSSearchField *searchField;
 @property (assign, nonatomic) CGFloat actionStripHeight;
 
-
 - (BOOL)shouldSelectNode:(id <NavNode>)node inColumn:inColumn;
-- (void)stackViews;
 
 - (BOOL)canHandleAction:(SEL)aSel;
 - (void)handleAction:(SEL)aSel;

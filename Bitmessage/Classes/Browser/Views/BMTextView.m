@@ -39,6 +39,21 @@
     self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:pointSize];
 }
 
+- (void)setupForDisplay
+{
+    self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
+    self.textColor = [Theme.sharedTheme formText3Color];
+    self.editable = NO;
+    [self setAlignment:NSCenterTextAlignment];
+    [self setRichText:NO];
+    //[self setDrawsBackground:NO];
+    [self setDrawsBackground:NO];
+    
+    [self setSelectable:NO];
+    [self setFocusRingType:NSFocusRingTypeNone];
+    [self setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
+}
+
 - (void)setupForEditing
 {
     self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
@@ -59,22 +74,6 @@
       [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
       [Theme.sharedTheme formText1Color], NSForegroundColorAttributeName,
       nil]];
-}
-
-
-- (void)setupForDisplay
-{
-    self.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
-    self.textColor = [Theme.sharedTheme formText3Color];
-    self.editable = NO;
-    [self setAlignment:NSCenterTextAlignment];
-    [self setRichText:NO];
-    //[self setDrawsBackground:NO];
-    [self setDrawsBackground:NO];
-    
-    [self setSelectable:NO];
-    [self setFocusRingType:NSFocusRingTypeNone];
-    [self setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
 }
 
 @end

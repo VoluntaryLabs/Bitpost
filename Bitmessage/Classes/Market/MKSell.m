@@ -7,12 +7,36 @@
 //
 
 #import "MKSell.h"
+#import "NSDate+extra.h"
 
 @implementation MKSell
+
+- (id)init
+{
+    self = [super init];
+    self.actions = [NSMutableArray arrayWithObjects:@"delete", nil];
+    self.date = [NSDate date];
+    return self;
+}
 
 - (NSString *)nodeTitle
 {
     return @"Sell";
+}
+
+- (NSString *)nodeSubtitle
+{
+    return @"Draft";
+}
+
+- (NSString *)nodeNote
+{
+    return self.date.itemDateString;
+}
+
+- (void)delete
+{
+    [self.nodeParent removeChild:self];
 }
 
 

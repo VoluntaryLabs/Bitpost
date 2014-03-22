@@ -20,7 +20,16 @@
     return array;
 }
 
+- (NSArray *)sortedStrings
+{
+    return [self sortedArrayUsingSelector:@selector(compare:)];
+}
+
 @end
+
+
+
+
 
 @implementation NSMutableArray (extra)
 

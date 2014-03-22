@@ -11,6 +11,7 @@
 @interface NSArray (extra)
 
 - (NSArray *)reversedArray;
+- (NSArray *)sortedStrings;
 
 @end
 
@@ -18,5 +19,6 @@
 
 - (void)reverse;
 - (void)mergeWith:(NSArray *)otherArray;
+
 
 @end

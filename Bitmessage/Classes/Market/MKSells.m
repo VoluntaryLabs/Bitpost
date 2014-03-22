@@ -27,7 +27,7 @@
 {
     MKSell *sell = [[MKSell alloc] init];
     [self addChild:sell];
-    [self postParentChanged];
+    //[self postParentChanged];
 }
 
 @end

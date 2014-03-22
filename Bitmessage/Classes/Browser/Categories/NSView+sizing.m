@@ -69,11 +69,42 @@
     return self.x + self.width;
 }
 
+- (CGFloat)maxXOfSubviews
+{
+    CGFloat max = 0;
+    
+    for (NSView *subview in self.subviews)
+    {
+        CGFloat v = subview.maxX;
+        if (max < v)
+        {
+            max = v;
+        }
+    }
+    
+    return max;
+}
+
 - (CGFloat)maxY
 {
     return self.y + self.height;
 }
 
+- (CGFloat)maxYOfSubviews
+{
+    CGFloat max = 0;
+    
+    for (NSView *subview in self.subviews)
+    {
+        CGFloat v = subview.maxY;
+        if (max < v)
+        {
+            max = v;
+        }
+    }
+    
+    return max;
+}
 
 - (void)centerXInSuperview
 {
@@ -108,6 +139,18 @@
     }
 }
 
+- (void)stackSubviewsLeftToRightWithMargin:(CGFloat)margin
+{
+    CGFloat x = 0.0;
+    
+    for (NSView *view in self.subviews)
+    {
+        [view setX:x];
+        x += view.width + margin;
+    }
+}
+
+
 - (void)stackSubviewsTopToBottom
 {
     [self stackSubviewsTopToBottomWithMargin:0];
@@ -132,6 +175,18 @@
         lastView = view;
     }
 }
+
+- (void)stackSubviewsBottomToTopWithMargin:(CGFloat)margin
+{
+    CGFloat y = 0;
+    
+    for (NSView *view in self.subviews)
+    {
+        view.y = y;
+        y += view.height + margin;
+    }
+}
+
 
 - (CGFloat)sumOfSubviewHeights
 {
@@ -318,5 +373,14 @@
     [NSAnimationContext endGrouping];
 }
 
+// subviews
+
+- (void)removeAllSubviews
+{
+    for (NSView *subview in self.subviews.copy)
+    {
+        [subview removeFromSuperview];
+    }
+}
 
 @end
