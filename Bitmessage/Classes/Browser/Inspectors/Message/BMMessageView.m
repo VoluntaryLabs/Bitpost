@@ -178,6 +178,10 @@
         [self.textView setString:@""];
         //[self.textView insertText:self.bodyString];
         [self.textView.textStorage setAttributedString:[self bodyString]];
+        
+        for (NSAttributedString *attributedString in self.message.attachedImages) {
+            [[self.textView textStorage] appendAttributedString: attributedString];
+        }
         [self.textView setWidth:self.frame.size.width];
         
 
