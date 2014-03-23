@@ -22,6 +22,7 @@
    NSAttributedString *as = [NSAttributedString attributedStringWithAttachment:attachment];
    
    NSMutableAttributedString *mas = [[NSMutableAttributedString alloc] initWithAttributedString:as];
+    
    return mas;
 }
 
@@ -36,11 +37,14 @@
     NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
     
     // need to generalize this bit
-    NSString *startString = @"<img src=\"data:image/jpg;base64,";
-    NSString *endString = @"\"";
+    //NSString *startString = @"<img src=\"data:image/jpg;base64,";
+    NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
+    
+    NSString *endString = @"\'";
 
     while (YES)
     {
+        // extract image
         // spliting isn't efficient, but simple and good enough for reasonably sized messages
         
         NSMutableArray *parts = [aString splitBetweenFirst:startString andString:endString];
@@ -56,8 +60,11 @@
         NSString *after  = [parts objectAtIndex:2];
 
         NSData *data = middle.decodedBase64Data;
-        //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
+        [data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
         NSImage *image = [[NSImage alloc] initWithData:data];
+        
+        
+        // attach image
         NSAttributedString *attachment = [NSMutableAttributedString attachmentStringForImage:image];
         
         [result appendString:before];
