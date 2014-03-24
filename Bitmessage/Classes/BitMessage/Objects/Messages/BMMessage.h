@@ -37,6 +37,8 @@
 
 - (NSDate *)date;
 
+-(NSArray *)attachedImages;
+
 - (void)send;
 - (void)broadcast;
 - (void)delete;

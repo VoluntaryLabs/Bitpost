@@ -240,4 +240,44 @@
     return [NSMutableAttributedString stringWithInlinedAttachmentsFromString:self.messageString];
 }
 
+- (NSArray *) attachedImages
+{
+    
+    NSMutableArray *attributedStrings = [[NSMutableArray alloc] init];
+    NSString *aString = [NSString stringWithString: self.messageString];
+    
+    NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
+    NSString *endString = @"\'";
+    
+    while (YES)
+    {
+        // extract image
+        // spliting isn't efficient, but simple and good enough for reasonably sized messages
+        
+        NSMutableArray *parts = [aString splitBetweenFirst:startString andString:endString];
+        
+        if (parts.count < 3)
+        {
+            break;
+        }
+        
+        NSString *before = [parts objectAtIndex:0];
+        NSString *middle = [parts objectAtIndex:1];
+        NSString *after  = [parts objectAtIndex:2];
+        
+        NSData *data = middle.decodedBase64Data;
+        [data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
+        NSImage *image = [[NSImage alloc] initWithData:data];
+        
+        NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        [attachment setAttachmentCell: attachmentCell];
+        NSAttributedString *attributedString = [NSAttributedString  attributedStringWithAttachment: attachment];
+        [attributedStrings addObject: attributedString];
+        aString = after;
+    }
+    
+    return attributedStrings;
+}
+
 @end
