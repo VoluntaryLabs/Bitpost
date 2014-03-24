@@ -221,6 +221,13 @@
     _lastSelectedChild = self.selectedNode;
 }
 
+- (void)justSelectNode:(id)aNode
+{
+    NSInteger rowIndex = [self rowForNode:aNode];
+    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
+    _lastSelectedChild = aNode;
+}
+
 - (BOOL)selectItemNamed:(NSString *)aName
 {
     NSInteger rowIndex = 0;
@@ -456,13 +463,13 @@
     return self.tableView.rowHeight;
 }
 
-
 // --- normal delegate methods ---
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
     id <NavNode> node = [self nodeForRow:rowIndex];
     _lastSelectedChild = node;
+    //[self.navView shouldSelectNode:node inColumn:self];
     return [self.navView shouldSelectNode:node inColumn:self];
 }
 

@@ -7,7 +7,10 @@
 //
 
 #import "BMNode.h"
+#import "MKSell.h"
 
 @interface MKSells : BMNode
+
+- (MKSell *)justAdd;
 
 @end

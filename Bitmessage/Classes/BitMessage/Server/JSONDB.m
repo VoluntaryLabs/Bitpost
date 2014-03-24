@@ -43,8 +43,18 @@
 
 - (NSString *)path
 {
-    NSString *folder = [[NSFileManager defaultManager] applicationSupportDirectory];
-    return [folder stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", self.name]];
+    if (self.isInAppWrapper)
+    {
+        NSString *path = [[NSBundle mainBundle] pathForResource:self.name ofType:nil];
+        return path;
+    }
+    else
+    {
+        NSString * folder = [[NSFileManager defaultManager] applicationSupportDirectory];
+        NSString *path = [folder stringByAppendingPathComponent:
+                          [NSString stringWithFormat:@"%@.json", self.name]];
+        return path;
+    }
 }
 
 - (NSDictionary *)dict

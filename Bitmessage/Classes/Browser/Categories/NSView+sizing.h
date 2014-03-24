@@ -63,4 +63,6 @@
 
 - (void)removeAllSubviews;
 
+- (void)show;
+
 @end

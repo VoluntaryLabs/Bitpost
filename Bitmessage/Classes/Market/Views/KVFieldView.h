@@ -16,11 +16,14 @@
 @property (strong, nonatomic) BMTextView *keyText;
 @property (strong, nonatomic) BMTextView *valueText;
 
-@property (assign, nonatomic) CGFloat keyWidth;
-@property (assign, nonatomic) CGFloat valueWidth;
+//@property (assign, nonatomic) CGFloat keyWidth;
+//@property (assign, nonatomic) CGFloat valueWidth;
 
 @property (assign, nonatomic) BOOL isUpdating;
 
 - (void)layout;
+
+- (void)setKey:(NSString *)key;
+- (void)setValue:(NSString *)value;
 
 @end

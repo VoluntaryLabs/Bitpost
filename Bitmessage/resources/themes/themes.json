@@ -4,59 +4,56 @@
 		"columns": 
 		[
     		{
-        		"columnBgColor":   [0.12],
-        		
-        		"unreadTextColor": [0.7, 0.69, 0.98],
-        		"readTextColor":   [0.5],
-        		
-        		"textInactiveColor": [0.27],
-        		"textActiveColor": [1.0],
-        		
-        		"activeFontName": "Open Sans Light",
-        		"bgActiveColor":   [0.07],
-        		"bgInactiveColor": [0.12]
-    		},
-    		
-    		{
-        		"columnBgColor":   [0.09],
-        		
-        		"unreadTextColor": [0.7, 0.69, 0.98],
-        		"readTextColor":   [0.5],
-        		
-        		"textActiveColor": [1.0],
-        		"textInactiveColor": [0.27],
-        		
-        		"activeFontName": "Open Sans Light",
-       		   	"bgActiveColor":   [0.03],
-        		"bgInactiveColor": [0.09]
-    		},
-    		
-    		{
-        		"columnBgColor":   [0.03],
-        		
-        		"unreadTextColor": [0.7, 0.69, 0.98],
-        		"readTextColor":   [0.5],
-        		
-        		"textActiveColor": [1.0],
-        		"textInactiveColor": [0.27],
-        		
-        		"activeFontName": "Open Sans Light",
-        		"bgActiveColor":   [0.03],
-        		"bgInactiveColor": [0.07]
-    		},
-         
-            {
-                "columnBgColor":   [0.03],
+                "textInactiveColor": [0.27],
+                "bgInactiveColor":   [0.12],
+                "columnBgColor":   [0.12],
+
+                "textActiveColor": [1.0],
+                "bgActiveColor":   [0.07],
+                "activeFontName": "Open Sans Light",
+
 
                 "unreadTextColor": [0.7, 0.69, 0.98],
                 "readTextColor":   [0.5],
-
-                "textActiveColor": [1.0],
+            },
+    		
+    		{
                 "textInactiveColor": [0.27],
+                "bgInactiveColor":   [0.09],
+                "columnBgColor":     [0.09],
+
+                "bgActiveColor":   [0.07],
+                "textActiveColor":   [1.0],
+                "activeFontName": "Open Sans Light",
+
+                "unreadTextColor": [0.7, 0.69, 0.98],
+                "readTextColor":   [0.5],
+    		},
+    		
+    		{
+        		"textActiveColor": [1.0],
+                "bgActiveColor":   [0.03],
+        	
+                "textInactiveColor": [0.27],
+        		"bgInactiveColor":   [0.07],
+                "columnBgColor":     [0.07],
+         
+                "activeFontName": "Open Sans Light",
+                "unreadTextColor": [0.7, 0.69, 0.98],
+                "readTextColor":   [0.5],
+            },
+         
+            {
+                "textActiveColor": [1.0],
+                "bgActiveColor":   [0.0],
+         
+                "textInactiveColor": [0.27],
+                "bgInactiveColor":   [0.03],
+                "columnBgColor":     [0.03],
 
                 "activeFontName": "Open Sans Light",
-                "bgActiveColor":   [0.03],
-                "bgInactiveColor": [0.07]
+                "unreadTextColor": [0.7, 0.69, 0.98],
+                "readTextColor":   [0.5],
             }
 		],
 		

@@ -39,5 +39,18 @@
     [self.nodeParent removeChild:self];
 }
 
+- (NSArray *)properties
+{
+    NSMutableArray *p = [NSMutableArray array];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:@"category" forKey:@"name"];
+    [dict setObject:@"category" forKey:@"choices"];
+    [p addObject:dict];
+    
+    
+    return p;
+}
+
 
 @end

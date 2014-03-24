@@ -118,6 +118,8 @@
 		AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */; };
 		AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C018C952F80092FEF4 /* BMMessageView.m */; };
 		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
+		AA94773D18DF9C22004EFC7A /* MKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94773C18DF9C22004EFC7A /* MKCategory.m */; };
+		AA94774018DFB59F004EFC7A /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94773F18DFB59F004EFC7A /* categories.json */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -367,6 +369,9 @@
 		AA9413C018C952F80092FEF4 /* BMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageView.m; sourceTree = "<group>"; };
 		AA9413C218C952F80092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
 		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
+		AA94773B18DF9C22004EFC7A /* MKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategory.h; sourceTree = "<group>"; };
+		AA94773C18DF9C22004EFC7A /* MKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKCategory.m; sourceTree = "<group>"; };
+		AA94773F18DFB59F004EFC7A /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -749,6 +754,7 @@
 		AA3156A618AAE0E60017E94F /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA94773E18DFB59F004EFC7A /* markets */,
 				AA70C86918D39219001D77FB /* themes */,
 				AA3156FB18AAE1130017E94F /* xibs */,
 				AA3156B418AAE0E60017E94F /* icons */,
@@ -861,6 +867,8 @@
 				AA70C86718D277AB001D77FB /* MKSells.m */,
 				AA04868718DCF3140034018E /* MKSell.h */,
 				AA04868818DCF3140034018E /* MKSell.m */,
+				AA94773B18DF9C22004EFC7A /* MKCategory.h */,
+				AA94773C18DF9C22004EFC7A /* MKCategory.m */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -934,6 +942,14 @@
 				AA9413C318C952F80092FEF4 /* BMNewUserView.m */,
 			);
 			path = NewUser;
+			sourceTree = "<group>";
+		};
+		AA94773E18DFB59F004EFC7A /* markets */ = {
+			isa = PBXGroup;
+			children = (
+				AA94773F18DFB59F004EFC7A /* categories.json */,
+			);
+			path = markets;
 			sourceTree = "<group>";
 		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
@@ -1148,6 +1164,7 @@
 				AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */,
 				AA3156EF18AAE0E60017E94F /* BMSentMessages_active.png in Resources */,
 				AAF40CB118B56183005BA55E /* refresh_inactive.png in Resources */,
+				AA94774018DFB59F004EFC7A /* categories.json in Resources */,
 				AA3156E718AAE0E60017E94F /* icon_512x512.png in Resources */,
 				AA3156E418AAE0E60017E94F /* icon_256x256@2x.png in Resources */,
 				AAF40CB018B56183005BA55E /* refresh_active.png in Resources */,
@@ -1237,6 +1254,7 @@
 				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,
+				AA94773D18DF9C22004EFC7A /* MKCategory.m in Sources */,
 				AA70C86218D2778E001D77FB /* MKWallet.m in Sources */,
 				AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,

@@ -19,6 +19,7 @@
     
     if (self)
     {
+        self.autoresizesSubviews = NO;
         // Initialization code here.
     }
     
@@ -41,7 +42,10 @@
     {
         KVFieldView *kv = [[KVFieldView alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
         kv.key = key;
+        [kv setKey:key];
+        [kv setValue:key];
         [self addSubview:kv];
+        //[kv layout];
     }
     
     [self stackSubviewsBottomToTopWithMargin:10.0];
@@ -49,5 +53,20 @@
     [self setHeight:self.maxYOfSubviews];
     [self setWidth:self.maxXOfSubviews];
 }
+
+- (void)layout
+{
+    
+}
+
+- (void)drawRect:(NSRect)dirtyRect
+{
+	[super drawRect:dirtyRect];
+    //NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
+    NSColor *bgColor = [NSColor redColor];
+    [bgColor set];
+    //NSRectFill(dirtyRect);
+}
+
 
 @end

@@ -15,6 +15,7 @@
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    [self add];
     return self;
 }
 
@@ -23,10 +24,16 @@
     return @"Sells";
 }
 
-- (void)add
+- (MKSell *)justAdd
 {
     MKSell *sell = [[MKSell alloc] init];
     [self addChild:sell];
+    return sell;
+}
+
+- (void)add
+{
+    MKSell *sell = [self justAdd];
     //[self postParentChanged];
 }
 

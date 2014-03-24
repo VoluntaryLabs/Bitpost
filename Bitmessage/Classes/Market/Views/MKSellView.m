@@ -24,13 +24,22 @@
         
         [self setAutoresizesSubviews:YES];
         [self setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
-        
+
         NSMutableDictionary *textDict = [NSMutableDictionary dictionary];
-        [textDict setObject:@"value" forKey:@"key"];
+        [textDict setObject:@"title" forKey:@"title"];
+        [textDict setObject:@"description" forKey:@"description"];
+        [textDict setObject:@"quantity" forKey:@"quantity"];
+        [textDict setObject:@"price" forKey:@"price"];
+        //[textDict setObject:@"currency" forKey:@"BTC"];
         [self.dictView setDict:textDict];
     }
     
     return self;
+}
+
+- (void)setDict:(NSMutableDictionary *)dict
+{
+    [self.dictView setDict:dict];
 }
 
 - (void)prepareToDisplay
@@ -51,7 +60,9 @@
 
 - (void)layout
 {
-    
+    [_dictView layout];
+    [_dictView centerXInSuperview];
+    [_dictView centerYInSuperview];
 }
 
 - (void)setNode:(id <NavNode>)node
@@ -67,9 +78,8 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
 	[super drawRect:dirtyRect];
-    //NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
-    NSColor *bgColor = [NSColor redColor];
-    [bgColor set];
+    [[Theme.sharedTheme formBackgroundColor] set];
+    //[[NSColor redColor] set];
     NSRectFill(dirtyRect);
 }
 

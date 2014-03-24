@@ -37,6 +37,7 @@
 - (id <NavNode>)selectedNode;
 
 - (void)selectRowIndex:(NSInteger)rowIndex;
+- (void)justSelectNode:(id)aNode;
 
 - (void)setupHeaderView:(NSView *)aView;
 - (void)setContentView:(NSView *)aView;

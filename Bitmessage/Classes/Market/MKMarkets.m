@@ -15,15 +15,22 @@
 {
     self = [super init];
     
+    self.rootCategory = [[MKCategory alloc] init];
+    [self.rootCategory setName:@"For Sale"];
+    [self.rootCategory read];
+    [self.rootCategory setCanPost:NO];
+    [self.children addObject:self.rootCategory];
+    
     self.channel = [[MKMarketChannel alloc] init];
+    [self.children addObject:self.channel];
+
     self.wallet  = [[MKWallet alloc] init];
+    [self.children addObject:self.wallet];
     
     self.buys  = [[MKBuys alloc] init];
-    self.sells = [[MKSells alloc] init];
-    
-    [self.children addObject:self.channel];
-    [self.children addObject:self.wallet];
     [self.children addObject:self.buys];
+
+    self.sells = [[MKSells alloc] init];
     [self.children addObject:self.sells];
     return self;
 }
@@ -31,6 +38,11 @@
 - (NSString *)nodeTitle
 {
     return @"Markets";
+}
+
+- (CGFloat)nodeSuggestedWidth
+{
+    return 200;
 }
 
 

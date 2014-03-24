@@ -1,37 +1,25 @@
 
 todo
 
-- SEARCH
+- have empty column take up full area
+  - [or?] have negative suggested width mean "full width" 
 
-- maintain selected item offset on table reload? 
+- SEARCH
 
 - replace entered BM addresses with labels in compose window
 
-- top view for buttons on each column
-  - always use navcolumns - put inspectors in navcol header?
-
-- fix channel add try BTCXINDIA?
 
 - warning for critical ops like delete identity
+  - have action code in UI ask object if a panel is required
 
 - have process check for existance of keys.dat
   - if not there, start server, wait until keys.dat is there, bring down
 
 - fix window resize
 
-- fix contact label editing layout weirdness
-
-- autoselect full text on click of "Enter Label" or "Enter Address"
-
-- tab to move to next input in contact views
-
 - select item after add/update
 
-- fix selection after reload (stay on same message if possible, not row index)
-
 - after a item remove, nav to prev column if column is empty
-
-
 
 - move BMServerProcess to be owned by client
 - find

@@ -40,6 +40,16 @@
             @"received", @"ackreceived", nil];
 }
 
+- (NSArray *)readStates
+{
+    return [NSArray arrayWithObjects:@"msgsentnoackexpected", @"ackreceived", @"broadcastsent", nil];
+}
+
+- (BOOL)read
+{
+    return [self.readStates containsObject:[self getStatus]];
+}
+
 - (NSString *)getHumanReadbleStatus
 {
     NSString *status = self.getStatus;

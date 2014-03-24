@@ -11,25 +11,28 @@
 
 @implementation MKAskMessage
 
-
 /*
- {
- header:
- {
-     service: "bitmarket",
-     version: "1.0",
-     type: "AskMessage"
- },
- 
- body:
- {
-     category: ["pathComponent0", "pathComponent1", ...],
-     title: "",
-     description: "",
-     quantity: { number: 0.0 , unit: "[n/a, length, area, volume, mass]" },
-     price: { number: 0.0, unit: "BTC" }
- }
- }
+{
+     header:
+     {
+         service: "bitmarket",
+         version: "1.0",
+         type: "AskMessage"
+     },
+     
+     body:
+     {
+         uuid: "XXX",
+         category: ["pathComponent0", "pathComponent1", ...],
+         title: "",
+         description: "",
+         quantity: { number: 0.0 , unit: "[n/a, length, area, volume, mass]" },
+         price: { number: 0.0, unit: "BTC" },
+         shippingFrom: ["CountryCode1", "CountryCode2"],
+         shippingToCountries: ["CountryCode1", "CountryCode2"],
+         expirationDate: "...",
+     }
+}
 */
 
 - (void)setDict:(NSDictionary *)dict

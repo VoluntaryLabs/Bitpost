@@ -131,10 +131,18 @@
     [self clearColumns];
     
     NavColumn *column = nil;
+    NavColumn *lastColumn = nil;
     
     for (id <NavNode> node in nodes)
     {
         column = [self addColumnForNode:node];
+        
+        if (lastColumn)
+        {
+            [lastColumn justSelectNode:node];
+        }
+        
+        lastColumn = column;
     }
     
     if ([column respondsToSelector:@selector(prepareToDisplay)])

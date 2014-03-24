@@ -383,4 +383,12 @@
     }
 }
 
+- (void)show
+{
+    NSLog(@"%@ %i, %i %ix%i",
+          NSStringFromClass(self.class),
+          (int)self.x, (int)self.y,
+          (int)self.width, (int)self.height);
+}
+
 @end

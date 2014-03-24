@@ -8,24 +8,36 @@
 
 #import "KVFieldView.h"
 #import "NSView+sizing.h"
+#import "Theme.h"
 
 @implementation KVFieldView
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
+    self.autoresizesSubviews = NO;
+    self.height = 25;
+    CGFloat w = 200;
     
     if (self)
     {
-        self.keyText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
+        self.keyText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, w, self.height)];
         [self.keyText setupForDisplay];
+        //[self.keyText setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:0.1]];
+        //[self.keyText setDrawsBackground:YES];
         [self addSubview:self.keyText];
-        self.keyWidth = 100;
+        self.keyText.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
+        self.keyText.alignment = NSRightTextAlignment;
         
-        self.valueText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
-        [self.keyText setupForEditing];
+        self.valueText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, w, self.height)];
+        [self.valueText setupForEditing];
+        [self.valueText setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:0.1]];
+        [self.valueText setDrawsBackground:YES];
         [self addSubview:self.valueText];
-        self.valueWidth = 100;
+        self.valueText.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
+        self.valueText.alignment = NSLeftTextAlignment;
+
+        [self layout];
     }
     
     return self;
@@ -33,18 +45,32 @@
 
 - (void)layout
 {
-    [self.keyText setWidth:self.keyWidth];
+    //[self.keyText setWidth:self.keyWidth];
     [self.keyText setHeight:self.height];
-    [self.keyText setX:0];
+    [self.keyText setY:0];
     
-    [self.valueText setWidth:self.valueWidth];
+    //[self.valueText setWidth:self.valueWidth];
     [self.valueText setHeight:self.height];
-    [self.valueText setX:0];
+    [self.valueText setY:0];
     
     [self stackSubviewsLeftToRightWithMargin:10.0];
-    [self setWidth:self.valueText.maxX];
+    
+    //[self.keyText show];
+    //[self.valueText show];
+    
+    [self setWidth:self.maxXOfSubviews];
+    [self setHeight:self.maxYOfSubviews];
 }
 
+- (void)setKey:(NSString *)key
+{
+    self.keyText.string = key;
+}
+
+- (void)setValue:(NSString *)value
+{
+    self.valueText.string = value;
+}
 
 - (void)textDidChange:(NSNotification *)aNotification
 {

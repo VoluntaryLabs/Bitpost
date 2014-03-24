@@ -12,11 +12,9 @@
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableDictionary *dict;
+@property (assign, nonatomic) BOOL isInAppWrapper;
 
 - (void)read;
 - (void)write;
-
-//+ (NSMutableDictionary *)readDictWithName:(NSString *)aName;
-//+ (void)writeDict:(NSMutableDictionary *)dict withName:(NSString *)aName;
 
 @end
