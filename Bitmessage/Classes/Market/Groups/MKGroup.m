@@ -24,6 +24,7 @@
 {
     self = [super init];
     self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    self.count = 0;
     return self;
 }
 
@@ -179,13 +180,20 @@
 
 - (void)updateCounts
 {
-    //self.count = 0;
-    self.count = self.children.count;
+    self.count = 0;
+    //self.count = self.children.count;
     
     for (MKGroup *group in self.children)
     {
-        [group updateCounts];
-        self.count += group.count;
+        if ([group isKindOfClass:[MKGroup class]])
+        {
+            [group updateCounts];
+            self.count += group.count;
+        }
+        else if ([group respondsToSelector:@selector(count)])
+        {
+            self.count += group.count;
+        }
     }
 }
 
