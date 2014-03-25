@@ -22,9 +22,18 @@
 
 - (NSUInteger)nodeDepth;
 
+// children
+
 - (void)addChild:(id)aChild;
 - (void)removeChild:(id)aChild;
 - (void)sortChildren;
+
+// inlining
+
+@property (assign, nonatomic) BOOL shouldInlineChildren;
+- (NSArray *)inlinedChildren;
+- (BOOL)nodeParentInlines;
+- (BOOL)nodeShouldIndent;
 
 - (BMNode *)childWithTitle:(NSString *)aTitle;
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;

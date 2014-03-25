@@ -15,10 +15,11 @@
 {
     self = [super init];
     
-    self.rootRegion = (MKRegion *)[MKRegion rootInstance];
-    [self.rootRegion setName:@"Regions"];
+    _rootRegion = (MKRegion *)[MKRegion rootInstance];
+    [_rootRegion setName:@"Regions"];
     [self.children addObject:self.rootRegion];
-    [self.rootRegion updateCounts]; // do this after refresh
+    [_rootRegion updateCounts]; // do this after refresh
+    [_rootRegion setShouldInlineChildren:YES];
     
     /*
     self.rootCategory = (MKCategory *)[MKCategory rootInstance];

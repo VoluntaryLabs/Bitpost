@@ -269,5 +269,48 @@
     return [BMClient sharedBMClient];
 }
 
+// ----------------------
+
+- (NSArray *)inlinedChildren
+{
+    NSMutableArray *inlinedChildren = [NSMutableArray array];
+    
+    for (BMNode *child in self.children)
+    {
+        [inlinedChildren addObject:child];
+        [inlinedChildren addObjectsFromArray:child.children];
+    }
+    
+    return inlinedChildren;
+}
+
+- (BOOL)nodeParentInlines
+{
+    if (self.nodeParent)
+    {
+        return self.nodeParent.shouldInlineChildren;
+    }
+    
+    return NO;
+}
+
+- (BOOL)nodeShouldIndent
+{
+    BMNode *p = self.nodeParent;
+    
+    if (p)
+    {
+        p = p.nodeParent;
+        
+        if (p)
+        {
+            return p.shouldInlineChildren;
+        }
+    }
+    
+    return NO;
+}
+
+
 
 @end

@@ -13,6 +13,14 @@
 - (id <NavNode>)nodeParent;
 
 - (NSMutableArray *)children;
+
+// inlines
+
+- (NSArray *)inlinedChildren;
+- (BOOL)shouldInlineChildren;
+- (BOOL)nodeParentInlines;
+- (BOOL)nodeShouldIndent;
+
 - (NSMutableArray *)actions;
 
 - (NSString *)nodeTitle;

@@ -53,6 +53,11 @@
 
 - (NSColor *)textColor
 {
+    if (self.node.nodeParentInlines)
+    {
+        return [NSColor colorWithCalibratedWhite:.7 alpha:1.0];
+    }
+    
     if ([self isHighlighted])
     {
         return self.textActiveColor;
@@ -166,6 +171,14 @@
     return [self.node nodeIconForState:stateName];
 }
 
+- (CGFloat)indent
+{
+    if (self.node.nodeShouldIndent)
+    {
+        return 60.0;
+    }
+    return 30; // cellFrame.size.height * self.leftMarginRatio
+}
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     NSRect f = cellFrame;
@@ -181,7 +194,8 @@
     NSString *title = [self.node nodeTitle];
     NSString *subtitle = [self.node nodeSubtitle];
     
-    CGFloat leftMargin = cellFrame.size.height * self.leftMarginRatio;
+    CGFloat leftMargin = self.indent; //cellFrame.size.height * self.leftMarginRatio;
+    //NSLog(@"indent %i", (int)(cellFrame.size.height * self.leftMarginRatio));
 
     NSImage *icon = nil; //[self icon];
     

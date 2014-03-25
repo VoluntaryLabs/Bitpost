@@ -30,6 +30,8 @@
 
 @property (strong, nonatomic) id <NavNode> lastSelectedChild;
 
+@property (assign, nonatomic) BOOL isInlined;
+
 - (void)didAddToNavView;
 - (void)prepareToDisplay;
 - (ThemeDictionary *)themeDict;

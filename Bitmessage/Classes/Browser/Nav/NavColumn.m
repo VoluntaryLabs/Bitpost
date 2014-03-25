@@ -118,24 +118,36 @@
     [self prepareToDisplay];
     /*
      NSRect f = self.drawFrame;
-     
      [[self bgColor] set];
      NSRectFill(f);
      [super drawRect:f];
      */
 }
 
+- (NSArray *)allChildren
+{
+    //if (self.isInlined)
+    if (self.node.shouldInlineChildren)
+    {
+        return self.node.inlinedChildren;
+    }
+    else
+    {
+        return self.node.children;
+    }
+}
+
 // ----------------------------------------
 
 - (BOOL)selectedNodeWasRemoved
 {
-    return ![self.node.children containsObject:[self selectedNode]];
+    return ![self.allChildren containsObject:[self selectedNode]];
 }
 
 - (void)reloadData
 {
     NSInteger row = self.tableView.selectedRow;
-    NSInteger maxRow = self.node.children.count - 1;
+    NSInteger maxRow = self.allChildren.count - 1;
     
     if (row < 0)
     {
@@ -232,7 +244,7 @@
 {
     NSInteger rowIndex = 0;
     
-    for (id <NavNode> child in self.node.children)
+    for (id <NavNode> child in self.allChildren)
     {
         if ([[child nodeTitle] isEqualToString:aName])
         {
@@ -416,9 +428,9 @@
 
 - (id <NavNode>)nodeForRow:(NSInteger)rowIndex
 {
-    if (rowIndex < self.node.children.count)
+    if (rowIndex < self.allChildren.count)
     {
-        return [self.node.children objectAtIndex:rowIndex];
+        return [self.allChildren objectAtIndex:rowIndex];
     }
     
     return nil;
@@ -428,7 +440,7 @@
 {
     NSInteger rowIndex = 0;
     
-    for (id childNode in self.node.children)
+    for (id childNode in self.allChildren)
     {
         if (childNode == aNode)
         {
@@ -445,14 +457,14 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    return [self.node.children count];
+    return [self.allChildren count];
 }
 
 - (id)tableView:(NSTableView *)aTableView
     objectValueForTableColumn:(NSTableColumn *)aTableColumn
             row:(NSInteger)rowIndex
 {
-    return [[self.node.children objectAtIndex:rowIndex] nodeTitle];
+    return [[self.allChildren objectAtIndex:rowIndex] nodeTitle];
 }
 
 // table delegate
@@ -469,6 +481,12 @@
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex
 {
     id <NavNode> node = [self nodeForRow:rowIndex];
+
+    if (node.nodeParentInlines)
+    {
+        return NO;
+    }
+    
     _lastSelectedChild = node;
     //[self.navView shouldSelectNode:node inColumn:self];
     return [self.navView shouldSelectNode:node inColumn:self];
