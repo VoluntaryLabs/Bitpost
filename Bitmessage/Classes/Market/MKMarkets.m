@@ -15,11 +15,17 @@
 {
     self = [super init];
     
-    self.rootCategory = [[MKCategory alloc] init];
+    self.rootRegion = (MKRegion *)[MKRegion rootInstance];
+    [self.rootRegion setName:@"Regions"];
+    [self.children addObject:self.rootRegion];
+    [self.rootRegion updateCounts]; // do this after refresh
+    
+    /*
+    self.rootCategory = (MKCategory *)[MKCategory rootInstance];
     [self.rootCategory setName:@"For Sale"];
-    [self.rootCategory read];
     [self.rootCategory setCanPost:NO];
     [self.children addObject:self.rootCategory];
+    */
     
     self.channel = [[MKMarketChannel alloc] init];
     [self.children addObject:self.channel];
@@ -37,7 +43,7 @@
 
 - (NSString *)nodeTitle
 {
-    return @"Markets";
+    return @"BitMarkets";
 }
 
 - (CGFloat)nodeSuggestedWidth

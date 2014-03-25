@@ -383,6 +383,7 @@
 
 - (void)setContentView:(NSView *)aView
 {
+    [(NavColumn *)aView setNavView:self.navView];
     //aView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
     //[(ColoredView *)aView setBackgroundColor:[NSColor redColor]];
     [self setAutoresizesSubviews:YES];

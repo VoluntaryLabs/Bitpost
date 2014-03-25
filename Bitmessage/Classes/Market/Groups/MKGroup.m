@@ -1,17 +1,24 @@
 //
-//  MKCategory.m
+//  MKGroup.m
 //  Bitmessage
 //
-//  Created by Steve Dekorte on 3/23/14.
+//  Created by Steve Dekorte on 3/24/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "MKCategory.h"
+#import "MKGroup.h"
 #import "JSONDB.h"
 #import "BMClient.h"
 #import "AppController.h"
 
-@implementation MKCategory
+@implementation MKGroup
+
++ (MKGroup *)rootInstance
+{
+    MKGroup *group = [[self.class alloc] init];
+    [group read];
+    return group;
+}
 
 - (id)init
 {
@@ -20,15 +27,31 @@
     return self;
 }
 
+- (NSString *)dbName
+{
+    [NSException raise:@"Missing method" format:@"subsclasses should implement this method"];
+    return nil;
+}
+
 - (NSString *)nodeTitle
 {
     return self.name;
 }
 
+- (NSString *)nodeNote
+{
+    if (self.count)
+    {
+        return [NSString stringWithFormat:@"%i", (int)self.count];
+    }
+    
+    return nil;
+}
+
 - (JSONDB *)db
 {
     JSONDB *db = [[JSONDB alloc] init];
-    [db setName:@"categories.json"];
+    [db setName:self.dbName];
     db.isInAppWrapper = YES;
     return db;
 }
@@ -65,9 +88,9 @@
     }
 }
 
-+ (MKCategory *)withDict:(NSDictionary *)dict
++ (MKGroup *)withDict:(NSDictionary *)dict
 {
-    MKCategory *obj = [[MKCategory alloc] init];
+    MKGroup *obj = [[self alloc] init];
     [obj setDict:dict];
     return obj;
 }
@@ -83,9 +106,9 @@
         
         for (NSDictionary *childDict in childrenDicts)
         {
-            [children addObject:[MKCategory withDict:childDict]];
+            [children addObject:[self.class withDict:childDict]];
         }
-            
+        
         
         [self setChildren:children];
     }
@@ -99,7 +122,7 @@
     [dict setObject:self.name forKey:@"name"];
     NSMutableArray *childrenDicts = [NSMutableArray array];
     
-    for (MKCategory *child in self.children)
+    for (MKGroup *child in self.children)
     {
         [childrenDicts addObject:[child dict]];
     }
@@ -128,31 +151,42 @@
     return 200;
 }
 
-- (NSArray *)catPath
+- (NSArray *)groupPath
 {
-    if ([self.nodeParent isKindOfClass:[MKCategory class]])
+    if ([self.nodeParent isKindOfClass:self.class])
     {
-        MKCategory *parentCat = (MKCategory *)self.nodeParent;
-        return [[parentCat catPath] arrayByAddingObject:self.name];
+        MKGroup *parentCat = (MKGroup *)self.nodeParent;
+        return [[parentCat groupPath] arrayByAddingObject:self.name];
     }
     
     return [NSArray arrayWithObject:self.name];
 }
 
-- (NSArray *)categorySubpaths
+- (NSArray *)groupSubpaths
 {
     NSMutableArray *paths = [NSMutableArray array];
     
-    for (MKCategory *cat in self.children)
+    for (MKGroup *cat in self.children)
     {
-        if ([cat isKindOfClass:[MKCategory class]])
+        if ([cat isKindOfClass:self.class])
         {
-            //[paths addObject:[NSArray arrayWithObjects:self.name, cat.name, nil]];
-            [paths addObject:cat.catPath];
+            [paths addObject:cat.groupPath];
         }
     }
     
     return paths;
+}
+
+- (void)updateCounts
+{
+    //self.count = 0;
+    self.count = self.children.count;
+    
+    for (MKGroup *group in self.children)
+    {
+        [group updateCounts];
+        self.count += group.count;
+    }
 }
 
 @end

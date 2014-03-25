@@ -118,8 +118,11 @@
 		AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */; };
 		AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C018C952F80092FEF4 /* BMMessageView.m */; };
 		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
-		AA94773D18DF9C22004EFC7A /* MKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94773C18DF9C22004EFC7A /* MKCategory.m */; };
 		AA94774018DFB59F004EFC7A /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94773F18DFB59F004EFC7A /* categories.json */; };
+		AA94774218E0D522004EFC7A /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94774118E0D522004EFC7A /* regions.json */; };
+		AA94774B18E0E2A4004EFC7A /* MKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774818E0E2A4004EFC7A /* MKCategory.m */; };
+		AA94774C18E0E2A4004EFC7A /* MKGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774A18E0E2A4004EFC7A /* MKGroup.m */; };
+		AA94774F18E0E2BB004EFC7A /* MKRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774E18E0E2BB004EFC7A /* MKRegion.m */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -369,9 +372,14 @@
 		AA9413C018C952F80092FEF4 /* BMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageView.m; sourceTree = "<group>"; };
 		AA9413C218C952F80092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
 		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
-		AA94773B18DF9C22004EFC7A /* MKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategory.h; sourceTree = "<group>"; };
-		AA94773C18DF9C22004EFC7A /* MKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKCategory.m; sourceTree = "<group>"; };
 		AA94773F18DFB59F004EFC7A /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		AA94774118E0D522004EFC7A /* regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
+		AA94774718E0E2A4004EFC7A /* MKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategory.h; sourceTree = "<group>"; };
+		AA94774818E0E2A4004EFC7A /* MKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKCategory.m; sourceTree = "<group>"; };
+		AA94774918E0E2A4004EFC7A /* MKGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGroup.h; sourceTree = "<group>"; };
+		AA94774A18E0E2A4004EFC7A /* MKGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGroup.m; sourceTree = "<group>"; };
+		AA94774D18E0E2BB004EFC7A /* MKRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRegion.h; sourceTree = "<group>"; };
+		AA94774E18E0E2BB004EFC7A /* MKRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRegion.m; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -851,6 +859,7 @@
 		AA70C80718D270FC001D77FB /* Market */ = {
 			isa = PBXGroup;
 			children = (
+				AA94774618E0E2A4004EFC7A /* Groups */,
 				AA04869518DD0A320034018E /* Views */,
 				AA04869118DD09750034018E /* Messages */,
 				AA70C83918D27127001D77FB /* MKMarkets.h */,
@@ -867,8 +876,6 @@
 				AA70C86718D277AB001D77FB /* MKSells.m */,
 				AA04868718DCF3140034018E /* MKSell.h */,
 				AA04868818DCF3140034018E /* MKSell.m */,
-				AA94773B18DF9C22004EFC7A /* MKCategory.h */,
-				AA94773C18DF9C22004EFC7A /* MKCategory.m */,
 			);
 			path = Market;
 			sourceTree = "<group>";
@@ -947,9 +954,23 @@
 		AA94773E18DFB59F004EFC7A /* markets */ = {
 			isa = PBXGroup;
 			children = (
+				AA94774118E0D522004EFC7A /* regions.json */,
 				AA94773F18DFB59F004EFC7A /* categories.json */,
 			);
 			path = markets;
+			sourceTree = "<group>";
+		};
+		AA94774618E0E2A4004EFC7A /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				AA94774918E0E2A4004EFC7A /* MKGroup.h */,
+				AA94774A18E0E2A4004EFC7A /* MKGroup.m */,
+				AA94774718E0E2A4004EFC7A /* MKCategory.h */,
+				AA94774818E0E2A4004EFC7A /* MKCategory.m */,
+				AA94774D18E0E2BB004EFC7A /* MKRegion.h */,
+				AA94774E18E0E2BB004EFC7A /* MKRegion.m */,
+			);
+			path = Groups;
 			sourceTree = "<group>";
 		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
@@ -1152,6 +1173,7 @@
 				AA31562318AAE02D0017E94F /* Images.xcassets in Resources */,
 				AA3156E918AAE0E60017E94F /* BMContacts_active.png in Resources */,
 				AA3156ED18AAE0E60017E94F /* BMReceivedMessages_active.png in Resources */,
+				AA94774218E0D522004EFC7A /* regions.json in Resources */,
 				AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */,
 				AAB79BCC18AB14170041B6B1 /* delete_inactive.png in Resources */,
 				AAE61DD618CA8CCE00C6AEB7 /* composeicon_inactive.png in Resources */,
@@ -1209,6 +1231,7 @@
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
 				AA31569318AAE0E00017E94F /* BMMessage.m in Sources */,
 				AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */,
+				AA94774C18E0E2A4004EFC7A /* MKGroup.m in Sources */,
 				AA31569218AAE0E00017E94F /* BMChannels.m in Sources */,
 				AA31569818AAE0E00017E94F /* BMSubscriptions.m in Sources */,
 				AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */,
@@ -1235,6 +1258,7 @@
 				AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */,
 				AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */,
 				AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */,
+				AA94774F18E0E2BB004EFC7A /* MKRegion.m in Sources */,
 				AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */,
 				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
@@ -1254,7 +1278,7 @@
 				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
 				AAF40CBB18B5A00A005BA55E /* BMReceivedMessage.m in Sources */,
-				AA94773D18DF9C22004EFC7A /* MKCategory.m in Sources */,
+				AA94774B18E0E2A4004EFC7A /* MKCategory.m in Sources */,
 				AA70C86218D2778E001D77FB /* MKWallet.m in Sources */,
 				AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,

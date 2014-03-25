@@ -78,7 +78,7 @@ static Theme *sharedTheme = nil;
 - (ThemeDictionary *)themeForColumn:(NSInteger)columnIndex
 {
     NSArray *columnThemes = [self.currentTheme objectForKey:@"columns"];
-    NSDictionary *dict = columnThemes.firstObject;
+    NSDictionary *dict = columnThemes.lastObject;
     
     if (columnIndex < columnThemes.count)
     {

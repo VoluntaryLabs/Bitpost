@@ -23,6 +23,7 @@
      body:
      {
          uuid: "XXX",
+         region: ["country"],
          category: ["pathComponent0", "pathComponent1", ...],
          title: "",
          description: "",

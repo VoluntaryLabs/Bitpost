@@ -33,7 +33,8 @@
 
 - (void)add
 {
-    MKSell *sell = [self justAdd];
+    //MKSell *sell =
+    [self justAdd];
     //[self postParentChanged];
 }
 

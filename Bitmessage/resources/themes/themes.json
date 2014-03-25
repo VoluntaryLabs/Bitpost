@@ -94,29 +94,42 @@
         		"bgInactiveColor": [0.985]
     		},
     		
-    		{        		
-        		"unreadTextColor": [0.4],
-        		"readTextColor":   [0.75],
-        		
+    		{
         		"textInactiveColor": [0.5],
         		"textActiveColor": [0.0],
         		
         		"bgActiveColor":   [0.95],
         		"activeFontName": "Open Sans",
-        		"bgInactiveColor": [0.985]
+        		"bgInactiveColor": [0.985],
+         
+                "unreadTextColor": [0.4],
+                "readTextColor":   [0.75],
     		},
     		
-    		{        		
-        		"unreadTextColor": [0.7, 0.69, 0.98],
-        		"readTextColor":   [0.5],
-        		
+    		{
+                 "textInactiveColor": [0.27],
+                 "bgInactiveColor": [0.09],
+         
+                "activeFontName":   "Open Sans",
         		"textActiveColor": [1.0],
-        		"textInactiveColor": [0.27],
-        		
-        		"bgActiveColor":   [0.03],
-        		"activeFontName":   "Open Sans",
-        		"bgInactiveColor": [0.09]
-    		}
+                "bgActiveColor":   [0.03],
+    		
+                "unreadTextColor": [0.7, 0.69, 0.98],
+                "readTextColor":   [0.5],
+            },
+         
+            {
+                "textInactiveColor": [0.27],
+                "bgInactiveColor": [0.03],
+
+                "activeFontName":   "Open Sans",
+                "textActiveColor": [1.0],
+                "bgActiveColor":   [0.0],
+
+
+                "unreadTextColor": [0.7, 0.69, 0.98],
+                "readTextColor":   [0.5],
+            }
 		],
 		
 		"formBackgroundColor": [1],

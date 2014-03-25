@@ -8,6 +8,7 @@
 
 #import "BMNode.h"
 
+#import "MKRegion.h"
 #import "MKCategory.h"
 #import "MKMarketChannel.h"
 
@@ -21,7 +22,9 @@
 
 @interface MKMarkets : BMNode
 
-@property (strong, nonatomic) MKCategory *rootCategory;
+@property (strong, nonatomic) MKRegion *rootRegion;
+
+//@property (strong, nonatomic) MKCategory *rootCategory;
 @property (strong, nonatomic) MKMarketChannel *channel;
 @property (strong, nonatomic) MKWallet *wallet;
 

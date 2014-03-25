@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417385612.303473"
+            timestampString = "417398464.453886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "-setContentView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "417385612.303473"
+            timestampString = "417398464.453886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "594"
-            endingLineNumber = "594"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "-updateActionStrip"
             landmarkType = "5">
             <Locations>
@@ -407,7 +407,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "192"
             endingLineNumber = "192"
-            landmarkName = "-setupBody"
+            landmarkName = "-setNode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -703,22 +703,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bitmessage/Classes/Market/MKCategory.m"
-            timestampString = "417385186.87814"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-read"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Server/JSONDB.m"
             timestampString = "417314938.427913"
             startingColumnNumber = "9223372036854775807"
@@ -735,13 +719,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bitmessage/Classes/Market/MKCategory.m"
-            timestampString = "417385186.87814"
+            filePath = "Bitmessage/Classes/Browser/Nav/NavView.m"
+            timestampString = "417385624.068734"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-add"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-selectNodePath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -751,13 +735,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Bitmessage/Classes/Browser/Nav/NavView.m"
-            timestampString = "417385624.068734"
+            filePath = "Bitmessage/Classes/Market/Groups/MKRegion.m"
+            timestampString = "417392685.857152"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "-selectNodePath:"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-init"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bitmessage/Classes/Browser/Inspectors/Message/BMMessageView.m"
+            timestampString = "417398380.953117"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-textView:clickedOnLink:atIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

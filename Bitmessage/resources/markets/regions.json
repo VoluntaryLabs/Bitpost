@@ -1,0 +1,138 @@
+
+{
+	"name" : "Regions",
+	"children" :
+	[
+	    {
+        	"name" : "North America",
+        	"children" : 
+        	[
+        		{ "name" : "US" },
+        		{ "name" : "Canada" },
+        	]
+    	},
+
+	    {
+        	"name" : "Europe",
+        	"children" : 
+        	[
+        		{ "name" : "Austria" },
+        		{ "name" : "Belgium" },
+        		{ "name" : "Bulgaria" },
+        		{ "name" : "Croatia" },
+        		{ "name" : "Czech Republic" },
+        		{ "name" : "Denmark" },
+        		{ "name" : "Finland" },
+        		{ "name" : "France" },
+        		{ "name" : "Germany" },
+        		{ "name" : "Greece" },
+        		{ "name" : "Hungary" },
+        		{ "name" : "Iceland" },
+        		{ "name" : "Ireland" },
+        		{ "name" : "Italy" },
+        		{ "name" : "Luxembourg" },
+        		{ "name" : "Netherlands" },
+        		{ "name" : "Norway" },
+        		{ "name" : "Poland" },
+        		{ "name" : "Portugal" },
+        		{ "name" : "Romania" },
+        		{ "name" : "Russian Federation" },
+        		{ "name" : "Spain" },
+        		{ "name" : "Sweden" },
+        		{ "name" : "Switzerland" },
+        		{ "name" : "Turkey" },
+        		{ "name" : "Ukraine" },
+        		{ "name" : "United Kingdom" },
+        	]
+    	},
+
+    	
+	    {
+        	"name" : "Oceania",
+        	"children" : 
+        	[
+        		{ "name" : "Australia" },
+        		{ "name" : "New Zealand" },
+        	]
+    	},
+    	
+	    {
+        	"name" : "Latin America",
+        	"children" : 
+        	[
+        		{ "name" : "Argentina" },
+        		{ "name" : "Bolivia" },
+        		{ "name" : "Brazil" },
+        		{ "name" : "Caribbean Islands" },
+        		{ "name" : "Chile" },
+        		{ "name" : "Colombia" },
+        		{ "name" : "Costa Rica" },
+        		{ "name" : "Ecuador" },
+        		{ "name" : "El Salvador" },
+        		{ "name" : "Guatemala" },
+        		{ "name" : "Mexico" },
+        		{ "name" : "Nicaragua" },
+        		{ "name" : "Panama" },
+        		{ "name" : "Peru" },
+        		{ "name" : "Puerto Rico" },
+        		{ "name" : "Uruguay" },
+        		{ "name" : "Venezuela" },
+        		{ "name" : "Virgin Islands, U.S." },
+        	]
+    	},    	
+    	
+	    {
+        	"name" : "Asia",
+        	"children" : 
+        	[
+        		{ "name" : "Bangladesh" },
+        		{ "name" : "China" },
+        		{ "name" : "Guam / Micronesia" },
+        		{ "name" : "Hong Kong" },
+        		{ "name" : "India" },
+        		{ "name" : "Japan" },
+        		{ "name" : "Korea" },
+        		{ "name" : "Kuwait" },
+        		{ "name" : "Lebanon" },
+        		{ "name" : "Malaysia" },
+        		{ "name" : "Pakistan" },
+        		{ "name" : "Philippines" },
+        		{ "name" : "Singapore" },
+        		{ "name" : "Taiwan" },
+        		{ "name" : "Thailand" },
+        		{ "name" : "Vietnam" },
+        	]
+    	},
+    	
+	    {
+        	"name" : "Middle East",
+        	"children" : 
+        	[
+        		{ "name" : "United Arab Emirates" },
+        		{ "name" : "Iran" },
+        		{ "name" : "Iraq" },
+        		{ "name" : "Israel and Palestine" },
+        	]
+    	},
+    	
+	    {
+        	"name" : "Africa",
+        	"children" : 
+        	[
+        		{ "name" : "Egypt" },
+        		{ "name" : "Ethiopia" },
+        		{ "name" : "Ghana" },
+        		{ "name" : "Kenya" },
+        		{ "name" : "Morocco" },
+        		{ "name" : "South Africa" },
+        		{ "name" : "Tunisia" },
+        	]
+    	},
+
+    ]
+}
+
+
+
+
+
