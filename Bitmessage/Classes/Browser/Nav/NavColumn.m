@@ -312,6 +312,7 @@
         
         [self updateActionStrip];
         
+        [self setRowHeight:self.node.nodeSuggestedRowHeight];
     }
 }
 

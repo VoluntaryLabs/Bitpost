@@ -21,17 +21,23 @@
 
 - (NSString *)nodeTitle
 {
-    return @"Sell";
+    return @"(Draft)";
 }
 
 - (NSString *)nodeSubtitle
 {
-    return @"Draft";
+    //return @"Draft";
+    return nil;
 }
 
 - (NSString *)nodeNote
 {
     return self.date.itemDateString;
+}
+
+- (CGFloat)nodeSuggestedWidth
+{
+    return 150;
 }
 
 - (void)delete

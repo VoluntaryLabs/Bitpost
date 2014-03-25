@@ -34,6 +34,7 @@
 - nodeView; // NavColumn view if nil, otherwise an effective preview view
 - (NSImage *)nodeIconForState:(NSString *)aState;
 - (CGFloat)nodeSuggestedWidth;
+- (CGFloat)nodeSuggestedRowHeight;
 - (NSColor *)columnBgColor;
 
 - (BOOL)shouldSelectChildOnAdd;

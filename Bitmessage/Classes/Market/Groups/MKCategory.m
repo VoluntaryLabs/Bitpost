@@ -16,4 +16,15 @@
     return @"categories.json";
 }
 
+- (void)setDict:(NSDictionary *)dict
+{
+    [super setDict:dict];
+    
+    if (self.children.count == 0)
+    {
+        [self setCanPost:YES];
+    }
+    
+}
+
 @end

@@ -311,6 +311,16 @@
     return NO;
 }
 
+- (CGFloat)nodeSuggestedRowHeight
+{
+    if (self.shouldInlineChildren)
+    {
+        return 30;
+    }
+    
+    return 60;
+}
+
 
 
 @end

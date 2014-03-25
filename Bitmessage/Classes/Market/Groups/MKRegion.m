@@ -31,7 +31,8 @@
     
     if (self.children.count == 0)
     {
-        [self addChild:[MKCategory rootInstance]];
+        //[self addChild:[MKCategory rootInstance]];
+        [self setChildren:[MKCategory rootInstance].children];
     }
     
 }

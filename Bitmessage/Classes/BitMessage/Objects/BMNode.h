@@ -34,6 +34,7 @@
 - (NSArray *)inlinedChildren;
 - (BOOL)nodeParentInlines;
 - (BOOL)nodeShouldIndent;
+- (CGFloat)nodeSuggestedRowHeight;
 
 - (BMNode *)childWithTitle:(NSString *)aTitle;
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;

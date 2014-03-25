@@ -19,7 +19,8 @@
     [_rootRegion setName:@"Regions"];
     [self.children addObject:self.rootRegion];
     [_rootRegion updateCounts]; // do this after refresh
-    [_rootRegion setShouldInlineChildren:YES];
+    //[_rootRegion setShouldInlineChildren:YES];
+    //[self setShouldInlineChildren:YES];
     
     /*
     self.rootCategory = (MKCategory *)[MKCategory rootInstance];
@@ -49,7 +50,7 @@
 
 - (CGFloat)nodeSuggestedWidth
 {
-    return 200;
+    return 150;
 }
 
 

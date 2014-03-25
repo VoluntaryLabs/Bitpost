@@ -4,6 +4,8 @@ todo
 - have empty column take up full area
   - [or?] have negative suggested width mean "full width" 
 
+- how to deal with quoting attachments??
+
 - SEARCH
 
 - replace entered BM addresses with labels in compose window

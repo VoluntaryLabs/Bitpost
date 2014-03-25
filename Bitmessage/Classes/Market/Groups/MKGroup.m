@@ -23,7 +23,7 @@
 - (id)init
 {
     self = [super init];
-    self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
+    //self.actions = [NSMutableArray arrayWithObjects:@"add", nil];
     self.count = 0;
     return self;
 }
@@ -149,7 +149,7 @@
 
 - (CGFloat)nodeSuggestedWidth
 {
-    return 200;
+    return 150;
 }
 
 - (NSArray *)groupPath
