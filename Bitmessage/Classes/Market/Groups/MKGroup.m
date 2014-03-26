@@ -8,8 +8,7 @@
 
 #import "MKGroup.h"
 #import "JSONDB.h"
-#import "BMClient.h"
-#import "AppController.h"
+
 
 @implementation MKGroup
 
@@ -132,29 +131,15 @@
     return dict;
 }
 
-- (void)add
-{
-    // find a way to move this to UI layer
-    
-    BMClient *client = [BMClient sharedBMClient];
-    MKMarkets *markets = [client markets];
-    MKSells *sells = [markets sells];
-    MKSell *sell = [sells justAdd];
-    
-    NSArray *nodes = [NSArray arrayWithObjects:client, markets, sells, sell, nil];
-    
-    AppController *app = (AppController *)[[NSApplication sharedApplication] delegate];
-    [app.navView selectNodePath:nodes];
-}
-
 - (CGFloat)nodeSuggestedWidth
 {
-    return 150;
+    return 180;
 }
 
 - (NSArray *)groupPath
 {
-    if ([self.nodeParent isKindOfClass:self.class])
+   // if ([self.nodeParent isKindOfClass:self.class])
+    if ([self.nodeParent respondsToSelector:@selector(groupPath)])
     {
         MKGroup *parentCat = (MKGroup *)self.nodeParent;
         return [[parentCat groupPath] arrayByAddingObject:self.name];

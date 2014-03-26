@@ -58,6 +58,25 @@
     return subscriptions;
 }
 
+// -------------------------------------
+
+- (void)prepareToMessageMerge
+{
+    
+}
+
+- (BOOL)mergeMessage:(BMMessage *)aMessage
+{
+    return NO;
+}
+
+- (void)completeMessageMerge
+{
+    
+}
+
+// -------------------------------------
+
 - (void)add
 {
     BMSubscription *sub = [[BMSubscription alloc] init];
@@ -74,7 +93,7 @@
 
 - (CGFloat)nodeSuggestedWidth
 {
-    return 330.0;
+    return 300.0;
 }
 
 @end

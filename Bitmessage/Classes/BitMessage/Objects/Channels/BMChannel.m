@@ -10,6 +10,7 @@
 #import "BMProxyMessage.h"
 #import "BMAddress.h"
 #import "BMClient.h"
+#import "NSArray+extra.h"
 
 @implementation BMChannel
 
@@ -54,6 +55,9 @@
 
 - (void)fetch
 {
+    // handled by BMReceivedMessages and merge methods
+    
+    /*
     NSMutableArray *children = [NSMutableArray array];
     
     NSArray *messages = [[[BMClient sharedBMClient] messages] received].children;
@@ -69,7 +73,12 @@
     }
     
     [self setChildren:children];
-    
+    */
+}
+
+- (BOOL)shouldOwnMessage:(BMMessage *)aMessage
+{
+    return [aMessage.toAddress isEqualToString:self.address];
 }
 
 // -----------------------------
@@ -192,6 +201,56 @@
     [self justLeave];
     [self create];
     self.isSynced = YES;
+}
+
+// ------------------------------
+
+- (void)prepareToMergeChildren
+{
+    self.mergingChildren = [NSMutableArray array];
+}
+
+- (BOOL)mergeChild:(BMMessage *)aMessage
+{
+    if ([aMessage.toAddress isEqualToString:self.address])
+    {
+        [self.mergingChildren addObject:aMessage];
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (void)completeMergeChildren
+{
+    [self.children mergeWith:self.mergingChildren];
+    [self setChildren:self.children]; // so node parents set
+    [self sortChildren];
+    [self updateUnreadCount];
+    [self postSelfChanged];
+}
+
+- (void)updateUnreadCount
+{
+    _unreadCount = 0;
+    
+    for (BMMessage *message in self.children)
+    {
+        if (![message read])
+        {
+            _unreadCount ++;
+        }
+    }
+}
+
+- (NSString *)nodeNote
+{
+    if (_unreadCount)
+    {
+        return [NSString stringWithFormat:@"%i", (int)_unreadCount];
+    }
+    
+    return nil;
 }
 
 @end

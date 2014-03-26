@@ -46,25 +46,58 @@
     [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
 }
 
+- (BMClient *)client
+{
+    return (BMClient *)self.nodeParent;
+}
+
+- (NSMutableArray *)filterMessages:(NSMutableArray *)messages
+{
+    NSMutableArray *results = [NSMutableArray array];
+
+    //BMSubscriptions *subscriptions = self.client.subscriptions;
+    //[subscriptions prepareToMessageMerge];
+    
+    BMChannels *channels = self.client.channels;
+    [channels prepareToMergeChildren];
+    
+    for (BMReceivedMessage *message in messages)
+    {
+        // remove deleted
+        if (![self.client.deletedMessagesDB hasMarked:message.msgid])
+        {
+            /*if ([subscriptions mergeMessage:message])
+            {
+                continue;
+            }
+            else */
+            if ([channels mergeChild:message])
+            {
+                continue;
+            }
+            else
+            {
+                [results addObject:message];
+            }
+        }
+    }
+    
+    //[subscriptions completeMessageMerge];
+    [channels completeMergeChildren];
+    
+    return results;
+}
+
 - (NSMutableArray *)getAllInboxMessages
 {
     NSMutableArray *messages = [[[BMClient sharedBMClient] messages]
             getMessagesWithMethod:@"getAllInboxMessages"
             andKey:@"inboxMessages"
             class:[BMReceivedMessage class]];
-
-    // remove deleted
     
-    NSMutableArray *results = [NSMutableArray array];
-    for (BMReceivedMessage *message in messages)
-    {
-        if (![self.client.deletedMessagesDB hasMarked:message.msgid])
-        {
-            [results addObject:message];
-        }
-    }
+    messages = [self filterMessages:messages];
     
-    return results;
+    return messages;
 }
 
 - (NSString *)nodeTitle

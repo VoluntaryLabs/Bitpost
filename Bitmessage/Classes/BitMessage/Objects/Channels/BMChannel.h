@@ -7,10 +7,13 @@
 //
 
 #import "BMAddressed.h"
+#import "BMMessage.h"
 
 @interface BMChannel : BMAddressed
 
+@property (retain, nonatomic) NSMutableArray *mergingChildren;
 @property (retain, nonatomic) NSString *passphrase;
+@property (assign, nonatomic) NSInteger unreadCount;
 
 + (BMChannel *)withDict:(NSDictionary *)dict;
 
@@ -20,5 +23,11 @@
 - (void)create;
 //- (void)join;
 - (void)delete;
+
+/// merge
+
+- (void)prepareToMergeChildren;
+- (BOOL)mergeChild:(BMMessage *)aMessage;
+- (void)completeMergeChildren;
 
 @end

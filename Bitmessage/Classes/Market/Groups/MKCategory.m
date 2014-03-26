@@ -7,7 +7,8 @@
 //
 
 #import "MKCategory.h"
-
+#import "BMClient.h"
+#import "AppController.h"
 
 @implementation MKCategory
 
@@ -24,7 +25,23 @@
     {
         [self setCanPost:YES];
     }
+}
+
+- (void)add
+{
+    // find a way to move this to UI layer
     
+    BMClient *client = [BMClient sharedBMClient];
+    MKMarkets *markets = [client markets];
+    MKSells *sells = [markets sells];
+    MKSell *sell = [sells justAdd];
+    
+    NSArray *nodes = [NSArray arrayWithObjects:client, markets, sells, sell, nil];
+    
+    NSLog(@"%@", self.groupPath);
+    
+    AppController *app = (AppController *)[[NSApplication sharedApplication] delegate];
+    [app.navView selectNodePath:nodes];
 }
 
 @end

@@ -20,6 +20,8 @@
     self.actions  = [NSMutableArray array];
     //[self.actions addObject:@"testAction"];
     
+    self.shouldSortChildren = YES;
+    
     return self;
 }
 
@@ -121,12 +123,15 @@
 
 - (void)sortChildren
 {
+    if (self.shouldSortChildren)
+    {
     NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle"
                                                              ascending:YES
                                                               selector:@selector(caseInsensitiveCompare:)];
 
     //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
     [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    }
 }
 
 - (BMNode *)childWithTitle:(NSString *)aTitle

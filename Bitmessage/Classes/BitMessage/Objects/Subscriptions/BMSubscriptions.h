@@ -7,9 +7,12 @@
 //
 
 #import "BMNode.h"
+#import "BMMessage.h"
 
 @interface BMSubscriptions : BMNode
 
-
+- (void)prepareToMessageMerge;
+- (BOOL)mergeMessage:(BMMessage *)aMessage;
+- (void)completeMessageMerge;
 
 @end

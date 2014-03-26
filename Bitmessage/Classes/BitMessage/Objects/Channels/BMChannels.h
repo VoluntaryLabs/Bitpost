@@ -13,4 +13,10 @@
 
 - (BMChannel *)channelWithPassphraseJoinIfNeeded:(NSString *)aTitle;
 
+/// merge
+
+- (void)prepareToMergeChildren;
+- (BOOL)mergeChild:(BMMessage *)aMessage;
+- (void)completeMergeChildren;
+
 @end

@@ -10,6 +10,7 @@
 #import "BMProxyMessage.h"
 #import "BMIdentity.h"
 //#import "BMAddressed.h"
+#import "NSString+BM.h"
 
 @implementation BMIdentities
 
@@ -25,6 +26,11 @@
 {
     [self setChildren:[self listAddresses2]];
     [self sortChildren];
+}
+
+- (BMClient *)client
+{
+    return (BMClient *)self.nodeParent;
 }
 
 - (NSMutableArray *)listAddresses2 // identities
@@ -45,12 +51,19 @@
     
     for (NSDictionary *dict in dicts)
     {
-        BMIdentity *child = [BMIdentity withDict:dict];
-        
-        if (![child.label hasPrefix:@"[chan] "])
+        NSString *label = [[dict objectForKey:@"label"] decodedBase64];
+                
+        if (![label hasPrefix:@"[chan] "])
         {
+            BMIdentity *child = [BMIdentity withDict:dict];
             [identities addObject:child];
         }
+        /*
+        else
+        {
+            [self.client.channels addChild:child];
+        }
+         */
     }
     
     //NSLog(@"\n\n contacts = %@", contacts);

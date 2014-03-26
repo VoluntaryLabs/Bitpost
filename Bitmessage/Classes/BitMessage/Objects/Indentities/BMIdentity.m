@@ -41,7 +41,6 @@
     self.address = [dict objectForKey:@"address"];
 }
 
-
 - (NSString *)nodeTitle
 {
     return self.label;

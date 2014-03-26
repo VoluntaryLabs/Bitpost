@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *actions;
 @property (strong, nonatomic) NSView *nodeView;
 @property (assign, nonatomic) BOOL shouldSelectChildOnAdd;
+@property (assign, nonatomic) BOOL shouldSortChildren;
 
 - (NSUInteger)nodeDepth;
 

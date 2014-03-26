@@ -29,18 +29,20 @@ static BMClient *sharedBMClient;
 {
     self = [super init];
     
+    self.shouldSortChildren = NO;
+    
     self.identities    = [[BMIdentities alloc] init];
     self.contacts      = [[BMContacts alloc] init];
     self.messages      = [[BMMessages alloc] init];
     self.subscriptions = [[BMSubscriptions alloc] init];
     self.channels      = [[BMChannels alloc] init];
     
-    [self.children addObject:self.messages.received];
-    [self.children addObject:self.messages.sent];
-    [self.children addObject:self.contacts];
-    [self.children addObject:self.identities];
-    [self.children addObject:self.channels];
-    [self.children addObject:self.subscriptions];
+    [self addChild:self.messages.received];
+    [self addChild:self.messages.sent];
+    [self addChild:self.contacts];
+    [self addChild:self.identities];
+    [self addChild:self.channels];
+    [self addChild:self.subscriptions];
 
     self.readMessagesDB = [[BMDatabase alloc] init];
     [self.readMessagesDB setName:@"readMessagesDB"];
@@ -51,8 +53,14 @@ static BMClient *sharedBMClient;
     // market
     
     self.markets = [[MKMarkets alloc] init];
-    [self.children addObject:self.markets];
+    [self addChild:self.markets];
 
+    // fetch these addresses first so we can filter messages
+    // when we fetch them
+    
+    [self.channels fetch];
+    [self.subscriptions fetch];
+    
     [self deepFetch];
 
     return self;
