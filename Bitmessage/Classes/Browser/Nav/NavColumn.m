@@ -149,10 +149,12 @@
     NSInteger row = self.tableView.selectedRow;
     NSInteger maxRow = self.allChildren.count - 1;
     
+    /*
     if (row < 0)
     {
         row = 0;
     }
+    */
     
     if (row > maxRow)
     {
@@ -228,9 +230,12 @@
 
 - (void)selectRowIndex:(NSInteger)rowIndex
 {
-    [self tableView:self.tableView shouldSelectRow:rowIndex];
-    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
-    _lastSelectedChild = self.selectedNode;
+    if (rowIndex != -1)
+    {
+        [self tableView:self.tableView shouldSelectRow:rowIndex];
+        [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
+        _lastSelectedChild = self.selectedNode;
+    }
 }
 
 - (void)justSelectNode:(id)aNode

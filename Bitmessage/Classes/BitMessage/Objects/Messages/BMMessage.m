@@ -221,6 +221,7 @@
         [self.client.readMessagesDB mark:self.msgid];
         [self setReadState:YES];
         //[self postParentChanged];
+        
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
     }

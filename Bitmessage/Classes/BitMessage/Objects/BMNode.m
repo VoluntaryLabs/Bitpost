@@ -125,12 +125,12 @@
 {
     if (self.shouldSortChildren)
     {
-    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle"
-                                                             ascending:YES
-                                                              selector:@selector(caseInsensitiveCompare:)];
+        NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle"
+                                                                 ascending:YES
+                                                                  selector:@selector(caseInsensitiveCompare:)];
 
-    //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
-    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+        //NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"nodeTitle" ascending:YES];
+        [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     }
 }
 

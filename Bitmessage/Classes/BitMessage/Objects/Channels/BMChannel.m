@@ -205,6 +205,12 @@
 
 // ------------------------------
 
+- (void)sortChildren
+{
+    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"receivedTime" ascending:NO];
+    [self.children sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+}
+
 - (void)prepareToMergeChildren
 {
     self.mergingChildren = [NSMutableArray array];
