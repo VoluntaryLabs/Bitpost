@@ -26,6 +26,7 @@
 {
     [self.children mergeWith:[self listAddresses2]];
     [self setChildren:self.children]; // so node parents set
+    [self sortChildren];
 }
 
 - (NSMutableArray *)listAddresses2 // identities

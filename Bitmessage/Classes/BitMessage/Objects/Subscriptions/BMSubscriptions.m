@@ -26,7 +26,7 @@
 {
     [self.children mergeWith:[self listSubscriptions]];
     [self setChildren:self.children]; // so node parents set
-    //[self sortChildren];
+    [self sortChildren];
 }
 
 - (void)sortChildren

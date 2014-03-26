@@ -183,8 +183,6 @@
     _lastSelectedChild = self.selectedNode;
     
     //[self selectRowIndex:row];
-    //[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
-    //[self.navView reloadedColumn:self];
 }
 
 - (void)nodeRemovedChild:(NSNotification *)note
@@ -198,7 +196,7 @@
     
     if (node)
     {
-        if([node shouldSelectChildOnAdd])
+        if ([node shouldSelectChildOnAdd])
         {
             id child = [[note userInfo] objectForKey:@"child"];
             /*
@@ -207,11 +205,21 @@
                 NSLog(@"child.label = '%@'", [child label]);
             }
             */
-            _lastSelectedChild = child;
+        
+            [self.tableView reloadData];
+            
+            NSInteger row = [self rowForNode:child];
+            [self selectRowIndex:row];
+            //_lastSelectedChild = self.selectedNode;
+            return;
+        }
+        else
+        {
+            [self reloadData];
         }
     }
     
-    [self reloadData];
+
 }
 
 - (void)nodeChanged:(NSNotification *)note

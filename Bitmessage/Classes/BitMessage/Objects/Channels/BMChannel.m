@@ -201,6 +201,7 @@
     [self justLeave];
     [self create];
     self.isSynced = YES;
+    [self postParentChanged];
 }
 
 // ------------------------------
