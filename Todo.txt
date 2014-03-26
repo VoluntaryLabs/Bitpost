@@ -1,7 +1,9 @@
 
 todo
 
-- fix bug with delay in display when message is unread
+- fix BMMEssageView resizing
+
+- merge address requests?
 
 
 - BMChannel and subscriptions should not be BMAddressed

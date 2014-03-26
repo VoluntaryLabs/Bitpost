@@ -41,6 +41,7 @@
 {
     CGFloat h = self.actionStripHeight;
     self.actionStrip = [[NSView alloc] initWithFrame:NSMakeRect(0, self.height - h, self.width, h)];
+    [self.actionStrip setAutoresizingMask:NSViewMinYMargin];
     [self addSubview:self.actionStrip];
     
     // scrollview
