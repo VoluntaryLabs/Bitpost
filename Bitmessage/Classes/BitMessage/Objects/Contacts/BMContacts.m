@@ -65,7 +65,7 @@
 - (void)add
 {
     [self justAdd];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
+    [self postSelfChanged];
 }
 
 - (NSString *)nodeTitle

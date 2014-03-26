@@ -219,8 +219,14 @@
 
 - (void)postSelfChanged
 {
+    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+}
+
+- (void)justPostSelfChanged
+{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
 }
+
 
 - (NSView *)nodeView
 {

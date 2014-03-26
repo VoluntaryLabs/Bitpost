@@ -24,7 +24,7 @@
 - (BOOL)canHandleAction:(SEL)aSel;
 - (void)handleAction:(SEL)aSel;
 
-- (void)reloadedColumn:(NavColumn *)aColumn;
+//- (void)reloadedColumn:(NavColumn *)aColumn;
 
 - (void)leftArrowFrom:aColumn;
 - (void)rightArrowFrom:aColumn;

@@ -10,6 +10,7 @@
 #import "BMChannel.h"
 #import "BMProxyMessage.h"
 #import "BMMessage.h"
+#import "NSArray+extra.h"
 
 @implementation BMChannels
 
@@ -23,8 +24,8 @@
 
 - (void)fetch
 {
-    [self setChildren:[self listAddresses2]];
-    [self sortChildren];
+    [self.children mergeWith:[self listAddresses2]];
+    [self setChildren:self.children]; // so node parents set
 }
 
 - (NSMutableArray *)listAddresses2 // identities

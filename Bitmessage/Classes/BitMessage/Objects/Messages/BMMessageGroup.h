@@ -12,9 +12,16 @@
 @interface BMMessageGroup : BMNode
 
 @property (strong, nonatomic) NSMutableArray *mergingChildren;
+@property (assign, nonatomic) NSInteger unreadCount;
 
 - (void)prepareToMergeChildren;
 - (BOOL)mergeChild:(BMMessage *)aMessage;
 - (void)completeMergeChildren;
+
+// ----------------------
+
+- (void)updateUnreadCount;
+- (void)incrementUnreadCount;
+- (void)decrementUnreadCount;
 
 @end

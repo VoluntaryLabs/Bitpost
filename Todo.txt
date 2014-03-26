@@ -1,6 +1,14 @@
 
 todo
 
+- fix bug with delay in display when message is unread
+
+
+- BMChannel and subscriptions should not be BMAddressed
+  - have them own addresses
+  - have BMChannels/BMSubscriptions have their own DBs
+  - list of subs and chans from server only indictation whether they are active
+
 - have empty column take up full area
   - [or?] have negative suggested width mean "full width" 
 

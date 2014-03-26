@@ -218,12 +218,13 @@
 {
     if (!self.read)
     {
+        NSLog(@"markAsRead");
         [self.client.readMessagesDB mark:self.msgid];
         [self setReadState:YES];
+        [(BMMessageGroup *)self.nodeParent decrementUnreadCount];
         //[self postParentChanged];
-        
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
+        //[[NSNotificationCenter defaultCenter]
+        //    postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self.parentNode];
     }
 }
 

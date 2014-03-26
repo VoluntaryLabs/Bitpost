@@ -29,7 +29,6 @@
 		AA21F9F618D7FF1500D0F064 /* JSONDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F518D7FF1500D0F064 /* JSONDB.m */; };
 		AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F818D809D000D0F064 /* MKBuy.m */; };
 		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
-		AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */; };
 		AA2AC85B18B814A3008CEEB4 /* NSObject+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */; };
 		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
 		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
@@ -47,9 +46,6 @@
 		AA31563518AAE02D0017E94F /* BitmessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31563418AAE02D0017E94F /* BitmessageTests.m */; };
 		AA31568818AAE0E00017E94F /* NSArray+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564218AAE0E00017E94F /* NSArray+extra.m */; };
 		AA31568918AAE0E00017E94F /* NSString+BM.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564418AAE0E00017E94F /* NSString+BM.m */; };
-		AA31568A18AAE0E00017E94F /* BMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564718AAE0E00017E94F /* BMAddress.m */; };
-		AA31568B18AAE0E00017E94F /* BMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564918AAE0E00017E94F /* BMClient.m */; };
-		AA31568C18AAE0E00017E94F /* BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564B18AAE0E00017E94F /* BMNode.m */; };
 		AA31568D18AAE0E00017E94F /* BMContact.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31564E18AAE0E00017E94F /* BMContact.m */; };
 		AA31568E18AAE0E00017E94F /* BMContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31565018AAE0E00017E94F /* BMContacts.m */; };
 		AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31565318AAE0E00017E94F /* BMIdentities.m */; };
@@ -124,6 +120,11 @@
 		AA94775518E24B90004EFC7A /* BMChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94775218E24B90004EFC7A /* BMChannel.m */; };
 		AA94775618E24B90004EFC7A /* BMChannels.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94775418E24B90004EFC7A /* BMChannels.m */; };
 		AA94775918E25387004EFC7A /* BMMessageGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94775818E25387004EFC7A /* BMMessageGroup.m */; };
+		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
+		AA94776518E2697E004EFC7A /* BMAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94775E18E2697E004EFC7A /* BMAddress.m */; };
+		AA94776618E2697E004EFC7A /* BMAddressed.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94776018E2697E004EFC7A /* BMAddressed.m */; };
+		AA94776718E2697E004EFC7A /* BMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94776218E2697E004EFC7A /* BMClient.m */; };
+		AA94776818E2697E004EFC7A /* BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94776418E2697E004EFC7A /* BMNode.m */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -216,8 +217,6 @@
 		AA21F9F818D809D000D0F064 /* MKBuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBuy.m; sourceTree = "<group>"; };
 		AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchField.h; sourceTree = "<group>"; };
 		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
-		AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressed.h; sourceTree = "<group>"; };
-		AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddressed.m; sourceTree = "<group>"; };
 		AA2AC85918B814A3008CEEB4 /* NSObject+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+extra.h"; sourceTree = "<group>"; };
 		AA2AC85A18B814A3008CEEB4 /* NSObject+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+extra.m"; sourceTree = "<group>"; };
 		AA2AC85D18B8175A008CEEB4 /* BMAddressedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressedView.h; sourceTree = "<group>"; };
@@ -250,12 +249,6 @@
 		AA31564218AAE0E00017E94F /* NSArray+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+extra.m"; sourceTree = "<group>"; };
 		AA31564318AAE0E00017E94F /* NSString+BM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BM.h"; sourceTree = "<group>"; };
 		AA31564418AAE0E00017E94F /* NSString+BM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BM.m"; sourceTree = "<group>"; };
-		AA31564618AAE0E00017E94F /* BMAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddress.h; sourceTree = "<group>"; };
-		AA31564718AAE0E00017E94F /* BMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddress.m; sourceTree = "<group>"; };
-		AA31564818AAE0E00017E94F /* BMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMClient.h; sourceTree = "<group>"; };
-		AA31564918AAE0E00017E94F /* BMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMClient.m; sourceTree = "<group>"; };
-		AA31564A18AAE0E00017E94F /* BMNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNode.h; sourceTree = "<group>"; };
-		AA31564B18AAE0E00017E94F /* BMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNode.m; sourceTree = "<group>"; };
 		AA31564D18AAE0E00017E94F /* BMContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContact.h; sourceTree = "<group>"; };
 		AA31564E18AAE0E00017E94F /* BMContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContact.m; sourceTree = "<group>"; };
 		AA31564F18AAE0E00017E94F /* BMContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMContacts.h; sourceTree = "<group>"; };
@@ -383,6 +376,15 @@
 		AA94775418E24B90004EFC7A /* BMChannels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMChannels.m; sourceTree = "<group>"; };
 		AA94775718E25387004EFC7A /* BMMessageGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMMessageGroup.h; sourceTree = "<group>"; };
 		AA94775818E25387004EFC7A /* BMMessageGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMMessageGroup.m; sourceTree = "<group>"; };
+		AA94775A18E268D3004EFC7A /* forward_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_active.png; sourceTree = "<group>"; };
+		AA94775D18E2697E004EFC7A /* BMAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddress.h; sourceTree = "<group>"; };
+		AA94775E18E2697E004EFC7A /* BMAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddress.m; sourceTree = "<group>"; };
+		AA94775F18E2697E004EFC7A /* BMAddressed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressed.h; sourceTree = "<group>"; };
+		AA94776018E2697E004EFC7A /* BMAddressed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAddressed.m; sourceTree = "<group>"; };
+		AA94776118E2697E004EFC7A /* BMClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMClient.h; sourceTree = "<group>"; };
+		AA94776218E2697E004EFC7A /* BMClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMClient.m; sourceTree = "<group>"; };
+		AA94776318E2697E004EFC7A /* BMNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNode.h; sourceTree = "<group>"; };
+		AA94776418E2697E004EFC7A /* BMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNode.m; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -626,14 +628,7 @@
 		AA31564518AAE0E00017E94F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				AA31564A18AAE0E00017E94F /* BMNode.h */,
-				AA31564B18AAE0E00017E94F /* BMNode.m */,
-				AA31564818AAE0E00017E94F /* BMClient.h */,
-				AA31564918AAE0E00017E94F /* BMClient.m */,
-				AA2AC85318B80CF5008CEEB4 /* BMAddressed.h */,
-				AA2AC85418B80CF5008CEEB4 /* BMAddressed.m */,
-				AA31564618AAE0E00017E94F /* BMAddress.h */,
-				AA31564718AAE0E00017E94F /* BMAddress.m */,
+				AA94775C18E2697E004EFC7A /* Base */,
 				AA31564C18AAE0E00017E94F /* Contacts */,
 				AA31565118AAE0E00017E94F /* Indentities */,
 				AA31565B18AAE0E00017E94F /* Messages */,
@@ -668,6 +663,8 @@
 		AA31565B18AAE0E00017E94F /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				AA94775718E25387004EFC7A /* BMMessageGroup.h */,
+				AA94775818E25387004EFC7A /* BMMessageGroup.m */,
 				AA31565C18AAE0E00017E94F /* BMMessage.h */,
 				AA31565D18AAE0E00017E94F /* BMMessage.m */,
 				AA31565E18AAE0E00017E94F /* BMMessages.h */,
@@ -680,8 +677,6 @@
 				AAF40CB718B59FF7005BA55E /* BMSentMessage.m */,
 				AAF40CB918B5A00A005BA55E /* BMReceivedMessage.h */,
 				AAF40CBA18B5A00A005BA55E /* BMReceivedMessage.m */,
-				AA94775718E25387004EFC7A /* BMMessageGroup.h */,
-				AA94775818E25387004EFC7A /* BMMessageGroup.m */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -978,9 +973,25 @@
 			path = Channels;
 			sourceTree = "<group>";
 		};
+		AA94775C18E2697E004EFC7A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				AA94775D18E2697E004EFC7A /* BMAddress.h */,
+				AA94775E18E2697E004EFC7A /* BMAddress.m */,
+				AA94775F18E2697E004EFC7A /* BMAddressed.h */,
+				AA94776018E2697E004EFC7A /* BMAddressed.m */,
+				AA94776118E2697E004EFC7A /* BMClient.h */,
+				AA94776218E2697E004EFC7A /* BMClient.m */,
+				AA94776318E2697E004EFC7A /* BMNode.h */,
+				AA94776418E2697E004EFC7A /* BMNode.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
 			isa = PBXGroup;
 			children = (
+				AA94775A18E268D3004EFC7A /* forward_active.png */,
 				AAF40CAE18B56183005BA55E /* refresh_active.png */,
 				AAF40CAF18B56183005BA55E /* refresh_inactive.png */,
 				AA1AA69A18B41C9E00AE72F6 /* message_active.png */,
@@ -1170,6 +1181,7 @@
 				AA3156EA18AAE0E60017E94F /* BMContacts_inactive.png in Resources */,
 				AAE61DD518CA8CCE00C6AEB7 /* composeicon.png in Resources */,
 				AA3156E018AAE0E60017E94F /* icon_128x128@2x.png in Resources */,
+				AA94775B18E268D3004EFC7A /* forward_active.png in Resources */,
 				AA3156EE18AAE0E60017E94F /* BMReceivedMessages_inactive.png in Resources */,
 				AA31561518AAE02D0017E94F /* InfoPlist.strings in Resources */,
 				AAB79BC918AB14170041B6B1 /* add_active.png in Resources */,
@@ -1250,18 +1262,17 @@
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA94775618E24B90004EFC7A /* BMChannels.m in Sources */,
+				AA94776818E2697E004EFC7A /* BMNode.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
 				AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */,
 				AAD284A518C01EE500FC0C6F /* AppController.m in Sources */,
 				AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */,
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
 				AA04868C18DD02FF0034018E /* NSDate+extra.m in Sources */,
-				AA31568B18AAE0E00017E94F /* BMClient.m in Sources */,
 				AA70C80618D0345F001D77FB /* InfoButton.m in Sources */,
 				AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */,
 				AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */,
 				AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */,
-				AA2AC85518B80CF5008CEEB4 /* BMAddressed.m in Sources */,
 				AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */,
 				AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */,
 				AA94774F18E0E2BB004EFC7A /* MKRegion.m in Sources */,
@@ -1273,11 +1284,12 @@
 				AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
-				AA31568C18AAE0E00017E94F /* BMNode.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,
 				AA04869818DD0A320034018E /* MKSellView.m in Sources */,
+				AA94776718E2697E004EFC7A /* BMClient.m in Sources */,
 				AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */,
 				AA70C83B18D27127001D77FB /* MKMarkets.m in Sources */,
+				AA94776618E2697E004EFC7A /* BMAddressed.m in Sources */,
 				AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */,
 				AA31568E18AAE0E00017E94F /* BMContacts.m in Sources */,
 				AAD284A918C01EE500FC0C6F /* InfoPanelController.m in Sources */,
@@ -1294,6 +1306,7 @@
 				AA31568D18AAE0E00017E94F /* BMContact.m in Sources */,
 				AA04868918DCF3140034018E /* MKSell.m in Sources */,
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
+				AA94776518E2697E004EFC7A /* BMAddress.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
 				AA70C80318CE5E8D001D77FB /* NSMutableAttributedString+extra.m in Sources */,
@@ -1302,7 +1315,6 @@
 				AA21F9F618D7FF1500D0F064 /* JSONDB.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AAD284AA18C01EE500FC0C6F /* ProgressController.m in Sources */,
-				AA31568A18AAE0E00017E94F /* BMAddress.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

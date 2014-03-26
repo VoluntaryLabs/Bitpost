@@ -6,13 +6,11 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMNode.h"
+#import "BMMessageGroup.h"
 
-
-@interface BMReceivedMessages : BMNode
+@interface BMReceivedMessages : BMMessageGroup
 
 @property (assign, nonatomic) BOOL hasFetchedBefore;
 
-- (NSInteger)unreadCount;
 
 @end

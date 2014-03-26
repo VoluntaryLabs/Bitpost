@@ -43,7 +43,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(unreadCountChanged:)
                                                  name:@"BMReceivedMessagesUnreadCountChanged"
-                                               object:nil];
+                                               object:BMClient.sharedBMClient.messages.received];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];    
 }
@@ -62,7 +62,7 @@
     [self.navView.window setTitle:@""];
 
     [self checkForNewUser];
-    [self startRefreshTimer];
+    //[self startRefreshTimer];
 }
 
 - (void)checkForNewUser

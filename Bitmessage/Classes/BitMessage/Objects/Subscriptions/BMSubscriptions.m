@@ -9,6 +9,7 @@
 #import "BMSubscriptions.h"
 #import "BMProxyMessage.h"
 #import "BMSubscription.h"
+#import "NSArray+extra.h"
 
 @implementation BMSubscriptions
 
@@ -23,8 +24,9 @@
 
 - (void)fetch
 {
-    [self setChildren:[self listSubscriptions]];
-    [self sortChildren];
+    [self.children mergeWith:[self listSubscriptions]];
+    [self setChildren:self.children]; // so node parents set
+    //[self sortChildren];
 }
 
 - (void)sortChildren

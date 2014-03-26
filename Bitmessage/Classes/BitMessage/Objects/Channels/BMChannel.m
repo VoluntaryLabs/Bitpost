@@ -236,6 +236,8 @@
     [self postSelfChanged];
 }
 
+// --- unread - MERGE this with BMMessageGroup ---------
+
 - (void)updateUnreadCount
 {
     _unreadCount = 0;
@@ -247,6 +249,17 @@
             _unreadCount ++;
         }
     }
+}
+
+- (void)decrementUnreadCount
+{
+    _unreadCount --;
+    [self changedUnreadCount];
+}
+
+- (void)changedUnreadCount
+{
+    [self postParentChanged];
 }
 
 - (NSString *)nodeNote

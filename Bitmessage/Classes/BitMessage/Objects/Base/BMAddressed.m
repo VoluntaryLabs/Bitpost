@@ -50,6 +50,25 @@
     self.address = [dict objectForKey:@"address"];
 }
 
+// --------------------------
+
+- (NSUInteger)hash
+{
+    return [self.address hash];
+}
+
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[BMAddressed class]])
+    {
+        return NO;
+    }
+    
+    return [_address isEqual:[(BMAddressed *)object address]];
+}
+
+// -----------------------------
+
 - (BOOL)hasUnsetLabel
 {
     return [self.label isEqualToString:[[self class] defaultLabel]];

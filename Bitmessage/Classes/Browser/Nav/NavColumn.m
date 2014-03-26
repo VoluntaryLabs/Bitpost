@@ -146,15 +146,10 @@
 
 - (void)reloadData
 {
+    BOOL needsNavUpdate = NO;
+    
     NSInteger row = self.tableView.selectedRow;
     NSInteger maxRow = self.allChildren.count - 1;
-    
-    /*
-    if (row < 0)
-    {
-        row = 0;
-    }
-    */
     
     if (row > maxRow)
     {
@@ -168,36 +163,31 @@
         NSInteger nodeRow = [self rowForNode:_lastSelectedChild];
         //NSLog(@"get _lastSelectedChild %@ row %i", _lastSelectedChild, (int)nodeRow);
         
-        if (nodeRow != -1)
+        if (nodeRow == -1)
+        {
+            needsNavUpdate = YES;
+        }
+        else
         {
             row = nodeRow;
         }
     }
+
+    if (needsNavUpdate && row != -1)
+    {
+        [self tableView:self.tableView shouldSelectRow:row];
+    }
     
-    [self selectRowIndex:row];
+    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:row] byExtendingSelection:NO];
+    _lastSelectedChild = self.selectedNode;
+    
+    //[self selectRowIndex:row];
     //[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow] byExtendingSelection:NO];
-    [self.navView reloadedColumn:self];
+    //[self.navView reloadedColumn:self];
 }
 
 - (void)nodeRemovedChild:(NSNotification *)note
 {
-    // note should ideally include hint at next to select in case
-    // children change before notification is received?
-    
-    /*
-    id nextObject = [[note userInfo] objectForKey:@"nextObjectHint"];
-    
-    if (nextObject)
-    {
-        NSInteger row = [self rowForNode:nextObject];
-        
-        if (row != -1)
-        {
-            [self selectRowIndex:row];
-        }
-    }
-    */
-
     [self reloadData];
 }
 
@@ -494,8 +484,9 @@
     }
     
     _lastSelectedChild = node;
-    //[self.navView shouldSelectNode:node inColumn:self];
-    return [self.navView shouldSelectNode:node inColumn:self];
+    [self.navView shouldSelectNode:node inColumn:self];
+    
+    return YES;
 }
 
 /*

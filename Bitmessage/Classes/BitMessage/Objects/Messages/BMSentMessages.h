@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMNode.h"
+#import "BMMessageGroup.h"
 
-@interface BMSentMessages : BMNode
+@interface BMSentMessages : BMMessageGroup
 
 
 @end

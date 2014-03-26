@@ -97,7 +97,7 @@
     NSLog(@"createRandomAddress response %@", response);
     [self fetch];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"BMNodeChanged" object:self];
+    [self postSelfChanged];
 }
 
 - (BMIdentity *)firstIdentity

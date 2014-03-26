@@ -186,10 +186,12 @@
     [lastColumn handleAction:aSel];
 }
 
+/*
 - (void)reloadedColumn:(NavColumn *)aColumn
 {
     //[self updateActionStrip];
 }
+*/
 
 - (id <NavNode>)lastNode
 {

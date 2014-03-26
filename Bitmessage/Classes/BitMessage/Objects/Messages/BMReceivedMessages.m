@@ -12,6 +12,8 @@
 #import "NSArray+extra.h"
 #import "BMMessage.h"
 
+
+
 @implementation BMReceivedMessages
 
 - (id)init
@@ -24,7 +26,6 @@
 
 - (void)fetch
 {
-    NSInteger lastUnreadCount = self.unreadCount;
     
     //self.children = [self getAllInboxMessages];
     [self.children mergeWith:[self getAllInboxMessages]];
@@ -32,10 +33,20 @@
     
     [self sortChildren];
     
+    [self updateUnreadCount];
+}
+
+- (void)updateUnreadCount
+{
+    NSInteger lastUnreadCount = self.unreadCount;
+
+    [super updateUnreadCount];
+
     if (!_hasFetchedBefore && (lastUnreadCount != self.unreadCount))
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"BMReceivedMessagesUnreadCountChanged" object:self];
     }
+    
     
     _hasFetchedBefore = YES;
 }
@@ -103,21 +114,6 @@
 - (NSString *)nodeTitle
 {
     return @"Inbox";
-}
-
-- (NSInteger)unreadCount
-{
-    NSInteger unreadCount = 0;
-    
-    for (BMMessage *message in self.children)
-    {
-        if (![message read])
-        {
-            unreadCount ++;
-        }
-    }
-    
-    return unreadCount;
 }
 
 - (BOOL)canSearch
