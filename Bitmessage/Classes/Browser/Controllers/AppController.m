@@ -62,7 +62,7 @@
     [self.navView.window setTitle:@""];
 
     [self checkForNewUser];
-    //[self startRefreshTimer];
+    [self startRefreshTimer];
 }
 
 - (void)checkForNewUser

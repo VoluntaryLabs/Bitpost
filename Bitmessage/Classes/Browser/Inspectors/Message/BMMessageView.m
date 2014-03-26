@@ -111,8 +111,8 @@
     //[indented setFirstLineHeadIndent:45.0];
     [indented setLineBreakMode:NSLineBreakByWordWrapping];
 
-    //[self.message markAsRead];
-    [self.message performSelector:@selector(markAsRead) withObject:nil afterDelay:0];
+    [self.message markAsRead];
+    //[self.message performSelector:@selector(markAsRead) withObject:nil afterDelay:0];
     
     NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc]
                                                 initWithString:[NSString stringWithFormat:@"%@\n", self.message.subjectString]
