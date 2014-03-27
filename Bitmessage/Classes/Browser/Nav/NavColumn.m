@@ -199,18 +199,9 @@
         if ([node shouldSelectChildOnAdd])
         {
             id child = [[note userInfo] objectForKey:@"child"];
-            /*
-            if ([child respondsToSelector:@selector(label)])
-            {
-                NSLog(@"child.label = '%@'", [child label]);
-            }
-            */
-        
             [self.tableView reloadData];
-            
             NSInteger row = [self rowForNode:child];
             [self selectRowIndex:row];
-            //_lastSelectedChild = self.selectedNode;
             return;
         }
         else
@@ -218,8 +209,6 @@
             [self reloadData];
         }
     }
-    
-
 }
 
 - (void)nodeChanged:(NSNotification *)note
@@ -404,6 +393,7 @@
     //aView = [[ColoredView alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
     //[(ColoredView *)aView setBackgroundColor:[NSColor redColor]];
     [self setAutoresizesSubviews:YES];
+    [self setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     [aView setAutoresizingMask:aView.autoresizingMask | NSViewWidthSizable];
     
     [self.scrollView removeFromSuperview];
