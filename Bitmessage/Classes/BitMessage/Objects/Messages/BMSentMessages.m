@@ -30,6 +30,7 @@
     [self.children mergeWith:[self getAllSentMessages]];
     [self setChildren:self.children]; // so node parents set
     [self sortChildren];
+    [self updateUnreadCount];
     
     // hack to use unread color
 

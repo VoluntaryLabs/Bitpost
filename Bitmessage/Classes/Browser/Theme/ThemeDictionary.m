@@ -24,12 +24,6 @@
     return [NSColor withArray:colorArray];
 }
 
-// column
-
-- (NSColor *)columnBgColor
-{
-    return [self colorForKey:@"columnBgColor"];
-}
 
 // read
 
@@ -45,26 +39,26 @@
 
 // text
 
-- (NSColor *)textActiveColor
+- (NSColor *)activeTextColor
 {
-    return [self colorForKey:@"textActiveColor"];
+    return [self colorForKey:@"activeTextColor"];
 }
 
-- (NSColor *)textInactiveColor
+- (NSColor *)inactiveTextColor
 {
-    return [self colorForKey:@"textInactiveColor"];
+    return [self colorForKey:@"inactiveTextColor"];
 }
 
 // background
 
-- (NSColor *)bgActiveColor
+- (NSColor *)activeBgColor
 {
-    return [self colorForKey:@"bgActiveColor"];
+    return [self colorForKey:@"activeBgColor"];
 }
 
-- (NSColor *)bgInactiveColor
+- (NSColor *)inactiveBgColor
 {
-    return [self colorForKey:@"bgInactiveColor"];
+    return [self colorForKey:@"inactiveBgColor"];
 }
 
 - (NSString *)activeFontName

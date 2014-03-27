@@ -322,6 +322,11 @@
     return NO;
 }
 
+- (CGFloat)nodeSuggestedWidth
+{
+    return 300;
+}
+
 - (CGFloat)nodeSuggestedRowHeight
 {
     if (self.shouldInlineChildren)

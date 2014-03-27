@@ -294,14 +294,6 @@
         }
         
         [self.tableView reloadData];
-
-        if ([node respondsToSelector:@selector(columnBgColor)])
-        {
-            if ([node columnBgColor])
-            {
-                [self.tableView setBackgroundColor:[node columnBgColor]];
-            }
-        }
         
         [self updateActionStrip];
         
@@ -325,7 +317,7 @@
         [self setContentView:nodeView];
     }
     
-    [self.tableView setBackgroundColor:self.themeDict.bgInactiveColor];
+    [self.tableView setBackgroundColor:self.themeDict.inactiveBgColor];
     // if using document view
     [self.documentView setBackgroundColor:self.tableView.backgroundColor];
     //[self.scrollView setBackgroundColor:self.tableView.backgroundColor];

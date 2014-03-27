@@ -28,9 +28,9 @@
     return [Theme.sharedTheme themeForColumn:1].readTextColor;
 }
 
-- (NSColor *)textActiveColor
+- (NSColor *)activeTextColor
 {
-    return [Theme.sharedTheme themeForColumn:1].textActiveColor;
+    return [Theme.sharedTheme themeForColumn:1].activeTextColor;
 }
 
 - (NSString *)nodeNote

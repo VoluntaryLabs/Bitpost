@@ -14,16 +14,14 @@
 
 + (ThemeDictionary *)withDict:(NSDictionary *)dict;
 
-- (NSColor *)columnBgColor;
-
 - (NSColor *)unreadTextColor;
 - (NSColor *)readTextColor;
 
-- (NSColor *)textActiveColor;
-- (NSColor *)textInactiveColor;
+- (NSColor *)activeTextColor;
+- (NSColor *)inactiveTextColor;
 
-- (NSColor *)bgActiveColor;
-- (NSColor *)bgInactiveColor;
+- (NSColor *)activeBgColor;
+- (NSColor *)inactiveBgColor;
 
 - (NSString *)activeFontName;
 

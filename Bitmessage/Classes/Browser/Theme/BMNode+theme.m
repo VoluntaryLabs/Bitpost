@@ -11,12 +11,7 @@
 
 @implementation BMNode (theme)
 
-- (NSColor *)columnBgColor
-{
-    return [Theme objectForKey:[NSString stringWithFormat:@"%@-columnBgColor",
-                                NSStringFromClass([self class])]];
-}
-
+/*
 - (CGFloat)nodeSuggestedWidth
 {
     NSNumber *num = [Theme objectForKey:[NSString stringWithFormat:@"%@-nodeSuggestedWidth",
@@ -43,6 +38,7 @@
     //NSLog(k);
     return [Theme objectForKey:k];
 }
+*/
 
 
 @end

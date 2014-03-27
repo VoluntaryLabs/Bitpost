@@ -37,18 +37,18 @@
     */
 }
 
-- (NSColor *)textActiveColor
+- (NSColor *)activeTextColor
 {
-    if ([self.node respondsToSelector:@selector(textActiveColor)])
+    if ([self.node respondsToSelector:@selector(activeTextColor)])
     {
-        NSColor *color = [(id)self.node textActiveColor];
+        NSColor *color = [(id)self.node activeTextColor];
         if (color)
         {
             return color;
         }
     }
     
-    return self.navColumn.themeDict.textActiveColor;
+    return self.navColumn.themeDict.activeTextColor;
 }
 
 - (NSColor *)textColor
@@ -60,7 +60,7 @@
     
     if ([self isHighlighted])
     {
-        return self.textActiveColor;
+        return self.activeTextColor;
     }
     else
     {
@@ -76,8 +76,8 @@
     
 
 	return [self isHighlighted] ?
-        self.navColumn.themeDict.textActiveColor :
-        self.navColumn.themeDict.textInactiveColor;
+        self.navColumn.themeDict.activeTextColor :
+        self.navColumn.themeDict.inactiveTextColor;
 }
 
 - (NSColor *)bgColorActive
@@ -91,7 +91,7 @@
         }
     }
 
-    return self.navColumn.themeDict.bgActiveColor;
+    return self.navColumn.themeDict.activeBgColor;
 }
 
 - (NSColor *)bgColorInactive
@@ -105,7 +105,7 @@
         }
     }
     
-    return self.navColumn.themeDict.bgInactiveColor;
+    return self.navColumn.themeDict.inactiveBgColor;
 }
 
 - (NSColor *)bgColor
@@ -130,9 +130,9 @@
 
 - (NSDictionary *)titleAttributes
 {
-    CGFloat fontSize = 14.0;
+    CGFloat fontSize = 13.0;
     NSString *fontName = [self fontName];
-    NSFont *font = [NSFont fontWithName:fontName size:fontSize];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
                                     [self textColor], NSForegroundColorAttributeName,
                                     font, NSFontAttributeName,
@@ -141,7 +141,7 @@
 
 - (NSDictionary *)subtitleAttributes
 {
-    CGFloat fontSize = 12.0;
+    CGFloat fontSize = 11.0;
     NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
                                     [self textColor], NSForegroundColorAttributeName,
@@ -151,8 +151,8 @@
 
 - (NSDictionary *)noteAttributes
 {
-    CGFloat fontSize = 12.0;
-    NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
+    CGFloat fontSize = 10.0;
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:fontSize];
     return [NSDictionary dictionaryWithObjectsAndKeys:
                                     [self textColor], NSForegroundColorAttributeName,
                                     font, NSFontAttributeName,
@@ -177,8 +177,9 @@
     {
         return 60.0;
     }
-    return 30; // cellFrame.size.height * self.leftMarginRatio
+    return 20; // cellFrame.size.height * self.leftMarginRatio
 }
+
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     NSRect f = cellFrame;
@@ -255,7 +256,7 @@
         NSString *note = [self.node nodeNote];
         if (note)
         {
-            CGFloat rightMargin = 30;
+            CGFloat rightMargin = 20;
             NSDictionary *noteAttributes = [self noteAttributes];
             CGFloat fontSize = [(NSFont *)[noteAttributes objectForKey:NSFontAttributeName] pointSize];
             

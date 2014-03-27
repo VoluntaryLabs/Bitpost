@@ -4,12 +4,11 @@
 		"columns": 
 		[
     		{
-                "textInactiveColor": [0.27],
-                "bgInactiveColor":   [0.12],
-                "columnBgColor":   [0.12],
+                "inactiveTextColor": [0.27],
+                "inactiveBgColor":   [0.12],
 
-                "textActiveColor": [1.0],
-                "bgActiveColor":   [0.09],
+                "activeTextColor": [1.0],
+                "activeBgColor":   [0.09],
                 "activeFontName": "Open Sans Light",
 
 
@@ -18,12 +17,11 @@
             },
     		
     		{
-                "textInactiveColor": [0.27],
-                "bgInactiveColor":   [0.09],
-                "columnBgColor":     [0.09],
+                "inactiveTextColor": [0.27],
+                "inactiveBgColor":   [0.09],
 
-                "bgActiveColor":   [0.07],
-                "textActiveColor":   [1.0],
+                "activeBgColor":   [0.07],
+                "activeTextColor":   [1.0],
                 "activeFontName": "Open Sans Light",
 
                 "unreadTextColor": [0.7, 0.69, 0.98],
@@ -31,12 +29,11 @@
     		},
     		
     		{
-        		"textActiveColor": [1.0],
-                "bgActiveColor":   [0.03],
+        		"activeTextColor": [1.0],
+                "activeBgColor":   [0.03],
         	
-                "textInactiveColor": [0.27],
-        		"bgInactiveColor":   [0.07],
-                "columnBgColor":     [0.07],
+                "inactiveTextColor": [0.27],
+        		"inactiveBgColor":   [0.07],
          
                 "activeFontName": "Open Sans Light",
                 "unreadTextColor": [0.7, 0.69, 0.98],
@@ -44,12 +41,11 @@
             },
          
             {
-                "textActiveColor": [1.0],
-                "bgActiveColor":   [0.0],
+                "activeTextColor": [1.0],
+                "activeBgColor":   [0.0],
          
-                "textInactiveColor": [0.27],
-                "bgInactiveColor":   [0.03],
-                "columnBgColor":     [0.03],
+                "inactiveTextColor": [0.27],
+                "inactiveBgColor":   [0.03],
 
                 "activeFontName": "Open Sans Light",
                 "unreadTextColor": [0.7, 0.69, 0.98],
@@ -86,45 +82,45 @@
         		"unreadTextColor": [0.5],
         		"readTextColor":   [0.5],
         		
-        		"textInactiveColor": [0.5],
-        		"textActiveColor": [0.0],
+        		"inactiveTextColor": [0.5],
+        		"activeTextColor": [0.0],
         		
-        		"bgActiveColor":   [0.95],
+        		"activeBgColor":   [0.95],
         		"activeFontName": "Open Sans",
-        		"bgInactiveColor": [0.985]
+        		"inactiveBgColor": [0.985]
     		},
     		
     		{
-        		"textInactiveColor": [0.5],
-        		"textActiveColor": [0.0],
+        		"inactiveTextColor": [0.5],
+        		"activeTextColor": [0.0],
         		
-        		"bgActiveColor":   [0.95],
+        		"activeBgColor":   [0.95],
         		"activeFontName": "Open Sans",
-        		"bgInactiveColor": [0.985],
+        		"inactiveBgColor": [0.985],
          
                 "unreadTextColor": [0.4],
                 "readTextColor":   [0.75],
     		},
     		
     		{
-                 "textInactiveColor": [0.27],
-                 "bgInactiveColor": [0.09],
+                 "inactiveTextColor": [0.27],
+                 "inactiveBgColor": [0.09],
          
                 "activeFontName":   "Open Sans",
-        		"textActiveColor": [1.0],
-                "bgActiveColor":   [0.03],
+        		"activeTextColor": [1.0],
+                "activeBgColor":   [0.03],
     		
                 "unreadTextColor": [0.7, 0.69, 0.98],
                 "readTextColor":   [0.5],
             },
          
             {
-                "textInactiveColor": [0.27],
-                "bgInactiveColor": [0.03],
+                "inactiveTextColor": [0.27],
+                "inactiveBgColor": [0.03],
 
                 "activeFontName":   "Open Sans",
-                "textActiveColor": [1.0],
-                "bgActiveColor":   [0.0],
+                "activeTextColor": [1.0],
+                "activeBgColor":   [0.0],
 
 
                 "unreadTextColor": [0.7, 0.69, 0.98],

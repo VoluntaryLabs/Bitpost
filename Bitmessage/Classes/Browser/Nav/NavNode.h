@@ -35,7 +35,6 @@
 - (NSImage *)nodeIconForState:(NSString *)aState;
 - (CGFloat)nodeSuggestedWidth;
 - (CGFloat)nodeSuggestedRowHeight;
-- (NSColor *)columnBgColor;
 
 - (BOOL)shouldSelectChildOnAdd;
 
