@@ -1,4 +1,6 @@
 
+- make sure delete is fast
+
 - when deleting a channel, delete all messages in it first
 
 todo

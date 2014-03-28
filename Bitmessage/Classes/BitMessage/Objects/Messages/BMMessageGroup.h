@@ -24,4 +24,8 @@
 - (void)incrementUnreadCount;
 - (void)decrementUnreadCount;
 
+// -----------------------
+
+- (void)deleteAll;
+
 @end

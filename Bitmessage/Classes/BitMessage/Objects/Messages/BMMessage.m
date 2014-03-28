@@ -171,7 +171,7 @@
     NSLog(@"broadcast result %@", result);
 }
 
-- (void)delete
+- (void)justDelete
 {
     [self.client.deletedMessagesDB mark:self.msgid];
     
@@ -180,10 +180,16 @@
     NSArray *params = [NSArray arrayWithObjects:self.msgid, nil];
     [message setParameters:params];
     [message sendSync];
+}
+
+- (void)delete
+{
+    [self.nodeParent removeChild:self];
+
+    [self justDelete];
     //id result = [message parsedResponseValue];
     //NSLog(@"delete result %@", result);
 
-    [self.nodeParent removeChild:self];
     //[self postParentChanged];
 }
 

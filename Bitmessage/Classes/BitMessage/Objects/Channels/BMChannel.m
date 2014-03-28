@@ -150,6 +150,7 @@
 
 - (void)delete
 {
+    [self deleteAllChildren];
     self.isSynced = NO;
     [self leave];
 }
@@ -235,6 +236,7 @@
     [self sortChildren];
     [self updateUnreadCount];
     [self postSelfChanged];
+    self.mergingChildren = nil;
 }
 
 // --- unread - MERGE this with BMMessageGroup ---------
@@ -271,6 +273,18 @@
     }
     
     return nil;
+}
+
+// -------------------
+
+- (void)deleteAllChildren
+{
+    for (BMMessage *msg in self.children.copy)
+    {
+        [msg delete];
+    }
+    
+    [self postParentChanged];
 }
 
 @end

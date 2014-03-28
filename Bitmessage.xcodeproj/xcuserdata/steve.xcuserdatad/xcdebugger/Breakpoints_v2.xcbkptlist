@@ -800,11 +800,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Channels/BMChannel.m"
-            timestampString = "417569512.34297"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-mergeChild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -832,11 +832,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Channels/BMChannel.m"
-            timestampString = "417569512.34297"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-completeMergeChildren"
             landmarkType = "5">
          </BreakpointContent>
@@ -848,11 +848,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Channels/BMChannel.m"
-            timestampString = "417569512.34297"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "-completeMergeChildren"
             landmarkType = "5">
          </BreakpointContent>
@@ -880,11 +880,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Messages/BMMessage.m"
-            timestampString = "417739837.94784"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-markAsRead"
             landmarkType = "5">
          </BreakpointContent>
@@ -944,11 +944,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Messages/BMMessage.m"
-            timestampString = "417739837.94784"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-markAsUnread"
             landmarkType = "5">
          </BreakpointContent>
@@ -960,11 +960,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Messages/BMMessage.m"
-            timestampString = "417739837.94784"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "-markAsRead"
             landmarkType = "5">
          </BreakpointContent>
@@ -976,11 +976,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Base/BMNode.m"
-            timestampString = "417566691.383875"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-justPostSelfChanged"
             landmarkType = "5">
          </BreakpointContent>
@@ -992,7 +992,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Base/BMNode.m"
-            timestampString = "417566882.162709"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "222"
@@ -1008,11 +1008,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/BitMessage/Objects/Messages/BMMessage.m"
-            timestampString = "417739837.94784"
+            timestampString = "417743647.611843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-markAsRead"
             landmarkType = "5">
          </BreakpointContent>

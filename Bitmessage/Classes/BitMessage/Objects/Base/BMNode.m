@@ -219,7 +219,8 @@
 
 - (void)postSelfChanged
 {
-    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+    //[self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+    [self justPostSelfChanged];
 }
 
 - (void)justPostSelfChanged

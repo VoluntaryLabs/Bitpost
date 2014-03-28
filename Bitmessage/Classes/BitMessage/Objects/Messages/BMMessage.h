@@ -42,6 +42,7 @@
 - (void)send;
 - (void)broadcast;
 - (void)delete;
+- (void)justDelete;
 
 - (void)markAsRead;
 - (void)markAsUnread;

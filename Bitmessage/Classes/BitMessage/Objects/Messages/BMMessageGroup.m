@@ -103,4 +103,14 @@
     [self changedUnreadCount];
 }
 
+// ------------------------------
+
+- (void)deleteAll
+{
+    for (BMMessage *msg in self.children)
+    {
+        [msg delete];
+    }
+}
+
 @end

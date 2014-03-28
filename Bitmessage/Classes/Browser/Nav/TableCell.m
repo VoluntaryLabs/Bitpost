@@ -154,13 +154,11 @@
 - (NSDictionary *)subtitleAttributes
 {
     return [Theme.sharedTheme attributesDictForPath:[NSString stringWithFormat:@"item/%@/subtitle", self.stateName]];
-
 }
 
 - (NSDictionary *)noteAttributes
 {
     return [Theme.sharedTheme attributesDictForPath:[NSString stringWithFormat:@"item/%@/note", self.stateName]];
-
 }
 
 - (NSImage *)icon
@@ -181,17 +179,14 @@
     {
         return 60.0;
     }
+    
     return 20; // cellFrame.size.height * self.leftMarginRatio
 }
 
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     NSRect f = cellFrame;
-    //f.origin.x -= 1;
-    //f.origin.y -= 1;
-    f.size.width = controlView.frame.size.width; // +1;
-    //f.size.height += 1;
-    
+    f.size.width = controlView.frame.size.width;
     
     [[self bgColor] set];
     NSRectFill(f);
@@ -199,10 +194,11 @@
     NSString *title = [self.node nodeTitle];
     NSString *subtitle = [self.node nodeSubtitle];
     
-    CGFloat leftMargin = self.indent; //cellFrame.size.height * self.leftMarginRatio;
-    //NSLog(@"indent %i", (int)(cellFrame.size.height * self.leftMarginRatio));
+    CGFloat leftMargin = self.indent;
 
     NSImage *icon = nil; //[self icon];
+    
+    // yeah, this is a mess
     
     if (icon)
     {
