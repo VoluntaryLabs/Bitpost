@@ -24,9 +24,12 @@
 
 - (CGFloat)maxX;
 - (CGFloat)maxXOfSubviews;
+- (CGFloat)minXOfSubviews;
+
 
 - (CGFloat)maxY;
 - (CGFloat)maxYOfSubviews;
+- (CGFloat)minYOfSubviews;
 
 - (void)centerXInSuperview;
 - (void)centerYInSuperview;
@@ -64,5 +67,7 @@
 - (void)removeAllSubviews;
 
 - (void)show;
+
+- (void)sizeAndRepositionSubviewsToFit;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ThemeDictionary.h"
 #import "NSColor+array.h"
+#import "NSColor+Hex.h"
 
 @implementation ThemeDictionary
 
@@ -20,51 +21,20 @@
 
 - (NSColor *)colorForKey:(NSString *)k
 {
-    NSArray *colorArray = [self.dict objectForKey:k];
-    return [NSColor withArray:colorArray];
-}
-
-
-// read
-
-- (NSColor *)unreadTextColor
-{
-    return [self colorForKey:@"unreadTextColor"];
-}
-
-- (NSColor *)readTextColor
-{
-    return [self colorForKey:@"readTextColor"];
-}
-
-// text
-
-- (NSColor *)activeTextColor
-{
-    return [self colorForKey:@"activeTextColor"];
-}
-
-- (NSColor *)inactiveTextColor
-{
-    return [self colorForKey:@"inactiveTextColor"];
+    id value = [self.dict objectForKey:k];
+    return [NSColor colorWithObject:value];
 }
 
 // background
 
-- (NSColor *)activeBgColor
+- (NSColor *)selectedBgColor
 {
-    return [self colorForKey:@"activeBgColor"];
+    return [self colorForKey:@"selectedBgColor"];
 }
 
-- (NSColor *)inactiveBgColor
+- (NSColor *)unselectedBgColor
 {
-    return [self colorForKey:@"inactiveBgColor"];
+    return [self colorForKey:@"unselectedBgColor"];
 }
-
-- (NSString *)activeFontName
-{
-    return [self.dict objectForKey:@"activeFontName"];
-}
-
 
 @end

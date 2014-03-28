@@ -16,22 +16,24 @@
 
 @implementation BMMessage (NodeView)
 
+/*
 - (NSColor *)textColor
 {
     //NSString *className = NSStringFromClass([self class]);
     
     if (!self.read || [self.status isEqualToString:@"msgsent"])
     {
-        return [Theme.sharedTheme themeForColumn:1].unreadTextColor;
+        return [Theme.sharedTheme themeForColumn:1].unreadTitleColor;
     }
     
-    return [Theme.sharedTheme themeForColumn:1].readTextColor;
+    return [Theme.sharedTheme themeForColumn:1].inactiveTitleColor;
 }
 
-- (NSColor *)activeTextColor
+- (NSColor *)activeTitleColor
 {
-    return [Theme.sharedTheme themeForColumn:1].activeTextColor;
+    return [Theme.sharedTheme themeForColumn:1].activeTitleColor;
 }
+*/
 
 - (NSString *)nodeNote
 {

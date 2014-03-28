@@ -49,4 +49,10 @@
 - (NSString *)lightFontName;
 - (NSString *)mediumFontName;
 
+// paths
+
+- (id)objectForPath:(NSString *)key;
+- (NSColor *)colorForPath:(NSString *)key;
+- (NSDictionary *)attributesDictForPath:(NSString *)path; // e,g, "item/selected"
+
 @end

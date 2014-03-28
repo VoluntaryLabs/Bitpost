@@ -19,3 +19,9 @@
 - (NSString *)asJsonString;
 
 @end
+
+@interface NSDictionary (path)
+
+- (id)objectForPath:(NSString *)path;
+
+@end

@@ -1,4 +1,6 @@
 
+- when deleting a channel, delete all messages in it first
+
 todo
 
 - fix BMMEssageView resizing

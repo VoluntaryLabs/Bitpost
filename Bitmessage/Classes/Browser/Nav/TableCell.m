@@ -37,18 +37,19 @@
     */
 }
 
-- (NSColor *)activeTextColor
+/*
+- (NSColor *)activeTitleColor
 {
-    if ([self.node respondsToSelector:@selector(activeTextColor)])
+    if ([self.node respondsToSelector:@selector(activeTitleColor)])
     {
-        NSColor *color = [(id)self.node activeTextColor];
+        NSColor *color = [(id)self.node activeTitleColor];
         if (color)
         {
             return color;
         }
     }
     
-    return self.navColumn.themeDict.activeTextColor;
+    return self.navColumn.themeDict.activeTitleColor;
 }
 
 - (NSColor *)textColor
@@ -60,7 +61,7 @@
     
     if ([self isHighlighted])
     {
-        return self.activeTextColor;
+        return self.activeTitleColor;
     }
     else
     {
@@ -76,12 +77,14 @@
     
 
 	return [self isHighlighted] ?
-        self.navColumn.themeDict.activeTextColor :
-        self.navColumn.themeDict.inactiveTextColor;
+        self.navColumn.themeDict.activeTitleColor :
+        self.navColumn.themeDict.inactiveTitleColor;
 }
+*/
 
 - (NSColor *)bgColorActive
 {
+    /*
     if ([self.node respondsToSelector:@selector(bgColorActive)])
     {
         NSColor *color = [(id)self.node bgColorActive];
@@ -90,12 +93,14 @@
             return color;
         }
     }
+    */
 
-    return self.navColumn.themeDict.activeBgColor;
+    return self.navColumn.themeDict.selectedBgColor;
 }
 
 - (NSColor *)bgColorInactive
 {
+    /*
     if ([self.node respondsToSelector:@selector(bgColorInactive)])
     {
         NSColor *color = [(id)self.node bgColorInactive];
@@ -104,8 +109,9 @@
             return color;
         }
     }
+    */
     
-    return self.navColumn.themeDict.inactiveBgColor;
+    return self.navColumn.themeDict.unselectedBgColor;
 }
 
 - (NSColor *)bgColor
@@ -118,6 +124,7 @@
     return NSZeroRect; // to remove tool tip
 }
 
+/*
 - (NSString *)fontName
 {
     if ([self isHighlighted])
@@ -127,36 +134,33 @@
     
     return [Theme.sharedTheme lightFontName];
 }
+*/
+
+- (NSString *)stateName
+{
+    if (!self.node.isRead)
+    {
+        return @"unread";
+    }
+    
+    return self.isSelected ? @"selected" : @"unselected";
+}
 
 - (NSDictionary *)titleAttributes
 {
-    CGFloat fontSize = 13.0;
-    NSString *fontName = [self fontName];
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:fontSize];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+    return [Theme.sharedTheme attributesDictForPath:[NSString stringWithFormat:@"item/%@/title", self.stateName]];
 }
 
 - (NSDictionary *)subtitleAttributes
 {
-    CGFloat fontSize = 11.0;
-    NSFont *font = [NSFont fontWithName:[self fontName] size:fontSize];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+    return [Theme.sharedTheme attributesDictForPath:[NSString stringWithFormat:@"item/%@/subtitle", self.stateName]];
+
 }
 
 - (NSDictionary *)noteAttributes
 {
-    CGFloat fontSize = 10.0;
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:fontSize];
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [self textColor], NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
+    return [Theme.sharedTheme attributesDictForPath:[NSString stringWithFormat:@"item/%@/note", self.stateName]];
+
 }
 
 - (NSImage *)icon
@@ -217,10 +221,8 @@
     
     if (!subtitle)
     {
-        NSDictionary *titleAttributes = [self titleAttributes];
+        NSDictionary *titleAttributes = self.titleAttributes;
         CGFloat fontSize = [(NSFont *)[titleAttributes objectForKey:NSFontAttributeName] pointSize];
-        
-
         
         [title drawAtPoint:NSMakePoint(cellFrame.origin.x+leftMargin,
                                       cellFrame.origin.y + cellFrame.size.height/2.0 - fontSize/2.0 - 5)
@@ -228,7 +230,7 @@
     }
     else
     {
-        NSDictionary *titleAttributes = [self titleAttributes];
+        NSDictionary *titleAttributes = self.titleAttributes;
         CGFloat fontSize = [(NSFont *)[titleAttributes objectForKey:NSFontAttributeName] pointSize];
 
         title = [self string:title
@@ -239,7 +241,7 @@
                                       cellFrame.origin.y + cellFrame.size.height*.2 - fontSize/2.0 - 3)
            withAttributes:titleAttributes];
         
-        NSDictionary *subtitleAttributes = [self subtitleAttributes];
+        NSDictionary *subtitleAttributes = self.subtitleAttributes;
         CGFloat subtitleFontSize = [(NSFont *)[subtitleAttributes objectForKey:NSFontAttributeName] pointSize];
         
         subtitle = [self string:subtitle
@@ -257,7 +259,7 @@
         if (note)
         {
             CGFloat rightMargin = 20;
-            NSDictionary *noteAttributes = [self noteAttributes];
+            NSDictionary *noteAttributes = self.noteAttributes;
             CGFloat fontSize = [(NSFont *)[noteAttributes objectForKey:NSFontAttributeName] pointSize];
             
             CGFloat width = [[[NSAttributedString alloc] initWithString:note attributes:noteAttributes] size].width;

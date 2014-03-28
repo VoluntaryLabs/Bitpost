@@ -43,6 +43,8 @@
 - (NSString *)nodeTitle;
 - (NSImage *)nodeIconForState:(NSString *)aState;
 
+- (BOOL)isRead;
+
 //- (CGFloat)nodeSuggestedWidth;
 
 - (void)deepFetch;

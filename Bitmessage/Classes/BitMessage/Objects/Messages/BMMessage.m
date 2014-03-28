@@ -214,6 +214,12 @@
     return (_read || [self.client.readMessagesDB hasMarked:self.msgid]);
 }
 
+- (BOOL)isRead
+{
+    return self.read;
+}
+
+
 - (void)markAsRead
 {
     if (!self.read)

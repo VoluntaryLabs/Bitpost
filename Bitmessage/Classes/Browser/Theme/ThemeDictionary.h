@@ -14,15 +14,7 @@
 
 + (ThemeDictionary *)withDict:(NSDictionary *)dict;
 
-- (NSColor *)unreadTextColor;
-- (NSColor *)readTextColor;
-
-- (NSColor *)activeTextColor;
-- (NSColor *)inactiveTextColor;
-
-- (NSColor *)activeBgColor;
-- (NSColor *)inactiveBgColor;
-
-- (NSString *)activeFontName;
+- (NSColor *)selectedBgColor;
+- (NSColor *)unselectedBgColor;
 
 @end

@@ -337,6 +337,10 @@
     return 60;
 }
 
+- (BOOL)isRead
+{
+    return YES;
+}
 
 
 @end

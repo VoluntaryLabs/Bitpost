@@ -317,7 +317,7 @@
         [self setContentView:nodeView];
     }
     
-    [self.tableView setBackgroundColor:self.themeDict.inactiveBgColor];
+    [self.tableView setBackgroundColor:self.themeDict.unselectedBgColor];
     // if using document view
     [self.documentView setBackgroundColor:self.tableView.backgroundColor];
     //[self.scrollView setBackgroundColor:self.tableView.backgroundColor];

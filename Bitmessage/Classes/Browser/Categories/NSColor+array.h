@@ -10,6 +10,8 @@
 
 @interface NSColor (array)
 
++ (NSColor *)colorWithObject:(id)anObject;
+
 + (NSColor *)withArray:(NSArray *)array;
 
 @end

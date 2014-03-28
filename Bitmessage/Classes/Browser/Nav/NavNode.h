@@ -26,6 +26,7 @@
 - (NSString *)nodeTitle;
 - (NSString *)nodeSubtitle;
 - (NSString *)nodeNote;
+- (BOOL)isRead;
 
 - (NSArray *)nodeTitlePath:(NSArray *)pathComponents;
 

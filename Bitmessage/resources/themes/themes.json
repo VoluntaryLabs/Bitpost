@@ -1,61 +1,107 @@
 {
 	"default": 
 	{
-		"columns": 
+        "item" :
+        {
+            "unselected" :
+            {
+                "title" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 13,
+                    "color" : "#CBCBCB",
+                },
+                
+                "subtitle" :
+                {
+                    "fontName" : "Open Sans Light",
+                    "fontSize" : 11,
+                    "color" : "#989898",
+                },
+                
+                "note" :
+                {
+                    "fontName" : "Open Sans Light",
+                    "fontSize" : 10,
+                    "color" : "#E7E7E7",
+                },
+            },
+            
+            "selected" :
+            {
+                "title" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 13,
+                    "color" : "#FFFFFF",
+                },
+                
+                "subtitle" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 11,
+                    "color" : "#FFFFFF",
+                },
+                
+                "note" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 10,
+                    "color" : "#FFFFFF",
+                },
+            },
+            
+            "unread" :
+            {
+                "title" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 13,
+                    "color" : "#81BAE5",
+                },
+                
+                "subtitle" :
+                {
+                    "fontName" : "Open Sans Light",
+                    "fontSize" : 11,
+                    "color" : "#81BAE5",
+                },
+                
+                "note" :
+                {
+                    "fontName" : "Open Sans",
+                    "fontSize" : 10,
+                    "color" : "#81BAE5",
+                },
+            },            
+        },
+        
+		"columns":
 		[
     		{
-                "inactiveTextColor": [0.27],
-                "inactiveBgColor":   [0.12],
-
-                "activeTextColor": [1.0],
-                "activeBgColor":   [0.09],
-                "activeFontName": "Open Sans Light",
-
-
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
+                "unselectedBgColor": [0.12],
+                "selectedBgColor":   [0.09],
             },
     		
     		{
-                "inactiveTextColor": [0.27],
-                "inactiveBgColor":   [0.09],
-
-                "activeBgColor":   [0.07],
-                "activeTextColor":   [1.0],
-                "activeFontName": "Open Sans Light",
-
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
+                "unselectedBgColor": [0.09],
+                "selectedBgColor":   [0.07],
     		},
     		
     		{
-        		"activeTextColor": [1.0],
-                "activeBgColor":   [0.03],
-        	
-                "inactiveTextColor": [0.27],
-        		"inactiveBgColor":   [0.07],
-         
-                "activeFontName": "Open Sans Light",
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
+                "selectedBgColor":   [0.03],
+        		"unselectedBgColor": [0.07],
             },
          
             {
-                "activeTextColor": [1.0],
-                "activeBgColor":   [0.0],
-         
-                "inactiveTextColor": [0.27],
-                "inactiveBgColor":   [0.03],
-
-                "activeFontName": "Open Sans Light",
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
+                "selectedBgColor":   [0.0],
+                "unselectedBgColor": [0.03],
             }
 		],
 		
 		"formBackgroundColor": [0.03],
 		"formText1Color": [1],
-		"formText2Color": [0.7],
+		"formText2Color": [0.82],
 		"formText3Color": [0.5],
 		"formText4Color": [0.3],
 		"formTextErrorColor": [1, 0, 0],
@@ -76,57 +122,6 @@
 	
 	"light": 
 	{
-		"columns": 
-		[
-    		{        		
-        		"unreadTextColor": [0.5],
-        		"readTextColor":   [0.5],
-        		
-        		"inactiveTextColor": [0.5],
-        		"activeTextColor": [0.0],
-        		
-        		"activeBgColor":   [0.95],
-        		"activeFontName": "Open Sans",
-        		"inactiveBgColor": [0.985]
-    		},
-    		
-    		{
-        		"inactiveTextColor": [0.5],
-        		"activeTextColor": [0.0],
-        		
-        		"activeBgColor":   [0.95],
-        		"activeFontName": "Open Sans",
-        		"inactiveBgColor": [0.985],
-         
-                "unreadTextColor": [0.4],
-                "readTextColor":   [0.75],
-    		},
-    		
-    		{
-                 "inactiveTextColor": [0.27],
-                 "inactiveBgColor": [0.09],
-         
-                "activeFontName":   "Open Sans",
-        		"activeTextColor": [1.0],
-                "activeBgColor":   [0.03],
-    		
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
-            },
-         
-            {
-                "inactiveTextColor": [0.27],
-                "inactiveBgColor": [0.03],
-
-                "activeFontName":   "Open Sans",
-                "activeTextColor": [1.0],
-                "activeBgColor":   [0.0],
-
-
-                "unreadTextColor": [0.7, 0.69, 0.98],
-                "readTextColor":   [0.5],
-            }
-		],
 		
 		"formBackgroundColor": [1],
 		"formText1Color": [0.0],

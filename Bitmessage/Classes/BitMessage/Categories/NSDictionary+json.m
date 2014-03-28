@@ -57,3 +57,21 @@
 }
 
 @end
+
+@implementation NSDictionary (path)
+
+- (id)objectForPath:(NSString *)path
+{
+    NSArray *parts = [path componentsSeparatedByString:@"/"];
+    id value = self;
+    
+    for (NSString *part in parts)
+    {
+        value = [value objectForKey:part];
+    }
+    
+    return value;
+}
+
+@end
+

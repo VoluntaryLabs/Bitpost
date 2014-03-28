@@ -8,6 +8,7 @@
 
 #import "Theme.h"
 #import "NSColor+array.h"
+#import "NSDictionary+json.h"
 
 @implementation Theme
 
@@ -65,7 +66,8 @@ static Theme *sharedTheme = nil;
 
 - (NSColor *)colorForKey:(NSString *)k
 {
-    return [NSColor withArray:[self.currentTheme objectForKey:k]];
+    id value = [self.currentTheme objectForKey:k];
+    return [NSColor colorWithObject:value];
 }
 
 + (id)objectForKey:(NSString *)k
@@ -225,5 +227,32 @@ static Theme *sharedTheme = nil;
     [anInvocation retainArguments];
 }
 */
+
+// paths
+
+- (id)objectForPath:(NSString *)path
+{
+    id value = [self.currentTheme objectForPath:path];
+    return value;
+}
+
+- (NSColor *)colorForPath:(NSString *)path
+{
+    return [NSColor colorWithObject:[self objectForPath:path]];
+}
+
+- (NSDictionary *)attributesDictForPath:(NSString *)path // e,g, "item/selected"
+{
+    NSDictionary *dict = [self objectForPath:path];
+    NSColor *color = [NSColor colorWithObject:[dict objectForKey:@"color"]];
+    NSString *fontName = [dict objectForKey:@"fontName"];
+    NSNumber *fontSize = [dict objectForKey:@"fontSize"];
+    NSFont *font = [NSFont fontWithName:fontName size:fontSize.floatValue];
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            color, NSForegroundColorAttributeName,
+            font, NSFontAttributeName,
+            nil];
+}
 
 @end

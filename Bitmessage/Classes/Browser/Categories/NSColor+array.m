@@ -7,8 +7,25 @@
 //
 
 #import "NSColor+array.h"
+#import "NSColor+Hex.h"
 
 @implementation NSColor (array)
+
++ (NSColor *)colorWithObject:(id)value
+{
+    if ([value isKindOfClass:[NSArray class]])
+    {
+        return [NSColor withArray:value];
+    }
+    else if ([value isKindOfClass:[NSString class]])
+    {
+        return [NSColor colorFromHexadecimalValue:value];
+    }
+    
+    [NSException raise:@"Invalid value" format:@"Color value must be an rgba array or hex string"];
+    return nil;
+    
+}
 
 + (NSColor *)withArray:(NSArray *)colorArray
 {

@@ -10,6 +10,8 @@
 		8E56ACB418C22426001136F9 /* fonts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E56ACB318C22426001136F9 /* fonts */; };
 		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
 		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
+		AA00373E18E6256B00EA4381 /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = AA00373D18E6256B00EA4381 /* NSColor+Hex.m */; };
+		AA00374118E6292400EA4381 /* NSColor+array.m in Sources */ = {isa = PBXBuildFile; fileRef = AA00374018E6292400EA4381 /* NSColor+array.m */; };
 		AA04868618DCCA050034018E /* NSDictionary+json.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868518DCCA050034018E /* NSDictionary+json.m */; };
 		AA04868918DCF3140034018E /* MKSell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868818DCF3140034018E /* MKSell.m */; };
 		AA04868C18DD02FF0034018E /* NSDate+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868B18DD02FF0034018E /* NSDate+extra.m */; };
@@ -100,7 +102,6 @@
 		AA70C86818D277AB001D77FB /* MKSells.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86718D277AB001D77FB /* MKSells.m */; };
 		AA70C86B18D39219001D77FB /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = AA70C86A18D39219001D77FB /* themes.json */; };
 		AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86D18D39753001D77FB /* ThemeDictionary.m */; };
-		AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C87318D3B107001D77FB /* NSColor+array.m */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
 		AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8318B17A7E009285EA /* ColoredView.m */; };
 		AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8618B17A98009285EA /* ResizingScrollView.m */; };
@@ -183,6 +184,10 @@
 		8E56ACB318C22426001136F9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = Vendor/fonts; sourceTree = "<group>"; };
 		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
 		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
+		AA00373C18E6256B00EA4381 /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
+		AA00373D18E6256B00EA4381 /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
+		AA00373F18E6292400EA4381 /* NSColor+array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+array.h"; sourceTree = "<group>"; };
+		AA00374018E6292400EA4381 /* NSColor+array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+array.m"; sourceTree = "<group>"; };
 		AA04868418DCCA050034018E /* NSDictionary+json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+json.h"; sourceTree = "<group>"; };
 		AA04868518DCCA050034018E /* NSDictionary+json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+json.m"; sourceTree = "<group>"; };
 		AA04868718DCF3140034018E /* MKSell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSell.h; sourceTree = "<group>"; };
@@ -337,8 +342,6 @@
 		AA70C86A18D39219001D77FB /* themes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = themes.json; sourceTree = "<group>"; };
 		AA70C86C18D39753001D77FB /* ThemeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDictionary.h; sourceTree = "<group>"; };
 		AA70C86D18D39753001D77FB /* ThemeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDictionary.m; sourceTree = "<group>"; };
-		AA70C87218D3B107001D77FB /* NSColor+array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+array.h"; sourceTree = "<group>"; };
-		AA70C87318D3B107001D77FB /* NSColor+array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+array.m"; sourceTree = "<group>"; };
 		AA7F6A7F18B17A5B009285EA /* MarginTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginTextView.h; sourceTree = "<group>"; };
 		AA7F6A8018B17A5B009285EA /* MarginTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginTextView.m; sourceTree = "<group>"; };
 		AA7F6A8218B17A7E009285EA /* ColoredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColoredView.h; sourceTree = "<group>"; };
@@ -717,6 +720,8 @@
 		AA31567318AAE0E00017E94F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AA00373F18E6292400EA4381 /* NSColor+array.h */,
+				AA00374018E6292400EA4381 /* NSColor+array.m */,
 				AA31567418AAE0E00017E94F /* NSView+sizing.h */,
 				AA31567518AAE0E00017E94F /* NSView+sizing.m */,
 				AAF40CB318B59543005BA55E /* NSEvent+keys.m */,
@@ -729,6 +734,8 @@
 				AAE0EEA518BC34DE00B7E9F3 /* NSScrollView+extra.m */,
 				AA04868A18DD02FF0034018E /* NSDate+extra.h */,
 				AA04868B18DD02FF0034018E /* NSDate+extra.m */,
+				AA00373C18E6256B00EA4381 /* NSColor+Hex.h */,
+				AA00373D18E6256B00EA4381 /* NSColor+Hex.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -742,8 +749,6 @@
 				AA31568718AAE0E00017E94F /* Theme.m */,
 				AA70C86C18D39753001D77FB /* ThemeDictionary.h */,
 				AA70C86D18D39753001D77FB /* ThemeDictionary.m */,
-				AA70C87218D3B107001D77FB /* NSColor+array.h */,
-				AA70C87318D3B107001D77FB /* NSColor+array.m */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -1270,6 +1275,7 @@
 				AA3156A418AAE0E00017E94F /* BMNode+theme.m in Sources */,
 				AA04868C18DD02FF0034018E /* NSDate+extra.m in Sources */,
 				AA70C80618D0345F001D77FB /* InfoButton.m in Sources */,
+				AA00374118E6292400EA4381 /* NSColor+array.m in Sources */,
 				AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */,
 				AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */,
 				AA31569718AAE0E00017E94F /* BMSubscription.m in Sources */,
@@ -1284,6 +1290,7 @@
 				AAE0EEA018BA92D100B7E9F3 /* BMDatabase.m in Sources */,
 				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA31569418AAE0E00017E94F /* BMMessages.m in Sources */,
+				AA00373E18E6256B00EA4381 /* NSColor+Hex.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,
 				AA04869818DD0A320034018E /* MKSellView.m in Sources */,
 				AA94776718E2697E004EFC7A /* BMClient.m in Sources */,
@@ -1299,7 +1306,6 @@
 				AA94774B18E0E2A4004EFC7A /* MKCategory.m in Sources */,
 				AA94775518E24B90004EFC7A /* BMChannel.m in Sources */,
 				AA70C86218D2778E001D77FB /* MKWallet.m in Sources */,
-				AA70C87418D3B107001D77FB /* NSColor+array.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,
 				AA31569618AAE0E00017E94F /* BMSentMessages.m in Sources */,
 				AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */,

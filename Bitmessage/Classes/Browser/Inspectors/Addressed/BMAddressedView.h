@@ -9,12 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
 #import "BMContact.h"
+#import "ColoredView.h"
 
 @interface BMAddressedView : NSView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
 @property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?
 
+@property (strong, nonatomic) NSView *innerView; // contains labels and checkbox
 @property (strong, nonatomic) NSTextView *labelField;
 @property (strong, nonatomic) NSTextView *addressField;
 @property (strong, nonatomic) NSImageView *checkbox;

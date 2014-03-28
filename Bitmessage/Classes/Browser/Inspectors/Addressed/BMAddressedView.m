@@ -31,8 +31,12 @@
 
 - (void)setup
 {
-    self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 40)];
-    [self addSubview:self.labelField];
+    self.innerView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, self.width, self.height)];
+    [self addSubview:self.innerView];
+    [_innerView setAutoresizesSubviews:NO];
+    
+    self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 24)];
+    [self.innerView addSubview:self.labelField];
     
     [self.labelField setDrawsBackground:NO];
     //[self.labelField setBackgroundColor:[NSColor colorWithCalibratedWhite:.3 alpha:1.0]];
@@ -53,10 +57,12 @@
       nil]];
     
     
-    self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 30)];
-    [self addSubview:self.addressField];
+    // address color is 143.0/255.0
+    self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 16)];
+    [self.innerView addSubview:self.addressField];
     [self.addressField setDrawsBackground:NO];
-    self.addressField.textColor = [Theme.sharedTheme formText2Color];
+    //self.addressField.textColor = [Theme.sharedTheme formText2Color];
+    self.addressField.textColor = [NSColor colorWithCalibratedWhite:143.0/255.0 alpha:1.0];
     self.addressField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
     [self.addressField centerXInSuperview];
     [self.addressField setY:self.labelField.maxY + 10];
@@ -82,7 +88,7 @@
     
     self.checkbox = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 30, 30)];
     [self.checkbox setImage:nil];
-    [self addSubview:self.checkbox];
+    [self.innerView addSubview:self.checkbox];
     
     [self setPositions];
     
@@ -114,20 +120,32 @@
 
 - (void)setPositions
 {
-    CGFloat h = self.labelField.superview.height;
-    NSLog(@"h = %i", (int)h);
+    //[self.innerView setBackgroundColor:[NSColor redColor]];
+    //[self.innerView setFrame:self.bounds];
+    [self.innerView setFrame:NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height)];
+    //[self.innerView centerXInSuperview];
+    //[self.innerView centerYInSuperview];
     
-    [self.labelField centerXInSuperview];
-    //[self.labelField centerYInSuperview];
-    //[self.labelField setY:self.labelField.y + 40];
-    [self.labelField setY:h/2 + 10];
-    NSLog(@"self.labelField.y = %i", (int)self.labelField.y);
+    [self.labelField setX:0];
+    [self.labelField setY:0];
+    [self.labelField setWidth:self.width];
+    //[self.labelField setDrawsBackground:YES];
+    //[self.labelField setBackgroundColor:[NSColor greenColor]];
     
+    [self.addressField setX:0];
+    [self.addressField placeYBelow:_labelField margin:10];
+    [self.addressField setWidth:self.width];
+    //[self.addressField setBackgroundColor:[NSColor blueColor]];
+    //[self.addressField setDrawsBackground:YES];
+    
+    [self.checkbox placeYBelow:_addressField margin:40];
+    
+    [self.innerView sizeAndRepositionSubviewsToFit];
+    [self.innerView setWidth:self.width];
+    //[self.innerView centerSubviewsX];
     [self.addressField centerXInSuperview];
-    [self.addressField placeYBelow:self.labelField margin:30];
-    
     [self.checkbox centerXInSuperview];
-    [self.checkbox placeYBelow:self.addressField margin:30];
+    [self.innerView centerYInSuperview];
 }
 
 - (void)setNode:(id <NavNode>)node
@@ -248,7 +266,6 @@
     
     [self.labelField display];
     [self.addressField display];
-    //[self setPositions];
 }
 
 - (void)updateContact

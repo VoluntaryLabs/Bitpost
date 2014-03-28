@@ -85,6 +85,22 @@
     return max;
 }
 
+- (CGFloat)minXOfSubviews
+{
+    CGFloat min = 0;
+    
+    for (NSView *subview in self.subviews)
+    {
+        CGFloat v = subview.x;
+        if (v < min)
+        {
+            min = v;
+        }
+    }
+    
+    return min;
+}
+
 - (CGFloat)maxY
 {
     return self.y + self.height;
@@ -105,6 +121,23 @@
     
     return max;
 }
+
+- (CGFloat)minYOfSubviews
+{
+    CGFloat min = 0;
+    
+    for (NSView *subview in self.subviews)
+    {
+        CGFloat v = subview.y;
+        if (v < min)
+        {
+            min = v;
+        }
+    }
+    
+    return min;
+}
+
 
 - (void)centerXInSuperview
 {
@@ -389,6 +422,14 @@
           NSStringFromClass(self.class),
           (int)self.x, (int)self.y,
           (int)self.width, (int)self.height);
+}
+
+- (void)sizeAndRepositionSubviewsToFit
+{
+    [self adjustSubviewsX:-self.minXOfSubviews];
+    [self adjustSubviewsY:-self.minYOfSubviews];
+    [self setWidth:self.maxXOfSubviews];
+    [self setHeight:self.maxYOfSubviews];
 }
 
 @end

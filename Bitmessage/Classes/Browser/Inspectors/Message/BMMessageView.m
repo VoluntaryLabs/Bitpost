@@ -41,7 +41,7 @@
 
 - (NSDictionary *)subjectAttributes
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:25.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [Theme.sharedTheme formText1Color],
                                     NSForegroundColorAttributeName,
@@ -52,7 +52,7 @@
 
 - (NSMutableDictionary *)infoAttributes
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                          [Theme.sharedTheme formText4Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
@@ -63,7 +63,7 @@
 
 - (NSDictionary *)bodyAttributes
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
+    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [Theme.sharedTheme formText3Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
