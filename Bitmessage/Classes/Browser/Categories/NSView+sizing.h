@@ -51,6 +51,8 @@
 
 - (void)placeYAbove:(NSView *)aView margin:(CGFloat)margin;
 - (void)placeYBelow:(NSView *)aView margin:(CGFloat)margin;
+- (void)placeXRightOf:(NSView *)aView margin:(CGFloat)margin;
+- (void)placeInTopOfSuperviewWithMargin:(CGFloat)margin;
 
 - (void)adjustSubviewsX:(CGFloat)dx;
 - (void)adjustSubviewsY:(CGFloat)dy;

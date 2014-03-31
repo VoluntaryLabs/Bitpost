@@ -71,6 +71,12 @@
     return @"Channels";
 }
 
+- (CGFloat)nodeSuggestedWidth
+{
+    return 180.0;
+}
+
+
 - (BMChannel *)channelWithPassphrase:(NSString *)aPassphrase
 {
     for (BMChannel *channel in self.children)

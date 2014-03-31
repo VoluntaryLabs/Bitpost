@@ -11,7 +11,7 @@
 #import "BMContact.h"
 #import "ColoredView.h"
 
-@interface BMAddressedView : NSView <NSTextViewDelegate>
+@interface BMAddressedView : ColoredView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
 @property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?

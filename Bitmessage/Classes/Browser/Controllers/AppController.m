@@ -35,9 +35,6 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
-    [self.bitmessageProcess launch];
-
     [self connectToServer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -51,7 +48,15 @@
 
 - (void)connectToServer
 {
-    [self.navView.window setTitle:@"connecting..."];
+    [self.navView.window setTitle:@"launching server..."];
+    [self.navView.window display];
+
+    //self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
+    //[self.bitmessageProcess launch];
+
+    //[self.navView.window setTitle:@"connecting to server..."];
+    //[self.navView.window display];
+
     
     [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
     //self.drafts = [NSMutableArray array];
@@ -62,7 +67,7 @@
     [self.navView.window setTitle:@""];
 
     [self checkForNewUser];
-    [self startRefreshTimer];
+    //[self startRefreshTimer];
 }
 
 - (void)checkForNewUser
@@ -81,29 +86,9 @@
     [nuv open];
 }
 
-- (void)startRefreshTimer
-{
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0
-                                                  target:self
-                                                selector:@selector(refreshTimer:)
-                                                userInfo:Nil
-                                                 repeats:YES];
-}
-
-- (void)refreshTimer:(id)sender
-{
-    [[BMClient sharedBMClient] refresh];
-}
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-    [self killServer];
-}
-
-- (void)killServer
-{
-    [self.timer invalidate];
-    [self.bitmessageProcess terminate];
+    [[BMClient sharedBMClient] stopServer];
 }
 
 - (NSInteger)unreadMessageCount

@@ -312,6 +312,17 @@
     self.frame = f;
 }
 
+- (void)placeXRightOf:(NSView *)aView margin:(CGFloat)margin
+{
+    [self setX:aView.x + aView.width + margin];
+}
+
+
+- (void)placeInTopOfSuperviewWithMargin:(CGFloat)margin
+{
+    [self setY:self.superview.height - self.height - margin];
+}
+
 - (void)adjustSubviewsX:(CGFloat)dx
 {
     for (NSView *subview in self.subviews)

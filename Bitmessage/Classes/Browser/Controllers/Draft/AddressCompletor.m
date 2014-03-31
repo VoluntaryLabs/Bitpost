@@ -90,13 +90,19 @@
     
     if (self.isValid)
     {
+        /*
         self.textField.textColor = [Theme.sharedTheme formText2Color];
         [self.textField setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:self.textField.font.pointSize]];
+        */
+        [self.textField setThemePath:@"draft/field"];
     }
     else
     {
+        /*
         self.textField.textColor = [Theme.sharedTheme formTextErrorColor];
         [self.textField setFont:[NSFont fontWithName:@"Open Sans Bold" size:self.textField.font.pointSize]];
+        */
+        [self.textField setThemePath:@"draft/fieldError"];
     }
     
     [self.textField resetEventCharacter];

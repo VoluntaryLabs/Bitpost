@@ -8,9 +8,6 @@
 
 @property (strong) id <NavNode> rootNode;
 @property (strong) IBOutlet NavView *navView;
-@property (strong) NSTimer *timer;
-@property (strong) BMServerProcess *bitmessageProcess;
-@property (strong) IBOutlet NSTextView *infoText;
 
 @property (strong) IBOutlet NSProgressIndicator *progress;
 @property (strong) ProgressController *progressController;

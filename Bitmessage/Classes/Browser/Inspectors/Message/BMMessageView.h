@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
+#import "ColoredView.h"
 
-@interface BMMessageView : NSView <NSTextViewDelegate>
+@interface BMMessageView : ColoredView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
 @property (strong, nonatomic) id <NavNode> node; // node keeps a ref to us?

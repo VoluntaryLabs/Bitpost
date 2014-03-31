@@ -8,6 +8,7 @@
 
 #import "NSTextView+extra.h"
 #import "NSString+BM.h"
+#import "Theme.h"
 
 @implementation NSTextView (extra)
 

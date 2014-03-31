@@ -35,14 +35,6 @@
 - (NSColor *)formTextCursorColor;
 - (NSColor *)formTextLinkColor;
 
-// draft
-
-- (NSColor *)draftTopBgColor;
-- (NSColor *)draftBgColor;
-- (NSColor *)draftBodyTextColor;
-- (NSColor *)draftBodyTextSelectedColor;
-- (NSColor *)draftFieldTextColor;
-- (NSColor *)draftLabelTextColor;
 
 // fonts
 
@@ -56,3 +48,20 @@
 - (NSDictionary *)attributesDictForPath:(NSString *)path; // e,g, "item/selected"
 
 @end
+
+@interface NSView (theme)
+- (void)setSelectedThemePath:(NSString *)aPath;
+- (void)setThemePath:(NSString *)aPath;
+@end
+
+/*
+@interface NSTextView (theme)
+- (void)setThemePath:(NSString *)aPath;
+@end
+
+@interface NSTextField (theme)
+- (void)setThemePath:(NSString *)aPath;
+@end
+ */
+
+

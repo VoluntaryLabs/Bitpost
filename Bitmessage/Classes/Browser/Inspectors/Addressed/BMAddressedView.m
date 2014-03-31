@@ -31,6 +31,8 @@
 
 - (void)setup
 {
+    [self setThemePath:@"address/background"];
+
     self.innerView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, self.width, self.height)];
     [self addSubview:self.innerView];
     [_innerView setAutoresizesSubviews:NO];
@@ -38,53 +40,28 @@
     self.labelField   = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 24)];
     [self.innerView addSubview:self.labelField];
     
-    [self.labelField setDrawsBackground:NO];
-    //[self.labelField setBackgroundColor:[NSColor colorWithCalibratedWhite:.3 alpha:1.0]];
-    
-    self.labelField.textColor = [Theme.sharedTheme formText1Color];
-    self.labelField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
+    [self.labelField setThemePath:@"address/label"];
+    [self.labelField setSelectedThemePath:@"address/selected"];
+
     [self.labelField centerXInSuperview];
     [self.labelField centerYInSuperview];
     [self.labelField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
-    [self.labelField setAlignment:NSCenterTextAlignment];
     [self.labelField setDelegate:self];
     [self.labelField setRichText:NO];
-    
-    [self.labelField setSelectedTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
-      //[Theme.sharedTheme formText1Color], NSForegroundColorAttributeName,
-      nil]];
-    
     
     // address color is 143.0/255.0
     self.addressField = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.width/2, 16)];
     [self.innerView addSubview:self.addressField];
-    [self.addressField setDrawsBackground:NO];
-    //self.addressField.textColor = [Theme.sharedTheme formText2Color];
-    self.addressField.textColor = [NSColor colorWithCalibratedWhite:143.0/255.0 alpha:1.0];
-    self.addressField.font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
+    
+    [self.addressField setThemePath:@"address/address"];
+    [self.addressField setSelectedThemePath:@"address/selected"];
+    
     [self.addressField centerXInSuperview];
     [self.addressField setY:self.labelField.maxY + 10];
     [self.addressField setAutoresizingMask: NSViewWidthSizable | NSViewMinYMargin | NSViewMaxYMargin];
-    [self.addressField setAlignment:NSCenterTextAlignment];
     [self.addressField setDelegate:self];
     [self.addressField setRichText:NO];
     
-    //[self.labelField setNextKeyView:self.addressField];
-    //[self.addressField setNextKeyView:self.labelField];
-    
-    [self.addressField setSelectedTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [Theme.sharedTheme formTextSelectedBgColor], NSBackgroundColorAttributeName,
-      //[Theme.sharedTheme formText1Color], NSForegroundColorAttributeName,
-      nil]];
-    
-    [self.labelField setFocusRingType:NSFocusRingTypeNone];
-    [self.addressField setFocusRingType:NSFocusRingTypeNone];
-    
-    [(NSTextView *)self.labelField setInsertionPointColor:[Theme.sharedTheme formTextCursorColor]];
-    [(NSTextView *)self.addressField setInsertionPointColor:[Theme.sharedTheme formTextCursorColor]];
     
     self.checkbox = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 30, 30)];
     [self.checkbox setImage:nil];
@@ -114,13 +91,11 @@
 {
     [super setFrame:frameRect];
     [self setPositions];
-    //[self updateCheckbox];
-    //[self updateAddressColor];
+    [self setPositions];
 }
 
 - (void)setPositions
 {
-    //[self.innerView setBackgroundColor:[NSColor redColor]];
     //[self.innerView setFrame:self.bounds];
     [self.innerView setFrame:NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height)];
     //[self.innerView centerXInSuperview];
@@ -129,14 +104,10 @@
     [self.labelField setX:0];
     [self.labelField setY:0];
     [self.labelField setWidth:self.width];
-    //[self.labelField setDrawsBackground:YES];
-    //[self.labelField setBackgroundColor:[NSColor greenColor]];
     
     [self.addressField setX:0];
     [self.addressField placeYBelow:_labelField margin:10];
     [self.addressField setWidth:self.width];
-    //[self.addressField setBackgroundColor:[NSColor blueColor]];
-    //[self.addressField setDrawsBackground:YES];
     
     [self.checkbox placeYBelow:_addressField margin:40];
     
@@ -156,14 +127,17 @@
     [self updateAddressColor];
 }
 
+// change to get from col
+/*
 - (void)drawRect:(NSRect)dirtyRect
 {
     //[self setPositions]; // don't like this here but couldn't find who was moving the label
 	[super drawRect:dirtyRect];
-    NSColor *bgColor = [Theme.sharedTheme formBackgroundColor];
+
     [bgColor set];
     NSRectFill(dirtyRect);
 }
+*/
 
 - (BOOL)hasValidAddress
 {
@@ -174,11 +148,12 @@
 {
     if (self.hasValidAddress)
     {
-        self.addressField.textColor = [Theme.sharedTheme formText2Color];
+        [self.addressField setThemePath:@"address/address"];
     }
     else
     {
-        self.addressField.textColor = [Theme.sharedTheme formTextErrorColor];
+        [self.addressField setThemePath:@"address/addressError"];
+
     }
 }
 
@@ -212,6 +187,7 @@
                 self.isUpdating = NO;
                 return;
             }
+            
             [self.labelField endEditingOnReturn];
             [self.addressField endEditingOnReturn];
             [self updateAddressColor];
@@ -280,16 +256,19 @@
 
 - (BOOL)isSynced
 {
-    BOOL labelMatches = [self.contact.visibleLabel isEqualToString:self.labelField.string.strip];
-    BOOL addressMatches = [self.contact.address isEqualToString:self.addressField.string.strip];
+    BOOL labelMatches = [self.contact.visibleLabel
+                         isEqualToString:self.labelField.string.strip];
+    
+    BOOL addressMatches = [self.contact.address
+                           isEqualToString:self.addressField.string.strip];
     
     return labelMatches && addressMatches;
 }
 
 - (void)syncToNode
 {
-    self.contact.visibleLabel   = [self.labelField.string strip];
-    self.contact.address        = [self.addressField.string strip];
+    self.contact.visibleLabel = [self.labelField.string strip];
+    self.contact.address      = [self.addressField.string strip];
 }
 
 - (void)syncFromNode

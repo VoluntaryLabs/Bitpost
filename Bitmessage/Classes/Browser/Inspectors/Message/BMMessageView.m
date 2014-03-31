@@ -23,6 +23,7 @@
 - (id)initWithFrame:(NSRect)frameRect
 {
     self = [super initWithFrame:frameRect];
+    [self setThemePath:@"message/body"];
     [self setAutoresizesSubviews:YES];
     [self setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     [self setupBody];
@@ -41,6 +42,8 @@
 
 - (NSDictionary *)subjectAttributes
 {
+    return [Theme.sharedTheme attributesDictForPath:@"message/title"];
+    /*
     NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [Theme.sharedTheme formText1Color],
@@ -48,31 +51,40 @@
                                     font, NSFontAttributeName,
                                     nil];
     return att;
+     */
 }
 
 - (NSMutableDictionary *)infoAttributes
 {
+    return [Theme.sharedTheme attributesDictForPath:@"message/subtitle"];
+    /*
     NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                          [Theme.sharedTheme formText4Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                          nil];
     return att;
+    */
 }
 
 
 - (NSDictionary *)bodyAttributes
 {
+    return [Theme.sharedTheme attributesDictForPath:@"message/body"];
+    /*
     NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [Theme.sharedTheme formText3Color], NSForegroundColorAttributeName,
                          font, NSFontAttributeName,
                         nil];
     return att;
+    */
 }
 
 - (NSMutableDictionary *)linkAttributes
 {
+    return [Theme.sharedTheme attributesDictForPath:@"message/link"];
+    /*
     NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                 [Theme.sharedTheme formTextLinkColor], NSForegroundColorAttributeName,
@@ -80,6 +92,7 @@
                          [NSNumber numberWithInt:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
                          nil];
     return att;
+     */
 }
 
 
@@ -213,7 +226,8 @@
 
 - (void)configBody
 {
-    [self.textView setBackgroundColor:[Theme.sharedTheme formBackgroundColor]];
+    [self.textView setThemePath:@"message/background"];
+    //[self.textView setBackgroundColor:[Theme.sharedTheme formBackgroundColor]];
     [self.textView setLinkTextAttributes:[self linkAttributes]];
 }
 

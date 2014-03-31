@@ -17,6 +17,7 @@
 #import "AppController.h"
 #import "NSScrollView+extra.h"
 #import "Theme.h"
+#import "NSTextView+extra.h"
 
 NSMutableArray *sharedDrafts = nil;
 
@@ -52,15 +53,6 @@ NSMutableArray *sharedDrafts = nil;
     [window setFrameTopLeftPoint:topLeft];
     [window makeKeyAndOrderFront:self];
 }
-
-/*
-- (id)init
-{
-    self = [super init];
-
-    return self;
-}
-*/
 
 - (NSWindow *)window
 {
@@ -99,30 +91,19 @@ NSMutableArray *sharedDrafts = nil;
     [self.toCompletor setTextField:self.to];
 }
 
-
-- (NSColor *)fieldTextColor
-{
-    return [Theme.sharedTheme draftBodyTextColor];
-}
-
 - (void)setupViewPositions
 {
-    [self.bodyArea setBackgroundColor:[Theme.sharedTheme draftBgColor]];
-    [self.bodyArea setNeedsDisplay:YES];
-    [self.topBackground setBackgroundColor:[Theme.sharedTheme draftTopBgColor]];
-    [self.fromBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
-    [self.toBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
-    [self.subjectBackground setBackgroundColor:[Theme.sharedTheme draftBgColor]];
-    [self removeFocusRings];
+    [self.bodyArea setThemePath:@"draft/body"];
+    [self.topBackground setThemePath:@"draft/seperators"];
+    [self.fromBackground setThemePath:@"draft/body"];
+    [self.toBackground setThemePath:@"draft/body"];
+    [self.subjectBackground setThemePath:@"draft/body"];
 
-    [self.to setTextColor:self.fieldTextColor];
-    [self.from setTextColor:self.fieldTextColor];
-    [self.subject setTextColor:self.fieldTextColor];
+    [self removeFocusRings];
     
     //[[self.to      superview] setY:[self.from superview].maxY + 2];
     [[self.to superview] setY:[self.from superview].y - [self.to superview].height - 1];
     [[self.subject superview] setY:[self.to superview].y - [self.subject superview].height - 1];
-
     
     [self.topBackground setX:0];
     [self.topBackground setWidth:((NSView *)self.window.contentView).frame.size.width];
@@ -134,25 +115,34 @@ NSMutableArray *sharedDrafts = nil;
     [self.scrollView setY:0];
     [self.scrollView setHeight:self.topBackground.y -0];
     [self.scrollView setWidth:self.scrollView.superview.width];
+
+    [self.bodyText setThemePath:@"draft/body"];
+
+    [self.to setThemePath:@"draft/field"];
+    [self.toLabel setThemePath:@"draft/fieldTitle"];
     
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:13];
-    [[self bodyText] setFont:font];
-    
-    [[self bodyText] setTextColor:[Theme.sharedTheme draftBodyTextColor]];
-    [self.to setFont:font];
-    [self.from setFont:font];
-    [self.subject setFont:font];
-    [self.toLabel setFont:font];
-    [self.fromLabel setFont:font];
-    [self.subjectLabel setFont:font];
+    [self.from setThemePath:@"draft/field"];
+    [self.fromLabel setThemePath:@"draft/fieldTitle"];
+
+    [self.subject setThemePath:@"draft/field"];
+    [self.subjectLabel setThemePath:@"draft/fieldTitle"];
 }
 
 - (void)setupHighlightColors
 {
+    [self.to setSelectedThemePath:@"draft/fieldSelected"];
+    [self.from setSelectedThemePath:@"draft/fieldSelected"];
+    [self.subject setSelectedThemePath:@"draft/fieldSelected"];
+    
+    /*
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
                          [Theme.sharedTheme draftBodyTextSelectedColor], NSBackgroundColorAttributeName,
                          nil];
     NSTextView *tv;
+    
+    [self.to setSelectedThemePath:@"draft/fieldSelected"];
+    [self.from setSelectedThemePath:@"draft/fieldSelected"];
+    [self.subject setSelectedThemePath:@"draft/fieldSelected"];
     
     tv = (NSTextView *)[self.window fieldEditor:YES forObject:self.to];
     [tv setSelectedTextAttributes:att];
@@ -162,6 +152,7 @@ NSMutableArray *sharedDrafts = nil;
     
     tv = (NSTextView *)[self.window fieldEditor:YES forObject:self.subject];
     [tv setSelectedTextAttributes:att];
+     */
 }
 
 - (void)setupNotifications
@@ -319,7 +310,7 @@ NSMutableArray *sharedDrafts = nil;
     
     if ([BMAddress isValidAddress:address])
     {
-        field.textColor = self.fieldTextColor;
+        [field setThemePath:@"draft/field"];
     }
     else
     {

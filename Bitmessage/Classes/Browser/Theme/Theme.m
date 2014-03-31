@@ -138,38 +138,6 @@ static Theme *sharedTheme = nil;
     return [self colorForKey:@"formTextLinkColor"];
 }
 
-// draft
-
-- (NSColor *)draftTopBgColor
-{
-    return [self colorForKey:@"draftTopBgColor"];
-}
-
-- (NSColor *)draftBgColor
-{
-    return [self colorForKey:@"draftBgColor"];
-}
-
-- (NSColor *)draftBodyTextColor
-{
-    return [self colorForKey:@"draftBodyTextColor"];
-}
-
-- (NSColor *)draftBodyTextSelectedColor
-{
-    return [self colorForKey:@"draftBodyTextSelectedColor"];
-}
-
-- (NSColor *)draftFieldTextColor
-{
-    return [self colorForKey:@"draftFieldTextColor"];
-}
-
-- (NSColor *)draftLabelTextColor
-{
-    return [self colorForKey:@"draftLabelTextColor"];
-}
-
 // font
 
 - (NSString *)lightFontName
@@ -243,16 +211,203 @@ static Theme *sharedTheme = nil;
 
 - (NSDictionary *)attributesDictForPath:(NSString *)path // e,g, "item/selected"
 {
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     NSDictionary *dict = [self objectForPath:path];
-    NSColor *color = [NSColor colorWithObject:[dict objectForKey:@"color"]];
+
+    // color
+    
+    NSDictionary *colorDict = [dict objectForKey:@"color"];
+    if (colorDict)
+    {
+        NSColor *color = [NSColor colorWithObject:colorDict];
+        [attributes setObject:color forKey:NSForegroundColorAttributeName];
+    }
+    
+    // font
+    
     NSString *fontName = [dict objectForKey:@"fontName"];
     NSNumber *fontSize = [dict objectForKey:@"fontSize"];
-    NSFont *font = [NSFont fontWithName:fontName size:fontSize.floatValue];
+    if (fontName && fontSize)
+    {
+        NSFont *font = [NSFont fontWithName:fontName size:fontSize.floatValue];
+        [attributes setObject:font forKey:NSFontAttributeName];
+    }
     
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            color, NSForegroundColorAttributeName,
-            font, NSFontAttributeName,
-            nil];
+    // background
+    
+    NSDictionary *bgDict = [dict objectForKey:@"backgroundColor"];
+    if (bgDict)
+    {
+        NSColor *bgColor = [NSColor colorWithObject:bgDict];
+        [attributes setObject:bgColor forKey:NSBackgroundColorAttributeName];
+    }
+    
+    NSString *underline = [dict objectForKey:@"text-decoration"];
+    if (underline && [underline isEqualToString:@"none"])
+    {
+        [attributes setObject:[NSNumber numberWithInt:NSUnderlineStyleNone]
+                       forKey:NSUnderlineStyleAttributeName];
+    }
+    
+    return attributes;
+}
+
+- (NSTextAlignment)alignmentForPath:(NSString *)path // e,g, "item/selected"
+{
+    NSDictionary *dict = [self objectForPath:path];
+    NSString *alignment = [dict objectForKey:@"align"];
+    
+    if ([alignment isEqualToString:@"center"])
+    {
+        return NSCenterTextAlignment;
+    }
+    
+    if ([alignment isEqualToString:@"right"])
+    {
+        return NSRightTextAlignment;
+    }
+
+    /*
+    if ([alignment isEqualToString:@"left"])
+    {
+        return NSLeftTextAlignment;
+    }
+    */
+    
+    return NSLeftTextAlignment;
 }
 
 @end
+
+
+@implementation NSView (theme)
+
+- (void)setSelectedThemePath:(NSString *)aPath
+{
+    NSDictionary *attributes = [Theme.sharedTheme attributesDictForPath:aPath];
+
+    if (!self.window)
+    {
+        NSLog(@"warning no window yet to set selection color");
+        //[NSException raise:@"Error" format:@"no window set yet"];
+    }
+    
+    NSTextView *tv = (NSTextView *)[self.window fieldEditor:YES forObject:self];
+
+    [tv setSelectedTextAttributes:attributes];
+}
+
+- (void)setThemePath:(NSString *)aPath
+{
+    NSDictionary *attributes = [Theme.sharedTheme attributesDictForPath:aPath];
+    
+    NSFont *font = [attributes objectForKey:NSFontAttributeName];
+    if (font && [self respondsToSelector:@selector(setFont:)])
+    {
+        [(id)self setFont:font];
+    }
+    
+    NSColor *color = [attributes objectForKey:NSForegroundColorAttributeName];
+    if (color && [self respondsToSelector:@selector(setTextColor:)])
+    {
+        [(id)self setTextColor:color];
+    }
+    if (color && [self respondsToSelector:@selector(setInsertionPointColor:)])
+    {
+        [(NSTextView *)self setInsertionPointColor:color];
+    }
+    
+    NSColor *bgColor = [attributes objectForKey:NSBackgroundColorAttributeName];
+    if (bgColor && [self respondsToSelector:@selector(setBackgroundColor:)])
+    {
+        [(id)self setBackgroundColor:bgColor];
+    }
+    else if ([self respondsToSelector:@selector(setDrawsBackground:)])
+    {
+        [(id)self setDrawsBackground:NO];
+    }
+    
+    if ([self respondsToSelector:@selector(setFocusRingType:)])
+    {
+        [(id)self setFocusRingType:NSFocusRingTypeNone];
+    }
+
+    if ([self respondsToSelector:@selector(setAlignment:)])
+    {
+        [(id)self setAlignment:[Theme.sharedTheme alignmentForPath:aPath]];
+    }
+    
+
+    
+    [self setNeedsDisplay:YES];
+}
+
+@end
+
+@implementation NSButton (theme)
+
+- (void)setThemePath:(NSString *)aPath
+{
+    NSDictionary *attributes = [Theme.sharedTheme attributesDictForPath:aPath];
+    
+     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]
+         initWithString:self.title
+         attributes:attributes];
+    
+    [self setAttributedTitle:attributedString];
+    
+    
+    NSColor *bgColor = [attributes objectForKey:NSBackgroundColorAttributeName];
+    if (bgColor)
+    {
+        [(id)self setBackgroundColor:bgColor];
+    }
+    else
+    {
+        if ([self respondsToSelector:@selector(setDrawsBackground:)])
+        {
+            [(id)self setDrawsBackground:NO];
+        }
+    }
+    
+    [self setNeedsDisplay:YES];
+}
+
+@end
+
+/*
+@implementation NSTextView (theme)
+
+- (void)setThemePath:(NSString *)aPath
+{
+    NSDictionary *attributes = [Theme.sharedTheme attributesDictForPath:aPath];
+    
+    [self setFont:[attributes objectForKey:NSFontAttributeName]];
+    [self setTextColor:[attributes objectForKey:NSForegroundColorAttributeName]];
+    
+    NSColor *bgColor = [attributes objectForKey:NSBackgroundColorAttributeName];
+    if (bgColor)
+    {
+        [self setBackgroundColor:bgColor];
+    }
+}
+
+@end
+
+@implementation NSTextField (theme)
+
+- (void)setThemePath:(NSString *)aPath
+{
+    NSDictionary *attributes = [Theme.sharedTheme attributesDictForPath:aPath];
+    [self setFont:[attributes objectForKey:NSFontAttributeName]];
+    [self setTextColor:[attributes objectForKey:NSForegroundColorAttributeName]];
+    
+    NSColor *bgColor = [attributes objectForKey:NSBackgroundColorAttributeName];
+    if (bgColor)
+    {
+        [self setBackgroundColor:bgColor];
+    }
+}
+
+@end
+*/

@@ -18,5 +18,6 @@
 - (BOOL)endEditingOnReturn;
 - (void)removeReturns;
 
+- (void)setThemePath:(NSString *)aPath;
 
 @end

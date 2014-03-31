@@ -28,6 +28,8 @@ static BMClient *sharedBMClient;
 - (id)init
 {
     self = [super init];
+    self.refreshInterval = 3;
+    [self startServer];
     
     self.shouldSortChildren = NO;
     
@@ -64,12 +66,6 @@ static BMClient *sharedBMClient;
     [self deepFetch];
 
     return self;
-}
-
-- (void)refresh
-{
-    [self.messages.received refresh];
-    [self.messages.sent refresh];
 }
 
 - (CGFloat)nodeSuggestedWidth
@@ -155,6 +151,51 @@ static BMClient *sharedBMClient;
 - (BOOL)hasNoIdentites
 {
     return [self.identities.children count] == 0;
+}
+
+// --- server --------------------------
+
+- (void)dealloc
+{
+    [self stopServer];
+}
+
+- (void)startServer
+{
+    self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
+    [self.bitmessageProcess launch];
+    [self startRefreshTimer];
+    
+}
+
+- (void)stopServer
+{
+    [self stopRefreshTimer];
+    [self.bitmessageProcess terminate];
+}
+
+// timer
+
+- (void)startRefreshTimer
+{
+    [self.refreshTimer invalidate];
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshInterval
+                                                         target:self
+                                                       selector:@selector(refresh)
+                                                       userInfo:nil
+                                                        repeats:YES];
+}
+
+- (void)stopRefreshTimer
+{
+    [self.refreshTimer invalidate];
+    self.refreshTimer = nil;
+}
+
+- (void)refresh
+{
+    [self.messages.received refresh];
+    [self.messages.sent refresh];
 }
 
 @end

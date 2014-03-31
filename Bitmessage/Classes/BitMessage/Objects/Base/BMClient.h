@@ -26,13 +26,17 @@
 // categories
 
 #import "NSString+BM.h"
-
+#import "BMServerProcess.h"
 // market
 
 #import "MKMarkets.h"
 
 
 @interface BMClient : BMNode
+
+@property (strong, nonatomic) BMServerProcess *bitmessageProcess;
+@property (strong, nonatomic) NSTimer *refreshTimer;
+@property (assign, nonatomic) NSTimeInterval refreshInterval;
 
 @property (strong, nonatomic) BMIdentities *identities;
 @property (strong, nonatomic) BMContacts *contacts;
@@ -56,5 +60,10 @@
 - (NSMutableArray *)allAddressLabels;
 
 - (BOOL)hasNoIdentites;
+
+// --- server --------------------------
+
+//- (void)startServer;
+- (void)stopServer; // call when app quits
 
 @end
