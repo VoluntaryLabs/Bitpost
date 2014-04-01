@@ -29,6 +29,7 @@
 
 - (void)add
 {
+    /*
     // find a way to move this to UI layer
     
     BMClient *client = [BMClient sharedBMClient];
@@ -42,6 +43,7 @@
     
     AppController *app = (AppController *)[[NSApplication sharedApplication] delegate];
     [app.navView selectNodePath:nodes];
+     */
 }
 
 @end

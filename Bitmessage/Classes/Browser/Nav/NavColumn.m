@@ -187,7 +187,14 @@
 
 - (void)nodeRemovedChild:(NSNotification *)note
 {
+    BOOL needToUpdateNav = [self selectedNodeWasRemoved];
+    
     [self reloadData];
+
+    if (needToUpdateNav)
+    {
+        [self.navView shouldSelectNode:self.selectedNode inColumn:self];
+    }
 }
 
 - (void)nodeAddedChild:(NSNotification *)note

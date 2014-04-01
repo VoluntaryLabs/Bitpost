@@ -29,7 +29,7 @@
 #import "BMServerProcess.h"
 // market
 
-#import "MKMarkets.h"
+//#import "MKMarkets.h"
 
 
 @interface BMClient : BMNode
@@ -46,7 +46,7 @@
 @property (strong, nonatomic) BMDatabase *readMessagesDB;
 @property (strong, nonatomic) BMDatabase *deletedMessagesDB;
 
-@property (strong, nonatomic) MKMarkets *markets;
+//@property (strong, nonatomic) MKMarkets *markets;
 
 
 + (BMClient *)sharedBMClient;

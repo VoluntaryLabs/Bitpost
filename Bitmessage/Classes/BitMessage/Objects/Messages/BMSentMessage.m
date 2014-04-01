@@ -55,6 +55,9 @@
         
         if (isRead)
         {
+            // need to put these in separate db that doesn't expire
+            // but removed deleted sent messages
+            
             [self.client.readMessagesDB mark:self.msgid];
         }
     }

@@ -54,8 +54,8 @@ static BMClient *sharedBMClient;
     
     // market
     
-    self.markets = [[MKMarkets alloc] init];
-    [self addChild:self.markets];
+    //self.markets = [[MKMarkets alloc] init];
+    //[self addChild:self.markets];
 
     // fetch these addresses first so we can filter messages
     // when we fetch them
