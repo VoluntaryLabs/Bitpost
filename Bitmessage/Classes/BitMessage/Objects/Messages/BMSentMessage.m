@@ -8,6 +8,8 @@
 
 #import "BMSentMessage.h"
 #import "BMProxyMessage.h"
+#import "BMClient.h"
+#import "BMDatabase.h"
 
 @implementation BMSentMessage
 
@@ -47,7 +49,17 @@
 
 - (BOOL)read
 {
-    return [self.readStates containsObject:[self getStatus]];
+    if (![super read])
+    {
+        BOOL isRead = [self.readStates containsObject:[self getStatus]];
+        
+        if (isRead)
+        {
+            [self.client.readMessagesDB mark:self.msgid];
+        }
+    }
+    
+    return [super read];
 }
 
 - (NSString *)getHumanReadbleStatus

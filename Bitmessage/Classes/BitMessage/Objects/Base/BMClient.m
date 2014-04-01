@@ -194,8 +194,11 @@ static BMClient *sharedBMClient;
 
 - (void)refresh
 {
+    NSLog(@"refresh received");
     [self.messages.received refresh];
+    NSLog(@"refresh sent");
     [self.messages.sent refresh];
+    NSLog(@"refresh done");
 }
 
 @end

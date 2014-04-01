@@ -46,6 +46,8 @@
 
 - (void)markAsRead;
 - (void)markAsUnread;
+- (void)setReadState:(BOOL)isRead;
+
 
 - (NSMutableAttributedString *)messageAttributedString;
 

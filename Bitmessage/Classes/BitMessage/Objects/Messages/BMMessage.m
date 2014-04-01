@@ -95,7 +95,7 @@
 
 - (NSString *)fromAddressLabel
 {
-    NSString *label = [[BMClient sharedBMClient] labelForAddress:self.fromAddress];
+    NSString *label = [self.client labelForAddress:self.fromAddress];
 
     if (label)
     {
@@ -107,7 +107,7 @@
 
 - (NSString *)toAddressLabel
 {
-    NSString *label = [[BMClient sharedBMClient] labelForAddress:self.toAddress];
+    NSString *label = [self.client labelForAddress:self.toAddress];
     
     if (label)
     {
@@ -254,7 +254,7 @@
     return [NSMutableAttributedString stringWithInlinedAttachmentsFromString:self.messageString];
 }
 
-- (NSArray *) attachedImages
+- (NSArray *)attachedImages
 {
     
     NSMutableArray *attributedStrings = [[NSMutableArray alloc] init];
@@ -275,7 +275,7 @@
             break;
         }
         
-        NSString *before = [parts objectAtIndex:0];
+        //NSString *before = [parts objectAtIndex:0];
         NSString *middle = [parts objectAtIndex:1];
         NSString *after  = [parts objectAtIndex:2];
         
