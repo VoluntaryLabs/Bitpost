@@ -11,7 +11,6 @@ todo
 
 - merge address requests?
 
-
 - BMChannel and subscriptions should not be BMAddressed
   - have them own addresses
   - have BMChannels/BMSubscriptions have their own DBs
@@ -19,10 +18,6 @@ todo
 
 - have empty column take up full area
   - [or?] have negative suggested width mean "full width" 
-
-- how to deal with quoting attachments??
-
-- SEARCH
 
 - replace entered BM addresses with labels in compose window
 

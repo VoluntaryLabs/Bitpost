@@ -111,6 +111,7 @@
     if (self.isExpanded)
     {
         //[self setupExpanded];
+        [self.window makeFirstResponder:self];
     }
     else
     {
@@ -121,7 +122,7 @@
 - (void)timer:anObject
 {
     CGFloat timerPeriod = 1.0;
-    NSInteger totalFrames = 2.0;
+    NSInteger totalFrames = 1.0;
     CGFloat v = self.animationValue + timerPeriod/totalFrames;
 
     if (v > 1.0)
