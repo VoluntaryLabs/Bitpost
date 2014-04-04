@@ -39,93 +39,117 @@ static InfoPanelController *shared = nil;
 - (void)open
 {
     [self.window makeKeyAndOrderFront:self];
+    NSRect f = [[NSApplication sharedApplication] mainWindow].frame;
+    NSPoint c = NSMakePoint(f.origin.x + f.size.width/2.0, f.origin.y + f.size.height/2.0);
+    
+    //[self setFrameOrigin:NSMakePoint(c.x - self.frame.width/2.0, x.y - self.frame.height/2.0)];
+    
     [self.window center];
     [self.window setLevel:NSTornOffMenuWindowLevel];
-    [(ColoredView *)self.view setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:.05]];
+    //[(ColoredView *)self.view setBackgroundColor:[NSColor colorWithCalibratedWhite:1.0 alpha:.05]];
 }
 
-- (NSDictionary *)subjectAttributes
+- (void)pushHeader:(NSString *)aName
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme mediumFontName] size:22.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         nil];
-    return att;
+    id lastView = self.view.subviews.lastObject;
+    CGFloat y = lastView ? 0 : self.view.height - 78;
+    
+    NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, y, self.view.width, 25)];
+    [self.view addSubview:button];
+    [button setTitle:aName];
+    [button setButtonType:NSMomentaryChangeButton];
+    //[button setEnabled:NO];
+    [button setThemePath:@"info/header"];
+    
+    if (lastView)
+    {
+        [button placeYBelow:lastView margin:0];
+    }
 }
 
-- (NSDictionary *)bodyAttributes
+- (void)pushSubheader:(NSString *)aName
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.5 alpha:1.0], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         nil];
-    return att;
+    id lastView = self.view.subviews.lastObject;
+    
+    NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, self.view.width, 25)];
+    [self.view addSubview:button];
+    [button setTitle:aName];
+    [button setButtonType:NSMomentaryChangeButton];
+    //[button setEnabled:NO];
+    [button setThemePath:@"info/subheader"];
+    
+    if (lastView)
+    {
+        [button placeYBelow:lastView margin:0];
+    }
 }
 
-- (NSDictionary *)bodyHeaderAttributes
+- (void)pushTitle:(NSString *)normalTitle
 {
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [NSColor colorWithCalibratedWhite:.3 alpha:1.0], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         nil];
-    return att;
+    id lastView = self.view.subviews.lastObject;
+    CGFloat y = lastView ? 0 : self.view.height - 80;
+    
+    InfoButton *button = [[InfoButton alloc] initWithFrame:NSMakeRect(0, y, self.view.width, 25)];
+    [self.view addSubview:button];
+    [button setTitle:normalTitle];
+    [button setButtonType:NSMomentaryChangeButton];
+    //[button setEnabled:NO];
+    [button setThemePath:@"info/title"];
+    
+    if (lastView)
+    {
+        [button placeYBelow:lastView margin:30];
+    }
+}
+
+- (void)pushItem:(NSString *)normalTitle altTitle:(NSString *)altTitle
+{
+    id lastView = self.view.subviews.lastObject;
+    
+    InfoButton *button = [[InfoButton alloc] initWithFrame:NSMakeRect(0, 0, self.view.width, 28)];
+    [self.view addSubview:button];
+    [button setTitle:normalTitle];
+    [button setButtonType:NSMomentaryChangeButton];
+    [button setThemePath:@"info/item"];
+    button.normalTitle = normalTitle;
+    button.altTitle = altTitle;
+    button.titleThemePath = @"info/item";
+    
+    if (lastView)
+    {
+        [button placeYBelow:lastView margin:0];
+    }
 }
 
 - (void)awakeFromNib
 {
     [self.window setDelegate:self];
-    //[self.infoText setEditable:NO];
     
-    /*
-    [self.infoText setSelectedTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [NSColor colorWithCalibratedWhite:1.0 alpha:.05], NSBackgroundColorAttributeName,
-      //[NSColor whiteColor], NSForegroundColorAttributeName,
-      nil]];
+    [self.view setThemePath:@"info/background"];
+    
+    //[self pushHeader:@"Whisper"];
+    //[self pushSubheader:@"a Bitmessage client"];
+    
+    //[self pushTitle:@"Whisper Bitmessage client"];
+    [self pushHeader:@"Whisper"];
+    [self pushSubheader:@"Bitmessage client"];
+    [self pushItem:@"" altTitle:@""];
 
-     NSMutableParagraphStyle *indented = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-     
-     [indented setAlignment:NSCenterTextAlignment];
-     [indented setLineSpacing:1.0];
-     [indented setParagraphSpacing:1.0];
-     [indented setHeadIndent:0.0];
-     [indented setTailIndent:0.0];
-     //[indented setFirstLineHeadIndent:45.0];
-     [indented setLineBreakMode:NSLineBreakByWordWrapping];
     
+    //[self pushTitle:@"Design"];
+    [self pushItem:@"Chris Robertson" altTitle:@"Design"];
     
-     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]
-         initWithString:@"\nBitMail\n\n"
-         attributes:[self subjectAttributes]];
-     
+    //[self pushTitle:@"Lead / UI"];
+    [self pushItem:@"Steve Dekorte" altTitle:@"Lead / UI"];
+    
+    //[self pushTitle:@"Python Wrangler / Attachments"];
+    [self pushItem:@"Adam Thorsen" altTitle:@"Python Wrangler / Attachments"];
+    
+    //[self pushTitle:@"Unix Guru"];
+    [self pushItem:@"Dru Nelson" altTitle:@"Unix Guru"];
 
-    [string appendAttributedString:[[NSMutableAttributedString alloc]
-                                    initWithString:@"Design\n"
-                                    attributes:[self bodyHeaderAttributes]]];
- 
-    [string appendAttributedString:[[NSMutableAttributedString alloc]
-                                    initWithString:@"Chris Robinson\n\n"
-                                    attributes:[self bodyAttributes]]];
-    
-    [string appendAttributedString:[[NSMutableAttributedString alloc]
-                                    initWithString:@"Development\n"
-                                    attributes:[self bodyHeaderAttributes]]];
-    
-    [string appendAttributedString:[[NSMutableAttributedString alloc]
-                                    initWithString:@"Steve Dekorte\nAdam Thorsen\nDru Nelson"
-                                    attributes:[self bodyAttributes]]];
-    
-
-    [string addAttribute:NSParagraphStyleAttributeName
-                           value:indented
-                           range:NSMakeRange(0, [string length])];
-    
-    [self.infoText setBackgroundColor:[NSColor colorWithCalibratedWhite:.1 alpha:1.0]];
-    [[self.infoText textStorage] setAttributedString:string];
-     */
+    [self.view centerSubviewsX];
+    [self.view display];
 }
 
 

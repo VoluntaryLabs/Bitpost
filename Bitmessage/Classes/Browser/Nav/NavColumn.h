@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "NavView.h"
 #import "ColoredView.h"
+#import "CustomSearchField.h"
 
-@interface NavColumn : NSView <NSTableViewDataSource, NSTableViewDelegate>
+@interface NavColumn : NSView <NSTableViewDataSource, NSTableViewDelegate, CustomSearchFieldDelegate>
 
 @property (assign, nonatomic) NavView *navView;
 @property (strong, nonatomic) id <NavNode> node;
+@property (strong, nonatomic) CustomSearchField *searchField;
 
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTableView *tableView;
@@ -45,5 +47,7 @@
 - (void)setContentView:(NSView *)aView;
 
 - (BOOL)selectItemNamed:(NSString *)aName;
+
+- (void)searchForString:(NSString *)aString;
 
 @end

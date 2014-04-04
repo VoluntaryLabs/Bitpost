@@ -17,12 +17,7 @@
     
     if (self)
     {
-        [self setButtonType:NSMomentaryChangeButton];
-        [self setBordered:NO];
-        [self setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:16.0]];
-        [self setAutoresizingMask: NSViewMinXMargin | NSViewMaxYMargin];
-        self.textColor = [NSColor whiteColor];
-        [self setAlignment:NSCenterTextAlignment];
+
     }
     
     return self;
@@ -30,17 +25,37 @@
 
 - (void)mouseEntered:(NSEvent *)theEvent
 {
-    
+    //NSLog(@"mouseEntered");
+    if (self.altTitle)
+    {
+        self.title = self.altTitle;
+        NSString *path = [self.titleThemePath stringByAppendingString:@".alt"];
+        [self setThemePath:path];
+    }
 }
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
-    
+    //NSLog(@"mouseExited");
+    if (self.normalTitle)
+    {
+        self.title = self.normalTitle;
+        [self setThemePath:self.titleThemePath];
+    }
 }
 
 - (void)updateTrackingAreas
 {
+    //NSLog(@"updateTrackingAreas");
     
+    [self removeTrackingArea:_trackingArea];
+    
+    NSTrackingAreaOptions options = NSTrackingMouseEnteredAndExited|NSTrackingActiveInActiveApp;
+    _trackingArea  = [[NSTrackingArea alloc] initWithRect:[self bounds] options:options owner:self userInfo:nil];
+    
+    [self addTrackingArea:_trackingArea];
+    
+    [super updateTrackingAreas];
 }
 
 @end

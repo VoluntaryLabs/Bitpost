@@ -10,7 +10,7 @@
 #import "TableCell.h"
 #import "NSView+sizing.h"
 #import "NSEvent+keys.h"
-//#import "NavRowView.h"
+#import "CustomSearchField.h"
 #import "Theme.h"
 #import "NSObject+extra.h"
 #import <objc/runtime.h>
@@ -127,15 +127,23 @@
 
 - (NSArray *)allChildren
 {
-    //if (self.isInlined)
     if (self.node.shouldInlineChildren)
     {
         return self.node.inlinedChildren;
     }
-    else
+    /*else
     {
         return self.node.children;
     }
+    */
+    
+    if (_searchField && _searchField.stringValue.length)
+    {
+        return self.node.searchResults;
+    }
+    
+    return self.node.children;
+
 }
 
 // ----------------------------------------
@@ -592,6 +600,7 @@
 
 - (void)updateActionStrip
 {
+    CGFloat buttonHeight = 40;
     //NSLog(@"updateActionStrip");
     
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
@@ -603,7 +612,6 @@
     
     for (NSString *action in self.node.actions)
     {
-        CGFloat buttonHeight = 40;
         //CGFloat y = self.actionStrip.height/2 - buttonHeight/2;
         NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, buttonHeight)];
         [button setButtonType:NSMomentaryChangeButton];
@@ -636,13 +644,16 @@
         objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
     }
     
-    /*
-     if ([lastNode canSearch])
-     {
-     NSSearchField *search = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, 20)];
-     [self.actionStrip addSubview:search];
-     }
-     */
+    if ([self.node canSearch])
+    {
+        _searchField = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, buttonHeight)];
+        [_searchField setSearchDelegate:self];
+        [self.actionStrip addSubview:_searchField];
+    }
+    else
+    {
+        _searchField = nil;
+    }
     
     [self.actionStrip stackSubviewsRightToLeft];
     [self.actionStrip adjustSubviewsX:-20];
@@ -657,5 +668,13 @@
     [(id)self.node noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
 }
 
+- (void)searchForString:(NSString *)aString
+{
+    [self.node search:aString];
+    self.lastSelectedChild = nil;
+    [self reloadData];
+    [self.navView shouldSelectNode:nil inColumn:self];
+    NSLog(@"search results %i", (int)[self.node.searchResults count]);
+}
 
 @end

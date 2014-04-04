@@ -164,7 +164,7 @@ static BMClient *sharedBMClient;
 {
     self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
     [self.bitmessageProcess launch];
-    [self startRefreshTimer];
+    //[self startRefreshTimer];
     
 }
 
@@ -196,9 +196,9 @@ static BMClient *sharedBMClient;
 {
     NSLog(@"refresh received");
     [self.messages.received refresh];
-    NSLog(@"refresh sent");
+    //NSLog(@"refresh sent");
     [self.messages.sent refresh];
-    NSLog(@"refresh done");
+    //NSLog(@"refresh done");
 }
 
 @end

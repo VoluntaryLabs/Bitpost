@@ -216,10 +216,10 @@ static Theme *sharedTheme = nil;
 
     // color
     
-    NSDictionary *colorDict = [dict objectForKey:@"color"];
-    if (colorDict)
+    id colorValue = [dict objectForKey:@"color"];
+    if (colorValue)
     {
-        NSColor *color = [NSColor colorWithObject:colorDict];
+        NSColor *color = [NSColor colorWithObject:colorValue];
         [attributes setObject:color forKey:NSForegroundColorAttributeName];
     }
     
@@ -248,6 +248,13 @@ static Theme *sharedTheme = nil;
         [attributes setObject:[NSNumber numberWithInt:NSUnderlineStyleNone]
                        forKey:NSUnderlineStyleAttributeName];
     }
+    
+    
+    NSMutableParagraphStyle *alignStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [alignStyle setAlignment:[self alignmentForPath:path]];
+    
+    [attributes setObject:alignStyle
+                   forKey:NSParagraphStyleAttributeName];
     
     return attributes;
 }
@@ -355,6 +362,7 @@ static Theme *sharedTheme = nil;
          attributes:attributes];
     
     [self setAttributedTitle:attributedString];
+    //[self setAttributedAlternateTitle:attributedString];
     
     
     NSColor *bgColor = [attributes objectForKey:NSBackgroundColorAttributeName];
@@ -368,6 +376,12 @@ static Theme *sharedTheme = nil;
         {
             [(id)self setDrawsBackground:NO];
         }
+        [self setBordered:NO];
+    }
+    
+    if ([self respondsToSelector:@selector(setAlignment:)])
+    {
+        //[(id)self setAlignment:[Theme.sharedTheme alignmentForPath:aPath]];
     }
     
     [self setNeedsDisplay:YES];

@@ -5,6 +5,7 @@
 #import "NavColumn.h"
 #import "InfoPanelController.h"
 #import "BMNewUserView.h"
+//#import "BMInfoPanel.h"
 
 @implementation AppController
 
@@ -35,6 +36,8 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
+    //[self openInfoPanel:nil];
+
     [self connectToServer];
     
     [[NSNotificationCenter defaultCenter] addObserver:self

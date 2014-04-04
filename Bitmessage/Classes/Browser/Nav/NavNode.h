@@ -41,5 +41,6 @@
 
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
+- (NSMutableArray *)searchResults;
 
 @end

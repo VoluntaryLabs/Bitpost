@@ -15,6 +15,7 @@
 - (NSData *)decodedBase64Data;
 
 - (BOOL)containsString:(NSString *)other;
+- (BOOL)containsCaseInsensitiveString:(NSString *)other;
 
 - (NSString *)stringByTrimmingLeadingWhitespace;
 - (NSString *)stringByTrimmingTrailingWhitespace;

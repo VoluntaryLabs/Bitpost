@@ -120,24 +120,29 @@
 
 - (void)timer:anObject
 {
-    CGFloat v = self.animationValue + 1.0/10.0;
+    CGFloat timerPeriod = 1.0;
+    NSInteger totalFrames = 2.0;
+    CGFloat v = self.animationValue + timerPeriod/totalFrames;
 
     if (v > 1.0)
     {
         v = 1.0;
-        self.animationValue = v;
-        //self.isExpanded = !self.isExpanded;
+        [self setAnimationValue:v];
+        [self.timer invalidate];
         self.timer = nil;
         [self completeSetup];
+    }
+    else if (!self.timer)
+    {
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0 //timerPeriod/60.0
+                                                  target:self
+                                                selector:@selector(timer:)
+                                                userInfo:nil
+                                                 repeats:YES];
     }
     else
     {
         self.animationValue = v;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0/60.0
-                                                  target:self
-                                                selector:@selector(timer:)
-                                                userInfo:nil
-                                                 repeats:NO];
     }
     
 }
@@ -145,6 +150,8 @@
 - (void)setAnimationValue:(float)animationValue
 {
     _animationValue = animationValue;
+    
+    //NSLog(@"animationValue %f", (float) animationValue);
   
     CGFloat v = 0.0;
     
@@ -159,6 +166,7 @@
     
     [self setWidth:self.minWidth + (self.maxWidth - self.minWidth)*v];
     [self.superview stackSubviewsRightToLeft];
+    [self setNeedsDisplay:YES];
 }
 
 - (CGFloat)minWidth
@@ -175,6 +183,17 @@
 {
     NSLog(@"textShouldBeginEditing");
     return YES;
+}
+
+- (void)controlTextDidChange:(NSNotification *)aNotification
+{
+    NSLog(@"controlTextDidChange '%@'", self.stringValue);
+    
+    if (_searchDelegate)
+    {
+        [_searchDelegate searchForString:self.stringValue];
+    }
+    
 }
 
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor

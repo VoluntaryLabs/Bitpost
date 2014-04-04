@@ -219,7 +219,7 @@
 
 - (void)postSelfChanged
 {
-    //[self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
+    [self performSelector:@selector(justPostSelfChanged) withObject:nil afterDelay:0.0];
     [self justPostSelfChanged];
 }
 
@@ -257,7 +257,46 @@
 
 - (void)search:(NSString *)aString
 {
+    NSArray *parts = [aString componentsSeparatedByString:@" "];
     
+    _searchResults = [NSMutableArray array];
+    
+    for (BMNode *child in self.children)
+    {
+        NSInteger remaining = parts.count;
+        
+        for (NSString *part in parts)
+        {
+            if (part.length == 0)
+            {
+                remaining --;
+            }
+            else if ([child nodeMatchesSearch:part])
+            {
+                remaining --;
+            }
+        }
+        
+        if (remaining == 0)
+        {
+            [_searchResults addObject:child];
+        }
+    }
+}
+
+- (BOOL)nodeMatchesSearch:(NSString *)aString
+{
+    if (self.nodeTitle && [self.nodeTitle containsCaseInsensitiveString:aString])
+    {
+        return YES;
+    }
+    
+    if (self.nodeSubtitle && [self.nodeSubtitle containsCaseInsensitiveString:aString])
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (id)childWithAddress:(NSString *)address

@@ -53,6 +53,11 @@
     return (r.location != NSNotFound);
 }
 
+- (BOOL)containsCaseInsensitiveString:(NSString *)other
+{
+    return [self rangeOfString:other options:NSCaseInsensitiveSearch].location != NSNotFound;
+}
+
 
 - (NSString *)stringByTrimmingLeadingCharactersInSet:(NSCharacterSet *)characterSet
 {

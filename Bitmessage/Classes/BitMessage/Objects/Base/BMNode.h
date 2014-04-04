@@ -64,6 +64,7 @@
 
 - (BOOL)canSearch;
 - (void)search:(NSString *)aString;
+- (BOOL)nodeMatchesSearch:(NSString *)aString;
 
 - (BMClient *)client;
 

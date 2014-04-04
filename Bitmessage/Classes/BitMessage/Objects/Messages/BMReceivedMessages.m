@@ -123,7 +123,7 @@
 
 - (void)search:(NSString *)aString
 {
-    
+    [super search:aString];
 }
 
 @end

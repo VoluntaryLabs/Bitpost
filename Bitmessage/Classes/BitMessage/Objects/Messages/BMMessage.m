@@ -294,4 +294,14 @@
     return attributedStrings;
 }
 
+- (BOOL)nodeMatchesSearch:(NSString *)aString
+{
+    return [super nodeMatchesSearch:aString] ||
+        [self.messageString containsCaseInsensitiveString:aString] ||
+        [self.fromAddressLabel containsCaseInsensitiveString:aString] ||
+        [self.toAddressLabel containsCaseInsensitiveString:aString];
+    
+}
+
+
 @end

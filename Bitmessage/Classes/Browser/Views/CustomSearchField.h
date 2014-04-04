@@ -8,13 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol CustomSearchFieldDelegate <NSObject>
+- (void)searchForString:(NSString *)aString;
+@end
+
 @interface CustomSearchField : NSSearchField <NSAnimationDelegate, NSTextFieldDelegate>
 
-@property (assign, nonatomic) id searchDelegate;
+@property (assign, nonatomic) id <CustomSearchFieldDelegate> searchDelegate;
 
 @property (assign, nonatomic) BOOL isExpanded;
 @property (strong, nonatomic) NSAnimation *expandAnimation;
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) float animationValue;
+//@property (assign, nonatomic) NSTimeInterval timerPeriod;
 
 @end

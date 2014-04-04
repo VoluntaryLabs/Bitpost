@@ -94,7 +94,7 @@ NSMutableArray *sharedDrafts = nil;
 - (void)setupViewPositions
 {
     [self.bodyArea setThemePath:@"draft/body"];
-    [self.topBackground setThemePath:@"draft/seperators"];
+    [self.topBackground setThemePath:@"draft/separators"];
     [self.fromBackground setThemePath:@"draft/body"];
     [self.toBackground setThemePath:@"draft/body"];
     [self.subjectBackground setThemePath:@"draft/body"];

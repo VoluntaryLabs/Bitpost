@@ -105,8 +105,12 @@
     
     [self.navColumns removeObjectsInArray:toRemove];
     
-    NavColumn *newColumn = [self addColumnForNode:node];
-    [newColumn prepareToDisplay];
+    if (node)
+    {
+        NavColumn *newColumn = [self addColumnForNode:node];
+        [newColumn prepareToDisplay];
+    }
+    
     return YES;
 }
 

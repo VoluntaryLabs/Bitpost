@@ -32,7 +32,7 @@
 
 - (void)updateUnreadCount
 {
-    NSLog(@"updateUnreadCount");
+    //NSLog(@"updateUnreadCount");
     NSInteger lastUnreadCount = _unreadCount;
     
     _unreadCount = 0;

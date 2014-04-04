@@ -8,6 +8,13 @@
 
 #import "BMButton.h"
 
-@interface InfoButton : BMButton
+@interface InfoButton : NSButton
+
+@property (strong) NSString *link;
+@property (strong) NSTrackingArea *trackingArea;
+@property (strong) NSString *normalTitle;
+@property (strong) NSString *altTitle;
+@property (strong) NSString *titleThemePath;
+
 
 @end

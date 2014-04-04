@@ -273,10 +273,63 @@
                 "backgroundColor" : "#FFFFFF",
             },
             
-            "seperators":
+            "separators":
             {
                 "backgroundColor" : "#EEEEEE",
             },
+        },
+	
+    
+        "info" :
+        {
+            "header" :
+            {
+                "fontName" : "Open Sans Bold",
+                "fontSize" : 16,
+                "color" : "#777777",
+                "align" : "center",
+            },
+
+            "subheader" :
+            {
+                "fontName" : "Open Sans Light",
+                "fontSize" : 16,
+                "color" : "#777777",
+                "align" : "center",
+            },
+            
+            
+            "title" :
+            {
+                "fontName" : "Open Sans",
+                "fontSize" : 16,
+                "color" : "#777777",
+                "align" : "center",
+            },
+            
+            "item" :
+            {
+                "fontName" : "Open Sans Light",
+                "fontSize" : 16,
+                "color" : "#AAAAAA",
+                "align" : "center",
+            },
+            
+            "item.alt" :
+            {
+                "fontName" : "Open Sans Light",
+                "fontSize" : 16,
+                "color" : "#DDDDDD",
+                "align" : "center",
+            },
+            
+            
+            "background":
+            {
+                "backgroundColor" : "#191919",
+            },
         }
-	},
+    
+    
+    },
 }
