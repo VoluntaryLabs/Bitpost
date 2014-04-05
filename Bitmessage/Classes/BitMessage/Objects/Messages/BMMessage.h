@@ -37,7 +37,6 @@
 
 - (NSDate *)date;
 
--(NSArray *)attachedImages;
 
 - (void)send;
 - (void)broadcast;
@@ -49,6 +48,6 @@
 - (void)setReadState:(BOOL)isRead;
 
 
-- (NSMutableAttributedString *)messageAttributedString;
+- (NSMutableAttributedString *)messageStringWithAttributes:(NSDictionary *)attributes;
 
 @end

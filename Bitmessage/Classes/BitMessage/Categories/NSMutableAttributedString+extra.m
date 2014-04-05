@@ -38,7 +38,8 @@
     
     // need to generalize this bit
     //NSString *startString = @"<img src=\"data:image/jpg;base64,";
-    NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
+    //NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
+    NSString *startString = @"base64,";
     
     NSString *endString = @"\'";
 
@@ -60,9 +61,17 @@
         NSString *after  = [parts objectAtIndex:2];
 
         NSData *data = middle.decodedBase64Data;
-        [data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
+        //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
         NSImage *image = [[NSImage alloc] initWithData:data];
         
+        NSSize size = image.size;
+        if (size.width > 300.0)
+        {
+            CGFloat scale = 300.0/size.width;
+            size.width *= scale;
+            size.height *= scale;
+            image.size = size;
+        }
         
         // attach image
         NSAttributedString *attachment = [NSMutableAttributedString attachmentStringForImage:image];

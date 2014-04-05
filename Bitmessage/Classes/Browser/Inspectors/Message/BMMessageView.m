@@ -127,17 +127,20 @@
     [self.message markAsRead];
     //[self.message performSelector:@selector(markAsRead) withObject:nil afterDelay:0];
     
+    NSMutableAttributedString *fullMessage = [[NSMutableAttributedString alloc] initWithString:@""];
+                                                
     NSMutableAttributedString *subjectString = [[NSMutableAttributedString alloc]
                                                 initWithString:[NSString stringWithFormat:@"%@\n", self.message.subjectString]
                                                 attributes:[self subjectAttributes]];
 
-    [subjectString appendAttributedString:[self linkForAddress:self.message.fromAddressLabel]];
+    [fullMessage appendAttributedString:subjectString];
+    [fullMessage appendAttributedString:[self linkForAddress:self.message.fromAddressLabel]];
     
-    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+    [fullMessage appendAttributedString:[[NSMutableAttributedString alloc]
                                            initWithString:@" → "
                                            attributes:[self infoAttributes]]];
     
-    [subjectString appendAttributedString:[self linkForAddress:self.message.toAddressLabel]];
+    [fullMessage appendAttributedString:[self linkForAddress:self.message.toAddressLabel]];
     
     if (self.message.class == [BMSentMessage class])
     {
@@ -145,18 +148,28 @@
         
         if (status)
         {
-            [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+            [fullMessage appendAttributedString:[[NSMutableAttributedString alloc]
                                                    initWithString:[NSString stringWithFormat:@" (%@)", status]
                                                    attributes:[self infoAttributes]]];
         }
     }
     
-    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
+    [fullMessage appendAttributedString:[[NSMutableAttributedString alloc]
                                            initWithString:@"\n"
                                            attributes:[self infoAttributes]]];
-    
-    NSMutableAttributedString *bodyString = self.message.messageAttributedString;
 
+    [fullMessage appendAttributedString:[[NSMutableAttributedString alloc]
+                                         initWithString:@"\n"
+                                         attributes:[self subjectAttributes]]];
+    
+    // body
+    
+        
+    [fullMessage appendAttributedString:[self.message messageStringWithAttributes:self.bodyAttributes]];
+    
+    //NSMutableAttributedString *bodyString = self.message.messageAttributedString;
+
+/*
     [bodyString setAttributes:[self bodyAttributes] range:NSMakeRange(0, [bodyString length])];
 
     [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
@@ -164,13 +177,13 @@
                                  attributes:[self bodyAttributes]]];
     
     [subjectString appendAttributedString:bodyString];
+*/
 
-
-    [subjectString addAttribute:NSParagraphStyleAttributeName
+    [fullMessage addAttribute:NSParagraphStyleAttributeName
                       value:indented
                       range:NSMakeRange(0, [subjectString length])];
     
-    return subjectString;
+    return fullMessage;
 }
 
 - (BMMessage *)message
@@ -191,11 +204,10 @@
         [self.textView setEditable:NO];
         [self.textView setString:@""];
         //[self.textView insertText:self.bodyString];
+        //[self.textView.textStorage setAttributedString:[[NSMutableAttributedString alloc] initWithString:@""]];
         [self.textView.textStorage setAttributedString:[self bodyString]];
+
         
-        for (NSAttributedString *attributedString in self.message.attachedImages) {
-            [[self.textView textStorage] appendAttributedString: attributedString];
-        }
         [self.textView setWidth:self.frame.size.width];
         
 

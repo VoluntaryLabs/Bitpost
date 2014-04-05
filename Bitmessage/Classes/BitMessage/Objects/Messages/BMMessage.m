@@ -249,19 +249,16 @@
     }
 }
 
-- (NSMutableAttributedString *)messageAttributedString
+- (NSMutableAttributedString *)messageStringWithAttributes:(NSDictionary *)attributes
 {
-    return [NSMutableAttributedString stringWithInlinedAttachmentsFromString:self.messageString];
-}
-
-- (NSArray *)attachedImages
-{
-    
-    NSMutableArray *attributedStrings = [[NSMutableArray alloc] init];
+    NSMutableAttributedString *result = [[NSMutableAttributedString alloc] init];
+    //NSMutableArray *attributedStrings = [[NSMutableArray alloc] init];
     NSString *aString = [NSString stringWithString: self.messageString];
     
-    NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
-    NSString *endString = @"\'";
+    //NSString *startString = @"<attachment alt = \"mOnbTBG.jpg\" src='data:file/mOnbTBG.jpg;base64,";
+    NSString *startString = @"base64,";
+    //NSString *endString = @"\'";
+    NSString *endString = @"\"";
     
     while (YES)
     {
@@ -272,26 +269,38 @@
         
         if (parts.count < 3)
         {
+            [result appendAttributedString:[[NSAttributedString alloc] initWithString:aString attributes:attributes]];
             break;
         }
         
-        //NSString *before = [parts objectAtIndex:0];
+        NSString *before = [parts objectAtIndex:0];
+        [result appendAttributedString:[[NSAttributedString alloc] initWithString:before attributes:attributes]];
         NSString *middle = [parts objectAtIndex:1];
         NSString *after  = [parts objectAtIndex:2];
         
         NSData *data = middle.decodedBase64Data;
-        [data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
+        //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
         NSImage *image = [[NSImage alloc] initWithData:data];
+        
+        NSSize size = image.size;
+        CGFloat maxWidth = 600.0;
+        if (size.width > maxWidth)
+        {
+            CGFloat scale = maxWidth/size.width;
+            size.width *= scale;
+            size.height *= scale;
+            image.size = size;
+        }
         
         NSTextAttachmentCell *attachmentCell = [[NSTextAttachmentCell alloc] initImageCell:image];
         NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
         [attachment setAttachmentCell: attachmentCell];
         NSAttributedString *attributedString = [NSAttributedString  attributedStringWithAttachment: attachment];
-        [attributedStrings addObject: attributedString];
+        [result appendAttributedString:attributedString];
         aString = after;
     }
-    
-    return attributedStrings;
+
+    return result;
 }
 
 - (BOOL)nodeMatchesSearch:(NSString *)aString
