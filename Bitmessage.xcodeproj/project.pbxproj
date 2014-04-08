@@ -179,6 +179,27 @@
 			remoteGlobalIDString = AA31560618AAE02D0017E94F;
 			remoteInfo = Bitmessage;
 		};
+		AA9EFC0518F4999D00DC32F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB6F09CE174838FC00F91524;
+			remoteInfo = ZipKit;
+		};
+		AA9EFC0718F4999D00DC32F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB6F0A4617483E5000F91524;
+			remoteInfo = zipkit;
+		};
+		AA9EFC0918F4999D00DC32F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CB6F0A9817484BDE00F91524;
+			remoteInfo = touchzipkit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -422,6 +443,7 @@
 		AA94776418E2697E004EFC7A /* BMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNode.m; sourceTree = "<group>"; };
 		AA9EFBFC18F4960000DC32F4 /* BMAddressed+message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+message.h"; sourceTree = "<group>"; };
 		AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+message.m"; sourceTree = "<group>"; };
+		AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZipKit.xcodeproj; path = Vendor/ZipKit/ZipKit.xcodeproj; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -572,6 +594,7 @@
 		AA3155FE18AAE02D0017E94F = {
 			isa = PBXGroup;
 			children = (
+				AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */,
 				8E56ACB318C22426001136F9 /* fonts */,
 				8E93980218B18118003ABFE9 /* static-python */,
 				8E9397F418B034DA003ABFE9 /* pybitmessage */,
@@ -1061,6 +1084,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		AA9EFC0018F4999D00DC32F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA9EFC0618F4999D00DC32F4 /* ZipKit.framework */,
+				AA9EFC0818F4999D00DC32F4 /* libzipkit.a */,
+				AA9EFC0A18F4999D00DC32F4 /* libtouchzipkit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -1220,6 +1253,12 @@
 			mainGroup = AA3155FE18AAE02D0017E94F;
 			productRefGroup = AA31560818AAE02D0017E94F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AA9EFC0018F4999D00DC32F4 /* Products */;
+					ProjectRef = AA9EFBFF18F4999D00DC32F4 /* ZipKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AA31560618AAE02D0017E94F /* Bitmessage */,
@@ -1227,6 +1266,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AA9EFC0618F4999D00DC32F4 /* ZipKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZipKit.framework;
+			remoteRef = AA9EFC0518F4999D00DC32F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA9EFC0818F4999D00DC32F4 /* libzipkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libzipkit.a;
+			remoteRef = AA9EFC0718F4999D00DC32F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA9EFC0A18F4999D00DC32F4 /* libtouchzipkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtouchzipkit.a;
+			remoteRef = AA9EFC0918F4999D00DC32F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AA31560518AAE02D0017E94F /* Resources */ = {

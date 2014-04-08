@@ -13,7 +13,7 @@
 @implementation BMAddressed (message)
 
 - (void)message
-{    
+{
     AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
     DraftController *draftController = [appController newDraft];
     
@@ -29,6 +29,5 @@
     [draftController.subject becomeFirstResponder];
     [draftController open];
 }
-
 
 @end
