@@ -101,24 +101,6 @@
 
 // -----------------------
 
-- (void)message
-{
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draftController = [appController newDraft];
-    
-    [draftController.to setStringValue:self.address];
-    
-    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] address];
-    
-    if (from)
-    {
-        [draftController.from setStringValue:from];
-    }
-    
-    [draftController.subject becomeFirstResponder];
-    [draftController open];
-}
-
 // UI - move to category
 
 - (CGFloat)nodeSuggestedWidth
