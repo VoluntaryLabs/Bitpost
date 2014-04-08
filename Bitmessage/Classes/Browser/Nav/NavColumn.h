@@ -39,6 +39,7 @@
 - (ThemeDictionary *)themeDict;
 
 - (id <NavNode>)selectedNode;
+- (NSInteger)columnIndex;
 
 - (void)selectRowIndex:(NSInteger)rowIndex;
 - (void)justSelectNode:(id)aNode;

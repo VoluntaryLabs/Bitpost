@@ -410,6 +410,7 @@
     self.contentView.frame = self.scollFrameSansStrip;
     [self addSubview:self.contentView];
     [self setNeedsDisplay:YES];
+    
 }
 
 - (void)setupHeaderView:(NSView *)aView

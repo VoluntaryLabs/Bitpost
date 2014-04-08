@@ -88,9 +88,4 @@
     return result;
 }
 
-- (BOOL)canSearch
-{
-    return YES;
-}
-
 @end

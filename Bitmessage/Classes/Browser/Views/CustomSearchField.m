@@ -91,6 +91,8 @@
     
     _animationValue = 0.0;
     [self setup];
+    
+    [self setAnimationValue:1.0]; // skip animation
     [self timer:nil];
 }
 
@@ -125,7 +127,7 @@
     NSInteger totalFrames = 1.0;
     CGFloat v = self.animationValue + timerPeriod/totalFrames;
 
-    if (v > 1.0)
+    if (v >= 1.0)
     {
         v = 1.0;
         [self setAnimationValue:v];

@@ -113,4 +113,10 @@
     }
 }
 
+- (BOOL)canSearch
+{
+    return YES;
+}
+
+
 @end

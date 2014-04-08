@@ -116,14 +116,4 @@
     return @"Inbox";
 }
 
-- (BOOL)canSearch
-{
-    return YES;
-}
-
-- (void)search:(NSString *)aString
-{
-    [super search:aString];
-}
-
 @end

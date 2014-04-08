@@ -28,4 +28,7 @@
 - (NSRange)rangeBetweenString:(NSString *)startString andString:(NSString *)endString afterIndex:(NSUInteger)searchIndex;
 - (NSMutableArray *)splitBetweenFirst:(NSString *)startString andString:(NSString *)endString;
 
+- (NSString *)before:(NSString *)aString;
+- (NSString *)after:(NSString *)aString;
+
 @end

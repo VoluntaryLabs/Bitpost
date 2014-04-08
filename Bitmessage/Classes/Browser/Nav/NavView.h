@@ -32,5 +32,6 @@
 - (void)selectNodePath:(NSArray *)nodes;
 
 - (NSInteger)indexOfColumn:(NavColumn *)aColumn;
+- (NavColumn *)columnForNode:(id)node;
 
 @end

@@ -272,4 +272,18 @@
     return [self.navColumns indexOfObject:aColumn];
 }
 
+- (NavColumn *)columnForNode:(id)node
+{
+    for (NavColumn *column in self.navColumns)
+    {
+        if (column.node == node)
+        {
+            return column;
+        }
+    }
+    
+    return nil;
+}
+
+
 @end

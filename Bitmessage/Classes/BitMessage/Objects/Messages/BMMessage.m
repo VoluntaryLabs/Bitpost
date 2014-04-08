@@ -274,9 +274,13 @@
         }
         
         NSString *before = [parts objectAtIndex:0];
+        before = [before before:@"<"]; // remove tag beginning
         [result appendAttributedString:[[NSAttributedString alloc] initWithString:before attributes:attributes]];
+        
         NSString *middle = [parts objectAtIndex:1];
+        
         NSString *after  = [parts objectAtIndex:2];
+        after = [after after:@">"]; // remove tag ending
         
         NSData *data = middle.decodedBase64Data;
         //[data writeToFile:[@"~/test_image.jpg" stringByExpandingTildeInPath] atomically:YES];
@@ -302,6 +306,9 @@
 
     return result;
 }
+
+
+// search
 
 - (BOOL)nodeMatchesSearch:(NSString *)aString
 {

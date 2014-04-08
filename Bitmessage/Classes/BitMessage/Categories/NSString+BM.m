@@ -181,5 +181,32 @@
     return results;
 }
 
+- (NSString *)before:(NSString *)aString
+{
+    NSRange startRange = [self rangeOfString:aString options:NSLiteralSearch];
+    
+    if (startRange.location == NSNotFound)
+    {
+        return self;
+    }
+    
+    NSString *before = [self substringWithRange:NSMakeRange(0, startRange.location)];
+    return before;
+}
+
+- (NSString *)after:(NSString *)aString
+{
+    NSRange endRange = [self rangeOfString:aString options:NSLiteralSearch];
+    
+    if (endRange.location == NSNotFound)
+    {
+        return self;
+    }
+    
+    NSInteger afterIndex = endRange.location + endRange.length;
+    NSString *after = [self substringWithRange:NSMakeRange(afterIndex, self.length - afterIndex)];
+    return after;
+}
+
 @end
 

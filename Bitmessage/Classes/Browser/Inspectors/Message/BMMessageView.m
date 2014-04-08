@@ -17,6 +17,7 @@
 #import "MarginTextView.h"
 #import "BMContacts.h"
 #import "BMSentMessage.h"
+#import "NavColumn.h"
 
 @implementation BMMessageView
 
@@ -70,7 +71,10 @@
 
 - (NSDictionary *)bodyAttributes
 {
-    return [Theme.sharedTheme attributesDictForPath:@"message/body"];
+    NSDictionary *themeDict = [Theme.sharedTheme attributesDictForPath:@"message/body"];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:themeDict];
+    //[dict setObject:self.dynamicBackgroundColor forKey:NSBackgroundColorAttributeName];
+    return dict;
     /*
     NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -203,18 +207,29 @@
         [self.textView setRichText:YES];
         [self.textView setEditable:NO];
         [self.textView setString:@""];
-        //[self.textView insertText:self.bodyString];
-        //[self.textView.textStorage setAttributedString:[[NSMutableAttributedString alloc] initWithString:@""]];
         [self.textView.textStorage setAttributedString:[self bodyString]];
-
-        
         [self.textView setWidth:self.frame.size.width];
         
 
         [[self.scrollView contentView] scrollToPoint:NSMakePoint (0, 0)];
         [self.scrollView reflectScrolledClipView: [self.scrollView contentView]];
+        
     }
+    
     [self configBody];
+}
+
+- (void)setNavView:(id)navView
+{
+    _navView = navView;
+    self.backgroundColor = self.dynamicBackgroundColor;
+}
+
+- (NSColor *)dynamicBackgroundColor
+{
+    NavColumn *column = [self.navView columnForNode:_node];
+    ThemeDictionary *theme = [Theme.sharedTheme themeForColumn:column.columnIndex - 1];
+    return[theme selectedBgColor];
 }
 
 - (void)setupBody
