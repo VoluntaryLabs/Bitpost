@@ -70,9 +70,6 @@
     
     [[BMServerProcess sharedBMServerProcess] setLabel:self.label onAddress:self.address];
     
-    //[self delete];
-    //[self insert];
-    
     [self postParentChanged];
     self.isSynced = YES;
 }
@@ -92,6 +89,16 @@
     id response = [message parsedResponseValue];
     NSLog(@"insert response = %@", response);
     */
+}
+
+- (NSString *)verifyActionMessage:(NSString *)actionString
+{
+    if ([actionString isEqualToString:@"delete"])
+    {
+        return @"CAUTION: This address is one of your identities. Deleting it will permanently loose the private key for the identity and you will never be able to receive or read messages sent to this address again.";
+    }
+    
+    return nil;
 }
 
 @end

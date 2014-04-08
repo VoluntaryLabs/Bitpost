@@ -383,4 +383,13 @@
 }
 
 
+// actions
+
+- (NSString *)verifyActionMessage:(NSString *)aString
+{
+    return nil;
+}
+
+
+
 @end

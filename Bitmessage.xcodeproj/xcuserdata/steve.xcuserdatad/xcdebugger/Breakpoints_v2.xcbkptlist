@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bitmessage/Classes/Browser/Nav/NavColumn.m"
-            timestampString = "418358723.784963"
+            timestampString = "418686584.076542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "674"
-            endingLineNumber = "674"
+            startingLineNumber = "692"
+            endingLineNumber = "692"
             landmarkName = "-searchForString:"
             landmarkType = "5">
          </BreakpointContent>

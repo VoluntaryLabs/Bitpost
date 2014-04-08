@@ -43,4 +43,6 @@
 - (void)search:(NSString *)aString;
 - (NSMutableArray *)searchResults;
 
+- (NSString *)verifyActionMessage:(NSString *)aString;
+
 @end

@@ -68,4 +68,8 @@
 
 - (BMClient *)client;
 
+// actions
+
+- (NSString *)verifyActionMessage:(NSString *)aString;
+
 @end

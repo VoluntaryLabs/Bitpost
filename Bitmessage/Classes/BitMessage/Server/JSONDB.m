@@ -50,7 +50,8 @@
     }
     else
     {
-        NSString * folder = [[NSFileManager defaultManager] applicationSupportDirectory];
+        NSString *folder = [@"~/Library/Application Support/PyBitmessage" stringByExpandingTildeInPath];
+        //NSString *folder = [[NSFileManager defaultManager] applicationSupportDirectory];
         NSString *path = [folder stringByAppendingPathComponent:
                           [NSString stringWithFormat:@"%@.json", self.name]];
         return path;

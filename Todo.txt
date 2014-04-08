@@ -1,10 +1,8 @@
 
-- test app from clean startup
 - cleanup old backups?
 - zip export/import?
 
 - fix vertical centering on cell titles/notes when there's no subtitle
-
 
 - when deleting a channel, delete all messages in it first
 

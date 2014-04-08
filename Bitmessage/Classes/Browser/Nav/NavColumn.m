@@ -664,7 +664,25 @@
 - (void)hitActionButton:(id)aButton
 {
     NSString *action = objc_getAssociatedObject(aButton, @"action");
-    NSLog(@"hit action %@", action);
+    //NSLog(@"hit action %@", action);
+    
+    NSString *verifyMessage = [self.node verifyActionMessage:action];
+    
+    if (verifyMessage)
+    {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:[NSString stringWithFormat:@"Are you sure you want to %@?", action]];
+        [alert setInformativeText:verifyMessage];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        if ([alert runModal] == NSAlertSecondButtonReturn)
+        {
+            // cancel
+            return;
+        }
+    }
     
     [(id)self.node noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
 }
@@ -675,7 +693,7 @@
     self.lastSelectedChild = nil;
     [self reloadData];
     [self.navView shouldSelectNode:nil inColumn:self];
-    NSLog(@"search results %i", (int)[self.node.searchResults count]);
+    //NSLog(@"search results %i", (int)[self.node.searchResults count]);
 }
 
 @end
