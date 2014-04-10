@@ -14,6 +14,7 @@
 #import "Theme.h"
 #import "NSObject+extra.h"
 #import <objc/runtime.h>
+#import "NavNode.h"
 
 @implementation NavColumn
 
@@ -304,6 +305,8 @@
                                                    object:_node];
         
         
+        [self updateActionStrip];
+
         if (![node nodeView])
         {
             [self setMaxWidth:node.nodeSuggestedWidth];
@@ -311,7 +314,6 @@
         
         [self.tableView reloadData];
         
-        [self updateActionStrip];
         
         [self setRowHeight:self.node.nodeSuggestedRowHeight];
     }
@@ -560,7 +562,7 @@
 
 - (void)keyDown:(NSEvent *)event
 {
-    //NSLog(@"class %@ got key down", NSStringFromClass([self class]));
+    NSLog(@"column %@ got key down", NSStringFromClass(self.node.class));
     
     if ([event isDeleteDown])
     {
@@ -578,16 +580,9 @@
 
 - (void)delete
 {
-    /*
-    id node = [self selectedNode];
-    
-    if ([node respondsToSelector:@selector(delete)])
-    {
-        [node noWarningPerformSelector:@selector(delete)];
-    }
-    */
-    [self sendNodeAction:@"delete"];
-
+    id <NavNode> node = [self selectedNode];
+    NSLog(@"send delete action to %@ ", NSStringFromClass(node.class));
+    [self sendAction:@"delete" toNode:node];
 }
 
 - (void)leftArrow
@@ -605,13 +600,15 @@
 - (void)updateActionStrip
 {
     [_actionStrip setWidth:self.width];
-    [_actionStrip setBackgroundColor:[NSColor redColor]];
+    //[_actionStrip setBackgroundColor:[NSColor redColor]];
     
     CGFloat buttonHeight = 40;
     
+    /*
     NSLog(@"updateActionStrip w %i for node %@ %@", (int)_actionStrip.width, NSStringFromClass(self.node.class), self.node.nodeTitle);
     NSLog(@"self.width %i", (int)self.width);
     NSLog(@"self.tableView.width %i", (int)self.tableView.width);
+    */
     
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
     {
@@ -669,7 +666,6 @@
     }
     
     [self layoutActionStrip];
-    //[self.actionStrip adjustSubviewsX:-20];
 }
 
 - (void)layoutActionStrip
@@ -678,6 +674,7 @@
     {
         [self.actionStrip setWidth:self.width];
         [self.actionStrip stackSubviewsRightToLeftWithMargin:10.0];
+        [self.actionStrip adjustSubviewsX:-10];
     }
 }
 
@@ -685,12 +682,12 @@
 {
     NSString *action = objc_getAssociatedObject(aButton, @"action");
     //NSLog(@"hit action %@", action);
-    [self sendNodeAction:action];
+    [self sendAction:action toNode:self.node];
 }
     
-- (void)sendNodeAction:(NSString *)action
+- (void)sendAction:(NSString *)action toNode:(id <NavNode>)aNode
 {
-    NSString *verifyMessage = [self.node verifyActionMessage:action];
+    NSString *verifyMessage = [aNode verifyActionMessage:action];
     
     if (verifyMessage)
     {
@@ -708,7 +705,7 @@
         }
     }
     
-    [(id)self.node noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
+    [(id)aNode noWarningPerformSelector:NSSelectorFromString(action) withObject:nil];
 }
 
 - (void)searchForString:(NSString *)aString

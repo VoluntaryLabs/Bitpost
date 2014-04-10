@@ -124,12 +124,6 @@
                                     <action selector="exportMailbox:" target="494" id="id3-pj-f6U"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Import..." id="l9P-QI-Fyf">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="importMailbox:" target="494" id="LyW-T9-ljO"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

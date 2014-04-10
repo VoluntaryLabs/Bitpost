@@ -170,7 +170,8 @@
     }
     
     [self setWidth:self.minWidth + (self.maxWidth - self.minWidth)*v];
-    [self.superview stackSubviewsRightToLeftWithMargin:10.0];
+    [self.superview stackSubviewsRightToLeftWithMargin:10.0]; // hack
+    [self.superview adjustSubviewsX:-10]; // hack
     [self setNeedsDisplay:YES];
 }
 
