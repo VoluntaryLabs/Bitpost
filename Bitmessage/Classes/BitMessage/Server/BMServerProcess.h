@@ -34,4 +34,6 @@
 
 - (BOOL)setLabel:(NSString *)aLabel onAddress:(NSString *)anAddress;
 
+- (NSString *)serverDataFolder;
+
 @end

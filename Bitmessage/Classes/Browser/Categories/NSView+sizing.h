@@ -38,6 +38,7 @@
 - (void)centerSubviewsY;
 
 - (void)stackSubviewsRightToLeft;
+- (void)stackSubviewsRightToLeftWithMargin:(CGFloat)margin;
 
 - (void)stackSubviewsLeftToRightWithMargin:(CGFloat)margin;
 

@@ -34,7 +34,7 @@
 
 @interface BMClient : BMNode
 
-@property (strong, nonatomic) BMServerProcess *bitmessageProcess;
+@property (strong, nonatomic) BMServerProcess *server;
 @property (strong, nonatomic) NSTimer *refreshTimer;
 @property (assign, nonatomic) NSTimeInterval refreshInterval;
 
@@ -61,9 +61,15 @@
 
 - (BOOL)hasNoIdentites;
 
-// --- server --------------------------
+// server
 
 //- (void)startServer;
 - (void)stopServer; // call when app quits
+
+// archive
+
+- (NSString *)archiveSuffix;
+- (void)archiveToUrl:(NSURL *)url;
+- (void)unarchiveFromUrl:(NSURL *)url;
 
 @end

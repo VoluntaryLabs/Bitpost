@@ -18,6 +18,7 @@
     self.dockTile = [[NSApplication sharedApplication] dockTile];
 }
 
+/*
 - (void)handleAction:(SEL)aSelector
 {
     [self.navView handleAction:aSelector];
@@ -27,6 +28,7 @@
 {
     return [self.navView canHandleAction:aSelector];
 }
+*/
 
 - (DraftController *)newDraft
 {
@@ -36,9 +38,17 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    //[self openInfoPanel:nil];
-
-    [self connectToServer];
+    [self.navView.window setTitle:@"launching server..."];
+    [self.navView.window display];
+    
+    [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
+    
+    NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
+    [firstNavColumn selectRowIndex:0];
+    
+    [self.navView.window setTitle:@""];
+    
+    [self checkForNewUser];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(unreadCountChanged:)
@@ -46,30 +56,6 @@
                                                object:BMClient.sharedBMClient.messages.received];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];    
-}
-
-
-- (void)connectToServer
-{
-    [self.navView.window setTitle:@"launching server..."];
-    [self.navView.window display];
-
-    //self.bitmessageProcess = [BMServerProcess sharedBMServerProcess];
-    //[self.bitmessageProcess launch];
-
-    //[self.navView.window setTitle:@"connecting to server..."];
-    //[self.navView.window display];
-
-    
-    [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
-    //self.drafts = [NSMutableArray array];
-    
-    NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
-    [firstNavColumn selectRowIndex:0];
-    
-    [self.navView.window setTitle:@""];
-
-    [self checkForNewUser];
 }
 
 - (void)checkForNewUser
@@ -101,7 +87,7 @@
 - (void)unreadCountChanged:(NSNotification *)note
 {
     // replace with notification -> sound mapping with theme lookup
-    NSLog(@"unreadCountChanged");
+    //NSLog(@"unreadCountChanged");
     [self displayUnreadMessageCountBadge];
 }
 
@@ -132,6 +118,99 @@
     [draft setDefaultFrom];
     [draft setCursorOnTo];
     [draft open];
+}
+
+// import/export
+
+- (IBAction)exportMailbox:(id)sender
+{
+    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    [panel setCanChooseDirectories:YES];
+    [panel setCanChooseFiles:NO];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setMessage:@"Choose a folder to place your exported mailbox file in"];
+    
+    NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+    [panel beginSheetModalForWindow:window completionHandler:^(NSInteger result)
+     {
+         if (result == NSFileHandlingPanelOKButton)
+         {
+             NSArray* urls = [panel URLs];
+             NSURL *url = [urls firstObject];
+             NSLog(@"url '%@'", url);
+             [[BMClient sharedBMClient] archiveToUrl:url];
+         }
+     }];
+}
+
+- (IBAction)importMailbox:(id)sender // import by double clicking on file instead?
+{
+    //[self performSelector:@selector(confirmImport) withObject:nil afterDelay:0.01];
+}
+
+- (void)confirmImport
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    self.alertPanel = alert;
+    [alert addButtonWithTitle:@"Import Mailbox"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Are you sure you want to replace your existing Bitmessage mailbox?"];
+    [alert setInformativeText:@"CAUTION: This operation will delete your current Bitmessage mailbox and any identities you have in it. This will destroy the private keys for those identities making any mail sent to them permanently unreadable."];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+    
+    [alert beginSheetModalForWindow:window completionHandler:^(NSInteger returnCode)
+    {
+        // 1000 = OK
+        // 10001 = Cancel
+        // why doesn't NSModalResponseContinue have this value?
+        
+        if (returnCode == 1000)
+        {
+            [self doImport];
+        }
+    }];
+    
+    /*
+    if ([alert runModal] == NSAlertFirstButtonReturn)
+    {
+        [self doImport];
+    }
+    */
+}
+
+- (void)doImport
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseDirectories:NO];
+    [panel setCanChooseFiles:YES];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setMessage:@"Choose a .bmbox file to import"];
+    
+    NSWindow *window = [[NSApplication sharedApplication] mainWindow];
+    [panel beginSheetModalForWindow:window completionHandler:^(NSInteger result)
+    {
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            NSArray* urls = [panel URLs];
+            NSURL *url = [urls firstObject];
+            NSLog(@"url '%@'", url);
+            [[BMClient sharedBMClient] unarchiveFromUrl:url];
+        }
+        
+    }];
+}
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
+{
+    NSLog(@"open '%@'", filename);
+    return YES;
+}
+
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
+{
+    NSLog(@"open filenames");
 }
 
 @end

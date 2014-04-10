@@ -44,28 +44,11 @@
 - (NSDictionary *)subjectAttributes
 {
     return [Theme.sharedTheme attributesDictForPath:@"message/title"];
-    /*
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:24.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [Theme.sharedTheme formText1Color],
-                                    NSForegroundColorAttributeName,
-                                    font, NSFontAttributeName,
-                                    nil];
-    return att;
-     */
 }
 
-- (NSMutableDictionary *)infoAttributes
+- (NSDictionary *)infoAttributes
 {
     return [Theme.sharedTheme attributesDictForPath:@"message/subtitle"];
-    /*
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
-    NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                         [Theme.sharedTheme formText4Color], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         nil];
-    return att;
-    */
 }
 
 
@@ -75,40 +58,24 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:themeDict];
     //[dict setObject:self.dynamicBackgroundColor forKey:NSBackgroundColorAttributeName];
     return dict;
-    /*
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:13.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [Theme.sharedTheme formText3Color], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                        nil];
-    return att;
-    */
 }
 
-- (NSMutableDictionary *)linkAttributes
+- (NSDictionary *)linkAttributes
 {
     return [Theme.sharedTheme attributesDictForPath:@"message/link"];
-    /*
-    NSFont *font = [NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0];
-    NSMutableDictionary *att = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                [Theme.sharedTheme formTextLinkColor], NSForegroundColorAttributeName,
-                         font, NSFontAttributeName,
-                         [NSNumber numberWithInt:NSUnderlineStyleNone], NSUnderlineStyleAttributeName,
-                         nil];
-    return att;
-     */
 }
 
 
 - (NSMutableAttributedString *)linkForAddress:(NSString *)address
 {
-    NSMutableDictionary *att = [self infoAttributes];
+    NSMutableDictionary *att = [NSMutableDictionary dictionaryWithDictionary:[self infoAttributes]];
     
     if ([address hasPrefix:@"BM-"])
     {
-        att = [self linkAttributes];
+        att = [NSMutableDictionary dictionaryWithDictionary:[self linkAttributes]];
         [att setObject:[NSString stringWithFormat:@"BitmessageAddContact://%@", address] forKey:NSLinkAttributeName];
     }
+    
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc]
                                                 initWithString:address
                                                 attributes:att];
@@ -170,18 +137,6 @@
     
         
     [fullMessage appendAttributedString:[self.message messageStringWithAttributes:self.bodyAttributes]];
-    
-    //NSMutableAttributedString *bodyString = self.message.messageAttributedString;
-
-/*
-    [bodyString setAttributes:[self bodyAttributes] range:NSMakeRange(0, [bodyString length])];
-
-    [subjectString appendAttributedString:[[NSMutableAttributedString alloc]
-                                 initWithString:@"\n"
-                                 attributes:[self bodyAttributes]]];
-    
-    [subjectString appendAttributedString:bodyString];
-*/
 
     [fullMessage addAttribute:NSParagraphStyleAttributeName
                       value:indented
@@ -254,7 +209,6 @@
 - (void)configBody
 {
     [self.textView setThemePath:@"message/background"];
-    //[self.textView setBackgroundColor:[Theme.sharedTheme formBackgroundColor]];
     [self.textView setLinkTextAttributes:[self linkAttributes]];
 }
 
@@ -284,7 +238,7 @@
     NSString *command = [parts objectAtIndex:0];
     NSString *argument = [parts objectAtIndex:1];
 
-    NSLog(@"clickedOnLink %@", link);
+    //NSLog(@"clickedOnLink %@", link);
     
     if ([command isEqualToString:@"BitmessageAddContact"])
     {
@@ -302,6 +256,4 @@
 }
 
 @end
-
-
 

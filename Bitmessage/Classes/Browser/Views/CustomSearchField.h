@@ -22,4 +22,8 @@
 @property (assign, nonatomic) float animationValue;
 //@property (assign, nonatomic) NSTimeInterval timerPeriod;
 
+- (void)setupCollapsed;
+- (void)setupExpanded;
+- (void)toggle;
+
 @end

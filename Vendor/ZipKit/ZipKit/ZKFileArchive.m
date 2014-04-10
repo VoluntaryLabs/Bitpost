@@ -258,7 +258,7 @@
 		ZKLFHeader *lfHeader = [ZKLFHeader recordWithArchivePath:self.archivePath atOffset:cdHeader.localHeaderOffset];
 		NSString *path = [expansionDirectory stringByAppendingPathComponent:cdHeader.filename];
 		
-        NSLog(@"unzipping inner file '%@'", path);
+        //NSLog(@"unzipping inner file '%@'", path);
         
 		NSFileHandle *archiveFile = [NSFileHandle fileHandleForReadingAtPath:self.archivePath];
 		[archiveFile seekToFileOffset:(cdHeader.localHeaderOffset + [lfHeader length])];
@@ -420,7 +420,7 @@
             }
             else
             {
-                NSLog(@"unzipped path '%@'", path);
+                //NSLog(@"unzipped path '%@'", path);
             }
             
         }
@@ -498,7 +498,7 @@
 		lfHeaderData.uncompressedSize = [self.fileManager zk_dataSizeAtFilePath:path];
 		lfHeaderData.lastModDate = [self.fileManager zk_modificationDateForPath:path];
 		lfHeaderData.filename = relativePath;
-		lfHeaderData.filenameLength = [lfHeaderData.filename zk_precomposedUTF8Length];
+		lfHeaderData.filenameLength = (UInt32)[lfHeaderData.filename zk_precomposedUTF8Length];
 		lfHeaderData.crc = 0;
 		lfHeaderData.compressedSize = 0;
 		
@@ -510,7 +510,7 @@
 		if (isSymlink) {
 			NSString *symlinkPath = [self.fileManager destinationOfSymbolicLinkAtPath:path error:nil];
 			NSData *symlinkData = [symlinkPath dataUsingEncoding:NSUTF8StringEncoding];
-			lfHeaderData.crc = [symlinkData zk_crc32];
+			lfHeaderData.crc = (UInt32)[symlinkData zk_crc32];
 			lfHeaderData.compressedSize = [symlinkData length];
 			lfHeaderData.uncompressedSize = [symlinkData length];
 			lfHeaderData.compressionMethod = Z_NO_COMPRESSION;
@@ -625,7 +625,7 @@
 					}
 					
 					// replace the local file header's default values with those calculated during deflation
-					lfHeaderData.crc = crc;
+					lfHeaderData.crc = (UInt32)crc;
 					lfHeaderData.compressedSize = compressedSize;
 				}
 			}
@@ -643,7 +643,7 @@
 		dataCDHeader.compressionMethod = lfHeaderData.compressionMethod;
 		dataCDHeader.generalPurposeBitFlag = lfHeaderData.generalPurposeBitFlag;
 		dataCDHeader.versionNeededToExtract = lfHeaderData.versionNeededToExtract;
-		dataCDHeader.externalFileAttributes = [self.fileManager zk_externalFileAttributesAtPath:path];
+		dataCDHeader.externalFileAttributes = (UInt32)[self.fileManager zk_externalFileAttributesAtPath:path];
 		[self.centralDirectory addObject:dataCDHeader];
 		self.useZip64Extensions = (self.useZip64Extensions || [dataCDHeader useZip64Extensions]);
 		
@@ -667,8 +667,8 @@
 				                              [relativePath stringByDeletingLastPathComponent]]
 				                             stringByAppendingPathComponent:
 				                             [ZKDotUnderscore stringByAppendingString:[relativePath lastPathComponent]]];
-				lfHeaderResource.filenameLength = [lfHeaderResource.filename zk_precomposedUTF8Length];
-				lfHeaderResource.crc = [appleDoubleData zk_crc32];
+				lfHeaderResource.filenameLength = (UInt32)[lfHeaderResource.filename zk_precomposedUTF8Length];
+				lfHeaderResource.crc = (UInt32)[appleDoubleData zk_crc32];
 				lfHeaderResource.compressedSize = [deflatedData length];
 				
 				ZKCDHeader *resourceCDHeader = [ZKCDHeader new];

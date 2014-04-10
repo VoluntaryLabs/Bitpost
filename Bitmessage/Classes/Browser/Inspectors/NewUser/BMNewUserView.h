@@ -9,8 +9,9 @@
 #import "BMAddressedView.h"
 #import "BMTextView.h"
 #import "BMButton.h"
+#import "ColoredView.h"
 
-@interface BMNewUserView : NSView <NSWindowDelegate>
+@interface BMNewUserView : ColoredView <NSWindowDelegate>
 
 @property (strong, nonatomic) BMTextView *instructionsText;
 //@property (strong, nonatomic) BMTextView *usernameField;

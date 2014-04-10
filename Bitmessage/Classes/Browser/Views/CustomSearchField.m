@@ -18,6 +18,7 @@
     [self setEditable:NO];
     [self setSelectable:NO];
     [self setDrawsBackground:NO];
+    [self setWidth:self.minWidth];
     [self setNeedsDisplay];
 }
 
@@ -31,6 +32,7 @@
     [self setBezeled:YES];
     [self setBezelStyle:NSTextFieldRoundedBezel];
     [self setDrawsBackground:YES];
+    [self setWidth:self.maxWidth];
     [self setNeedsDisplay];
 }
 
@@ -49,7 +51,7 @@
         {
             [self setupExpanded];
         }
-         */
+        */
         
         [self setDelegate:self];
     }
@@ -168,13 +170,13 @@
     }
     
     [self setWidth:self.minWidth + (self.maxWidth - self.minWidth)*v];
-    [self.superview stackSubviewsRightToLeft];
+    [self.superview stackSubviewsRightToLeftWithMargin:10.0];
     [self setNeedsDisplay:YES];
 }
 
 - (CGFloat)minWidth
 {
-    return 20.0;
+    return 30.0;
 }
 
 - (CGFloat)maxWidth

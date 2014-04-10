@@ -160,4 +160,9 @@ static BMServerProcess *shared = nil;
     return [response isEqualToString:@"hello-world"];
 }
 
+- (NSString *)serverDataFolder
+{
+    return [@"~/Library/Application Support/PyBitmessage" stringByExpandingTildeInPath];
+}
+
 @end

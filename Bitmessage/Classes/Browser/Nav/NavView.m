@@ -111,6 +111,8 @@
         [newColumn prepareToDisplay];
     }
     
+    //[self.window makeFirstResponder:inColumn];
+    
     return YES;
 }
 

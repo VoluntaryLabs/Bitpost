@@ -14,9 +14,12 @@
 - (void)setX:(CGFloat)x
 {
     NSRect f = self.frame;
-    f.origin.x = x;
-    self.frame = f;
-    [self setNeedsDisplay:YES];
+    if (f.origin.x != x)
+    {
+        f.origin.x = x;
+        self.frame = f;
+        [self setNeedsDisplay:YES];
+    }
 }
 
 - (CGFloat)x
@@ -27,9 +30,13 @@
 - (void)setY:(CGFloat)y
 {
     NSRect f = self.frame;
-    f.origin.y = y;
-    self.frame = f;
-    [self setNeedsDisplay:YES];
+    
+    if (f.origin.y != y)
+    {
+        f.origin.y = y;
+        self.frame = f;
+        [self setNeedsDisplay:YES];
+    }
 }
 
 - (CGFloat)y
@@ -41,17 +48,25 @@
 - (void)setWidth:(CGFloat)w
 {
     NSRect f = self.frame;
-    f.size.width = w;
-    self.frame = f;
-    [self setNeedsDisplay:YES];
+    
+    if (f.size.width != w)
+    {
+        f.size.width = w;
+        self.frame = f;
+        [self setNeedsDisplay:YES];
+    }
 }
 
 - (void)setHeight:(CGFloat)h
 {
     NSRect f = self.frame;
-    f.size.height = h;
-    self.frame = f;
-    [self setNeedsDisplay:YES];
+    
+    if (f.size.height != h)
+    {
+        f.size.height = h;
+        self.frame = f;
+        [self setNeedsDisplay:YES];
+    }
 }
 
 - (CGFloat)width
@@ -153,10 +168,13 @@
 
 - (void)stackSubviewsRightToLeft
 {
-    CGFloat margin = 10.0;
-    
+    [self stackSubviewsRightToLeftWithMargin:0];
+}
+
+- (void)stackSubviewsRightToLeftWithMargin:(CGFloat)margin
+{
     NSView *lastView = nil;
-    
+
     for (NSView *view in self.subviews)
     {
         if (lastView)
@@ -167,6 +185,7 @@
         {
             [view setX:self.width - view.width];
         }
+        
         [view setY:0];
         lastView = view;
     }
@@ -175,14 +194,15 @@
 - (void)stackSubviewsLeftToRightWithMargin:(CGFloat)margin
 {
     CGFloat x = 0.0;
-    
+
     for (NSView *view in self.subviews)
     {
+        CGFloat w = view.width;
         [view setX:x];
-        x += view.width + margin;
+        
+        x += w + margin;
     }
 }
-
 
 - (void)stackSubviewsTopToBottom
 {

@@ -8,6 +8,7 @@
 
 #import "JSONDB.h"
 #import "NSFileManager+DirectoryLocations.h"
+#import "BMServerProcess.h" // remove this dependency by moving path setting up to server
 
 @implementation JSONDB
 
@@ -50,7 +51,8 @@
     }
     else
     {
-        NSString *folder = [@"~/Library/Application Support/PyBitmessage" stringByExpandingTildeInPath];
+        NSString *folder = [[BMServerProcess sharedBMServerProcess] serverDataFolder];
+        //NSString *folder = [@"~/Library/Application Support/PyBitmessage" stringByExpandingTildeInPath];
         //NSString *folder = [[NSFileManager defaultManager] applicationSupportDirectory];
         NSString *path = [folder stringByAppendingPathComponent:
                           [NSString stringWithFormat:@"%@.json", self.name]];

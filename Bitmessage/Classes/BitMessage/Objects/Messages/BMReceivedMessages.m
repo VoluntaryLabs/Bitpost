@@ -12,8 +12,6 @@
 #import "NSArray+extra.h"
 #import "BMMessage.h"
 
-
-
 @implementation BMReceivedMessages
 
 - (id)init
@@ -26,7 +24,6 @@
 
 - (void)fetch
 {
-    
     //self.children = [self getAllInboxMessages];
     [self.children mergeWith:[self getAllInboxMessages]];
     [self setChildren:self.children]; // so node parents set

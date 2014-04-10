@@ -12,17 +12,23 @@
 
 @implementation BMKeysFile
 
+- (NSString *)folder
+{
+    return [@"~/Library/Application Support/PyBitmessage" stringByExpandingTildeInPath];
+
+}
 - (NSString *)path
 {
-    return [@"~/Library/Application Support/PyBitmessage/keys.dat" stringByExpandingTildeInPath];
+    return [self.folder stringByAppendingPathComponent:@"keys.dat"];
 }
+
 
 - (NSString *)newBackupPath
 {
     char buffer[50];
     unsigned long t = [[NSDate date] timeIntervalSince1970];
     sprintf(buffer, "%lu", t);
-    return [NSString stringWithFormat:@"%@.backup.%s", self.path, buffer];
+    return [NSString stringWithFormat:@"%@.%s.backup", self.path, buffer];
 }
 
 - (void)checkServer
@@ -175,8 +181,40 @@
     return YES;
 }
 
+// backup
+
+- (NSString *)backupFolder
+{
+    return [self.folder stringByAppendingPathComponent:@"keys_backups"];
+}
+
+
+- (void)createBackupFolderIfNeeded
+{
+    BOOL isDir;
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:self.backupFolder isDirectory:&isDir];
+    
+    if (!exists)
+    {
+        NSError *error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:self.backupFolder withIntermediateDirectories:YES attributes:nil error:&error];
+    }
+}
+
+- (NSArray *)backupUrls
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *contents = [fileManager contentsOfDirectoryAtURL:[NSURL fileURLWithPath:self.backupFolder isDirectory:YES]
+                                   includingPropertiesForKeys:@[]
+                                                      options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                        error:nil];
+    return contents;
+}
+
 - (void)backup
 {
+    [self createBackupFolderIfNeeded];
+    
     NSString *data = [self readString];
     NSError *error;
     
@@ -185,6 +223,5 @@
              encoding:NSUTF8StringEncoding
                 error:&error];
 }
-
 
 @end

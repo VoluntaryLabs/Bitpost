@@ -13,6 +13,8 @@
 @property (strong) ProgressController *progressController;
 @property (strong) NSDockTile *dockTile;
 
+@property (strong) NSAlert *alertPanel;
+
 - (DraftController *)newDraft;
 
 - (NSInteger)unreadMessageCount;
@@ -20,5 +22,8 @@
 - (IBAction)openInfoPanel:(id)sender;
 - (IBAction)compose:(id)sender;
 
+
+- (IBAction)exportMailbox:(id)sender;
+- (IBAction)importMailbox:(id)sender;
 
 @end

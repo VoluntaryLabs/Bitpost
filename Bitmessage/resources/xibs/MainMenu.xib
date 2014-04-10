@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -110,6 +110,24 @@
                             <menuItem title="Print…" keyEquivalent="p" id="78">
                                 <connections>
                                     <action selector="print:" target="-1" id="86"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Mailbox" id="r2s-pD-Nqi">
+                    <menu key="submenu" title="Mailbox" id="Da8-HB-a4F">
+                        <items>
+                            <menuItem title="Export..." id="djc-Yu-Fl1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="exportMailbox:" target="494" id="id3-pj-f6U"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Import..." id="l9P-QI-Fyf">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="importMailbox:" target="494" id="LyW-T9-ljO"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -625,19 +643,19 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="688" height="317"/>
+            <rect key="contentRect" x="335" y="390" width="906" height="521"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <value key="minSize" type="size" width="688" height="317"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="688" height="317"/>
+                <rect key="frame" x="0.0" y="0.0" width="906" height="521"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView id="EhG-Gy-s1m" customClass="NavView">
-                        <rect key="frame" x="0.0" y="0.0" width="688" height="317"/>
+                        <rect key="frame" x="0.0" y="0.0" width="906" height="521"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="nRx-Du-Nnp">
-                                <rect key="frame" x="14" y="294" width="16" height="16"/>
+                                <rect key="frame" x="14" y="498" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                         </subviews>

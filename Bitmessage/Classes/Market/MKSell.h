@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSDate *date;
 @property (strong, nonatomic) MKAskMessage *askMessage;
 
-- (NSDictionary *)propertiesDict;
+//- (NSDictionary *)propertiesDict;
 
 
 @end

@@ -164,7 +164,6 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
 	[super drawRect:dirtyRect];
-    //[[Theme.sharedTheme formBackgroundColor] set];
     [[NSColor whiteColor] set];
     NSRectFill(dirtyRect);
 }

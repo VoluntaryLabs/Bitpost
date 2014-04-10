@@ -1,12 +1,18 @@
 
+- fix icon initiated message delete
+
 - cleanup old backups?
 - zip export/import?
+
+- finish theming including start page
 
 - fix vertical centering on cell titles/notes when there's no subtitle
 
 - when deleting a channel, delete all messages in it first
 
 todo
+
+- make links in messages clickable but with alert panel
 
 - set up BMNode so actions can be added by UI layer categories
 

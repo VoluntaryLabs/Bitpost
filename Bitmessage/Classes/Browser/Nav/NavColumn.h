@@ -26,7 +26,7 @@
 
 @property (strong, nonatomic) NSView *contentView; // replaces scrollview
 
-@property (strong, nonatomic) NSView *actionStrip;
+@property (strong, nonatomic) ColoredView *actionStrip;
 @property (assign, nonatomic) BOOL isUpdating;
 @property (assign, nonatomic) CGFloat actionStripHeight;
 

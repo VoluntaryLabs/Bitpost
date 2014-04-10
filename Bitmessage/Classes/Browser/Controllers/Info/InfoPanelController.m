@@ -39,8 +39,8 @@ static InfoPanelController *shared = nil;
 - (void)open
 {
     [self.window makeKeyAndOrderFront:self];
-    NSRect f = [[NSApplication sharedApplication] mainWindow].frame;
-    NSPoint c = NSMakePoint(f.origin.x + f.size.width/2.0, f.origin.y + f.size.height/2.0);
+    //NSRect f = [[NSApplication sharedApplication] mainWindow].frame;
+    //NSPoint c = NSMakePoint(f.origin.x + f.size.width/2.0, f.origin.y + f.size.height/2.0);
     
     //[self setFrameOrigin:NSMakePoint(c.x - self.frame.width/2.0, x.y - self.frame.height/2.0)];
     
@@ -127,31 +127,34 @@ static InfoPanelController *shared = nil;
     
     [self.view setThemePath:@"info/background"];
     
-    //[self pushHeader:@"Whisper"];
-    //[self pushSubheader:@"a Bitmessage client"];
+    // change to use dict for info and load from json in app wrapper
     
-    //[self pushTitle:@"Whisper Bitmessage client"];
     [self pushHeader:@"Whisper"];
     [self pushSubheader:@"Bitmessage client"];
     [self pushItem:@"" altTitle:@""];
-
     
-    //[self pushTitle:@"Design"];
     [self pushItem:@"Chris Robertson" altTitle:@"Design"];
+    // UI/UX design
     
-    //[self pushTitle:@"Lead / UI"];
-    [self pushItem:@"Steve Dekorte" altTitle:@"Lead / UI"];
+    [self pushItem:@"Steve Dekorte" altTitle:@"Project Lead"];
+    // Project lead, UI dev
     
-    //[self pushTitle:@"Python Wrangler / Attachments"];
-    [self pushItem:@"Adam Thorsen" altTitle:@"Python Wrangler / Attachments"];
+    [self pushItem:@"Adam Thorsen" altTitle:@"Generalist"];
+    // python server wrapper, badge, attachments fix, framework wrapping
     
-    //[self pushTitle:@"Unix Guru"];
     [self pushItem:@"Dru Nelson" altTitle:@"Unix Guru"];
+    // ensuring python server stops when app shuts down (pipe)
 
+    // adjust content view and window to fit subviews
+    [self.view setHeight:[self.view maxYOfSubviews] + 100]; //+ [self.view minYOfSubviews]];
+    NSRect f = self.view.window.frame;
+    [self.view.window setFrame:
+            NSMakeRect(f.origin.x, f.origin.y, f.size.width, self.view.height - 30.0)
+                       display:YES];
+    
     [self.view centerSubviewsX];
     [self.view display];
 }
-
 
 - (void)close
 {

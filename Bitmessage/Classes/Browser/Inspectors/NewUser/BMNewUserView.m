@@ -82,19 +82,6 @@
 
 - (void)layout
 {
-    /*
-    CGFloat margin = 15.0;
-    
-    [self.addressText centerXInSuperview];
-    [self.addressText centerYInSuperview];
-
-    [self.instructionsText centerXInSuperview];
-    [self.instructionsText placeYAbove:self.addressText margin:margin];
-    
-    [self.instructionsText2 placeYBelow:self.addressText margin:margin];
-    [self.okButton placeYBelow:self.instructionsText2 margin:margin];
-    */
-    //[self.okButton setWidth:100];
     [self stackSubviewsTopToBottomWithMargin:25.0];
     [self centerStackedSubviewsY];
     [self centerSubviewsX];
@@ -106,7 +93,6 @@
     [super drawRect:dirtyRect];
     [[Theme.sharedTheme formBackgroundColor] set];
     NSRectFill(dirtyRect);
-
 }
 
 - (BMIdentity *)identity

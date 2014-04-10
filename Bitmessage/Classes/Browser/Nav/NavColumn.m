@@ -102,7 +102,7 @@
 - (void)setFrame:(NSRect)frameRect
 {
     [super setFrame:frameRect];
-    [self.actionStrip setWidth:frameRect.size.width];
+//    [self layoutActionStrip];
 }
 
 - (NSRect)scollFrameSansStrip
@@ -123,6 +123,7 @@
      NSRectFill(f);
      [super drawRect:f];
      */
+    [self setNeedsDisplay:NO];
 }
 
 - (NSArray *)allChildren
@@ -366,8 +367,6 @@
     }
 }
 
-
-
 - (NSInteger)columnIndex
 {
     return [self.navView indexOfColumn:self];
@@ -385,7 +384,7 @@
     }
     
     //[self setMaxWidth:400];
-
+    [self layoutActionStrip];
 }
 
 - (ThemeDictionary *)themeDict
@@ -579,12 +578,16 @@
 
 - (void)delete
 {
+    /*
     id node = [self selectedNode];
     
     if ([node respondsToSelector:@selector(delete)])
     {
         [node noWarningPerformSelector:@selector(delete)];
     }
+    */
+    [self sendNodeAction:@"delete"];
+
 }
 
 - (void)leftArrow
@@ -601,8 +604,14 @@
 
 - (void)updateActionStrip
 {
+    [_actionStrip setWidth:self.width];
+    [_actionStrip setBackgroundColor:[NSColor redColor]];
+    
     CGFloat buttonHeight = 40;
-    //NSLog(@"updateActionStrip");
+    
+    NSLog(@"updateActionStrip w %i for node %@ %@", (int)_actionStrip.width, NSStringFromClass(self.node.class), self.node.nodeTitle);
+    NSLog(@"self.width %i", (int)self.width);
+    NSLog(@"self.tableView.width %i", (int)self.tableView.width);
     
     for (NSView *view in [NSArray arrayWithArray:[self.actionStrip subviews]])
     {
@@ -614,7 +623,7 @@
     for (NSString *action in self.node.actions)
     {
         //CGFloat y = self.actionStrip.height/2 - buttonHeight/2;
-        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 80, buttonHeight)];
+        NSButton *button = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 50, buttonHeight)];
         [button setButtonType:NSMomentaryChangeButton];
         [button setBordered:NO];
         [button setFont:[NSFont fontWithName:[Theme.sharedTheme lightFontName] size:14.0]];
@@ -626,7 +635,7 @@
          if (image && YES)
          {
              [button setImage:image];
-             [button setWidth:image.size.width*3];
+             [button setWidth:image.size.width*2.5];
          }
          else
         {
@@ -635,7 +644,8 @@
                                  nil];
             CGFloat width = [[[NSAttributedString alloc] initWithString:action attributes:att] size].width;
             [button setTitle:action];
-            [button setWidth:width+10];
+            [button setWidth:width];
+            //NSLog(@"button width %i", (int)width);
         }
         
         [button setTarget:self];
@@ -644,34 +654,48 @@
         
         objc_setAssociatedObject(button, @"action", action, OBJC_ASSOCIATION_RETAIN);
     }
-    
+ 
     if ([self.node canSearch])
     {
         _searchField = [[CustomSearchField alloc] initWithFrame:NSMakeRect(0, 0, 20, buttonHeight)];
         [_searchField setSearchDelegate:self];
         [self.actionStrip addSubview:_searchField];
+        [_searchField setupExpanded];
+        [_searchField setupCollapsed];
     }
     else
     {
         _searchField = nil;
     }
     
-    [self.actionStrip stackSubviewsRightToLeft];
-    [self.actionStrip adjustSubviewsX:-20];
-    
+    [self layoutActionStrip];
+    //[self.actionStrip adjustSubviewsX:-20];
+}
+
+- (void)layoutActionStrip
+{
+    if (self.actionStrip.width != self.width)
+    {
+        [self.actionStrip setWidth:self.width];
+        [self.actionStrip stackSubviewsRightToLeftWithMargin:10.0];
+    }
 }
 
 - (void)hitActionButton:(id)aButton
 {
     NSString *action = objc_getAssociatedObject(aButton, @"action");
     //NSLog(@"hit action %@", action);
+    [self sendNodeAction:action];
+}
     
+- (void)sendNodeAction:(NSString *)action
+{
     NSString *verifyMessage = [self.node verifyActionMessage:action];
     
     if (verifyMessage)
     {
         NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:[action capitalizedString]];
         [alert addButtonWithTitle:@"Cancel"];
         [alert setMessageText:[NSString stringWithFormat:@"Are you sure you want to %@?", action]];
         [alert setInformativeText:verifyMessage];

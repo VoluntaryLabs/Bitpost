@@ -142,7 +142,7 @@
 		AA94776718E2697E004EFC7A /* BMClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94776218E2697E004EFC7A /* BMClient.m */; };
 		AA94776818E2697E004EFC7A /* BMNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94776418E2697E004EFC7A /* BMNode.m */; };
 		AA9EFBFE18F4960000DC32F4 /* BMAddressed+message.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */; };
-		AA9EFC0E18F49AE300DC32F4 /* BMKeysArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFC0D18F49AE300DC32F4 /* BMKeysArchive.m */; };
+		AA9EFC0E18F49AE300DC32F4 /* BMArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFC0D18F49AE300DC32F4 /* BMArchive.m */; };
 		AA9EFC3918F49E9E00DC32F4 /* GMAppleDouble+ZKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFC1118F49E9E00DC32F4 /* GMAppleDouble+ZKAdditions.m */; };
 		AA9EFC3C18F49E9E00DC32F4 /* NSData+ZKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFC1718F49E9E00DC32F4 /* NSData+ZKAdditions.m */; };
 		AA9EFC3D18F49E9E00DC32F4 /* NSDate+ZKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFC1918F49E9E00DC32F4 /* NSDate+ZKAdditions.m */; };
@@ -444,8 +444,8 @@
 		AA94776418E2697E004EFC7A /* BMNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNode.m; sourceTree = "<group>"; };
 		AA9EFBFC18F4960000DC32F4 /* BMAddressed+message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+message.h"; sourceTree = "<group>"; };
 		AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+message.m"; sourceTree = "<group>"; };
-		AA9EFC0C18F49AE300DC32F4 /* BMKeysArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKeysArchive.h; sourceTree = "<group>"; };
-		AA9EFC0D18F49AE300DC32F4 /* BMKeysArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKeysArchive.m; sourceTree = "<group>"; };
+		AA9EFC0C18F49AE300DC32F4 /* BMArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMArchive.h; sourceTree = "<group>"; };
+		AA9EFC0D18F49AE300DC32F4 /* BMArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMArchive.m; sourceTree = "<group>"; };
 		AA9EFC1018F49E9E00DC32F4 /* GMAppleDouble+ZKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMAppleDouble+ZKAdditions.h"; sourceTree = "<group>"; };
 		AA9EFC1118F49E9E00DC32F4 /* GMAppleDouble+ZKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMAppleDouble+ZKAdditions.m"; sourceTree = "<group>"; };
 		AA9EFC1618F49E9E00DC32F4 /* NSData+ZKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ZKAdditions.h"; sourceTree = "<group>"; };
@@ -614,8 +614,8 @@
 				AAE0EE9F18BA92D100B7E9F3 /* BMDatabase.m */,
 				AA21F9F418D7FF1500D0F064 /* JSONDB.h */,
 				AA21F9F518D7FF1500D0F064 /* JSONDB.m */,
-				AA9EFC0C18F49AE300DC32F4 /* BMKeysArchive.h */,
-				AA9EFC0D18F49AE300DC32F4 /* BMKeysArchive.m */,
+				AA9EFC0C18F49AE300DC32F4 /* BMArchive.h */,
+				AA9EFC0D18F49AE300DC32F4 /* BMArchive.m */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -1119,12 +1119,12 @@
 		AA94775C18E2697E004EFC7A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				AA94776118E2697E004EFC7A /* BMClient.h */,
+				AA94776218E2697E004EFC7A /* BMClient.m */,
 				AA94775D18E2697E004EFC7A /* BMAddress.h */,
 				AA94775E18E2697E004EFC7A /* BMAddress.m */,
 				AA94775F18E2697E004EFC7A /* BMAddressed.h */,
 				AA94776018E2697E004EFC7A /* BMAddressed.m */,
-				AA94776118E2697E004EFC7A /* BMClient.h */,
-				AA94776218E2697E004EFC7A /* BMClient.m */,
 				AA94776318E2697E004EFC7A /* BMNode.h */,
 				AA94776418E2697E004EFC7A /* BMNode.m */,
 			);
@@ -1484,7 +1484,7 @@
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA94775618E24B90004EFC7A /* BMChannels.m in Sources */,
-				AA9EFC0E18F49AE300DC32F4 /* BMKeysArchive.m in Sources */,
+				AA9EFC0E18F49AE300DC32F4 /* BMArchive.m in Sources */,
 				AA94776818E2697E004EFC7A /* BMNode.m in Sources */,
 				AA31568F18AAE0E00017E94F /* BMIdentities.m in Sources */,
 				AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */,

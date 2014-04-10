@@ -287,4 +287,19 @@
     [self postParentChanged];
 }
 
+- (NSString *)verifyActionMessage:(NSString *)actionString
+{
+    if ([actionString isEqualToString:@"delete"])
+    {
+        return @"Are you sure you want to stop receiving this channel?";
+    }
+    
+    return nil;
+}
+
+- (BOOL)canSearch
+{
+    return YES;
+}
+
 @end

@@ -13,7 +13,7 @@
 
 - (id) init {
 	if (self = [super init]) {
-		self.magicNumber = ZKCDTrailer64LocatorMagicNumber;
+		self.magicNumber = (UInt32)ZKCDTrailer64LocatorMagicNumber;
 		self.diskNumberWithStartOfCentralDirectory = 0;
 		self.numberOfDisks = 1;
 	}
@@ -24,7 +24,7 @@
 	NSUInteger mn = [data zk_hostInt32OffsetBy:&offset];
 	if (mn != ZKCDTrailer64LocatorMagicNumber) return nil;
 	ZKCDTrailer64Locator *record = [ZKCDTrailer64Locator new];
-	record.magicNumber = mn;
+	record.magicNumber = (UInt32)mn;
 	record.diskNumberWithStartOfCentralDirectory = [data zk_hostInt32OffsetBy:&offset];
 	record.offsetOfStartOfCentralDirectoryTrailer64 = [data zk_hostInt64OffsetBy:&offset];
 	record.numberOfDisks = [data zk_hostInt32OffsetBy:&offset];

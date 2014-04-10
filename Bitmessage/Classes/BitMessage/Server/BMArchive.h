@@ -1,5 +1,5 @@
 //
-//  BMKeysArchive.h
+//  BMArchive
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 4/8/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BMKeysArchive : NSObject
+@interface BMArchive : NSObject
 
 - (void)archiveFromPath:(NSString *)inPath   toPath:(NSString *)outPath;
 - (void)unarchiveFromPath:(NSString *)inPath toPath:(NSString *)outPath;
