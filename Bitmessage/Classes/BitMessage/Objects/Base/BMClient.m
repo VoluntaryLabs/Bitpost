@@ -165,7 +165,7 @@ static BMClient *sharedBMClient;
 {
     self.server = [BMServerProcess sharedBMServerProcess];
     [self.server launch];
-    //[self startRefreshTimer];
+    [self startRefreshTimer];
     
 }
 

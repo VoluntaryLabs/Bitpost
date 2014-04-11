@@ -131,9 +131,7 @@
 }
 
 - (void)close
-{
-    //NSLog(@"close!");
-    
+{    
     for (NSView *view in self.subviews)
     {
         //[view animateDownFadeOut];

@@ -1,6 +1,4 @@
 
-- fix icon initiated message delete
-
 - cleanup old backups?
 - zip export/import?
 
