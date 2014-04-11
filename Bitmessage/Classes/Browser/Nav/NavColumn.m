@@ -343,7 +343,7 @@
 
 - (void)updateDocumentView:(NSNotification *)note
 {
-    NSLog(@"tableFrameDidChangeNotification");
+    //NSLog(@"tableFrameDidChangeNotification");
     
     if (!self.isUpdating &&
         //[note object] == self.tableView &&
@@ -562,7 +562,7 @@
 
 - (void)keyDown:(NSEvent *)event
 {
-    NSLog(@"column %@ got key down", NSStringFromClass(self.node.class));
+    //NSLog(@"column %@ got key down", NSStringFromClass(self.node.class));
     
     if ([event isDeleteDown])
     {
@@ -581,7 +581,6 @@
 - (void)delete
 {
     id <NavNode> node = [self selectedNode];
-    NSLog(@"send delete action to %@ ", NSStringFromClass(node.class));
     [self sendAction:@"delete" toNode:node];
 }
 
@@ -714,7 +713,6 @@
     self.lastSelectedChild = nil;
     [self reloadData];
     [self.navView shouldSelectNode:nil inColumn:self];
-    //NSLog(@"search results %i", (int)[self.node.searchResults count]);
 }
 
 @end

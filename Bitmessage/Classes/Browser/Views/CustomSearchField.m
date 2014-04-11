@@ -187,13 +187,13 @@
 
 - (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor
 {
-    NSLog(@"textShouldBeginEditing");
+    //NSLog(@"textShouldBeginEditing");
     return YES;
 }
 
 - (void)controlTextDidChange:(NSNotification *)aNotification
 {
-    NSLog(@"controlTextDidChange '%@'", self.stringValue);
+    //NSLog(@"controlTextDidChange '%@'", self.stringValue);
     
     if (_searchDelegate)
     {
@@ -204,7 +204,7 @@
 
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
 {
-    NSLog(@"textShouldEndEditing");
+    //NSLog(@"textShouldEndEditing");
     return YES;
 }
 

@@ -75,6 +75,11 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)windowDidResize:(NSNotification *)notification
 {
     [self layout];
@@ -136,6 +141,7 @@
     }
     
     [self performSelector:@selector(completeClose) withObject:nil afterDelay:1.0];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)completeClose
@@ -146,37 +152,5 @@
     [self removeFromSuperview];
     [self.replacementView animateFadeIn];
 }
-
-/*
- - (void)saveName
- {
- [self.identity update];
- [self close];
- }
- 
-- (void)textDidChange:(NSNotification *)aNotification
-{
-    //NSLog(@"textDidChange: '%@'", self.usernameField.string);
-    
-    if ([self.usernameField.string containsString:@"\n"])
-    {
-        [self.usernameField setEditable:NO];
-        [self.usernameField setSelectable:NO];
-        self.usernameField.textColor = self.darkColor;
-        
-        self.usernameField.string = [self.usernameField.string
-                                     stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
-        
-        self.usernameField.string = self.usernameField.string.strip;
-        [self saveName];
-    }
-}
-
-- (void)textDidEndEditing:(NSNotification *)aNotification // needed?
-{
-    //NSLog(@"textDidEndEditing");
-    [[aNotification object] endEditing];
-}
-*/
 
 @end
