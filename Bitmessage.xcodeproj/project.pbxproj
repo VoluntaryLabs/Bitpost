@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8E56ACB418C22426001136F9 /* fonts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E56ACB318C22426001136F9 /* fonts */; };
-		8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E9397F418B034DA003ABFE9 /* pybitmessage */; };
-		8E93980318B18118003ABFE9 /* static-python in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E93980218B18118003ABFE9 /* static-python */; };
 		AA00373E18E6256B00EA4381 /* NSColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = AA00373D18E6256B00EA4381 /* NSColor+Hex.m */; };
 		AA00374118E6292400EA4381 /* NSColor+array.m in Sources */ = {isa = PBXBuildFile; fileRef = AA00374018E6292400EA4381 /* NSColor+array.m */; };
 		AA00375418E8C68A00EA4381 /* bitcoin.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00374618E8C68A00EA4381 /* bitcoin.png */; };
@@ -27,13 +25,7 @@
 		AA00376018E8C68A00EA4381 /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00375218E8C68A00EA4381 /* icon_profile.png */; };
 		AA00376118E8C68A00EA4381 /* icon_right.png in Resources */ = {isa = PBXBuildFile; fileRef = AA00375318E8C68A00EA4381 /* icon_right.png */; };
 		AA00376418E8DF8000EA4381 /* BMRoundButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA00376318E8DF8000EA4381 /* BMRoundButtonView.m */; };
-		AA04868918DCF3140034018E /* MKSell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868818DCF3140034018E /* MKSell.m */; };
 		AA04868C18DD02FF0034018E /* NSDate+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04868B18DD02FF0034018E /* NSDate+extra.m */; };
-		AA04869818DD0A320034018E /* MKSellView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04869718DD0A320034018E /* MKSellView.m */; };
-		AA04869B18DD0D5A0034018E /* KVFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04869A18DD0D5A0034018E /* KVFieldView.m */; };
-		AA04869E18DD10570034018E /* BMDictView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04869D18DD10570034018E /* BMDictView.m */; };
-		AA0486A318DD152C0034018E /* MKAskMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0486A018DD152C0034018E /* MKAskMessage.m */; };
-		AA0486A418DD152C0034018E /* MKMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0486A218DD152C0034018E /* MKMessage.m */; };
 		AA0E584318FC90120095DEBD /* CustomTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0E584218FC90120095DEBD /* CustomTableView.m */; };
 		AA153BDD18FEFB51007B4785 /* BitmessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; };
 		AA153C3318FEFD7E007B4785 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; };
@@ -42,7 +34,6 @@
 		AA1AA6A218B4265900AE72F6 /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A118B4265900AE72F6 /* Info.xib */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
 		AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */; };
-		AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA21F9F818D809D000D0F064 /* MKBuy.m */; };
 		AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */; };
 		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
 		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
@@ -83,21 +74,7 @@
 		AA3156F218AAE0E60017E94F /* search_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3156CA18AAE0E60017E94F /* search_active.png */; };
 		AA3156F318AAE0E60017E94F /* search_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3156CB18AAE0E60017E94F /* search_inactive.png */; };
 		AA3156FD18AAE1130017E94F /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3156FC18AAE1130017E94F /* Compose.xib */; };
-		AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31570F18AAE1610017E94F /* NSData+Base64.m */; };
-		AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31571118AAE1610017E94F /* NSStringAdditions.m */; };
-		AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576418AAE1610017E94F /* XMLRPCConnection.m */; };
-		AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576718AAE1610017E94F /* XMLRPCConnectionManager.m */; };
-		AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576918AAE1610017E94F /* XMLRPCDefaultEncoder.m */; };
-		AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576C18AAE1610017E94F /* XMLRPCEventBasedParser.m */; };
-		AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31576E18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m */; };
-		AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577018AAE1610017E94F /* XMLRPCRequest.m */; };
-		AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA31577218AAE1610017E94F /* XMLRPCResponse.m */; };
 		AA70C80618D0345F001D77FB /* InfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C80518D0345F001D77FB /* InfoButton.m */; };
-		AA70C83B18D27127001D77FB /* MKMarkets.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C83A18D27127001D77FB /* MKMarkets.m */; };
-		AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C84018D273E0001D77FB /* MKMarketChannel.m */; };
-		AA70C86218D2778E001D77FB /* MKWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86118D2778E001D77FB /* MKWallet.m */; };
-		AA70C86518D27799001D77FB /* MKBuys.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86418D27799001D77FB /* MKBuys.m */; };
-		AA70C86818D277AB001D77FB /* MKSells.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86718D277AB001D77FB /* MKSells.m */; };
 		AA70C86B18D39219001D77FB /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = AA70C86A18D39219001D77FB /* themes.json */; };
 		AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = AA70C86D18D39753001D77FB /* ThemeDictionary.m */; };
 		AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7F6A8018B17A5B009285EA /* MarginTextView.m */; };
@@ -113,9 +90,6 @@
 		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
 		AA94774018DFB59F004EFC7A /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94773F18DFB59F004EFC7A /* categories.json */; };
 		AA94774218E0D522004EFC7A /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94774118E0D522004EFC7A /* regions.json */; };
-		AA94774B18E0E2A4004EFC7A /* MKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774818E0E2A4004EFC7A /* MKCategory.m */; };
-		AA94774C18E0E2A4004EFC7A /* MKGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774A18E0E2A4004EFC7A /* MKGroup.m */; };
-		AA94774F18E0E2BB004EFC7A /* MKRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = AA94774E18E0E2BB004EFC7A /* MKRegion.m */; };
 		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
 		AA9EFBFE18F4960000DC32F4 /* BMAddressed+message.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */; };
 		AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9EFC5318F4A56F00DC32F4 /* libz.dylib */; };
@@ -178,17 +152,13 @@
 			files = (
 				AA153C3318FEFD7E007B4785 /* BitmessageKit.framework in CopyFiles */,
 				8E56ACB418C22426001136F9 /* fonts in CopyFiles */,
-				8E93980318B18118003ABFE9 /* static-python in CopyFiles */,
-				8E9397FB18B107E5003ABFE9 /* pybitmessage in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E56ACB318C22426001136F9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = Vendor/fonts; sourceTree = "<group>"; };
-		8E9397F418B034DA003ABFE9 /* pybitmessage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pybitmessage; path = Vendor/pybitmessage; sourceTree = "<group>"; };
-		8E93980218B18118003ABFE9 /* static-python */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "static-python"; path = "Vendor/static-python"; sourceTree = "<group>"; };
+		8E56ACB318C22426001136F9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Vendor/fonts; sourceTree = "<group>"; };
 		AA00373C18E6256B00EA4381 /* NSColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+Hex.h"; sourceTree = "<group>"; };
 		AA00373D18E6256B00EA4381 /* NSColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Hex.m"; sourceTree = "<group>"; };
 		AA00373F18E6292400EA4381 /* NSColor+array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+array.h"; sourceTree = "<group>"; };
@@ -209,20 +179,8 @@
 		AA00375318E8C68A00EA4381 /* icon_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_right.png; sourceTree = "<group>"; };
 		AA00376218E8DF8000EA4381 /* BMRoundButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMRoundButtonView.h; sourceTree = "<group>"; };
 		AA00376318E8DF8000EA4381 /* BMRoundButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMRoundButtonView.m; sourceTree = "<group>"; };
-		AA04868718DCF3140034018E /* MKSell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSell.h; sourceTree = "<group>"; };
-		AA04868818DCF3140034018E /* MKSell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSell.m; sourceTree = "<group>"; };
 		AA04868A18DD02FF0034018E /* NSDate+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+extra.h"; sourceTree = "<group>"; };
 		AA04868B18DD02FF0034018E /* NSDate+extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+extra.m"; sourceTree = "<group>"; };
-		AA04869618DD0A320034018E /* MKSellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSellView.h; sourceTree = "<group>"; };
-		AA04869718DD0A320034018E /* MKSellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSellView.m; sourceTree = "<group>"; };
-		AA04869918DD0D5A0034018E /* KVFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVFieldView.h; sourceTree = "<group>"; };
-		AA04869A18DD0D5A0034018E /* KVFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVFieldView.m; sourceTree = "<group>"; };
-		AA04869C18DD10570034018E /* BMDictView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMDictView.h; sourceTree = "<group>"; };
-		AA04869D18DD10570034018E /* BMDictView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMDictView.m; sourceTree = "<group>"; };
-		AA04869F18DD152C0034018E /* MKAskMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAskMessage.h; sourceTree = "<group>"; };
-		AA0486A018DD152C0034018E /* MKAskMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAskMessage.m; sourceTree = "<group>"; };
-		AA0486A118DD152C0034018E /* MKMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMessage.h; sourceTree = "<group>"; };
-		AA0486A218DD152C0034018E /* MKMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMessage.m; sourceTree = "<group>"; };
 		AA0E584118FC90120095DEBD /* CustomTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableView.h; sourceTree = "<group>"; };
 		AA0E584218FC90120095DEBD /* CustomTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableView.m; sourceTree = "<group>"; };
 		AA0E588418FEE0F50095DEBD /* BitmessageKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitmessageKit.xcodeproj; path = ../BitmessageKit/BitmessageKit.xcodeproj; sourceTree = "<group>"; };
@@ -233,8 +191,6 @@
 		AA1AA6A318B427C100AE72F6 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		AA1AA6A518B4299700AE72F6 /* NSWindow+positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+positioning.h"; sourceTree = "<group>"; };
 		AA1AA6A618B4299700AE72F6 /* NSWindow+positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+positioning.m"; sourceTree = "<group>"; };
-		AA21F9F718D809D000D0F064 /* MKBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBuy.h; sourceTree = "<group>"; };
-		AA21F9F818D809D000D0F064 /* MKBuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBuy.m; sourceTree = "<group>"; };
 		AA2AC83318B5B7ED008CEEB4 /* CustomSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSearchField.h; sourceTree = "<group>"; };
 		AA2AC83418B5B7ED008CEEB4 /* CustomSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchField.m; sourceTree = "<group>"; };
 		AA2AC85D18B8175A008CEEB4 /* BMAddressedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAddressedView.h; sourceTree = "<group>"; };
@@ -291,39 +247,8 @@
 		AA3156CA18AAE0E60017E94F /* search_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_active.png; sourceTree = "<group>"; };
 		AA3156CB18AAE0E60017E94F /* search_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_inactive.png; sourceTree = "<group>"; };
 		AA3156FC18AAE1130017E94F /* Compose.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
-		AA31570E18AAE1610017E94F /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		AA31570F18AAE1610017E94F /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		AA31571018AAE1610017E94F /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
-		AA31571118AAE1610017E94F /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
-		AA31575E18AAE1610017E94F /* XMLRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPC.h; sourceTree = "<group>"; };
-		AA31576318AAE1610017E94F /* XMLRPCConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnection.h; sourceTree = "<group>"; };
-		AA31576418AAE1610017E94F /* XMLRPCConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCConnection.m; sourceTree = "<group>"; };
-		AA31576518AAE1610017E94F /* XMLRPCConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnectionDelegate.h; sourceTree = "<group>"; };
-		AA31576618AAE1610017E94F /* XMLRPCConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCConnectionManager.h; sourceTree = "<group>"; };
-		AA31576718AAE1610017E94F /* XMLRPCConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCConnectionManager.m; sourceTree = "<group>"; };
-		AA31576818AAE1610017E94F /* XMLRPCDefaultEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCDefaultEncoder.h; sourceTree = "<group>"; };
-		AA31576918AAE1610017E94F /* XMLRPCDefaultEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCDefaultEncoder.m; sourceTree = "<group>"; };
-		AA31576A18AAE1610017E94F /* XMLRPCEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCEncoder.h; sourceTree = "<group>"; };
-		AA31576B18AAE1610017E94F /* XMLRPCEventBasedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCEventBasedParser.h; sourceTree = "<group>"; };
-		AA31576C18AAE1610017E94F /* XMLRPCEventBasedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCEventBasedParser.m; sourceTree = "<group>"; };
-		AA31576D18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCEventBasedParserDelegate.h; sourceTree = "<group>"; };
-		AA31576E18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCEventBasedParserDelegate.m; sourceTree = "<group>"; };
-		AA31576F18AAE1610017E94F /* XMLRPCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCRequest.h; sourceTree = "<group>"; };
-		AA31577018AAE1610017E94F /* XMLRPCRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCRequest.m; sourceTree = "<group>"; };
-		AA31577118AAE1610017E94F /* XMLRPCResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRPCResponse.h; sourceTree = "<group>"; };
-		AA31577218AAE1610017E94F /* XMLRPCResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRPCResponse.m; sourceTree = "<group>"; };
 		AA70C80418D0345F001D77FB /* InfoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoButton.h; sourceTree = "<group>"; };
 		AA70C80518D0345F001D77FB /* InfoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoButton.m; sourceTree = "<group>"; };
-		AA70C83918D27127001D77FB /* MKMarkets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMarkets.h; sourceTree = "<group>"; };
-		AA70C83A18D27127001D77FB /* MKMarkets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMarkets.m; sourceTree = "<group>"; };
-		AA70C83F18D273E0001D77FB /* MKMarketChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKMarketChannel.h; sourceTree = "<group>"; };
-		AA70C84018D273E0001D77FB /* MKMarketChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKMarketChannel.m; sourceTree = "<group>"; };
-		AA70C86018D2778E001D77FB /* MKWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKWallet.h; sourceTree = "<group>"; };
-		AA70C86118D2778E001D77FB /* MKWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKWallet.m; sourceTree = "<group>"; };
-		AA70C86318D27799001D77FB /* MKBuys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBuys.h; sourceTree = "<group>"; };
-		AA70C86418D27799001D77FB /* MKBuys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKBuys.m; sourceTree = "<group>"; };
-		AA70C86618D277AB001D77FB /* MKSells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKSells.h; sourceTree = "<group>"; };
-		AA70C86718D277AB001D77FB /* MKSells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKSells.m; sourceTree = "<group>"; };
 		AA70C86A18D39219001D77FB /* themes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = themes.json; sourceTree = "<group>"; };
 		AA70C86C18D39753001D77FB /* ThemeDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeDictionary.h; sourceTree = "<group>"; };
 		AA70C86D18D39753001D77FB /* ThemeDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeDictionary.m; sourceTree = "<group>"; };
@@ -352,12 +277,6 @@
 		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
 		AA94773F18DFB59F004EFC7A /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		AA94774118E0D522004EFC7A /* regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
-		AA94774718E0E2A4004EFC7A /* MKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKCategory.h; sourceTree = "<group>"; };
-		AA94774818E0E2A4004EFC7A /* MKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKCategory.m; sourceTree = "<group>"; };
-		AA94774918E0E2A4004EFC7A /* MKGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKGroup.h; sourceTree = "<group>"; };
-		AA94774A18E0E2A4004EFC7A /* MKGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKGroup.m; sourceTree = "<group>"; };
-		AA94774D18E0E2BB004EFC7A /* MKRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRegion.h; sourceTree = "<group>"; };
-		AA94774E18E0E2BB004EFC7A /* MKRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRegion.m; sourceTree = "<group>"; };
 		AA94775A18E268D3004EFC7A /* forward_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_active.png; sourceTree = "<group>"; };
 		AA9EFBFC18F4960000DC32F4 /* BMAddressed+message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+message.h"; sourceTree = "<group>"; };
 		AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+message.m"; sourceTree = "<group>"; };
@@ -449,30 +368,6 @@
 			path = categories;
 			sourceTree = "<group>";
 		};
-		AA04869118DD09750034018E /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				AA0486A118DD152C0034018E /* MKMessage.h */,
-				AA0486A218DD152C0034018E /* MKMessage.m */,
-				AA04869F18DD152C0034018E /* MKAskMessage.h */,
-				AA0486A018DD152C0034018E /* MKAskMessage.m */,
-			);
-			path = Messages;
-			sourceTree = "<group>";
-		};
-		AA04869518DD0A320034018E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AA04869618DD0A320034018E /* MKSellView.h */,
-				AA04869718DD0A320034018E /* MKSellView.m */,
-				AA04869C18DD10570034018E /* BMDictView.h */,
-				AA04869D18DD10570034018E /* BMDictView.m */,
-				AA04869918DD0D5A0034018E /* KVFieldView.h */,
-				AA04869A18DD0D5A0034018E /* KVFieldView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		AA0E588518FEE0F50095DEBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,9 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				AA0E588418FEE0F50095DEBD /* BitmessageKit.xcodeproj */,
-				8E56ACB318C22426001136F9 /* fonts */,
-				8E93980218B18118003ABFE9 /* static-python */,
-				8E9397F418B034DA003ABFE9 /* pybitmessage */,
 				AA31561018AAE02D0017E94F /* Bitmessage */,
 				AA31562E18AAE02D0017E94F /* BitmessageTests */,
 				AA31560918AAE02D0017E94F /* Frameworks */,
@@ -558,6 +450,7 @@
 		AA31561118AAE02D0017E94F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E56ACB318C22426001136F9 /* fonts */,
 				AA3156A618AAE0E60017E94F /* resources */,
 				AA31561218AAE02D0017E94F /* Bitmessage-Info.plist */,
 				AA31561318AAE02D0017E94F /* InfoPlist.strings */,
@@ -589,7 +482,6 @@
 		AA31563E18AAE0E00017E94F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA70C80718D270FC001D77FB /* Market */,
 				AA31566E18AAE0E00017E94F /* Browser */,
 			);
 			path = Classes;
@@ -712,59 +604,6 @@
 			path = xibs;
 			sourceTree = "<group>";
 		};
-		AA3156FE18AAE1610017E94F /* xmlrpc */ = {
-			isa = PBXGroup;
-			children = (
-				AA31570E18AAE1610017E94F /* NSData+Base64.h */,
-				AA31570F18AAE1610017E94F /* NSData+Base64.m */,
-				AA31571018AAE1610017E94F /* NSStringAdditions.h */,
-				AA31571118AAE1610017E94F /* NSStringAdditions.m */,
-				AA31575E18AAE1610017E94F /* XMLRPC.h */,
-				AA31576318AAE1610017E94F /* XMLRPCConnection.h */,
-				AA31576418AAE1610017E94F /* XMLRPCConnection.m */,
-				AA31576518AAE1610017E94F /* XMLRPCConnectionDelegate.h */,
-				AA31576618AAE1610017E94F /* XMLRPCConnectionManager.h */,
-				AA31576718AAE1610017E94F /* XMLRPCConnectionManager.m */,
-				AA31576818AAE1610017E94F /* XMLRPCDefaultEncoder.h */,
-				AA31576918AAE1610017E94F /* XMLRPCDefaultEncoder.m */,
-				AA31576A18AAE1610017E94F /* XMLRPCEncoder.h */,
-				AA31576B18AAE1610017E94F /* XMLRPCEventBasedParser.h */,
-				AA31576C18AAE1610017E94F /* XMLRPCEventBasedParser.m */,
-				AA31576D18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.h */,
-				AA31576E18AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m */,
-				AA31576F18AAE1610017E94F /* XMLRPCRequest.h */,
-				AA31577018AAE1610017E94F /* XMLRPCRequest.m */,
-				AA31577118AAE1610017E94F /* XMLRPCResponse.h */,
-				AA31577218AAE1610017E94F /* XMLRPCResponse.m */,
-			);
-			name = xmlrpc;
-			path = Vendor/xmlrpc;
-			sourceTree = SOURCE_ROOT;
-		};
-		AA70C80718D270FC001D77FB /* Market */ = {
-			isa = PBXGroup;
-			children = (
-				AA94774618E0E2A4004EFC7A /* Groups */,
-				AA04869518DD0A320034018E /* Views */,
-				AA04869118DD09750034018E /* Messages */,
-				AA70C83918D27127001D77FB /* MKMarkets.h */,
-				AA70C83A18D27127001D77FB /* MKMarkets.m */,
-				AA70C83F18D273E0001D77FB /* MKMarketChannel.h */,
-				AA70C84018D273E0001D77FB /* MKMarketChannel.m */,
-				AA70C86018D2778E001D77FB /* MKWallet.h */,
-				AA70C86118D2778E001D77FB /* MKWallet.m */,
-				AA70C86318D27799001D77FB /* MKBuys.h */,
-				AA70C86418D27799001D77FB /* MKBuys.m */,
-				AA21F9F718D809D000D0F064 /* MKBuy.h */,
-				AA21F9F818D809D000D0F064 /* MKBuy.m */,
-				AA70C86618D277AB001D77FB /* MKSells.h */,
-				AA70C86718D277AB001D77FB /* MKSells.m */,
-				AA04868718DCF3140034018E /* MKSell.h */,
-				AA04868818DCF3140034018E /* MKSell.m */,
-			);
-			path = Market;
-			sourceTree = "<group>";
-		};
 		AA70C86918D39219001D77FB /* themes */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,19 +689,6 @@
 			path = markets;
 			sourceTree = "<group>";
 		};
-		AA94774618E0E2A4004EFC7A /* Groups */ = {
-			isa = PBXGroup;
-			children = (
-				AA94774918E0E2A4004EFC7A /* MKGroup.h */,
-				AA94774A18E0E2A4004EFC7A /* MKGroup.m */,
-				AA94774718E0E2A4004EFC7A /* MKCategory.h */,
-				AA94774818E0E2A4004EFC7A /* MKCategory.m */,
-				AA94774D18E0E2BB004EFC7A /* MKRegion.h */,
-				AA94774E18E0E2BB004EFC7A /* MKRegion.m */,
-			);
-			path = Groups;
-			sourceTree = "<group>";
-		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,7 +713,6 @@
 		AAC9092018B2B0500009FA89 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				AA3156FE18AAE1610017E94F /* xmlrpc */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -1140,26 +965,13 @@
 			files = (
 				AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */,
 				AA1AA6A718B4299700AE72F6 /* NSWindow+positioning.m in Sources */,
-				AA3157B118AAE1610017E94F /* XMLRPCEventBasedParser.m in Sources */,
 				AA2AC83518B5B7ED008CEEB4 /* CustomSearchField.m in Sources */,
 				AAD284AB18C01EE500FC0C6F /* SignalHandler.m in Sources */,
-				AA70C86818D277AB001D77FB /* MKSells.m in Sources */,
-				AA3157B318AAE1610017E94F /* XMLRPCRequest.m in Sources */,
-				AA0486A418DD152C0034018E /* MKMessage.m in Sources */,
-				AA3157B218AAE1610017E94F /* XMLRPCEventBasedParserDelegate.m in Sources */,
 				AA31561718AAE02D0017E94F /* main.m in Sources */,
-				AA04869E18DD10570034018E /* BMDictView.m in Sources */,
-				AA3157B418AAE1610017E94F /* XMLRPCResponse.m in Sources */,
 				AA00376418E8DF8000EA4381 /* BMRoundButtonView.m in Sources */,
-				AA31578018AAE1610017E94F /* NSStringAdditions.m in Sources */,
 				AA7F6A9A18B17B19009285EA /* NavColumn.m in Sources */,
-				AA21F9F918D809D000D0F064 /* MKBuy.m in Sources */,
-				AA94774C18E0E2A4004EFC7A /* MKGroup.m in Sources */,
-				AA0486A318DD152C0034018E /* MKAskMessage.m in Sources */,
 				AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */,
 				AAF40CB418B59543005BA55E /* NSEvent+keys.m in Sources */,
-				AA04869B18DD0D5A0034018E /* KVFieldView.m in Sources */,
-				AA70C86518D27799001D77FB /* MKBuys.m in Sources */,
 				AA7F6A9B18B17B19009285EA /* NavView.m in Sources */,
 				AA7F6A9C18B17B19009285EA /* TableCell.m in Sources */,
 				AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */,
@@ -1171,29 +983,18 @@
 				AA70C80618D0345F001D77FB /* InfoButton.m in Sources */,
 				AA00374118E6292400EA4381 /* NSColor+array.m in Sources */,
 				AA9413BB18C6B7250092FEF4 /* BMButton.m in Sources */,
-				AA70C84118D273E0001D77FB /* MKMarketChannel.m in Sources */,
-				AA3157B018AAE1610017E94F /* XMLRPCDefaultEncoder.m in Sources */,
-				AA3157AE18AAE1610017E94F /* XMLRPCConnection.m in Sources */,
-				AA94774F18E0E2BB004EFC7A /* MKRegion.m in Sources */,
-				AA3157AF18AAE1610017E94F /* XMLRPCConnectionManager.m in Sources */,
 				AA7F6A8118B17A5B009285EA /* MarginTextView.m in Sources */,
 				AAD284A618C01EE500FC0C6F /* AddressCompletor.m in Sources */,
-				AA31577F18AAE1610017E94F /* NSData+Base64.m in Sources */,
 				AA00373E18E6256B00EA4381 /* NSColor+Hex.m in Sources */,
 				AA3156A518AAE0E00017E94F /* Theme.m in Sources */,
-				AA04869818DD0A320034018E /* MKSellView.m in Sources */,
 				AA31569D18AAE0E00017E94F /* NSView+sizing.m in Sources */,
-				AA70C83B18D27127001D77FB /* MKMarkets.m in Sources */,
 				AA2AC86E18B81815008CEEB4 /* NSTextView+extra.m in Sources */,
 				AAD284A918C01EE500FC0C6F /* InfoPanelController.m in Sources */,
 				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA7F6A8718B17A98009285EA /* ResizingScrollView.m in Sources */,
-				AA94774B18E0E2A4004EFC7A /* MKCategory.m in Sources */,
 				AA0E584318FC90120095DEBD /* CustomTableView.m in Sources */,
-				AA70C86218D2778E001D77FB /* MKWallet.m in Sources */,
 				AA7F6A8418B17A7E009285EA /* ColoredView.m in Sources */,
 				AA70C86E18D39753001D77FB /* ThemeDictionary.m in Sources */,
-				AA04868918DCF3140034018E /* MKSell.m in Sources */,
 				AA9413B818C6B1EE0092FEF4 /* BMTextView.m in Sources */,
 				AAE0EEA618BC34DE00B7E9F3 /* NSScrollView+extra.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
