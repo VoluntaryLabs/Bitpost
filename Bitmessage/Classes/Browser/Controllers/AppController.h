@@ -1,6 +1,6 @@
 #import <Cocoa/Cocoa.h>
 #import <BitmessageKit/BitmessageKit.h>
-#import "NavView.h"
+#import <NavKit/NavKit.h>
 #import "DraftController.h"
 #import "ProgressController.h"
 

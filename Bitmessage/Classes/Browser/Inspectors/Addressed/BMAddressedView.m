@@ -7,9 +7,7 @@
 //
 
 #import "BMAddressedView.h"
-#import "NSTextView+extra.h"
-#import "NSView+sizing.h"
-#import "Theme.h"
+#import <NavKit/NavKit.h>
 #import <BitmessageKit/BitmessageKit.h>
 
 @implementation BMAddressedView

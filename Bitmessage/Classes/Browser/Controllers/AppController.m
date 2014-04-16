@@ -1,8 +1,8 @@
 
 #import "AppController.h"
 #import <BitmessageKit/BitmessageKit.h>
+#import <NavKit/NavKit.h>
 #import "DraftController.h"
-#import "NavColumn.h"
 #import "InfoPanelController.h"
 #import "BMNewUserView.h"
 

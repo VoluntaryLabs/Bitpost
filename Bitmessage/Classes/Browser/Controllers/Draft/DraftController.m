@@ -7,11 +7,8 @@
 //
 
 #import "DraftController.h"
-#import "NSView+sizing.h"
+#import <NavKit/NavKit.h>
 #import "AppController.h"
-#import "NSScrollView+extra.h"
-#import "Theme.h"
-#import "NSTextView+extra.h"
 
 NSMutableArray *sharedDrafts = nil;
 

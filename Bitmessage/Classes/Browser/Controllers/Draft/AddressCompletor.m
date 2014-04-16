@@ -7,8 +7,8 @@
 //
 
 #import "AddressCompletor.h"
-#import "Theme.h"
 #import <BitmessageKit/BitmessageKit.h>
+#import <NavKit/NavKit.h>
 
 
 @implementation AddressCompletor

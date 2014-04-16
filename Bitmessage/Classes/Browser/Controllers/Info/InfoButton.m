@@ -7,7 +7,7 @@
 //
 
 #import "InfoButton.h"
-#import "Theme.h"
+#import <NavKit/NavKit.h>
 
 @implementation InfoButton
 

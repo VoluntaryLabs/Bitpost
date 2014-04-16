@@ -7,7 +7,7 @@
 //
 
 #import "BMNode+theme.h"
-#import "Theme.h"
+#import <NavKit/NavKit.h>
 
 @implementation BMNode (theme)
 

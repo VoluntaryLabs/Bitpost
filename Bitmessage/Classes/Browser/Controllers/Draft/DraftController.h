@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ColoredView.h"
-#import "MarginTextView.h"
+#import <NavKit/NavKit.h>
 #import "AddressCompletor.h"
 #import "AddressTextField.h"
 

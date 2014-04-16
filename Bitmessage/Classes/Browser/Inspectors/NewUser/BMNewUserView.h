@@ -7,9 +7,7 @@
 //
 
 #import "BMAddressedView.h"
-#import "BMTextView.h"
-#import "BMButton.h"
-#import "ColoredView.h"
+#import <NavKit/NavKit.h>
 
 @interface BMNewUserView : ColoredView <NSWindowDelegate>
 

@@ -7,11 +7,11 @@
 //
 
 #import "BMMessage+NodeView.h"
-#import "Theme.h"
+#import <FoundationCategoriesKit/FoundationCategoriesKit.h>
+#import <NavKit/NavKit.h>
 #import "DraftController.h"
 #import "AppController.h"
 #import "BMMessageView.h"
-#import "NSDate+extra.h"
 
 @implementation BMMessage (NodeView)
 

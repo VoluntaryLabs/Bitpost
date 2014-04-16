@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMButton.h"
+#import <NavKit/NavKit.h>
 
 @interface InfoButton : NSButton
 

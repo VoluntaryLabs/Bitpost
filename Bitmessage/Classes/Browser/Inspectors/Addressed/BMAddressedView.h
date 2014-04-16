@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NavView.h"
+#import <NavKit/NavKit.h>
 #import <BitmessageKit/BMContact.h>
-#import "ColoredView.h"
 
 @interface BMAddressedView : ColoredView <NSTextViewDelegate>
 

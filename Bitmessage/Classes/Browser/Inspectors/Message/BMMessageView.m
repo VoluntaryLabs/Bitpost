@@ -8,12 +8,8 @@
 
 #import "BMMessageView.h"
 #import <BitMessageKit/BitMessageKit.h>
-#import "NSView+sizing.h"
-#import "ResizingScrollView.h"
-//#import "DraftController.h"
-//#import "AppController.h"
-#import "MarginTextView.h"
-#import "NavColumn.h"
+#import <NavKit/NavKit.h>
+
 
 @implementation BMMessageView
 

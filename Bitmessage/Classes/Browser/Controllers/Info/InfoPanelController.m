@@ -7,10 +7,9 @@
 //
 
 #import "InfoPanelController.h"
-#import "NSView+sizing.h"
+#import <NavKit/NavKit.h>
+#import <FoundationCategoriesKit/FoundationCategoriesKit.h>
 #import "InfoButton.h"
-#import "ColoredView.h"
-#import "Theme.h"
 
 @implementation InfoPanelController
 

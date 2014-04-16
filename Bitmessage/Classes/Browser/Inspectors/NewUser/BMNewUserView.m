@@ -7,9 +7,8 @@
 //
 
 #import "BMNewUserView.h"
-#import "NSView+sizing.h"
+#import <NavKit/NavKit.h>
 #import <BitMessageKit/BitMessageKit.h>
-#import "Theme.h"
 
 @implementation BMNewUserView
 
