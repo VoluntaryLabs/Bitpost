@@ -7,7 +7,7 @@
 //
 
 #import "NSTextView+extra.h"
-#import "NSString+BM.h"
+#import <BitMessageKit/BitMessageKit.h>
 #import "Theme.h"
 
 @implementation NSTextView (extra)

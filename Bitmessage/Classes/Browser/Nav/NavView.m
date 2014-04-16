@@ -11,8 +11,7 @@
 #import "NSView+sizing.h"
 #import <objc/runtime.h>
 #import "CustomSearchField.h"
-#import "BMAddressedView.h"
-#import "NSObject+extra.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 @implementation NavView
 
@@ -286,6 +285,5 @@
     
     return nil;
 }
-
 
 @end

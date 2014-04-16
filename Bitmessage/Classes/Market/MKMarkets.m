@@ -7,7 +7,7 @@
 //
 
 #import "MKMarkets.h"
-#import "JSONDB.h"
+#import <BitMessageKit/BitMessageKit.h>
 
 @implementation MKMarkets
 

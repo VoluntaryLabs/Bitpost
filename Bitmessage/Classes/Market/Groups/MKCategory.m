@@ -7,7 +7,7 @@
 //
 
 #import "MKCategory.h"
-#import "BMClient.h"
+#import <BitMessageKit/BitMessageKit.h>
 #import "AppController.h"
 
 @implementation MKCategory

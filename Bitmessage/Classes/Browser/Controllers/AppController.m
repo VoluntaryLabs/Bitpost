@@ -1,11 +1,10 @@
 
 #import "AppController.h"
-#import "BMClient.h"
+#import <BitmessageKit/BitmessageKit.h>
 #import "DraftController.h"
 #import "NavColumn.h"
 #import "InfoPanelController.h"
 #import "BMNewUserView.h"
-//#import "BMInfoPanel.h"
 
 @implementation AppController
 

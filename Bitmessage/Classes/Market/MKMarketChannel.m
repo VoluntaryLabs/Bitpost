@@ -7,8 +7,7 @@
 //
 
 #import "MKMarketChannel.h"
-#import "BMClient.h"
-#import "BMReceivedMessage.h"
+#import <BitMessageKit/BitMessageKit.h>
 #import "MKMessage.h"
 
 @implementation MKMarketChannel

@@ -10,7 +10,6 @@
 #import "Theme.h"
 #import "DraftController.h"
 #import "AppController.h"
-#import "BMClient.h"
 #import "BMMessageView.h"
 #import "NSDate+extra.h"
 

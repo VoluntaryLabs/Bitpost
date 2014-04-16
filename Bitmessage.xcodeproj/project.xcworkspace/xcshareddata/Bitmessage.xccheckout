@@ -12,6 +12,8 @@
 	<dict>
 		<key>18C3ADFC-89EB-4B10-8907-33FB6FFCB29B</key>
 		<string>https://github.com/stevedekorte/BitmessageClient.git</string>
+		<key>43754F18-60E1-4F93-BEBF-D9DCEB304096</key>
+		<string>https://github.com/stevedekorte/BitmessageKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Bitmessage.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>18C3ADFC-89EB-4B10-8907-33FB6FFCB29B</key>
 		<string>../..</string>
+		<key>43754F18-60E1-4F93-BEBF-D9DCEB304096</key>
+		<string>../../../BitmessageKit</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/stevedekorte/BitmessageClient.git</string>
@@ -35,6 +39,14 @@
 			<string>18C3ADFC-89EB-4B10-8907-33FB6FFCB29B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Bitmessage</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>43754F18-60E1-4F93-BEBF-D9DCEB304096</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BitmessageKit</string>
 		</dict>
 	</array>
 </dict>

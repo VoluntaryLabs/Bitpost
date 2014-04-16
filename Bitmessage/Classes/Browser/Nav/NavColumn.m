@@ -12,7 +12,7 @@
 #import "NSEvent+keys.h"
 #import "CustomSearchField.h"
 #import "Theme.h"
-#import "NSObject+extra.h"
+#import <BitMessageKit/BitMessageKit.h>
 #import <objc/runtime.h>
 #import "NavNode.h"
 
@@ -58,7 +58,8 @@
     
     // table
     
-    self.tableView = [[NSTableView alloc] initWithFrame:self.scrollView.bounds];
+    self.tableView = [[CustomTableView alloc] initWithFrame:self.scrollView.bounds];
+    self.tableView.eventDelegate = self;
     [self.tableView setIntercellSpacing:NSMakeSize(0, 0)];
     
     [self.tableView setAutoresizesSubviews:YES];
@@ -566,15 +567,34 @@
     
     if ([event isDeleteDown])
     {
+        //NSLog(@"delete action for event");
         [self delete];
     }
     else if ([event isLeftArrow])
     {
+        //NSLog(@"isLeftArrow action for event");
         [self leftArrow];
     }
     else if ([event isRightArrow])
     {
+        //NSLog(@"rightArrow action for event");
         [self rightArrow];
+    }
+    /*
+    else if ([event isUpArrow])
+    {
+        NSLog(@"isUpArrow action for event");
+        [self upArrow];
+    }
+    else if ([event isDownArrow])
+    {
+        NSLog(@"isDownArrow action for event");
+        [self downArrow];
+    }
+    */
+    else
+    {
+        //NSLog(@"no action for event");
     }
 }
 
@@ -592,6 +612,16 @@
 - (void)rightArrow
 {
     [self.navView rightArrowFrom:self];
+}
+
+- (void)downArrow
+{
+    
+}
+
+- (void)upArrow
+{
+    
 }
 
 // --- action strip ----------------------------------------
@@ -693,7 +723,7 @@
         NSAlert *alert = [[NSAlert alloc] init];
         [alert addButtonWithTitle:[action capitalizedString]];
         [alert addButtonWithTitle:@"Cancel"];
-        [alert setMessageText:[NSString stringWithFormat:@"Are you sure you want to %@?", action]];
+        [alert setMessageText:[NSString stringWithFormat:@"%@ \"%@\"?", [action capitalizedString], aNode.nodeTitle]];
         [alert setInformativeText:verifyMessage];
         [alert setAlertStyle:NSWarningAlertStyle];
         
@@ -709,6 +739,8 @@
 
 - (void)searchForString:(NSString *)aString
 {
+    NSLog(@"searchForString '%@'", aString);
+    
     [self.node search:aString];
     self.lastSelectedChild = nil;
     [self reloadData];

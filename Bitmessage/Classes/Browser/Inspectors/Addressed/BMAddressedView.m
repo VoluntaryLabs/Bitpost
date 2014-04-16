@@ -10,7 +10,7 @@
 #import "NSTextView+extra.h"
 #import "NSView+sizing.h"
 #import "Theme.h"
-#import "BMClient.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 @implementation BMAddressedView
 

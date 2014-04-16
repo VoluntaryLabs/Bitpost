@@ -7,7 +7,7 @@
 //
 
 #import "MKGroup.h"
-#import "JSONDB.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 
 @implementation MKGroup

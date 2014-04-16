@@ -10,6 +10,7 @@
 #import "NavView.h"
 #import "ColoredView.h"
 #import "CustomSearchField.h"
+#import "CustomTableView.h"
 
 @interface NavColumn : NSView <NSTableViewDataSource, NSTableViewDelegate, CustomSearchFieldDelegate>
 
@@ -18,7 +19,7 @@
 @property (strong, nonatomic) CustomSearchField *searchField;
 
 @property (strong, nonatomic) NSScrollView *scrollView;
-@property (strong, nonatomic) NSTableView *tableView;
+@property (strong, nonatomic) CustomTableView *tableView;
 @property (strong, nonatomic) NSTableColumn *tableColumn;
 @property (strong, nonatomic) ColoredView *documentView; // view within scrollview containing headerView and tableView
 

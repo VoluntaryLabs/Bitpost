@@ -8,7 +8,7 @@
 
 #import "Theme.h"
 #import "NSColor+array.h"
-#import "NSDictionary+json.h"
+#import <BitMessageKit/BitMessageKit.h>
 
 @implementation Theme
 

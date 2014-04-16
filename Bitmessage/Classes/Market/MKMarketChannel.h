@@ -10,8 +10,8 @@
 // MKCategory
 //
 
-#import "BMNode.h"
-#import "BMChannel.h"
+#import <BitMessageKit/BitMessageKit.h>
+
 
 @interface MKMarketChannel : BMNode
 

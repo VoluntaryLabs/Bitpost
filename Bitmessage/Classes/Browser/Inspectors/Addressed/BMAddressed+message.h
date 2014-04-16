@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMAddressed.h"
+#import <BitMessageKit/BitMessageKit.h>
 
 @interface BMAddressed (message)
 

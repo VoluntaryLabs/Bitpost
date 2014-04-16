@@ -1,8 +1,11 @@
 
+- fix slow delete using icon
+- ask Dru to look into ensuring python shuts down
+
 - cleanup old backups?
 - zip export/import?
 
-- finish theming including start page
+- finish themeing including start page
 
 - fix vertical centering on cell titles/notes when there's no subtitle
 
@@ -27,10 +30,6 @@ todo
   - [or?] have negative suggested width mean "full width" 
 
 - replace entered BM addresses with labels in compose window
-
-
-- warning for critical ops like delete identity
-  - have action code in UI ask object if a panel is required
 
 - have process check for existance of keys.dat
   - if not there, start server, wait until keys.dat is there, bring down

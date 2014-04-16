@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
+#import <BitmessageKit/BitmessageKit.h>
 #import "BMDictView.h"
 #import "NSView+sizing.h"
-#import "NSArray+extra.h"
 #import "KVFieldView.h"
 
 @implementation BMDictView

@@ -8,12 +8,6 @@
 
 #import "DraftController.h"
 #import "NSView+sizing.h"
-#import "NSString+BM.h"
-#import "BMMessage.h"
-#import "BMClient.h"
-#import "BMIdentity.h"
-#import "NSString+BM.h"
-#import "BMAddress.h"
 #import "AppController.h"
 #import "NSScrollView+extra.h"
 #import "Theme.h"

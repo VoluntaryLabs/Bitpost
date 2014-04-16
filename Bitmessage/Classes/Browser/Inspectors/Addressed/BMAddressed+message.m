@@ -8,7 +8,7 @@
 
 #import "BMAddressed+message.h"
 #import "AppController.h"
-#import "BMClient.h"
+#import <BitMessageKit/BitMessageKit.h>
 
 @implementation BMAddressed (message)
 

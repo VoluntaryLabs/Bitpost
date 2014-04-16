@@ -8,8 +8,8 @@
 
 #import "AddressCompletor.h"
 #import "Theme.h"
-#import "BMClient.h"
-#import "BMAddress.h"
+#import <BitmessageKit/BitmessageKit.h>
+
 
 @implementation AddressCompletor
 

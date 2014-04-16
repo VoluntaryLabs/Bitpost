@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
+#import <BitmessageKit/BitmessageKit.h>
 #import "NavView.h"
 #import "DraftController.h"
-#import "BMServerProcess.h"
 #import "ProgressController.h"
 
 @interface AppController : NSObject <NSTableViewDataSource>

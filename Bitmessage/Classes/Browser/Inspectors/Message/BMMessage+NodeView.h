@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMMessage.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 @interface BMMessage (NodeView)
 

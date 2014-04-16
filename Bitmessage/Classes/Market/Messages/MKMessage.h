@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMNode.h"
-#import "BMMessage.h"
-#import "NSDictionary+json.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 @interface MKMessage : BMNode
 

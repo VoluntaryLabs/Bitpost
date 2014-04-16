@@ -7,16 +7,12 @@
 //
 
 #import "BMMessageView.h"
-#import "BMMessage.h"
-#import "BMClient.h"
+#import <BitMessageKit/BitMessageKit.h>
 #import "NSView+sizing.h"
 #import "ResizingScrollView.h"
 //#import "DraftController.h"
 //#import "AppController.h"
-#import "NSString+BM.h"
 #import "MarginTextView.h"
-#import "BMContacts.h"
-#import "BMSentMessage.h"
 #import "NavColumn.h"
 
 @implementation BMMessageView
@@ -96,7 +92,6 @@
     [indented setLineBreakMode:NSLineBreakByWordWrapping];
 
     [self.message markAsRead];
-    //[self.message performSelector:@selector(markAsRead) withObject:nil afterDelay:0];
     
     NSMutableAttributedString *fullMessage = [[NSMutableAttributedString alloc] initWithString:@""];
                                                 
