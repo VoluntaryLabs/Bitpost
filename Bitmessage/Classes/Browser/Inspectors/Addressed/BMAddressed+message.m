@@ -7,15 +7,14 @@
 //
 
 #import "BMAddressed+message.h"
-#import "AppController.h"
+#import "DraftController.h"
 #import <BitMessageKit/BitMessageKit.h>
 
 @implementation BMAddressed (message)
 
 - (void)message
 {
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draftController = [appController newDraft];
+    DraftController *draftController = [DraftController openNewDraft];
     
     [draftController.to setStringValue:self.address];
     

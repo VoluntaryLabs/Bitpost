@@ -12,42 +12,20 @@
 {
 }
 
-- (DraftController *)newDraft
+- (void)applicationDidFinishLaunching: (NSNotification *)aNote
 {
-    DraftController *draft = [DraftController openNewDraft];
-    return draft;
-}
-
-- (void)applicationDidFinishLaunching: (NSNotification *)aNotification
-{
-    self.dockTile = [[NSApplication sharedApplication] dockTile];
-
-    self.navWindow = [NavWindow newWindow];
-    [_navWindow center];
-    [_navWindow orderFront:nil];
+    [super applicationDidFinishLaunching:aNote];
     
-    [_navWindow.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
-    [_navWindow setTitle:@"launching server..."];
-    [_navWindow display];
-    
-    self.progressController = [[ProgressController alloc] init];
-    [self.progressController setProgress:_navWindow.progressIndicator];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
-    
-
-    NavColumn *firstNavColumn = [[_navWindow.navView navColumns] firstObject];
-    [firstNavColumn selectRowIndex:0];
-    
-    [_navWindow setTitle:@""];
+    [self setNavTitle:@"launching server..."];
+    [self setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
+    [self setNavTitle:@""];
     
     [self checkForNewUser];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(unreadCountChanged:)
-                                                 name:@"BMReceivedMessagesUnreadCountChanged"
-                                               object:BMClient.sharedBMClient.messages.received];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPop" object:self];    
+                                             selector:@selector(compose:)
+                                                 name:@"BMNewDraft"
+                                               object:nil];
 }
 
 - (void)checkForNewUser
@@ -61,52 +39,15 @@
 
 - (void)openNewUserView
 {
-    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:_navWindow.navView.frame];
-    nuv.replacementView = _navWindow.navView;
+    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navWindow.navView.frame];
+    nuv.replacementView = self.navWindow.navView;
     [nuv open];
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-{
-    [[BMClient sharedBMClient] stopServer];
-}
-
-- (NSInteger)unreadMessageCount
-{
-    return [[[[BMClient sharedBMClient] messages] received] unreadCount];
-}
-
-- (void)unreadCountChanged:(NSNotification *)note
-{
-    // replace with notification -> sound mapping with theme lookup
-    //NSLog(@"unreadCountChanged");
-    [self displayUnreadMessageCountBadge];
-}
-
-- (void)displayUnreadMessageCountBadge
-{
-    NSInteger unreadMessageCount = [self unreadMessageCount];
     
-    if (unreadMessageCount > 0)
-    {
-        [self.dockTile setBadgeLabel:[NSString stringWithFormat: @"%ld",
-                                      (long)unreadMessageCount]];
-    }
-    else
-    {
-        [self.dockTile setBadgeLabel: nil];
-    }
-}
-
-- (IBAction)openInfoPanel:(id)sender
-{
-    [[InfoPanelController sharedInfoPanelController] open];
 }
 
 - (IBAction)compose:(id)sender // hack - consolidate into DraftController
 {
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draft = [appController newDraft];
+    DraftController *draft = [DraftController openNewDraft];
     [draft setDefaultFrom];
     [draft setCursorOnTo];
     [draft open];
@@ -185,8 +126,8 @@
     {
         if (result == NSFileHandlingPanelOKButton)
         {
-            NSArray* urls = [panel URLs];
-            NSURL *url = [urls firstObject];
+            NSArray *urls = [panel URLs];
+            NSURL *url    = [urls firstObject];
             NSLog(@"url '%@'", url);
             [[BMClient sharedBMClient] unarchiveFromUrl:url];
         }
@@ -194,6 +135,7 @@
     }];
 }
 
+/*
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename
 {
     NSLog(@"open '%@'", filename);
@@ -204,5 +146,6 @@
 {
     NSLog(@"open filenames");
 }
+*/
 
 @end

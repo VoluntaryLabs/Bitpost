@@ -115,18 +115,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Mailbox" id="r2s-pD-Nqi">
-                    <menu key="submenu" title="Mailbox" id="Da8-HB-a4F">
-                        <items>
-                            <menuItem title="Export..." id="djc-Yu-Fl1">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportMailbox:" target="494" id="id3-pj-f6U"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="Edit" id="217">
                     <menu key="submenu" title="Edit" id="205">
                         <items>

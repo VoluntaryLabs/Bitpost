@@ -15,25 +15,6 @@
 
 @implementation BMMessage (NodeView)
 
-/*
-- (NSColor *)textColor
-{
-    //NSString *className = NSStringFromClass([self class]);
-    
-    if (!self.read || [self.status isEqualToString:@"msgsent"])
-    {
-        return [Theme.sharedTheme themeForColumn:1].unreadTitleColor;
-    }
-    
-    return [Theme.sharedTheme themeForColumn:1].inactiveTitleColor;
-}
-
-- (NSColor *)activeTitleColor
-{
-    return [Theme.sharedTheme themeForColumn:1].activeTitleColor;
-}
-*/
-
 - (NSString *)nodeNote
 {
     return self.date.itemDateString;
@@ -61,8 +42,7 @@
 
 - (void)reply // move to draft class
 {
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draft = [appController newDraft];
+    DraftController *draft = [DraftController openNewDraft];
     
     [draft.to setStringValue:self.fromAddress];
     [draft setDefaultFrom];
@@ -76,9 +56,8 @@
 
 - (void)forward // move to draft class
 {
-    AppController *appController = (AppController *)[[NSApplication sharedApplication] delegate];
-    DraftController *draft = [appController newDraft];
-    
+    DraftController *draft = [DraftController openNewDraft];
+
     [draft setDefaultFrom];
     [draft setAddressesToLabels];
     [draft.subject setStringValue:self.subjectString];
