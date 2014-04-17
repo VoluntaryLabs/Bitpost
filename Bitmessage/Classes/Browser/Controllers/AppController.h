@@ -7,21 +7,26 @@
 @interface AppController : NSObject <NSTableViewDataSource>
 
 @property (strong) id <NavNode> rootNode;
-@property (strong) IBOutlet NavView *navView;
-
-@property (strong) IBOutlet NSProgressIndicator *progress;
+@property (strong) NavWindow *navWindow;
 @property (strong) ProgressController *progressController;
 @property (strong) NSDockTile *dockTile;
 
-@property (strong) NSAlert *alertPanel;
-
-- (DraftController *)newDraft;
 
 - (NSInteger)unreadMessageCount;
 
+// info
+
 - (IBAction)openInfoPanel:(id)sender;
+
+// compose
+
+- (DraftController *)newDraft;
 - (IBAction)compose:(id)sender;
 
+
+// import/export
+
+@property (strong) NSAlert *alertPanel;
 
 - (IBAction)exportMailbox:(id)sender;
 - (IBAction)importMailbox:(id)sender;

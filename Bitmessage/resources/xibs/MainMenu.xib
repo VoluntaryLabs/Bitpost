@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -634,37 +634,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="906" height="521"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
-            <value key="minSize" type="size" width="688" height="317"/>
-            <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="906" height="521"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <customView id="EhG-Gy-s1m" customClass="NavView">
-                        <rect key="frame" x="0.0" y="0.0" width="906" height="521"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="nRx-Du-Nnp">
-                                <rect key="frame" x="14" y="498" width="16" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </progressIndicator>
-                        </subviews>
-                    </customView>
-                </subviews>
-            </view>
-        </window>
-        <customObject id="494" customClass="AppController">
-            <connections>
-                <outlet property="contentView" destination="EhG-Gy-s1m" id="p15-nG-3lC"/>
-                <outlet property="navView" destination="EhG-Gy-s1m" id="g9o-q4-QD2"/>
-                <outlet property="progress" destination="nRx-Du-Nnp" id="AOB-pU-8Xe"/>
-                <outlet property="window" destination="371" id="532"/>
-            </connections>
-        </customObject>
+        <customObject id="494" customClass="AppController"/>
         <customObject id="420" customClass="NSFontManager"/>
         <customFormatter id="GSw-I2-xFA"/>
         <treeController automaticallyPreparesContent="YES" childrenKeyPath="children" id="YmJ-VU-XqX">

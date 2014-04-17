@@ -1,4 +1,6 @@
 
+- get rid of nib files
+
 - fix slow delete using icon
 - ask Dru to look into ensuring python shuts down
 

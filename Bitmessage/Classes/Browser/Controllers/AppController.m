@@ -10,24 +10,7 @@
 
 - (void)awakeFromNib
 {
-    self.progressController = [[ProgressController alloc] init];
-    [self.progressController setProgress:self.progress];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
-    
-    self.dockTile = [[NSApplication sharedApplication] dockTile];
 }
-
-/*
-- (void)handleAction:(SEL)aSelector
-{
-    [self.navView handleAction:aSelector];
-}
-
-- (BOOL)canHandleAction:(SEL)aSelector
-{
-    return [self.navView canHandleAction:aSelector];
-}
-*/
 
 - (DraftController *)newDraft
 {
@@ -37,15 +20,25 @@
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNotification
 {
-    [self.navView.window setTitle:@"launching server..."];
-    [self.navView.window display];
+    self.dockTile = [[NSApplication sharedApplication] dockTile];
+
+    self.navWindow = [NavWindow newWindow];
+    [_navWindow center];
+    [_navWindow orderFront:nil];
     
-    [self.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
+    [_navWindow.navView setRootNode:(id <NavNode>)[BMClient sharedBMClient]];
+    [_navWindow setTitle:@"launching server..."];
+    [_navWindow display];
     
-    NavColumn *firstNavColumn = [[self.navView navColumns] firstObject];
+    self.progressController = [[ProgressController alloc] init];
+    [self.progressController setProgress:_navWindow.progressIndicator];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ProgressPush" object:self];
+    
+
+    NavColumn *firstNavColumn = [[_navWindow.navView navColumns] firstObject];
     [firstNavColumn selectRowIndex:0];
     
-    [self.navView.window setTitle:@""];
+    [_navWindow setTitle:@""];
     
     [self checkForNewUser];
     
@@ -68,8 +61,8 @@
 
 - (void)openNewUserView
 {
-    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navView.frame];
-    nuv.replacementView = self.navView;
+    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:_navWindow.navView.frame];
+    nuv.replacementView = _navWindow.navView;
     [nuv open];
 }
 
