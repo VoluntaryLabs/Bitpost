@@ -7,7 +7,6 @@
 
 // compose
 
-- (DraftController *)newDraft;
 - (IBAction)compose:(id)sender;
 
 // import/export

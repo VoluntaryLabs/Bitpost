@@ -1,4 +1,5 @@
 
+- move BMNode to NavNode?
 - move export to action on client 
 - move info to menu of client (have menu open root "about/info" item if present)
 

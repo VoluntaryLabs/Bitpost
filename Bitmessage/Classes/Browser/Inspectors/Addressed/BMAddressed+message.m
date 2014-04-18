@@ -12,6 +12,7 @@
 
 @implementation BMAddressed (message)
 
+
 - (void)message
 {
     DraftController *draftController = [DraftController openNewDraft];

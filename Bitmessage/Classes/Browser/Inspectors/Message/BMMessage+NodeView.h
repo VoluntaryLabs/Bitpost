@@ -10,4 +10,10 @@
 
 @interface BMMessage (NodeView)
 
+- (NSString *)nodeNote;
+
+- (NSArray *)uiActions;
+- (void)reply;
+- (void)forward;
+
 @end

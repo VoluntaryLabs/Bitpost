@@ -15,6 +15,12 @@
 
 @implementation BMMessage (NodeView)
 
+- (NSArray *)uiActions
+{
+    NSArray *uiActions = [NSMutableArray arrayWithObjects:@"reply", @"forward", nil];
+    return  [uiActions arrayByAddingObjectsFromArray:super.uiActions];
+}
+
 - (NSString *)nodeNote
 {
     return self.date.itemDateString;
