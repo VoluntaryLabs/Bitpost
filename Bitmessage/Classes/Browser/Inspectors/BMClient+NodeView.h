@@ -8,8 +8,10 @@
 
 #import <BitmessageKit/BitmessageKit.h>
 
-@interface BMClient (UI)
+@interface BMClient (NodeView)
 
 - (void)compose;
+- (void)export;
+- (void)import;
 
 @end

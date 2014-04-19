@@ -10,7 +10,7 @@
 #import <NavKit/NavKit.h>
 #import <BitmessageKit/BMContact.h>
 
-@interface BMAddressedView : ColoredView <NSTextViewDelegate>
+@interface BMAddressedView : NavColoredView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
 @property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?

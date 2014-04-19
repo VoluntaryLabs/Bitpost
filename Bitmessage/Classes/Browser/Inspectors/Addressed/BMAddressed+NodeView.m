@@ -1,16 +1,16 @@
 //
-//  BMAddressed+message.m
+//  BMAddressed+NodeView.m
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 4/8/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "BMAddressed+message.h"
+#import "BMAddressed+NodeView.h"
 #import "DraftController.h"
 #import <BitMessageKit/BitMessageKit.h>
 
-@implementation BMAddressed (message)
+@implementation BMAddressed (NodeView)
 
 
 - (void)message

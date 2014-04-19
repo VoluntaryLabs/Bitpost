@@ -71,12 +71,12 @@
 		AA94774018DFB59F004EFC7A /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94773F18DFB59F004EFC7A /* categories.json */; };
 		AA94774218E0D522004EFC7A /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = AA94774118E0D522004EFC7A /* regions.json */; };
 		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
-		AA9EFBFE18F4960000DC32F4 /* BMAddressed+message.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */; };
+		AA9EFBFE18F4960000DC32F4 /* BMAddressed+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */; };
 		AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9EFC5318F4A56F00DC32F4 /* libz.dylib */; };
 		AAA2E6CC190082360098C357 /* compose_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA2E6CA190082360098C357 /* compose_active.png */; };
 		AAA2E6CD190082360098C357 /* composeicon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA2E6CB190082360098C357 /* composeicon_inactive.png */; };
 		AAA2E6D0190098050098C357 /* NavInfoNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2E6CF190098050098C357 /* NavInfoNode.m */; };
-		AAA2E6D319009CDC0098C357 /* BMClient+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2E6D219009CDC0098C357 /* BMClient+UI.m */; };
+		AAA2E6D319009CDC0098C357 /* BMClient+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2E6D219009CDC0098C357 /* BMClient+NodeView.m */; };
 		AAB79BC918AB14170041B6B1 /* add_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC218AB14170041B6B1 /* add_active.png */; };
 		AAB79BCA18AB14170041B6B1 /* add_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC318AB14170041B6B1 /* add_inactive.png */; };
 		AAB79BCB18AB14170041B6B1 /* delete_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC418AB14170041B6B1 /* delete_active.png */; };
@@ -90,7 +90,6 @@
 		AAD284A618C01EE500FC0C6F /* AddressCompletor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849518C01EE500FC0C6F /* AddressCompletor.m */; };
 		AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849718C01EE500FC0C6F /* AddressTextField.m */; };
 		AAD284A818C01EE500FC0C6F /* DraftController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849918C01EE500FC0C6F /* DraftController.m */; };
-		AAE31E8218FF1D8500405754 /* BMNode+theme.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE31E8118FF1D8500405754 /* BMNode+theme.m */; };
 		AAE31EF918FF225D00405754 /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE31EF618FF222C00405754 /* NavKit.framework */; };
 		AAE61DD718CA8CCE00C6AEB7 /* icon_tick.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE61DD318CA8CCE00C6AEB7 /* icon_tick.png */; };
 		AAF40CB018B56183005BA55E /* refresh_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF40CAE18B56183005BA55E /* refresh_active.png */; };
@@ -242,15 +241,15 @@
 		AA94773F18DFB59F004EFC7A /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		AA94774118E0D522004EFC7A /* regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
 		AA94775A18E268D3004EFC7A /* forward_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_active.png; sourceTree = "<group>"; };
-		AA9EFBFC18F4960000DC32F4 /* BMAddressed+message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+message.h"; sourceTree = "<group>"; };
-		AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+message.m"; sourceTree = "<group>"; };
+		AA9EFBFC18F4960000DC32F4 /* BMAddressed+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+NodeView.h"; sourceTree = "<group>"; };
+		AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+NodeView.m"; sourceTree = "<group>"; };
 		AA9EFC5318F4A56F00DC32F4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AAA2E6CA190082360098C357 /* compose_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose_active.png; sourceTree = "<group>"; };
 		AAA2E6CB190082360098C357 /* composeicon_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = composeicon_inactive.png; sourceTree = "<group>"; };
 		AAA2E6CE190098050098C357 /* NavInfoNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavInfoNode.h; sourceTree = "<group>"; };
 		AAA2E6CF190098050098C357 /* NavInfoNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavInfoNode.m; sourceTree = "<group>"; };
-		AAA2E6D119009CDC0098C357 /* BMClient+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMClient+UI.h"; sourceTree = "<group>"; };
-		AAA2E6D219009CDC0098C357 /* BMClient+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMClient+UI.m"; sourceTree = "<group>"; };
+		AAA2E6D119009CDC0098C357 /* BMClient+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMClient+NodeView.h"; sourceTree = "<group>"; };
+		AAA2E6D219009CDC0098C357 /* BMClient+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMClient+NodeView.m"; sourceTree = "<group>"; };
 		AAB79BC218AB14170041B6B1 /* add_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_active.png; sourceTree = "<group>"; };
 		AAB79BC318AB14170041B6B1 /* add_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_inactive.png; sourceTree = "<group>"; };
 		AAB79BC418AB14170041B6B1 /* delete_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_active.png; sourceTree = "<group>"; };
@@ -268,8 +267,6 @@
 		AAD2849718C01EE500FC0C6F /* AddressTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTextField.m; sourceTree = "<group>"; };
 		AAD2849818C01EE500FC0C6F /* DraftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraftController.h; sourceTree = "<group>"; };
 		AAD2849918C01EE500FC0C6F /* DraftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraftController.m; sourceTree = "<group>"; };
-		AAE31E8018FF1D8500405754 /* BMNode+theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMNode+theme.h"; sourceTree = "<group>"; };
-		AAE31E8118FF1D8500405754 /* BMNode+theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMNode+theme.m"; sourceTree = "<group>"; };
 		AAE31EED18FF222B00405754 /* NavKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NavKit.xcodeproj; path = ../NavKit/NavKit.xcodeproj; sourceTree = "<group>"; };
 		AAE61DD318CA8CCE00C6AEB7 /* icon_tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tick.png; sourceTree = "<group>"; };
 		AAF40CAE18B56183005BA55E /* refresh_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_active.png; sourceTree = "<group>"; };
@@ -350,8 +347,8 @@
 				AA2AC86018B8175A008CEEB4 /* BMChannelView.m */,
 				AA2AC86118B8175A008CEEB4 /* BMContactView.h */,
 				AA2AC86218B8175A008CEEB4 /* BMContactView.m */,
-				AA9EFBFC18F4960000DC32F4 /* BMAddressed+message.h */,
-				AA9EFBFD18F4960000DC32F4 /* BMAddressed+message.m */,
+				AA9EFBFC18F4960000DC32F4 /* BMAddressed+NodeView.h */,
+				AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */,
 			);
 			path = Addressed;
 			sourceTree = "<group>";
@@ -454,8 +451,6 @@
 		AA31566E18AAE0E00017E94F /* Browser */ = {
 			isa = PBXGroup;
 			children = (
-				AAE31E8018FF1D8500405754 /* BMNode+theme.h */,
-				AAE31E8118FF1D8500405754 /* BMNode+theme.m */,
 				AAD2849018C01EE500FC0C6F /* Controllers */,
 				AA7F6A8818B17B15009285EA /* Inspectors */,
 			);
@@ -540,11 +535,11 @@
 		AA7F6A8818B17B15009285EA /* Inspectors */ = {
 			isa = PBXGroup;
 			children = (
+				AAA2E6D119009CDC0098C357 /* BMClient+NodeView.h */,
+				AAA2E6D219009CDC0098C357 /* BMClient+NodeView.m */,
 				AA9413BC18C952F80092FEF4 /* Message */,
 				AA9413C118C952F80092FEF4 /* NewUser */,
 				AA2AC85C18B8175A008CEEB4 /* Addressed */,
-				AAA2E6D119009CDC0098C357 /* BMClient+UI.h */,
-				AAA2E6D219009CDC0098C357 /* BMClient+UI.m */,
 			);
 			path = Inspectors;
 			sourceTree = "<group>";
@@ -891,15 +886,14 @@
 				AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */,
 				AAD284A518C01EE500FC0C6F /* AppController.m in Sources */,
 				AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */,
-				AA9EFBFE18F4960000DC32F4 /* BMAddressed+message.m in Sources */,
+				AA9EFBFE18F4960000DC32F4 /* BMAddressed+NodeView.m in Sources */,
 				AAD284A618C01EE500FC0C6F /* AddressCompletor.m in Sources */,
 				AA2AC87418B88FF2008CEEB4 /* BMIdentityView.m in Sources */,
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* DraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* AddressTextField.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
-				AAE31E8218FF1D8500405754 /* BMNode+theme.m in Sources */,
-				AAA2E6D319009CDC0098C357 /* BMClient+UI.m in Sources */,
+				AAA2E6D319009CDC0098C357 /* BMClient+NodeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

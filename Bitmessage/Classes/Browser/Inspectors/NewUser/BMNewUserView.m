@@ -30,14 +30,14 @@
                                     NSViewMaxXMargin];
 
         
-        self.instructionsText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 50)];
+        self.instructionsText = [[NavTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 50)];
         self.instructionsText.string = @"Please choose a username and hit return to begin.";
         [self.instructionsText setupForDisplay];
         self.instructionsText.textColor = self.darkColor;
         self.instructionsText.string = @"Looks like this is your first time running a bitmessage client\nso I've generated an address for you:";
     
         
-        self.addressText = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 40)];
+        self.addressText = [[NavTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 40)];
         self.addressText.string = self.identity.address;
         [self.addressText setupForEditing];
         [self.addressText setSelectable:YES];
@@ -45,14 +45,14 @@
         [self.addressText setFontSize:self.addressText.font.pointSize - 2];
         self.addressText.textColor = self.mediumColor;
         
-        self.instructionsText2 = [[BMTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 40)];
+        self.instructionsText2 = [[NavTextView alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, 40)];
         self.instructionsText2.string = @"";
         [self.instructionsText2 setupForDisplay];
         self.instructionsText2.textColor = self.darkColor;
         self.instructionsText2.string = @"Like an email address, you can share this address to receive messages.\nYou can find this later in the My Identities tab.";
         
-        self.okButton = [[BMButton alloc] initWithFrame:NSMakeRect(0, 0, self.width, 30)];
-        //self.okButton = [[BMButton alloc] initWithFrame:NSMakeRect(0, 0, 100, 30)];
+        self.okButton = [[NavButton alloc] initWithFrame:NSMakeRect(0, 0, self.width, 30)];
+        //self.okButton = [[NavButton alloc] initWithFrame:NSMakeRect(0, 0, 100, 30)];
         [self.okButton setTarget:self];
         [self.okButton setActionTitle:@"OK"];
         [self.okButton setAction:@selector(ok)];

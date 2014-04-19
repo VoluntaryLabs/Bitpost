@@ -7,6 +7,7 @@
 //
 
 #import "DraftController.h"
+#import <BitmessageKit/BitmessageKit.h>
 #import <NavKit/NavKit.h>
 #import "AppController.h"
 

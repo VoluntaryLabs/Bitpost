@@ -25,14 +25,14 @@
 
 
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;
-@property (assign, nonatomic) IBOutlet MarginTextView *bodyText;
+@property (assign, nonatomic) IBOutlet NavMarginTextView *bodyText;
 
 
-@property (strong, nonatomic) ColoredView *bodyArea;
-@property (assign, nonatomic) IBOutlet ColoredView *topBackground;
-@property (assign, nonatomic) IBOutlet ColoredView *fromBackground;
-@property (assign, nonatomic) IBOutlet ColoredView *toBackground;
-@property (assign, nonatomic) IBOutlet ColoredView *subjectBackground;
+@property (strong, nonatomic) NavColoredView *bodyArea;
+@property (assign, nonatomic) IBOutlet NavColoredView *topBackground;
+@property (assign, nonatomic) IBOutlet NavColoredView *fromBackground;
+@property (assign, nonatomic) IBOutlet NavColoredView *toBackground;
+@property (assign, nonatomic) IBOutlet NavColoredView *subjectBackground;
 
 @property (strong, nonatomic) AddressCompletor *fromCompletor;
 @property (strong, nonatomic) AddressCompletor *toCompletor;

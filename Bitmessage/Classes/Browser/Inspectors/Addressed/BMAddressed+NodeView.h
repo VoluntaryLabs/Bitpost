@@ -1,5 +1,5 @@
 //
-//  BMAddressed+message.h
+//  BMAddressed+NodeView.h
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 4/8/14.
@@ -8,7 +8,7 @@
 
 #import <BitMessageKit/BitMessageKit.h>
 
-@interface BMAddressed (message)
+@interface BMAddressed (NodeView)
 
 - (void)message;
 

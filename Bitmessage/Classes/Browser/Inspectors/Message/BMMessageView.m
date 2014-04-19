@@ -182,7 +182,7 @@
 {
     NSRect f = self.frame;
     
-    self.scrollView = [[ResizingScrollView alloc] initWithFrame:f];
+    self.scrollView = [[NavResizingScrollView alloc] initWithFrame:f];
     [self addSubview:self.scrollView];
     [self.scrollView setHasVerticalScroller:YES];
     [self.scrollView setHasHorizontalRuler:NO];
@@ -190,7 +190,7 @@
     [self.scrollView setAutoresizesSubviews:YES];
     [self.scrollView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     
-    self.textView = [[MarginTextView alloc] initWithFrame:self.scrollView.bounds];
+    self.textView = [[NavMarginTextView alloc] initWithFrame:self.scrollView.bounds];
     [self.scrollView setDocumentView:self.textView];
     [self.textView setDelegate:self];
     
