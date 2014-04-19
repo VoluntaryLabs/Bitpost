@@ -128,7 +128,7 @@ NSMutableArray *sharedDrafts = nil;
     
     /*
     NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:
-                         [Theme.sharedTheme draftBodyTextSelectedColor], NSBackgroundColorAttributeName,
+                         [NavTheme.sharedNavTheme draftBodyTextSelectedColor], NSBackgroundColorAttributeName,
                          nil];
     NSTextView *tv;
     
@@ -306,7 +306,7 @@ NSMutableArray *sharedDrafts = nil;
     }
     else
     {
-        field.textColor = [Theme.sharedTheme formTextErrorColor];
+        field.textColor = [NavTheme.sharedNavTheme formTextErrorColor];
     }
 }
 

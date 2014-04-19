@@ -18,9 +18,9 @@
     
     if (self)
     {
-        self.darkColor   = [Theme.sharedTheme formText3Color];
-        self.mediumColor = [Theme.sharedTheme formText2Color];
-        self.lightColor  = [Theme.sharedTheme formText1Color];
+        self.darkColor   = [NavTheme.sharedNavTheme formText3Color];
+        self.mediumColor = [NavTheme.sharedNavTheme formText2Color];
+        self.lightColor  = [NavTheme.sharedNavTheme formText1Color];
         
         [self setAutoresizingMask:  NSViewWidthSizable |
                                     NSViewMinYMargin |
@@ -94,7 +94,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    [[Theme.sharedTheme formBackgroundColor] set];
+    [[NavTheme.sharedNavTheme formBackgroundColor] set];
     NSRectFill(dirtyRect);
 }
 

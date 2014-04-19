@@ -30,23 +30,23 @@
 
 - (NSString *)fontName
 {
-    return [Theme.sharedTheme lightFontName];
+    return [NavTheme.sharedNavTheme lightFontName];
 }
 
 - (NSDictionary *)subjectAttributes
 {
-    return [Theme.sharedTheme attributesDictForPath:@"message/title"];
+    return [NavTheme.sharedNavTheme attributesDictForPath:@"message/title"];
 }
 
 - (NSDictionary *)infoAttributes
 {
-    return [Theme.sharedTheme attributesDictForPath:@"message/subtitle"];
+    return [NavTheme.sharedNavTheme attributesDictForPath:@"message/subtitle"];
 }
 
 
 - (NSDictionary *)bodyAttributes
 {
-    NSDictionary *themeDict = [Theme.sharedTheme attributesDictForPath:@"message/body"];
+    NSDictionary *themeDict = [NavTheme.sharedNavTheme attributesDictForPath:@"message/body"];
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:themeDict];
     //[dict setObject:self.dynamicBackgroundColor forKey:NSBackgroundColorAttributeName];
     return dict;
@@ -54,7 +54,7 @@
 
 - (NSDictionary *)linkAttributes
 {
-    return [Theme.sharedTheme attributesDictForPath:@"message/link"];
+    return [NavTheme.sharedNavTheme attributesDictForPath:@"message/link"];
 }
 
 
@@ -174,7 +174,7 @@
 - (NSColor *)dynamicBackgroundColor
 {
     NavColumn *column = [self.navView columnForNode:_node];
-    ThemeDictionary *theme = [Theme.sharedTheme themeForColumn:column.columnIndex - 1];
+    NavThemeDictionary  *theme = [NavTheme.sharedNavTheme themeForColumn:column.columnIndex - 1];
     return[theme selectedBgColor];
 }
 
