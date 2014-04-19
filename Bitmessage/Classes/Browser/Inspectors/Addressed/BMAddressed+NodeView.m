@@ -7,7 +7,7 @@
 //
 
 #import "BMAddressed+NodeView.h"
-#import "DraftController.h"
+#import "BMDraftController.h"
 #import <BitMessageKit/BitMessageKit.h>
 
 @implementation BMAddressed (NodeView)
@@ -15,7 +15,7 @@
 
 - (void)message
 {
-    DraftController *draftController = [DraftController openNewDraft];
+    BMDraftController *draftController = [BMDraftController openNewDraft];
     
     [draftController.to setStringValue:self.address];
     

@@ -622,7 +622,7 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="494" customClass="AppController"/>
+        <customObject id="494" customClass="NavAppController"/>
         <customObject id="420" customClass="NSFontManager"/>
         <customFormatter id="GSw-I2-xFA"/>
         <treeController automaticallyPreparesContent="YES" childrenKeyPath="children" id="YmJ-VU-XqX">

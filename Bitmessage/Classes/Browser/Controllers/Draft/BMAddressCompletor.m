@@ -1,17 +1,17 @@
 //
-//  AddressCompletor.m
+//  BMAddressCompletor.m
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 2/24/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "AddressCompletor.h"
+#import "BMAddressCompletor.h"
 #import <BitmessageKit/BitmessageKit.h>
 #import <NavKit/NavKit.h>
 
 
-@implementation AddressCompletor
+@implementation BMAddressCompletor
 
 - (id)init
 {
@@ -22,7 +22,7 @@
 
 - (void)setTextField:(NSTextField *)textField
 {
-    _textField = (AddressTextField *) textField;
+    _textField = (BMAddressTextField *) textField;
     [_textField setDelegate:self];
 }
 

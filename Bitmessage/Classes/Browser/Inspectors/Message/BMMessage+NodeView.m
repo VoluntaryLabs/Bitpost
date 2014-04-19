@@ -9,8 +9,7 @@
 #import "BMMessage+NodeView.h"
 #import <FoundationCategoriesKit/FoundationCategoriesKit.h>
 #import <NavKit/NavKit.h>
-#import "DraftController.h"
-#import "AppController.h"
+#import "BMDraftController.h"
 #import "BMMessageView.h"
 
 @implementation BMMessage (NodeView)
@@ -48,7 +47,7 @@
 
 - (void)reply // move to draft class
 {
-    DraftController *draft = [DraftController openNewDraft];
+    BMDraftController *draft = [BMDraftController openNewDraft];
     
     [draft.to setStringValue:self.fromAddress];
     [draft setDefaultFrom];
@@ -62,7 +61,7 @@
 
 - (void)forward // move to draft class
 {
-    DraftController *draft = [DraftController openNewDraft];
+    BMDraftController *draft = [BMDraftController openNewDraft];
 
     [draft setDefaultFrom];
     [draft setAddressesToLabels];

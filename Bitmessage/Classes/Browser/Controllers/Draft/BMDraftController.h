@@ -1,5 +1,5 @@
 //
-//  DraftController.h
+//  BMDraftController.h
 //  Bitmarket
 //
 //  Created by Steve Dekorte on 2/9/14.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <NavKit/NavKit.h>
-#import "AddressCompletor.h"
-#import "AddressTextField.h"
+#import "BMAddressCompletor.h"
+#import "BMAddressTextField.h"
 
-@interface DraftController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
+@interface BMDraftController : NSViewController <NSWindowDelegate, NSTextFieldDelegate>
 
 @property (assign, nonatomic) IBOutlet NSButton *sendButton;
 
-@property (assign, nonatomic) IBOutlet AddressTextField *from;
-@property (assign, nonatomic) IBOutlet AddressTextField *to;
+@property (assign, nonatomic) IBOutlet BMAddressTextField *from;
+@property (assign, nonatomic) IBOutlet BMAddressTextField *to;
 @property (assign, nonatomic) IBOutlet NSTextField *subject;
 
 @property (assign, nonatomic) IBOutlet NSTextField *fromLabel;
@@ -34,10 +34,10 @@
 @property (assign, nonatomic) IBOutlet NavColoredView *toBackground;
 @property (assign, nonatomic) IBOutlet NavColoredView *subjectBackground;
 
-@property (strong, nonatomic) AddressCompletor *fromCompletor;
-@property (strong, nonatomic) AddressCompletor *toCompletor;
+@property (strong, nonatomic) BMAddressCompletor *fromCompletor;
+@property (strong, nonatomic) BMAddressCompletor *toCompletor;
 
-+ (DraftController *)openNewDraft;
++ (BMDraftController *)openNewDraft;
 
 - (IBAction)send:(id)sender;
 

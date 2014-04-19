@@ -1,5 +1,5 @@
 //
-//  AddressTextField.m
+//  BMAddressTextField.m
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 2/26/14.
@@ -7,9 +7,9 @@
 //
 // This is needed to get auto complete to behave properly
 
-#import "AddressTextField.h"
+#import "BMAddressTextField.h"
 
-@implementation AddressTextField
+@implementation BMAddressTextField
 
 - (BOOL)eventIsDelete
 {

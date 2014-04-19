@@ -1,5 +1,5 @@
 //
-//  AddressCompletor.h
+//  BMAddressCompletor.h
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 2/24/14.
@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AddressTextField.h"
+#import "BMAddressTextField.h"
 
-@interface AddressCompletor : NSObject <NSTextFieldDelegate>
+@interface BMAddressCompletor : NSObject <NSTextFieldDelegate>
 
 @property (assign, nonatomic) id delegate;
 @property (assign, nonatomic) BOOL isCompleting;
-@property (strong, nonatomic) AddressTextField *textField;
+@property (strong, nonatomic) BMAddressTextField *textField;
 @property (strong, nonatomic) NSMutableArray *addressLabels;
 @property (strong, nonatomic) NSString *lastString;
 @property (assign, nonatomic) BOOL shouldComplete;

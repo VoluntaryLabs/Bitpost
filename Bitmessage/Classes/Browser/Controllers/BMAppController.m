@@ -1,13 +1,13 @@
 
-#import "AppController.h"
+#import "BMAppController.h"
 #import <BitmessageKit/BitmessageKit.h>
 #import <NavKit/NavKit.h>
-#import "DraftController.h"
+#import "BMDraftController.h"
 #import "BMNewUserView.h"
 #import "NavInfoNode.h"
 #import "BMClient+NodeView.h"
 
-@implementation AppController
+@implementation BMAppController
 
 - (void)applicationDidFinishLaunching: (NSNotification *)aNote
 {
@@ -84,7 +84,7 @@
     
 }
 
-- (IBAction)compose:(id)sender // hack - consolidate into DraftController
+- (IBAction)compose:(id)sender // hack - consolidate into BMDraftController
 {
     [(BMClient *)self.rootNode compose];
 }

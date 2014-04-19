@@ -1,5 +1,5 @@
 //
-//  AddressTextField.h
+//  BMAddressTextField.h
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 2/26/14.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AddressTextField : NSTextField
+@interface BMAddressTextField : NSTextField
 
 @property (assign, nonatomic) unichar eventCharacter;
 

@@ -1,19 +1,18 @@
 //
-//  DraftController.m
+//  BMDraftController.m
 //  Bitmarket
 //
 //  Created by Steve Dekorte on 2/9/14.
 //  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
 //
 
-#import "DraftController.h"
+#import "BMDraftController.h"
 #import <BitmessageKit/BitmessageKit.h>
 #import <NavKit/NavKit.h>
-#import "AppController.h"
 
 NSMutableArray *sharedDrafts = nil;
 
-@implementation DraftController
+@implementation BMDraftController
 
 + (NSMutableArray *)drafts
 {
@@ -25,9 +24,9 @@ NSMutableArray *sharedDrafts = nil;
     return sharedDrafts;
 }
 
-+ (DraftController *)openNewDraft
++ (BMDraftController *)openNewDraft
 {
-    DraftController *draft = [[DraftController alloc] initWithNibName:@"Compose" bundle:nil];
+    BMDraftController *draft = [[BMDraftController alloc] initWithNibName:@"Compose" bundle:nil];
     [[[self class] drafts] addObject:draft];
     [draft view]; // to force lazy load
     [draft open];
@@ -61,11 +60,11 @@ NSMutableArray *sharedDrafts = nil;
     [super loadView];
 
     NSMutableArray *labels = [[BMClient sharedBMClient] allAddressLabels];
-    self.fromCompletor = [[AddressCompletor alloc] init];
+    self.fromCompletor = [[BMAddressCompletor alloc] init];
     //self.fromCompletor.addressLabels = [[BMClient sharedBMClient] fromAddressLabels];
     self.fromCompletor.addressLabels = labels;
     
-    self.toCompletor   = [[AddressCompletor alloc] init];
+    self.toCompletor   = [[BMAddressCompletor alloc] init];
     //self.toCompletor.addressLabels = [[BMClient sharedBMClient] allAddressLabels];
     self.toCompletor.addressLabels = labels;
     

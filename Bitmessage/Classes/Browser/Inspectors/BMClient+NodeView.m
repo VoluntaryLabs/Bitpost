@@ -7,7 +7,7 @@
 //
 
 #import "BMClient+NodeView.h"
-#import "DraftController.h"
+#import "BMDraftController.h"
 
 @implementation BMClient (NodeView)
 
@@ -19,7 +19,7 @@
 
 - (void)compose
 {
-    DraftController *draft = [DraftController openNewDraft];
+    BMDraftController *draft = [BMDraftController openNewDraft];
     [draft setDefaultFrom];
     [draft setCursorOnTo];
     [draft open];
