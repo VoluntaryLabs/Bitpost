@@ -1,4 +1,6 @@
 
+- fix slow delete key
+
 - update NavKit view names (BM -> Nav)
 - get rid of themedictionary
 

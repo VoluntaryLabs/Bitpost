@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DraftController">
@@ -34,11 +34,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="573" height="616"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="BTF-aW-ju0" customClass="ColoredView">
+                    <customView id="BTF-aW-ju0" customClass="NavColoredView">
                         <rect key="frame" x="1" y="402" width="572" height="183"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     </customView>
-                    <customView id="ZKq-YS-sLY" customClass="ColoredView">
+                    <customView id="ZKq-YS-sLY" customClass="NavColoredView">
                         <rect key="frame" x="-3" y="527" width="576" height="58"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -51,7 +51,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" id="irf-38-Vxg" customClass="AddressTextField">
+                            <textField verticalHuggingPriority="750" id="irf-38-Vxg" customClass="BMAddressTextField">
                                 <rect key="frame" x="99" y="14" width="434" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="b0L-ov-EbK">
@@ -65,7 +65,7 @@
                             </textField>
                         </subviews>
                     </customView>
-                    <customView id="DMZ-r7-bMH" customClass="ColoredView">
+                    <customView id="DMZ-r7-bMH" customClass="NavColoredView">
                         <rect key="frame" x="-3" y="468" width="576" height="58"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -78,7 +78,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" id="VHv-NU-7E7" customClass="AddressTextField">
+                            <textField verticalHuggingPriority="750" id="VHv-NU-7E7" customClass="BMAddressTextField">
                                 <rect key="frame" x="99" y="14" width="434" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="RPM-04-gsI">
@@ -92,7 +92,7 @@
                             </textField>
                         </subviews>
                     </customView>
-                    <customView id="vTT-aB-84r" customClass="ColoredView">
+                    <customView id="vTT-aB-84r" customClass="NavColoredView">
                         <rect key="frame" x="-2" y="408" width="576" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <subviews>
@@ -137,7 +137,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="573" height="395"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="9pB-sB-vzm" customClass="MarginTextView">
+                                <textView importsGraphics="NO" richText="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="9pB-sB-vzm" customClass="NavMarginTextView">
                                     <rect key="frame" x="0.0" y="0.0" width="573" height="395"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

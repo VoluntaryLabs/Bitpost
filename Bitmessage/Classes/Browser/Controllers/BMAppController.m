@@ -4,7 +4,6 @@
 #import <NavKit/NavKit.h>
 #import "BMDraftController.h"
 #import "BMNewUserView.h"
-#import "NavInfoNode.h"
 #import "BMClient+NodeView.h"
 
 @implementation BMAppController
@@ -22,7 +21,6 @@
     
     [self checkForNewUser];
 }
-
 
 - (void)addAbout
 {
