@@ -10,7 +10,6 @@ Compiling
 In the same folder that you put this project's folder, 
 you'll need to clone the following repos:
 
-git clone https://github.com/stevedekorte/Bitmarkets.git
 git clone https://github.com/stevedekorte/NavKit.git
 git clone https://github.com/stevedekorte/BitmessageKit.git
 git clone https://github.com/stevedekorte/NavNodeKit.git

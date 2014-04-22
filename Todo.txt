@@ -1,10 +1,8 @@
 
-- fix slow delete key
+- move themes.json to navkit?
 
-- update NavKit view names (BM -> Nav)
 - get rid of themedictionary
 
-- move BMNode to NavNode?
 - move export to action on client 
 - move info to menu of client (have menu open root "about/info" item if present)
 
