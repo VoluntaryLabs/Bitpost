@@ -1,5 +1,10 @@
 
+- get rid of NavNode protocol
+
+- move directory to non PyBitmessage folder
+
 - move themes.json to navkit?
+- move icons to navkit?
 
 - get rid of themedictionary
 
