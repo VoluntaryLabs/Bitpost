@@ -1,5 +1,9 @@
 
-- get rid of NavNode protocol
+- fix width for empty column with suggested 0 width
+- get add button on left category to create a Sell draft
+- post a Sell - compose dict, send message to bitmarkets channel, persist sell
+
+=======================
 
 - move directory to non PyBitmessage folder
 

@@ -13,7 +13,7 @@
 @interface BMAddressedView : NavColoredView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
-@property (assign, nonatomic) id <NavNode> node; // node keeps a ref to us?
+@property (assign, nonatomic) NavNode *node; // node keeps a ref to us?
 
 @property (strong, nonatomic) NSView *innerView; // contains labels and checkbox
 @property (strong, nonatomic) NSTextView *labelField;

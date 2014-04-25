@@ -14,7 +14,7 @@
     
     [self setNavTitle:@"launching server..."];
     BMNode *root = [BMClient sharedBMClient];
-    [self setRootNode:(id <NavNode>)root];
+    [self setRootNode:(NavNode *)root];
     [self setNavTitle:@""];
     
     [self addAbout];

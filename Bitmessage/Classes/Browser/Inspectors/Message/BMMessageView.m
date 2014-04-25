@@ -141,7 +141,7 @@
     return (BMMessage *)self.node;
 }
 
-- (void)setNode:(id<NavNode>)node
+- (void)setNode:(NavNode *)node
 {
     if (_node != node)
     {

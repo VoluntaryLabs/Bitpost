@@ -117,7 +117,7 @@
     [self.innerView centerYInSuperview];
 }
 
-- (void)setNode:(id <NavNode>)node
+- (void)setNode:(NavNode *)node
 {
     _node = node;
     [self syncFromNode];

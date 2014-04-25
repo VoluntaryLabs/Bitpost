@@ -12,7 +12,7 @@
 @interface BMMessageView : NavColoredView <NSTextViewDelegate>
 
 @property (assign, nonatomic) id navView;
-@property (strong, nonatomic) id <NavNode> node; // node keeps a ref to us?
+@property (strong, nonatomic) NavNode * node; // node keeps a ref to us?
 
 @property (strong, nonatomic) NSScrollView *scrollView;
 @property (strong, nonatomic) NSTextView *textView;
