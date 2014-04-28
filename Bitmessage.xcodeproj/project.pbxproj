@@ -53,13 +53,13 @@
 		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
 		AA9EFBFE18F4960000DC32F4 /* BMAddressed+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */; };
 		AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9EFC5318F4A56F00DC32F4 /* libz.dylib */; };
-		AA9F2B58190DFED6008444F6 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */; };
-		AA9F2B59190DFED6008444F6 /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
-		AA9F2B5A190DFED6008444F6 /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF3190DEFE500383283 /* NavKit.framework */; };
-		AA9F2B5B190DFED6008444F6 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA153C3418FF00CF007B4785 /* BitmessageKit.framework */; };
 		AA9F2B5C190DFF92008444F6 /* NavNodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
 		AA9F2B5D190DFF92008444F6 /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF3190DEFE500383283 /* NavKit.framework */; };
 		AA9F2B5E190DFF92008444F6 /* BitmessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA153C3418FF00CF007B4785 /* BitmessageKit.framework */; };
+		AA9F2B6F190E0C32008444F6 /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AACD78261905C787008832FB /* NavNodeKit.framework */; };
+		AA9F2B70190E0C32008444F6 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA86B98D18FF23F200D3BDB0 /* FoundationCategoriesKit.framework */; };
+		AA9F2B71190E0C58008444F6 /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAE31EF618FF222C00405754 /* NavKit.framework */; };
+		AA9F2B72190E0C58008444F6 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; };
 		AAA2E6CC190082360098C357 /* compose_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA2E6CA190082360098C357 /* compose_active.png */; };
 		AAA2E6CD190082360098C357 /* composeicon_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA2E6CB190082360098C357 /* composeicon_inactive.png */; };
 		AAA2E6D319009CDC0098C357 /* BMClient+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA2E6D219009CDC0098C357 /* BMClient+NodeView.m */; };
@@ -163,10 +163,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA9F2B58190DFED6008444F6 /* FoundationCategoriesKit.framework in CopyFiles */,
-				AA9F2B59190DFED6008444F6 /* NavNodeKit.framework in CopyFiles */,
-				AA9F2B5A190DFED6008444F6 /* NavKit.framework in CopyFiles */,
-				AA9F2B5B190DFED6008444F6 /* BitmessageKit.framework in CopyFiles */,
+				AA9F2B71190E0C58008444F6 /* NavKit.framework in CopyFiles */,
+				AA9F2B72190E0C58008444F6 /* BitmessageKit.framework in CopyFiles */,
+				AA9F2B6F190E0C32008444F6 /* NavNodeKit.framework in CopyFiles */,
+				AA9F2B70190E0C32008444F6 /* FoundationCategoriesKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,10 +969,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
@@ -987,10 +984,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
