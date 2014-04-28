@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E56ACB418C22426001136F9 /* fonts in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8E56ACB318C22426001136F9 /* fonts */; };
-		AA153BDD18FEFB51007B4785 /* BitmessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; };
+		AA153BDD18FEFB51007B4785 /* BitmessageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AA153C3318FEFD7E007B4785 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA0E588A18FEE0F50095DEBD /* BitmessageKit.framework */; };
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
@@ -47,6 +47,11 @@
 		AA3156F218AAE0E60017E94F /* search_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3156CA18AAE0E60017E94F /* search_active.png */; };
 		AA3156F318AAE0E60017E94F /* search_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA3156CB18AAE0E60017E94F /* search_inactive.png */; };
 		AA3156FD18AAE1130017E94F /* Compose.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3156FC18AAE1130017E94F /* Compose.xib */; };
+		AA5DFDF4190DEFE500383283 /* NavKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF3190DEFE500383283 /* NavKit.framework */; };
+		AA5DFDF5190DEFF000383283 /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF3190DEFE500383283 /* NavKit.framework */; };
+		AA5DFDF8190DEFFE00383283 /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
+		AA5DFDFA190DF00700383283 /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */; };
+		AA5DFDFB190DF00B00383283 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */; };
 		AA70C86B18D39219001D77FB /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = AA70C86A18D39219001D77FB /* themes.json */; };
 		AA86B99218FF23FE00D3BDB0 /* FoundationCategoriesKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA86B98D18FF23F200D3BDB0 /* FoundationCategoriesKit.framework */; };
 		AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413BE18C952F80092FEF4 /* BMMessage+NodeView.m */; };
@@ -150,6 +155,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				AA5DFDFB190DF00B00383283 /* FoundationCategoriesKit.framework in CopyFiles */,
+				AA5DFDF8190DEFFE00383283 /* NavNodeKit.framework in CopyFiles */,
+				AA5DFDF5190DEFF000383283 /* NavKit.framework in CopyFiles */,
 				AA153C3318FEFD7E007B4785 /* BitmessageKit.framework in CopyFiles */,
 				8E56ACB418C22426001136F9 /* fonts in CopyFiles */,
 			);
@@ -209,6 +217,9 @@
 		AA3156CA18AAE0E60017E94F /* search_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_active.png; sourceTree = "<group>"; };
 		AA3156CB18AAE0E60017E94F /* search_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_inactive.png; sourceTree = "<group>"; };
 		AA3156FC18AAE1130017E94F /* Compose.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
+		AA5DFDF3190DEFE500383283 /* NavKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/NavKit.framework"; sourceTree = "<group>"; };
+		AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavNodeKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/NavNodeKit.framework"; sourceTree = "<group>"; };
+		AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoundationCategoriesKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/FoundationCategoriesKit.framework"; sourceTree = "<group>"; };
 		AA70C86A18D39219001D77FB /* themes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = themes.json; sourceTree = "<group>"; };
 		AA86B98518FF23F200D3BDB0 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = ../FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
 		AA9413BD18C952F80092FEF4 /* BMMessage+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMMessage+NodeView.h"; sourceTree = "<group>"; };
@@ -254,10 +265,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA86B99218FF23FE00D3BDB0 /* FoundationCategoriesKit.framework in Frameworks */,
+				AA5DFDF4190DEFE500383283 /* NavKit.framework in Frameworks */,
 				AACD78291905C89F008832FB /* NavNodeKit.framework in Frameworks */,
 				AAE31EF918FF225D00405754 /* NavKit.framework in Frameworks */,
 				AA153BDD18FEFB51007B4785 /* BitmessageKit.framework in Frameworks */,
 				AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */,
+				AA5DFDFA190DF00700383283 /* FoundationCategoriesKit.framework in Frameworks */,
 				AA31560B18AAE02D0017E94F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +340,9 @@
 			isa = PBXGroup;
 			children = (
 				AA9EFC5318F4A56F00DC32F4 /* libz.dylib */,
+				AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */,
+				AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */,
+				AA5DFDF3190DEFE500383283 /* NavKit.framework */,
 				AA153C3418FF00CF007B4785 /* BitmessageKit.framework */,
 				AA31560A18AAE02D0017E94F /* Cocoa.framework */,
 				AA31562918AAE02D0017E94F /* XCTest.framework */,
@@ -947,7 +963,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
@@ -962,7 +981,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
