@@ -1,7 +1,12 @@
 
+- fix buy button 
 - post a Sell - persist sell, remove from Sells drafts
 - register for changes to bitmarket channel - do markets fetch on change?
 - follow status of draft - draft -> posting... -> posted -> open bids -> awaiting confirm -> awaiting delivery -> delivered -> paid / refunded
+
+- have NavWidow expand to right if needed? Have it horizontally scrollable?
+- have delete on MKSell delete Bitmessage message if it's non local?
+
 
 =======================
 
