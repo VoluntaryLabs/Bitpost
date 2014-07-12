@@ -186,7 +186,12 @@
                 return;
             }
             
-            [self.labelField endEditingOnReturn];
+            if([self.labelField endEditingOnReturn])
+            {
+                [self saveChanges];
+                [self.labelField gotoNext];
+            }
+            
             [self.addressField endEditingOnReturn];
             [self updateAddressColor];
             [self updateCheckbox];
