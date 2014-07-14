@@ -192,7 +192,12 @@
                 [self.labelField gotoNext];
             }
             
-            [self.addressField endEditingOnReturn];
+            if([self.addressField endEditingOnReturn])
+            {
+                [self saveChanges];
+                [self.labelField gotoNext];
+            }
+            
             [self updateAddressColor];
             [self updateCheckbox];
         }
@@ -209,7 +214,7 @@
 
 - (void)updateCheckbox
 {
-    if (!self.isUpdating && self.isSynced && self.contact.isSynced && self.hasValidAddress)
+    if (/*!self.isUpdating &&*/ self.isSynced && self.contact.isSynced && self.hasValidAddress)
     {
         [self.checkbox setImage:[NSImage imageNamed:@"icon_tick"]];
     }

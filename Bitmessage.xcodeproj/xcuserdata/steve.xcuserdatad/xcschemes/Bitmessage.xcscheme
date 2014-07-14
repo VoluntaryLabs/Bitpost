@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA31560618AAE02D0017E94F"
-               BuildableName = "Bitmessage.app"
+               BuildableName = "Bitpost.app"
                BlueprintName = "Bitmessage"
                ReferencedContainer = "container:Bitmessage.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA31560618AAE02D0017E94F"
-            BuildableName = "Bitmessage.app"
+            BuildableName = "Bitpost.app"
             BlueprintName = "Bitmessage"
             ReferencedContainer = "container:Bitmessage.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA31560618AAE02D0017E94F"
-            BuildableName = "Bitmessage.app"
+            BuildableName = "Bitpost.app"
             BlueprintName = "Bitmessage"
             ReferencedContainer = "container:Bitmessage.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA31560618AAE02D0017E94F"
-            BuildableName = "Bitmessage.app"
+            BuildableName = "Bitpost.app"
             BlueprintName = "Bitmessage"
             ReferencedContainer = "container:Bitmessage.xcodeproj">
          </BuildableReference>

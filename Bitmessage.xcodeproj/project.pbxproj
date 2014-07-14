@@ -187,7 +187,7 @@
 		AA2AC86218B8175A008CEEB4 /* BMContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMContactView.m; sourceTree = "<group>"; };
 		AA2AC87218B88FF2008CEEB4 /* BMIdentityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMIdentityView.h; sourceTree = "<group>"; };
 		AA2AC87318B88FF2008CEEB4 /* BMIdentityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMIdentityView.m; sourceTree = "<group>"; };
-		AA31560718AAE02D0017E94F /* Bitmessage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitmessage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA31560718AAE02D0017E94F /* Bitpost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitpost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31560A18AAE02D0017E94F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AA31560E18AAE02D0017E94F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -335,7 +335,7 @@
 		AA31560818AAE02D0017E94F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA31560718AAE02D0017E94F /* Bitmessage.app */,
+				AA31560718AAE02D0017E94F /* Bitpost.app */,
 				AA31562818AAE02D0017E94F /* BitmessageTests.xctest */,
 			);
 			name = Products;
@@ -636,7 +636,7 @@
 			);
 			name = Bitmessage;
 			productName = Bitmessage;
-			productReference = AA31560718AAE02D0017E94F /* Bitmessage.app */;
+			productReference = AA31560718AAE02D0017E94F /* Bitpost.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AA31562718AAE02D0017E94F /* BitmessageTests */ = {
@@ -664,7 +664,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Bitmarkets.org;
+				ORGANIZATIONNAME = voluntary.net;
 				TargetAttributes = {
 					AA31562718AAE02D0017E94F = {
 						TestTargetID = AA31560618AAE02D0017E94F;
@@ -973,7 +973,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bitpost;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -988,7 +988,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bitpost;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};

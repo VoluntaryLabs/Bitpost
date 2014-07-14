@@ -25,6 +25,7 @@
 - (void)addAbout
 {
     NavInfoNode *about = [[NavInfoNode alloc] init];
+    about.shouldSortChildren = NO;
     [(BMNode *)self.rootNode addChild:about];
     about.nodeTitle = @"About";
     about.nodeSuggestedWidth = 150;
@@ -63,6 +64,55 @@
        [contributors addChild:contributor];
     }
 
+    
+    NavInfoNode *others = [[NavInfoNode alloc] init];
+    [contributors addChild:others];
+    others.nodeTitle = @"3rd Party";
+    others.nodeSuggestedWidth = 200;
+    others.shouldSortChildren = NO;
+
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"Bitmessage";
+        package.nodeSubtitle = @"bitmessage.org";
+        [others addChild:package];
+    }
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"Open Sans";
+        package.nodeSubtitle = @"Steve Matteson, Google fonts";
+        [others addChild:package];
+    }
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"Python";
+        package.nodeSubtitle = @"python.org";
+        [others addChild:package];
+    }
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"Tor";
+        package.nodeSubtitle = @"torproject.org";
+        [others addChild:package];
+    }
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"XmlPRC";
+        package.nodeSubtitle = @"Eric Czarny";
+        [others addChild:package];
+    }
+    
+    {
+        NavInfoNode *package = [[NavInfoNode alloc] init];
+        package.nodeTitle = @"ZipKit";
+        package.nodeSubtitle = @"Karl Moskowski";
+        [others addChild:package];
+    }
 }
 
 - (void)checkForNewUser
