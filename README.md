@@ -10,10 +10,12 @@ Compiling
 In the same folder that you put this project's folder, 
 you'll need to clone the following repos:
 
+<pre>
 git clone https://github.com/stevedekorte/NavKit.git
 git clone https://github.com/stevedekorte/BitmessageKit.git
 git clone https://github.com/stevedekorte/NavNodeKit.git
-git clone  https://github.com/stevedekorte/FoundationCategoriesKit.git
+git clone https://github.com/stevedekorte/FoundationCategoriesKit.git
+</pre>
 
 After they've been cloned, the app should build.
 
@@ -33,8 +35,11 @@ Credits
 ---------
 
 Chris Robinson - Designer
+
 Steve Dekorte - Developer (lead)
-Adam Thorsen - Developer (Python intergration)
+
+Adam Thorsen - Developer (Python integration)
+
 Dru Nelson - Unix Guru
 
 
