@@ -1,16 +1,8 @@
 
-- fix buy button 
-- post a Sell - persist sell, remove from Sells drafts
-- register for changes to bitmarket channel - do markets fetch on change?
-- follow status of draft - draft -> posting... -> posted -> open bids -> awaiting confirm -> awaiting delivery -> delivered -> paid / refunded
-
 - have NavWidow expand to right if needed? Have it horizontally scrollable?
 - have delete on MKSell delete Bitmessage message if it's non local?
 
-
 =======================
-
-- move directory to non PyBitmessage folder
 
 - move themes.json to navkit?
 - move icons to navkit?
@@ -34,7 +26,7 @@
 
 - when deleting a channel, delete all messages in it first
 
-todo
+=======================
 
 - make links in messages clickable but with alert panel
 
@@ -72,7 +64,6 @@ todo
 - channel replies should go to channel, not poster? offer option?
 
 - force pastes into compose not to promote to rich text
-- possible ref loop with node and BMMessageView?
 - cleanup base64 in dicts
 - error panel if can't connect to server - option to quit
 - compose text color changes for quoted text?
@@ -80,7 +71,7 @@ todo
 
 - cleanup sent message isRead - separate SentMessage class
 
-- delloc cached nodeViews when not in use?
+- eventually delloc cached nodeViews when not in use?
 
 - choose default identity
 

@@ -2,7 +2,7 @@
 About
 --------
 
-This is a project to create a Bitmessage client for OSX.
+This is a project to create a user friendly Bitmessage client for OSX.
 
 Compiling
 -------------
