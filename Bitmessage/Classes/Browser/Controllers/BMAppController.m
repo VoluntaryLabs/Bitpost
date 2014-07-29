@@ -30,6 +30,13 @@
     about.nodeTitle = @"About";
     about.nodeSuggestedWidth = 150;
 
+    
+    NavInfoNode *version = [[NavInfoNode alloc] init];
+    [about addChild:version];
+    version.nodeTitle = @"Version";
+    version.nodeSubtitle = @"0.8.1 beta";
+    version.nodeSuggestedWidth = 200;
+    
     NavInfoNode *contributors = [[NavInfoNode alloc] init];
     [about addChild:contributors];
     contributors.nodeTitle = @"Contributors";
