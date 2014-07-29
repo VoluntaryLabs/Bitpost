@@ -39,7 +39,7 @@
     
     NavInfoNode *contributors = [[NavInfoNode alloc] init];
     [about addChild:contributors];
-    contributors.nodeTitle = @"Contributors";
+    contributors.nodeTitle = @"Credits";
     contributors.nodeSuggestedWidth = 200;
 
     
