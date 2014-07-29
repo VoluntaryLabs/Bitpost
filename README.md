@@ -33,8 +33,8 @@ Credits
 ---------
 
 * Chris Robinson - Designer
-* Steve Dekorte - Developer (Lead/UI)
-* Adam Thorsen - Developer (Python intergration)
+* Steve Dekorte - Lead & UI Developer
+* Adam Thorsen - Generalist (Tor and Python intergration)
 * Dru Nelson - Unix Guru
 
 
