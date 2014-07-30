@@ -51,6 +51,7 @@
 		AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C018C952F80092FEF4 /* BMMessageView.m */; };
 		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
 		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
+		AA9C72DA198877240036E3FF /* BMAboutNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C72D9198877240036E3FF /* BMAboutNode.m */; };
 		AA9EFBFE18F4960000DC32F4 /* BMAddressed+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */; };
 		AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9EFC5318F4A56F00DC32F4 /* libz.dylib */; };
 		AA9F2B5C190DFF92008444F6 /* NavNodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
@@ -236,6 +237,8 @@
 		AA9413C218C952F80092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
 		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
 		AA94775A18E268D3004EFC7A /* forward_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_active.png; sourceTree = "<group>"; };
+		AA9C72D8198877240036E3FF /* BMAboutNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAboutNode.h; sourceTree = "<group>"; };
+		AA9C72D9198877240036E3FF /* BMAboutNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAboutNode.m; sourceTree = "<group>"; };
 		AA9EFBFC18F4960000DC32F4 /* BMAddressed+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+NodeView.h"; sourceTree = "<group>"; };
 		AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+NodeView.m"; sourceTree = "<group>"; };
 		AA9EFC5318F4A56F00DC32F4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -583,6 +586,8 @@
 				AAD2849118C01EE500FC0C6F /* BMAppController.h */,
 				AAD2849218C01EE500FC0C6F /* BMAppController.m */,
 				AAD2849318C01EE500FC0C6F /* Draft */,
+				AA9C72D8198877240036E3FF /* BMAboutNode.h */,
+				AA9C72D9198877240036E3FF /* BMAboutNode.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -845,6 +850,7 @@
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* BMDraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* BMAddressTextField.m in Sources */,
+				AA9C72DA198877240036E3FF /* BMAboutNode.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AAA2E6D319009CDC0098C357 /* BMClient+NodeView.m in Sources */,
 			);
