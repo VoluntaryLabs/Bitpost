@@ -4,6 +4,12 @@ About
 
 This is a project to create a user friendly Bitmessage client for OSX.
 
+
+How it works
+-----------------
+The UI launches a local pybitmessage node in the background which uses Tor to connect to the Bitmessage network.
+
+
 Compiling
 -------------
 
