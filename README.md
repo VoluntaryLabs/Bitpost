@@ -5,14 +5,14 @@ About
 This is a project to create a user friendly Bitmessage client for OSX.
 
 
-How it works
+Technical details
 -----------------
 The UI launches a local pybitmessage node in the background which uses Tor to connect to the Bitmessage network. 
 
 The local bitmessage node is run with custom node and API ports so it does not interfere with other bitmessage clients. The app uses it's own bitmessage keys.dat file for the app which is stored in ~/Library/Application Support/Bitpost. 
 
-Importing keys from Bitmessage-QT
----------------------------------------------
+Importing keys
+------------------
 
 Dropping in your current bitmessage-qt keys.dat file may not work as the .dat file format changes between pybitmessage releases. You may be able to import a key pair by:
 
@@ -34,7 +34,7 @@ you'll need to clone the following repos:
 * git clone https://github.com/stevedekorte/NavNodeKit.git
 * git clone  https://github.com/stevedekorte/FoundationCategoriesKit.git
 
-After they've been cloned, the app should build.
+After they've been cloned, the app should build. Note: the BitmessageKit comes with some precompiled binaries for tor, and static-python. You'll want to download and build those yourself if you're verifying the build. 
 
 License
 ----------
