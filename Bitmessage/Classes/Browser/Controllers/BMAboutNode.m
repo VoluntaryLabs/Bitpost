@@ -33,7 +33,11 @@
     NavInfoNode *version = [[NavInfoNode alloc] init];
     [about addChild:version];
     version.nodeTitle = @"Version";
-    version.nodeSubtitle = @"0.8.4 beta";
+    
+    NSDictionary *info = NSBundle.mainBundle.infoDictionary;
+    NSString *versionString = [info objectForKey:@"CFBundleVersion"];
+    //version.nodeSubtitle = @"0.8.4 beta";
+    version.nodeSubtitle = versionString;
     version.nodeSuggestedWidth = 200;
     
     NavInfoNode *contributors = [[NavInfoNode alloc] init];

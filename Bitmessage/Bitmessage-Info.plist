@@ -2,14 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TorPort</key>
-	<string>9050</string>
-	<key>BitmessagePort</key>
-	<integer>8454</integer>
-	<key>BitmessageAPIPort</key>
-	<integer>8452</integer>
 	<key>ATSApplicationFontsPath</key>
 	<string>fonts/Open_Sans</string>
+	<key>BitmessageAPIPort</key>
+	<integer>8452</integer>
+	<key>BitmessagePort</key>
+	<integer>8454</integer>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -48,7 +46,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>0.8.5 beta</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.social-networking</string>
 	<key>LSMinimumSystemVersion</key>
@@ -59,5 +57,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>TorPort</key>
+	<string>9050</string>
 </dict>
 </plist>
