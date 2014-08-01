@@ -1,67 +1,49 @@
 
-- have NavWidow expand to right if needed? Have it horizontally scrollable?
-- have delete on MKSell delete Bitmessage message if it's non local?
+=== can be done independently ===
+
+- [UX] menu bar item with unread count
+- [UX] make links in messages clickable but with security alert panel
+
+==============
+
+- [cleanup] move app support files for BitmessageKit framework to their own folder
+
+- [UX] match channel names in compose window w/o [chan]
+
+- [cosmetic] use compose icon instead of reply icon on channel
+
+- [feature] separate channel list from being subscribed so user can toggle subscriptions?
 
 =======================
 
-- move themes.json to navkit?
-- move icons to navkit?
+- [cleaup] move themes.json to navkit?
+- [cleaup] move icons to navkit?
 
-- get rid of themedictionary
+- [cleaup] get rid of themedictionary
 
-- move export to action on client 
-- move info to menu of client (have menu open root "about/info" item if present)
+- [UX] move export to action on client 
 
-- get rid of nib files
-
-- fix slow delete using icon
-- ask Dru to look into ensuring python shuts down
-
-- cleanup old backups?
-- zip export/import?
-
-- finish themeing including start page
-
-- fix vertical centering on cell titles/notes when there's no subtitle
-
-- when deleting a channel, delete all messages in it first
-
-=======================
-
-
-- 
-
-- make links in messages clickable but with security alert panel
-
-- set up BMNode so actions can be added by UI layer categories
-
-- merge address requests?
+- [feature] zip export/import?
 
 - BMChannel and subscriptions should not be BMAddressed
   - have them own addresses
   - have BMChannels/BMSubscriptions have their own DBs
   - list of subs and chans from server only indictation whether they are active
 
-- replace entered BM addresses with labels in compose window
-
-- move BMServerProcess to be owned by client
-- cleanup keys.dat backups
-- undo delete
+- [cleanup] cleanup keys.dat backups
+- [UX] undo delete
 
 - channel replies should go to channel, not poster? offer option?
 
-- force pastes into compose not to promote to rich text
-- cleanup base64 in dicts
-- error panel if can't connect to server - option to quit
-- compose text color changes for quoted text?
-- themable alert sounds
+- [UX] force pastes into compose not to promote to rich text
+- [cleanup] cleanup base64 in dicts
+- [UX] error panel if can't connect to server - option to quit
 
-- cleanup sent message isRead - separate SentMessage class
+- [UX] scroll to visible on selected child index changes (e.g. editing name of contact)
 
-- eventually delloc cached nodeViews when not in use?
+- [optimization] merge address requests?
+- [optimization] eventually delloc cached nodeViews when not in use?
 
-- choose default identity
-
-- scroll to visible on selected child index changes (e.g. editing name of contact)
- 
-
+- [cosmetic] finish themeing including start page
+- [cosmetic] themable alert sounds
+- [cosmetic] compose text color changes for quoted text?
