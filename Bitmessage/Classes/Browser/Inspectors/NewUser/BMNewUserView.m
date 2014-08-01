@@ -138,6 +138,7 @@
         [view animateFadeOut];
     }
     
+    [self animateFadeOut];
     [self performSelector:@selector(completeClose) withObject:nil afterDelay:1.0];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
