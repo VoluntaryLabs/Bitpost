@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) NavTextView *instructionsText;
 //@property (strong, nonatomic) NavTextView *usernameField;
-@property (strong, nonatomic) NSView *replacementView;
+//@property (strong, nonatomic) NSView *replacementView;
+@property (strong, nonatomic) NSWindow *targetWindow;
 @property (strong, nonatomic) NavTextView *addressText;
 @property (strong, nonatomic) NavTextView *instructionsText2;
 @property (strong, nonatomic) NavButton *okButton;

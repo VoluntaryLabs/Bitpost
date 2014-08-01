@@ -43,10 +43,27 @@
 
 - (void)openNewUserView
 {
-    BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navWindow.navView.frame];
-    nuv.replacementView = self.navWindow.navView;
-    [nuv open];
+    /*
+    BMIdentity *identity = [BMClient.sharedBMClient.identities createFirstIdentityIfAbsent];
     
+    if (identity.hasUnsetLabel)
+    {
+        identity.label = NSFullUserName();
+        [identity update];
+    }
+    
+    BMMessage *msg = [[BMMessage alloc] init];
+    msg.toAddress = identity.address;
+    msg.fromAddress = identity.address;
+    */
+    
+    {
+        NSRect f = self.navWindow.backgroundView.frame;
+        BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navWindow.backgroundView.frame];
+        [nuv setAutoresizesSubviews:YES];
+        nuv.targetWindow = self.navWindow;
+        [nuv open];
+    }
 }
 
 - (IBAction)compose:(id)sender // hack - consolidate into BMDraftController

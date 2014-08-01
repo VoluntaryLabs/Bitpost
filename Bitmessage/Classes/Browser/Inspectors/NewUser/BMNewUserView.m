@@ -105,9 +105,11 @@
 
 - (void)open
 {
-    self.frame = self.replacementView.frame;
-    [self.replacementView.superview addSubview:self];
-    [self.replacementView removeFromSuperview];
+    NSView *contentView = self.targetWindow.contentView;
+    self.frame = contentView.frame;
+    //[self.window.contentView replaceSubview:self.replacementView with:self];
+
+    [contentView addSubview:self];
 
     if (self.identity.hasUnsetLabel)
     {
@@ -142,11 +144,16 @@
 
 - (void)completeClose
 {
-    self.replacementView.frame = self.frame;
-    self.replacementView.alphaValue = 0.0;
-    [self.window.contentView addSubview:self.replacementView];
+    //NSView *contentView = self.targetWindow.contentView;
     [self removeFromSuperview];
-    [self.replacementView animateFadeIn];
+    
+    //self.replacementView.alphaValue = 1.0;
+    //[self.window.contentView replaceSubview:self with:self.replacementView];
+    //[self.window.contentView addSubview:self  positioned:NSWindowAbove relativeTo:nil];
+
+    //[self.window.contentView addSubview:self.replacementView];
+    //[self removeFromSuperview];
+    //[self.replacementView animateFadeIn];
 }
 
 @end

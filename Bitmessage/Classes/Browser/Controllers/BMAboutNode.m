@@ -33,7 +33,7 @@
     NavInfoNode *version = [[NavInfoNode alloc] init];
     [about addChild:version];
     version.nodeTitle = @"Version";
-    version.nodeSubtitle = @"0.8.1 beta";
+    version.nodeSubtitle = @"0.8.4 beta";
     version.nodeSuggestedWidth = 200;
     
     NavInfoNode *contributors = [[NavInfoNode alloc] init];
