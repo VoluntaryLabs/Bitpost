@@ -1,8 +1,11 @@
 
+=== important ===
+
 === can be done independently ===
 
 - [UX] menu bar item with unread count
 - [UX] make links in messages clickable but with security alert panel
+- [feature] support for bitmessage:// links from browsers, etc
 
 ==============
 

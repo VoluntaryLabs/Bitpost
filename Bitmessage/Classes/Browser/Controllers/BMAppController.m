@@ -58,7 +58,7 @@
     */
     
     {
-        NSRect f = self.navWindow.backgroundView.frame;
+        //NSRect f = self.navWindow.backgroundView.frame;
         BMNewUserView *nuv = [[BMNewUserView alloc] initWithFrame:self.navWindow.backgroundView.frame];
         [nuv setAutoresizesSubviews:YES];
         nuv.targetWindow = self.navWindow;
