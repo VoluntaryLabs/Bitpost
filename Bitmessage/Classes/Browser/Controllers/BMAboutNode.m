@@ -36,7 +36,6 @@
     
     NSDictionary *info = NSBundle.mainBundle.infoDictionary;
     NSString *versionString = [info objectForKey:@"CFBundleVersion"];
-    //version.nodeSubtitle = @"0.8.4 beta";
     version.nodeSubtitle = versionString;
     version.nodeSuggestedWidth = 200;
     

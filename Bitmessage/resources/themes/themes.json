@@ -249,6 +249,7 @@
                 "fontName" : "Open Sans",
                 "fontSize" : 13,
                 "color" : "#323232",
+                "align": "right",
             },
             
             "field" :
@@ -256,6 +257,7 @@
                 "fontName" : "Open Sans",
                 "fontSize" : 13,
                 "color" : "#8F8F8F",
+                "align": "left",
             },
             
             "fieldError" :

@@ -372,7 +372,6 @@
 		AA31561018AAE02D0017E94F /* Bitmessage */ = {
 			isa = PBXGroup;
 			children = (
-				AAC9092018B2B0500009FA89 /* Vendor */,
 				AA31563E18AAE0E00017E94F /* Classes */,
 				AA31562218AAE02D0017E94F /* Images.xcassets */,
 				AA31561118AAE02D0017E94F /* Supporting Files */,
@@ -562,13 +561,6 @@
 				AAB79BC718AB14170041B6B1 /* reply_inactive.png */,
 			);
 			path = Top;
-			sourceTree = "<group>";
-		};
-		AAC9092018B2B0500009FA89 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Vendor;
 			sourceTree = "<group>";
 		};
 		AACD781B1905C787008832FB /* Products */ = {
@@ -974,6 +966,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -989,6 +982,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
