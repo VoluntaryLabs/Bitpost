@@ -1,6 +1,8 @@
 
 === important ===
 
+- when replying, use recipient address instead of first identity?
+
 === can be done independently ===
 
 - [UX] menu bar item with unread count
