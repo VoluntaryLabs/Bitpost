@@ -59,5 +59,14 @@
 	<string>NSApplication</string>
 	<key>TorPort</key>
 	<string>9050</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bitmessage</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
