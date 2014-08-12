@@ -25,6 +25,15 @@
     [draft open];
 }
 
+- (void)composeWithAddress:(NSString *)address
+{
+    BMDraftController *draft = [BMDraftController openNewDraft];
+    [draft setDefaultFrom];
+    [draft.to setStringValue:address];
+    [draft setCursorOnTo];
+    [draft open];
+}
+
 - (NSString *)verifyActionMessage:(NSString *)actionString
 {
     if ([actionString isEqualToString:@"import"])

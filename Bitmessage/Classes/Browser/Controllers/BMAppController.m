@@ -21,6 +21,7 @@
     [self addAbout];
     
     [self checkForNewUser];
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(composeFromURL:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
 - (void)addAbout
@@ -69,6 +70,12 @@
 - (IBAction)compose:(id)sender // hack - consolidate into BMDraftController
 {
     [(BMClient *)self.rootNode compose];
+}
+
+- (void)composeFromURL:(NSAppleEventDescriptor *)event
+{
+    NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];
+    [(BMClient *)self.rootNode composeWithAddress: [url host]];
 }
 
 

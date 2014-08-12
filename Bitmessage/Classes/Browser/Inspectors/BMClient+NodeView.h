@@ -11,6 +11,7 @@
 @interface BMClient (NodeView)
 
 - (void)compose;
+- (void)composeWithAddress:(NSString *)address;
 - (void)export;
 - (void)import;
 
