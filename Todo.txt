@@ -1,7 +1,11 @@
 
 === important ===
 
-- when replying, use recipient address instead of first identity?
+- [feature] separate reply button on channels to reply using channel as fromAddress
+
+== features ============
+
+One shot ids for sending messages to channels (send and then delete id)
 
 === can be done independently ===
 

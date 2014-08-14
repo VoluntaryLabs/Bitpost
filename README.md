@@ -7,11 +7,11 @@ Bitpost is a user friendly Bitmessage client for OSX.
 What's Bitmessage?
 --------------------------
 
-Bitmessage is a decentralized messaging system. That is, instead of connecting to centralized servers (like Facebook, gmail, etc) or federated servers (like email, IRC, Jabber), when you run a Bitmessage client it connects to other clients directly forming a network which can relay messages with no central control. 
-
-Bitmessage adopts some standards from Bitcoin such as sharing a similar binary protocol, similar node discovery and message sharing systems, and address format but it has no "blockchain". Messages are simply shared between nodes and cached for two days before being deleted though your client will keep any messages sent to you.
+Bitmessage is a decentralized messaging system. Instead of connecting to centralized servers (like Facebook, gmail, etc) or federated servers (like email, IRC, Jabber), when you run a Bitmessage client it connects to other clients directly forming a network which can relay messages with no central control. 
 
 Your address is a public encryption key that others can use to encrypt messages to you in a way that only you can decrypt. Messages are sent to the network over Tor (another decentralized network that hides the source of network requests) in order to conceal the location of the sender.
+
+Bitmessage adopts some standards from Bitcoin such as sharing a similar binary protocol, similar node discovery and message sharing systems, and address format but it has no "blockchain". Messages are simply shared between nodes and cached for two days before being deleted (though your client will keep any messages sent to you).
 
 For more info see:
 
@@ -22,7 +22,7 @@ Tech details
 -----------------
 The UI launches a local pybitmessage node in the background which uses Tor to connect to the Bitmessage network. 
 
-The local bitmessage node is run with custom node and API ports so it does not interfere with other bitmessage clients. The app uses it's own bitmessage keys.dat file for the app which is stored in ~/Library/Application Support/Bitpost. 
+The local bitmessage node is run with custom node and API ports so it doesn't interfere with other bitmessage clients. The app uses it's own bitmessage keys.dat file for the app which is stored in ~/Library/Application Support/Bitpost. 
 
 Importing keys
 ------------------
