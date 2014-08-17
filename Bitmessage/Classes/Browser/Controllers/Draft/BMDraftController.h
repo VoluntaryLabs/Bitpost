@@ -37,12 +37,16 @@
 @property (strong, nonatomic) BMAddressCompletor *fromCompletor;
 @property (strong, nonatomic) BMAddressCompletor *toCompletor;
 
+@property (assign, nonatomic) BOOL isBroadcast;
+
 + (BMDraftController *)openNewDraft;
++ (BMDraftController *)openNewBroadcast;
 
 - (IBAction)send:(id)sender;
 
 - (void)setCursorForReply;
 - (void)setCursorOnTo;
+- (void)setCursorOnBody;
 
 - (void)open;
 

@@ -260,6 +260,14 @@
                 "align": "left",
             },
             
+            "field-uneditable" :
+            {
+                "fontName" : "Open Sans",
+                "fontSize" : 13,
+                "color" : "#8F8F8F",
+                "align": "left",
+            },
+            
             "fieldError" :
             {
                 "fontName" : "Open Sans Bold",

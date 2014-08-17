@@ -72,6 +72,11 @@
     [(BMClient *)self.rootNode compose];
 }
 
+- (IBAction)composeBroadcast:(id)sender // hack - consolidate into BMDraftController
+{
+    [(BMClient *)self.rootNode composeBroadcast];
+}
+
 - (void)composeFromURL:(NSAppleEventDescriptor *)event
 {
     NSURL *url = [NSURL URLWithString:[[event paramDescriptorForKeyword:keyDirectObject] stringValue]];

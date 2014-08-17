@@ -17,6 +17,20 @@ For more info see:
 
 * https://bitmessage.org
 
+Direct Messages, Channels and Subscriptions (as I understand them)
+-------------------------------------------------------
+
+- signed with sender's private key
+
+Direct Message: 
+- encrypted with recipients public key
+
+Channel:
+- encrypted with Channel's private key
+
+Subscription (aka Broadcast):
+- encrypted with Subscription's public key 
+- 
 
 Tech details
 -----------------

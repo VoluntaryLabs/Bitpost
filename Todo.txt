@@ -13,6 +13,8 @@ One shot ids for sending messages to channels (send and then delete id)
 - [UX] make links in messages clickable but with security alert panel
 - [feature] support for bitmessage:// links from browsers, etc
 
+- change "Today" to "2:34pm Today" etc
+
 ==============
 
 - [cleanup] move app support files for BitmessageKit framework to their own folder

@@ -10,7 +10,6 @@
 #import <BitMessageKit/BitMessageKit.h>
 #import <NavKit/NavKit.h>
 
-
 @implementation BMMessageView
 
 - (id)initWithFrame:(NSRect)frameRect
@@ -43,7 +42,6 @@
     return [NavTheme.sharedNavTheme attributesDictForPath:@"message/subtitle"];
 }
 
-
 - (NSDictionary *)bodyAttributes
 {
     NSDictionary *themeDict = [NavTheme.sharedNavTheme attributesDictForPath:@"message/body"];
@@ -56,7 +54,6 @@
 {
     return [NavTheme.sharedNavTheme attributesDictForPath:@"message/link"];
 }
-
 
 - (NSMutableAttributedString *)linkForAddress:(NSString *)address
 {

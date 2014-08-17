@@ -25,6 +25,14 @@
     [draft open];
 }
 
+- (void)composeBroadcast
+{
+    BMDraftController *draft = [BMDraftController openNewBroadcast];
+    [draft setDefaultFrom];
+    [draft setCursorOnBody];
+    [draft open];
+}
+
 - (void)composeWithAddress:(NSString *)address
 {
     BMDraftController *draft = [BMDraftController openNewDraft];

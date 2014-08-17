@@ -122,6 +122,35 @@
         package.nodeSubtitle = @"Karl Moskowski";
         [others addChild:package];
     }
+    
+    
+    {
+        NavInfoNode *help = [[NavInfoNode alloc] init];
+        help.nodeTitle = @"Help";
+        //what.nodeSubtitle = @"Designer";
+        [about addChild:help];
+        
+        {
+            NavInfoNode *how = [[NavInfoNode alloc] init];
+            how.nodeTitle = @"How does this work?";
+            //what.nodeSubtitle = @"Designer";
+            [help addChild:how];
+        }
+        
+        {
+            NavInfoNode *how = [[NavInfoNode alloc] init];
+            how.nodeTitle = @"How to protect your privacy";
+            //what.nodeSubtitle = @"Designer";
+            [help addChild:how];
+        }
+        
+        {
+            NavInfoNode *how = [[NavInfoNode alloc] init];
+            how.nodeTitle = @"How to contribute";
+            //what.nodeSubtitle = @"Designer";
+            [help addChild:how];
+        }
+    }
 }
 
 @end

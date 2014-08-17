@@ -33,6 +33,17 @@ NSMutableArray *sharedDrafts = nil;
     return draft;
 }
 
++ (BMDraftController *)openNewBroadcast
+{
+    BMDraftController *draft = [[BMDraftController alloc] initWithNibName:@"Compose" bundle:nil];
+    [[[self class] drafts] addObject:draft];
+    [draft setIsBroadcast:YES];
+    [draft view]; // to force lazy load
+    [draft open];
+    return draft;
+}
+
+
 - (void)placeWindow
 {
     NSRect f = [[NSApplication sharedApplication] mainWindow].frame;
@@ -117,6 +128,19 @@ NSMutableArray *sharedDrafts = nil;
 
     [self.subject setThemePath:@"draft/field"];
     [self.subjectLabel setThemePath:@"draft/fieldTitle"];
+    
+    [self.from setNextKeyView:self.to];
+    [self.to setNextKeyView:self.subject];
+    [self.subject  setNextKeyView:self.bodyText];
+    
+    if (self.isBroadcast)
+    {
+        [self.to setStringValue:@"[Broadcast]"];
+        [self.to setEditable:NO];
+        [self.to setSelectable:NO];
+        [self.to setThemePath:@"draft/field-uneditable"];
+        [self.from setNextKeyView:self.subject];
+    }
 }
 
 - (void)setupHighlightColors
@@ -249,9 +273,6 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)open
 {
-    [self.from setNextKeyView:self.to];
-    [self.to setNextKeyView:self.subject];
-    [self.subject  setNextKeyView:self.bodyText];
     [self setAddressesToLabels];
     [self placeWindow];
     [self updateSendButton];
@@ -284,6 +305,12 @@ NSMutableArray *sharedDrafts = nil;
 {
     [self.to becomeFirstResponder];
 }
+
+- (void)setCursorOnBody
+{
+    [self setCursorForReply];
+}
+
 
 // --- delegate ---
 
