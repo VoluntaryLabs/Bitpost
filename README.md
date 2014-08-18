@@ -2,7 +2,11 @@
 About Bitpost
 ==========
 
-Bitpost is a user friendly Bitmessage client for OSX.
+Bitpost is a user friendly Bitmessage client for OSX. 
+
+The official website for the project is:
+* http://voluntary.net/bitpost
+
 
 What's Bitmessage?
 --------------------------
@@ -17,26 +21,13 @@ For more info see:
 
 * https://bitmessage.org
 
-Direct Messages, Channels and Subscriptions (as I understand them)
--------------------------------------------------------
-
-- signed with sender's private key
-
-Direct Message: 
-- encrypted with recipients public key
-
-Channel:
-- encrypted with Channel's private key
-
-Subscription (aka Broadcast):
-- encrypted with Subscription's public key 
-- 
 
 Tech details
 -----------------
 The UI launches a local pybitmessage node in the background which uses Tor to connect to the Bitmessage network. 
 
 The local bitmessage node is run with custom node and API ports so it doesn't interfere with other bitmessage clients. The app uses it's own bitmessage keys.dat file for the app which is stored in ~/Library/Application Support/Bitpost. 
+
 
 Importing keys
 ------------------
@@ -50,6 +41,7 @@ Dropping in your current bitmessage-qt keys.dat file may not work as the .dat fi
 
 If this doesn't work, replace the Bitpost keys.dat file with the backup copy.
 
+
 Compiling
 -------------
 
@@ -62,6 +54,7 @@ you'll need to clone the following repos:
 * git clone  https://github.com/stevedekorte/FoundationCategoriesKit.git
 
 After they've been cloned, the app should build. Note: the BitmessageKit comes with some precompiled binaries for tor, and static-python. You'll want to download and build those yourself if you're verifying the build. 
+
 
 License
 ----------
