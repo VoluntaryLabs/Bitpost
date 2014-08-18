@@ -1,0 +1,12 @@
+[submodule "BitmessageKit"]
+	path = BitmessageKit
+	url = https://github.com/stevedekorte/BitmessageKit.git
+[submodule "NavKit"]
+	path = NavKit
+	url = https://github.com/stevedekorte/NavKit.git
+[submodule "NavNodeKit"]
+	path = NavNodeKit
+	url = https://github.com/stevedekorte/NavNodeKit.git
+[submodule "FoundationCategoriesKit"]
+	path = FoundationCategoriesKit
+	url = https://github.com/stevedekorte/FoundationCategoriesKit.git
