@@ -248,7 +248,15 @@ NSMutableArray *sharedDrafts = nil;
     [m setToAddress:self.toAddress];
     [m setSubject:self.subject.stringValue];
     [m setMessage:self.bodyText.string];
-    [m send];
+    
+    if (self.isBroadcast)
+    {
+        [m broadcast];
+    }
+    else
+    {
+        [m send];
+    }
     
     [[[[BMClient sharedBMClient] messages] sent] refresh];
     [self close];
@@ -316,6 +324,11 @@ NSMutableArray *sharedDrafts = nil;
 
 - (BOOL)hasValidAddresses
 {
+    if (self.isBroadcast)
+    {
+        return self.fromCompletor.isValid;
+    }
+    
     return self.toCompletor.isValid && self.fromCompletor.isValid;
 }
 
