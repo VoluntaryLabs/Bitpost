@@ -21,7 +21,7 @@
     [self addAbout];
     
     [self checkForNewUser];
-    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(composeFromURL:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(composeFromURL:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
 }
 
 - (void)addAbout
@@ -32,13 +32,15 @@
 
 - (void)checkForNewUser
 {
-    if ([[BMClient sharedBMClient] hasNoIdentites] ||
-        [[[[BMClient sharedBMClient] identities] firstIdentity] hasUnsetLabel])
+    if (BMClient.sharedBMClient.hasNoIdentites ||
+        BMClient.sharedBMClient.identities.firstIdentity.hasUnsetLabel)
     {
         [self openNewUserView];
     }
     
-    [BMClient.sharedBMClient.channels channelWithPassphraseJoinIfNeeded:@"Bitpost"];
+    //[BMClient.sharedBMClient.channels channelWithPassphraseJoinIfNeeded:@"Bitpost"];
+    BMSubscription *sub = [BMClient.sharedBMClient.subscriptions subscriptionWithAddressAddIfNeeded:@"BM-2cWfHSiKkbXoUmwiqPAqdhZyRUoShQmPr5"];
+    [sub setLabel:@"Bitpost releases"];
 
 }
 
@@ -56,6 +58,7 @@
     BMMessage *msg = [[BMMessage alloc] init];
     msg.toAddress = identity.address;
     msg.fromAddress = identity.address;
+    msg.subject = @"Welcome to Bitpost";
     */
     
     {

@@ -129,17 +129,25 @@
         help.nodeTitle = @"Help";
         //what.nodeSubtitle = @"Designer";
         [about addChild:help];
+ 
         
         {
             NavInfoNode *how = [[NavInfoNode alloc] init];
-            how.nodeTitle = @"How does this work?";
+            how.nodeTitle = @"What's this app for?";
             //what.nodeSubtitle = @"Designer";
             [help addChild:how];
         }
         
         {
             NavInfoNode *how = [[NavInfoNode alloc] init];
-            how.nodeTitle = @"How to protect your privacy";
+            how.nodeTitle = @"How does Bitmessage work?";
+            //what.nodeSubtitle = @"Designer";
+            [help addChild:how];
+        }
+        
+        {
+            NavInfoNode *how = [[NavInfoNode alloc] init];
+            how.nodeTitle = @"Protecting your privacy";
             //what.nodeSubtitle = @"Designer";
             [help addChild:how];
         }
