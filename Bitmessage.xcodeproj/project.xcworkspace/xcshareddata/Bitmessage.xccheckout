@@ -5,58 +5,42 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9FFDFD47-8665-4613-8229-726D69CACADE</string>
+	<string>B47A898E-58D4-4849-82E0-8D2F5FB441D0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Bitmessage</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>06DD255D-4D18-4390-BFD0-D6C1582E7F54</key>
-		<string>https://github.com/stevedekorte/FoundationCategoriesKit.git</string>
-		<key>14C2F55A-B6E5-426E-966C-9781ECFD470E</key>
-		<string>https://github.com/stevedekorte/NavNodeKit.git</string>
-		<key>AD9E840A-7CC7-4D00-BE5D-4B3E83169EA2</key>
-		<string>https://github.com/stevedekorte/NavKit.git</string>
-		<key>D02D8626-54C9-453D-81A8-997C09AE4A44</key>
-		<string>https://github.com/stevedekorte/BitmessageClient.git</string>
-		<key>F1007B74-D60E-4B07-9046-7FAECA8C213E</key>
+		<key>268BAD53-4085-4315-B076-3391F1D4E917</key>
 		<string>https://github.com/stevedekorte/BitmessageKit.git</string>
+		<key>36CD7F96-1F7D-40AB-8C21-FEAF05837A1B</key>
+		<string>https://github.com/stevedekorte/FoundationCategoriesKit.git</string>
+		<key>98EEDD89-6793-4798-91FF-5E979D686593</key>
+		<string>ssh://github.com/voisine/Bitpost.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Bitmessage.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>06DD255D-4D18-4390-BFD0-D6C1582E7F54</key>
-		<string>../../../FoundationCategoriesKit</string>
-		<key>14C2F55A-B6E5-426E-966C-9781ECFD470E</key>
-		<string>../../../NavNodeKit</string>
-		<key>AD9E840A-7CC7-4D00-BE5D-4B3E83169EA2</key>
-		<string>../../../NavKit</string>
-		<key>D02D8626-54C9-453D-81A8-997C09AE4A44</key>
+		<key>268BAD53-4085-4315-B076-3391F1D4E917</key>
+		<string>../../BitmessageKit</string>
+		<key>36CD7F96-1F7D-40AB-8C21-FEAF05837A1B</key>
+		<string>../../FoundationCategoriesKit</string>
+		<key>98EEDD89-6793-4798-91FF-5E979D686593</key>
 		<string>../..</string>
-		<key>F1007B74-D60E-4B07-9046-7FAECA8C213E</key>
-		<string>../../../BitmessageKit</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/stevedekorte/BitmessageClient.git</string>
+	<string>ssh://github.com/voisine/Bitpost.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D02D8626-54C9-453D-81A8-997C09AE4A44</string>
+	<string>98EEDD89-6793-4798-91FF-5E979D686593</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D02D8626-54C9-453D-81A8-997C09AE4A44</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Bitmessage</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F1007B74-D60E-4B07-9046-7FAECA8C213E</string>
+			<string>268BAD53-4085-4315-B076-3391F1D4E917</string>
 			<key>IDESourceControlWCCName</key>
 			<string>BitmessageKit</string>
 		</dict>
@@ -64,25 +48,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>06DD255D-4D18-4390-BFD0-D6C1582E7F54</string>
+			<string>98EEDD89-6793-4798-91FF-5E979D686593</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bitpost</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>36CD7F96-1F7D-40AB-8C21-FEAF05837A1B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>FoundationCategoriesKit</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AD9E840A-7CC7-4D00-BE5D-4B3E83169EA2</string>
-			<key>IDESourceControlWCCName</key>
-			<string>NavKit</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>14C2F55A-B6E5-426E-966C-9781ECFD470E</string>
-			<key>IDESourceControlWCCName</key>
-			<string>NavNodeKit</string>
 		</dict>
 	</array>
 </dict>
