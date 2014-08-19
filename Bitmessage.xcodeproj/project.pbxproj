@@ -583,11 +583,11 @@
 		AAD2849018C01EE500FC0C6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA9C72D8198877240036E3FF /* BMAboutNode.h */,
+				AA9C72D9198877240036E3FF /* BMAboutNode.m */,
 				AAD2849118C01EE500FC0C6F /* BMAppController.h */,
 				AAD2849218C01EE500FC0C6F /* BMAppController.m */,
 				AAD2849318C01EE500FC0C6F /* Draft */,
-				AA9C72D8198877240036E3FF /* BMAboutNode.h */,
-				AA9C72D9198877240036E3FF /* BMAboutNode.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
