@@ -78,68 +78,68 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		75EFCC8419A17D8500C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC7C19A17D8500C93930 /* NavKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AAE31DCC18FF1C0700405754;
-			remoteInfo = NavKit;
-		};
-		75EFCC8619A17D8500C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC7C19A17D8500C93930 /* NavKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AAE31DE318FF1C0700405754;
-			remoteInfo = NavKitTests;
-		};
-		75EFCC8F19A17DA900C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC8819A17DA900C93930 /* BitmessageKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8EDE5B7A18F59414009A726A;
-			remoteInfo = BitmessageKit;
-		};
-		75EFCC9119A17DA900C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC8819A17DA900C93930 /* BitmessageKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8EDE5B9118F59414009A726A;
-			remoteInfo = BitmessageKitTests;
-		};
-		75EFCC9819A17DB400C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC9319A17DB400C93930 /* NavNodeKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AACD77AF1905C051008832FB;
-			remoteInfo = NavNodeKit;
-		};
-		75EFCC9A19A17DB400C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC9319A17DB400C93930 /* NavNodeKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AACD77C61905C051008832FB;
-			remoteInfo = NavNodeKitTests;
-		};
-		75EFCCA119A17DBC00C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC9C19A17DBC00C93930 /* FoundationCategoriesKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AAE31E8D18FF1E3F00405754;
-			remoteInfo = FoundationCategoriesKit;
-		};
-		75EFCCA319A17DBC00C93930 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75EFCC9C19A17DBC00C93930 /* FoundationCategoriesKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AAE31EA418FF1E3F00405754;
-			remoteInfo = FoundationCategoriesKitTests;
-		};
 		75EFCCA919A1803100C93930 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA3155FF18AAE02D0017E94F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 75EFCCA519A17FF800C93930;
 			remoteInfo = submodules;
+		};
+		75F101F719A2D26F0094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31DCC18FF1C0700405754;
+			remoteInfo = NavKit;
+		};
+		75F101F919A2D26F0094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31DE318FF1C0700405754;
+			remoteInfo = NavKitTests;
+		};
+		75F1020219A2D2770094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8EDE5B7A18F59414009A726A;
+			remoteInfo = BitmessageKit;
+		};
+		75F1020419A2D2770094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8EDE5B9118F59414009A726A;
+			remoteInfo = BitmessageKitTests;
+		};
+		75F1020B19A2D2810094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AACD77AF1905C051008832FB;
+			remoteInfo = NavNodeKit;
+		};
+		75F1020D19A2D2810094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AACD77C61905C051008832FB;
+			remoteInfo = NavNodeKitTests;
+		};
+		75F1021419A2D2880094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F1020F19A2D2880094B7C4 /* FoundationCategoriesKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31E8D18FF1E3F00405754;
+			remoteInfo = FoundationCategoriesKit;
+		};
+		75F1021619A2D2880094B7C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F1020F19A2D2880094B7C4 /* FoundationCategoriesKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAE31EA418FF1E3F00405754;
+			remoteInfo = FoundationCategoriesKitTests;
 		};
 		AA31562C18AAE02D0017E94F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -173,10 +173,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		75EFCC7C19A17D8500C93930 /* NavKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NavKit.xcodeproj; path = NavKit/NavKit.xcodeproj; sourceTree = "<group>"; };
-		75EFCC8819A17DA900C93930 /* BitmessageKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitmessageKit.xcodeproj; path = BitmessageKit/BitmessageKit.xcodeproj; sourceTree = "<group>"; };
-		75EFCC9319A17DB400C93930 /* NavNodeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NavNodeKit.xcodeproj; path = NavNodeKit/NavNodeKit.xcodeproj; sourceTree = "<group>"; };
-		75EFCC9C19A17DBC00C93930 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
+		75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NavKit.xcodeproj; path = submodules/NavKit/NavKit.xcodeproj; sourceTree = "<group>"; };
+		75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BitmessageKit.xcodeproj; path = submodules/BitmessageKit/BitmessageKit.xcodeproj; sourceTree = "<group>"; };
+		75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NavNodeKit.xcodeproj; path = submodules/NavNodeKit/NavNodeKit.xcodeproj; sourceTree = "<group>"; };
+		75F1020F19A2D2880094B7C4 /* FoundationCategoriesKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoundationCategoriesKit.xcodeproj; path = submodules/FoundationCategoriesKit/FoundationCategoriesKit.xcodeproj; sourceTree = "<group>"; };
 		8E56ACB318C22426001136F9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Vendor/fonts; sourceTree = "<group>"; };
 		AA153C3418FF00CF007B4785 /* BitmessageKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BitmessageKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Bitmessage-avjusgtkipqesghfnsrdgwqclrmy/Build/Products/Debug/BitmessageKit.framework"; sourceTree = "<group>"; };
 		AA1AA69A18B41C9E00AE72F6 /* message_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_active.png; sourceTree = "<group>"; };
@@ -294,38 +294,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75EFCC7D19A17D8500C93930 /* Products */ = {
+		75F101F019A2D26F0094B7C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75EFCC8519A17D8500C93930 /* NavKit.framework */,
-				75EFCC8719A17D8500C93930 /* NavKitTests.xctest */,
+				75F101F819A2D26F0094B7C4 /* NavKit.framework */,
+				75F101FA19A2D26F0094B7C4 /* NavKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75EFCC8919A17DA900C93930 /* Products */ = {
+		75F101FC19A2D2770094B7C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75EFCC9019A17DA900C93930 /* BitmessageKit.framework */,
-				75EFCC9219A17DA900C93930 /* BitmessageKitTests.xctest */,
+				75F1020319A2D2770094B7C4 /* BitmessageKit.framework */,
+				75F1020519A2D2770094B7C4 /* BitmessageKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75EFCC9419A17DB400C93930 /* Products */ = {
+		75F1020719A2D2810094B7C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75EFCC9919A17DB400C93930 /* NavNodeKit.framework */,
-				75EFCC9B19A17DB400C93930 /* NavNodeKitTests.xctest */,
+				75F1020C19A2D2810094B7C4 /* NavNodeKit.framework */,
+				75F1020E19A2D2810094B7C4 /* NavNodeKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75EFCC9D19A17DBC00C93930 /* Products */ = {
+		75F1021019A2D2880094B7C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75EFCCA219A17DBC00C93930 /* FoundationCategoriesKit.framework */,
-				75EFCCA419A17DBC00C93930 /* FoundationCategoriesKitTests.xctest */,
+				75F1021519A2D2880094B7C4 /* FoundationCategoriesKit.framework */,
+				75F1021719A2D2880094B7C4 /* FoundationCategoriesKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,10 +351,10 @@
 			isa = PBXGroup;
 			children = (
 				AA31561018AAE02D0017E94F /* Bitmessage */,
-				75EFCC7C19A17D8500C93930 /* NavKit.xcodeproj */,
-				75EFCC8819A17DA900C93930 /* BitmessageKit.xcodeproj */,
-				75EFCC9319A17DB400C93930 /* NavNodeKit.xcodeproj */,
-				75EFCC9C19A17DBC00C93930 /* FoundationCategoriesKit.xcodeproj */,
+				75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */,
+				75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */,
+				75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */,
+				75F1020F19A2D2880094B7C4 /* FoundationCategoriesKit.xcodeproj */,
 				AA31562E18AAE02D0017E94F /* BitmessageTests */,
 				AA31560918AAE02D0017E94F /* Frameworks */,
 				AA31560818AAE02D0017E94F /* Products */,
@@ -618,7 +618,7 @@
 /* Begin PBXLegacyTarget section */
 		75EFCCA519A17FF800C93930 /* submodules */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-c 'git submodule init && git submodule update'";
+			buildArgumentsString = "-c '[ -d submodules/BitMessageKit/BitMessageKit ] || (git submodule init && git submodule update)'";
 			buildConfigurationList = 75EFCCA619A17FF800C93930 /* Build configuration list for PBXLegacyTarget "submodules" */;
 			buildPhases = (
 			);
@@ -699,20 +699,20 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 75EFCC8919A17DA900C93930 /* Products */;
-					ProjectRef = 75EFCC8819A17DA900C93930 /* BitmessageKit.xcodeproj */;
+					ProductGroup = 75F101FC19A2D2770094B7C4 /* Products */;
+					ProjectRef = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 75EFCC9D19A17DBC00C93930 /* Products */;
-					ProjectRef = 75EFCC9C19A17DBC00C93930 /* FoundationCategoriesKit.xcodeproj */;
+					ProductGroup = 75F1021019A2D2880094B7C4 /* Products */;
+					ProjectRef = 75F1020F19A2D2880094B7C4 /* FoundationCategoriesKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 75EFCC7D19A17D8500C93930 /* Products */;
-					ProjectRef = 75EFCC7C19A17D8500C93930 /* NavKit.xcodeproj */;
+					ProductGroup = 75F101F019A2D26F0094B7C4 /* Products */;
+					ProjectRef = 75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 75EFCC9419A17DB400C93930 /* Products */;
-					ProjectRef = 75EFCC9319A17DB400C93930 /* NavNodeKit.xcodeproj */;
+					ProductGroup = 75F1020719A2D2810094B7C4 /* Products */;
+					ProjectRef = 75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -725,60 +725,60 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		75EFCC8519A17D8500C93930 /* NavKit.framework */ = {
+		75F101F819A2D26F0094B7C4 /* NavKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = NavKit.framework;
-			remoteRef = 75EFCC8419A17D8500C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F101F719A2D26F0094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCC8719A17D8500C93930 /* NavKitTests.xctest */ = {
+		75F101FA19A2D26F0094B7C4 /* NavKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = NavKitTests.xctest;
-			remoteRef = 75EFCC8619A17D8500C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F101F919A2D26F0094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCC9019A17DA900C93930 /* BitmessageKit.framework */ = {
+		75F1020319A2D2770094B7C4 /* BitmessageKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = BitmessageKit.framework;
-			remoteRef = 75EFCC8F19A17DA900C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1020219A2D2770094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCC9219A17DA900C93930 /* BitmessageKitTests.xctest */ = {
+		75F1020519A2D2770094B7C4 /* BitmessageKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = BitmessageKitTests.xctest;
-			remoteRef = 75EFCC9119A17DA900C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1020419A2D2770094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCC9919A17DB400C93930 /* NavNodeKit.framework */ = {
+		75F1020C19A2D2810094B7C4 /* NavNodeKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = NavNodeKit.framework;
-			remoteRef = 75EFCC9819A17DB400C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1020B19A2D2810094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCC9B19A17DB400C93930 /* NavNodeKitTests.xctest */ = {
+		75F1020E19A2D2810094B7C4 /* NavNodeKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = NavNodeKitTests.xctest;
-			remoteRef = 75EFCC9A19A17DB400C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1020D19A2D2810094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCCA219A17DBC00C93930 /* FoundationCategoriesKit.framework */ = {
+		75F1021519A2D2880094B7C4 /* FoundationCategoriesKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = FoundationCategoriesKit.framework;
-			remoteRef = 75EFCCA119A17DBC00C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1021419A2D2880094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75EFCCA419A17DBC00C93930 /* FoundationCategoriesKitTests.xctest */ = {
+		75F1021719A2D2880094B7C4 /* FoundationCategoriesKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = FoundationCategoriesKitTests.xctest;
-			remoteRef = 75EFCCA319A17DBC00C93930 /* PBXContainerItemProxy */;
+			remoteRef = 75F1021619A2D2880094B7C4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1104,6 +1104,7 @@
 				75EFCCA819A17FF800C93930 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA31560218AAE02D0017E94F /* Build configuration list for PBXProject "Bitmessage" */ = {
 			isa = XCConfigurationList;
