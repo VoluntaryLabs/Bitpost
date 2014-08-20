@@ -38,7 +38,7 @@ static NSEvent *keyEvent = nil;
 {
     BOOL okToChange = [super becomeFirstResponder];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [NSNotificationCenter.defaultCenter addObserver:self
                                              selector:@selector(textDidEndEditing:)
                                                  name:NSTextDidEndEditingNotification
                                                object:self];

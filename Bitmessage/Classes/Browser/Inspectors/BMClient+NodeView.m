@@ -70,7 +70,7 @@
              NSArray* urls = [panel URLs];
              NSURL *url = [urls firstObject];
              NSLog(@"url '%@'", url);
-             [[BMClient sharedBMClient] archiveToUrl:url];
+             [BMClient.sharedBMClient archiveToUrl:url];
          }
      }];
 }
@@ -91,7 +91,7 @@
              NSArray *urls = [panel URLs];
              NSURL *url    = [urls firstObject];
              NSLog(@"url '%@'", url);
-             [[BMClient sharedBMClient] unarchiveFromUrl:url];
+             [BMClient.sharedBMClient unarchiveFromUrl:url];
          }
          
      }];

@@ -63,20 +63,20 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)loadView
 {
     [super loadView];
 
-    NSMutableArray *labels = [[BMClient sharedBMClient] allAddressLabels];
+    NSMutableArray *labels = [BMClient.sharedBMClient allAddressLabels];
     self.fromCompletor = [[BMAddressCompletor alloc] init];
-    //self.fromCompletor.addressLabels = [[BMClient sharedBMClient] fromAddressLabels];
+    //self.fromCompletor.addressLabels = [BMClient.sharedBMClient fromAddressLabels];
     self.fromCompletor.addressLabels = labels;
     
     self.toCompletor   = [[BMAddressCompletor alloc] init];
-    //self.toCompletor.addressLabels = [[BMClient sharedBMClient] allAddressLabels];
+    //self.toCompletor.addressLabels = [BMClient.sharedBMClient allAddressLabels];
     self.toCompletor.addressLabels = labels;
     
     [self setupViewPositions];
@@ -172,11 +172,11 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)setupNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.from];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.from];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.to];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.to];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.subject];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateSendButton) name:NSControlTextDidChangeNotification object:self.subject];
 }
 
 - (void)setBodyString:(NSString *)aString
@@ -194,7 +194,7 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)setupDefaultValues
 {
-    BMIdentities *ids = [[BMClient sharedBMClient] identities];
+    BMIdentities *ids = [BMClient.sharedBMClient identities];
     BMIdentity *identity = [[ids children] firstObject];
     
     if (identity)
@@ -223,16 +223,26 @@ NSMutableArray *sharedDrafts = nil;
 - (NSString *)fromAddress
 {
     NSString *s = self.from.stringValue;
-    NSString *address = [[BMClient sharedBMClient] addressForLabel:s];
-    if (address) { s = address; }
+    NSString *address = [BMClient.sharedBMClient addressForLabel:s];
+    
+    if (address)
+    {
+        s = address;
+    }
+    
     return s;
 }
 
 - (NSString *)toAddress
 {
     NSString *s = self.to.stringValue;
-    NSString *address = [[BMClient sharedBMClient] addressForLabel:s];
-    if (address) { s = address; }
+    NSString *address = [BMClient.sharedBMClient addressForLabel:s];
+    
+    if (address)
+    {
+        s = address;
+    }
+    
     return s;
 }
 
@@ -258,7 +268,7 @@ NSMutableArray *sharedDrafts = nil;
         [m send];
     }
     
-    [[[[BMClient sharedBMClient] messages] sent] refresh];
+    [[[BMClient.sharedBMClient messages] sent] refresh];
     [self close];
 }
 
@@ -297,7 +307,7 @@ NSMutableArray *sharedDrafts = nil;
 {
     [[[self class] drafts] removeObject:self];
 
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"draftClosed" object:self];
+    //[NSNotificationCenter.defaultCenter postNotificationName:@"draftClosed" object:self];
     return YES;
 }
 
@@ -318,7 +328,6 @@ NSMutableArray *sharedDrafts = nil;
 {
     [self setCursorForReply];
 }
-
 
 // --- delegate ---
 
@@ -351,7 +360,7 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)setDefaultFrom
 {
-    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] label];
+    NSString *from = [[[BMClient.sharedBMClient identities] firstIdentity] label];
     
     if (from)
     {
@@ -361,8 +370,8 @@ NSMutableArray *sharedDrafts = nil;
 
 - (void)setAddressesToLabels
 {
-    self.to.stringValue = [[BMClient sharedBMClient] labelForAddress:self.to.stringValue];
-    self.from.stringValue = [[BMClient sharedBMClient] labelForAddress:self.from.stringValue];
+    self.to.stringValue = [BMClient.sharedBMClient labelForAddress:self.to.stringValue];
+    self.from.stringValue = [BMClient.sharedBMClient labelForAddress:self.from.stringValue];
 }
 
 - (void)addSubjectPrefix:(NSString *)prefix

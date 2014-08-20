@@ -19,7 +19,7 @@
     
     [draftController.to setStringValue:self.address];
     
-    NSString *from = [[[[BMClient sharedBMClient] identities] firstIdentity] address];
+    NSString *from = [[[BMClient.sharedBMClient identities] firstIdentity] address];
     
     if (from)
     {

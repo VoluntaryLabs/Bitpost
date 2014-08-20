@@ -16,7 +16,7 @@
 - (id)init
 {
     self = [super init];
-    //self.addressLabels = [[BMClient sharedBMClient] addressLabels];
+    //self.addressLabels = [BMClient.sharedBMClient addressLabels];
     return self;
 }
 

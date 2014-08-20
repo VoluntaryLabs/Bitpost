@@ -64,7 +64,7 @@
         [self addSubview:self.instructionsText2];
         [self addSubview:self.okButton];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        [NSNotificationCenter.defaultCenter addObserver:self
                                                  selector:@selector(windowDidResize:)
                                                      name:NSWindowDidResizeNotification
                                                    object:nil];
@@ -75,7 +75,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)windowDidResize:(NSNotification *)notification
@@ -100,7 +100,7 @@
 
 - (BMIdentity *)identity
 {
-    return [[[BMClient sharedBMClient] identities] createFirstIdentityIfAbsent];
+    return [[BMClient.sharedBMClient identities] createFirstIdentityIfAbsent];
 }
 
 - (void)open
@@ -140,7 +140,7 @@
     
     [self animateFadeOut];
     [self performSelector:@selector(completeClose) withObject:nil afterDelay:1.0];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)completeClose

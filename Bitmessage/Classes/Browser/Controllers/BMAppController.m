@@ -14,7 +14,7 @@
     [super applicationDidFinishLaunching:aNote];
     
     [self setNavTitle:@"launching server..."];
-    BMNode *root = [BMClient sharedBMClient];
+    BMNode *root = BMClient.sharedBMClient;
     [self setRootNode:(NavNode *)root];
     [self setNavTitle:@""];
     
@@ -22,6 +22,8 @@
     
     [self checkForNewUser];
     [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(composeFromURL:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    
+
 }
 
 - (void)addAbout

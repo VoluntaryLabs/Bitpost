@@ -230,7 +230,7 @@
     
     if ([command isEqualToString:@"BitmessageAddContact"])
     {
-        BMClient *client = [BMClient sharedBMClient];
+        BMClient *client = BMClient.sharedBMClient;
         BMContacts *contacts = [client contacts];
         BMContact *newContact = [contacts justAdd];
         [newContact setAddress:argument];

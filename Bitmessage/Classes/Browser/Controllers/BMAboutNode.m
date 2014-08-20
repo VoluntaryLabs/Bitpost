@@ -128,7 +128,7 @@
         NavInfoNode *help = [[NavInfoNode alloc] init];
         help.nodeTitle = @"Help";
         //what.nodeSubtitle = @"Designer";
-        [about addChild:help];
+        //[about addChild:help];
  
         
         {
