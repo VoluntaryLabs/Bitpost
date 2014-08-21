@@ -45,16 +45,11 @@ If this doesn't work, replace the Bitpost keys.dat file with the backup copy.
 Compiling
 -------------
 
-In the same folder that you put this project's folder, 
-you'll need to clone the following repos:
+After cloning the repo:
 
-* git clone https://github.com/stevedekorte/BitmessageKit.git
-* git clone https://github.com/stevedekorte/NavKit.git
-* git clone https://github.com/stevedekorte/NavNodeKit.git
-* git clone  https://github.com/stevedekorte/FoundationCategoriesKit.git
+* git clone https://github.com/stevedekorte/Bitpost.git
 
-After they've been cloned, the app should build. Note: the BitmessageKit comes with some precompiled binaries for tor, and static-python. You'll want to download and build those yourself if you're verifying the build. 
-
+and making sure to pull in the submodules, you should be able to open the project file in Xcode and build it. Note that BitmessageKit includes some precompiled components. See it's notes for compiling those from source.
 
 License
 ----------
