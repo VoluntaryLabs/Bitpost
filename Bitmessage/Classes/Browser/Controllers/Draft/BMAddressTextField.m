@@ -3,7 +3,7 @@
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 2/26/14.
-//  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
+//  Copyright (c) 2014 voluntary.net. All rights reserved.
 //
 // This is needed to get auto complete to behave properly
 

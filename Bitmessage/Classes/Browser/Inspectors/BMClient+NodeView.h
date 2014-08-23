@@ -3,7 +3,7 @@
 //  Bitmessage
 //
 //  Created by Steve Dekorte on 4/17/14.
-//  Copyright (c) 2014 Bitmarkets.org. All rights reserved.
+//  Copyright (c) 2014 voluntary.net. All rights reserved.
 //
 
 #import <BitmessageKit/BitmessageKit.h>

@@ -688,6 +688,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = voluntary.net;
 				TargetAttributes = {
+					AA31560618AAE02D0017E94F = {
+						DevelopmentTeam = 68AUPW6ZUW;
+					};
 					AA31562718AAE02D0017E94F = {
 						TestTargetID = AA31560618AAE02D0017E94F;
 					};
@@ -1034,14 +1037,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1051,14 +1057,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
