@@ -203,15 +203,15 @@
 		AA31560D18AAE02D0017E94F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AA31560E18AAE02D0017E94F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AA31560F18AAE02D0017E94F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AA31561218AAE02D0017E94F /* Bitmessage-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bitmessage-Info.plist"; sourceTree = "<group>"; };
+		AA31561218AAE02D0017E94F /* Bitpost-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bitpost-Info.plist"; sourceTree = "<group>"; };
 		AA31561418AAE02D0017E94F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA31561618AAE02D0017E94F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AA31561818AAE02D0017E94F /* Bitmessage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bitmessage-Prefix.pch"; sourceTree = "<group>"; };
+		AA31561818AAE02D0017E94F /* Bitpost-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bitpost-Prefix.pch"; sourceTree = "<group>"; };
 		AA31561A18AAE02D0017E94F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		AA31562218AAE02D0017E94F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		AA31562818AAE02D0017E94F /* BitmessageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitmessageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA31562818AAE02D0017E94F /* BitpostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitpostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA31562918AAE02D0017E94F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		AA31563018AAE02D0017E94F /* BitmessageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BitmessageTests-Info.plist"; sourceTree = "<group>"; };
+		AA31563018AAE02D0017E94F /* BitpostTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BitpostTests-Info.plist"; sourceTree = "<group>"; };
 		AA31563218AAE02D0017E94F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AA31563418AAE02D0017E94F /* BitmessageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BitmessageTests.m; sourceTree = "<group>"; };
 		AA3156B618AAE0E60017E94F /* icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128x128.png; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				AA31560718AAE02D0017E94F /* Bitpost.app */,
-				AA31562818AAE02D0017E94F /* BitmessageTests.xctest */,
+				AA31562818AAE02D0017E94F /* BitpostTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,10 +418,10 @@
 			children = (
 				8E56ACB318C22426001136F9 /* fonts */,
 				AA3156A618AAE0E60017E94F /* resources */,
-				AA31561218AAE02D0017E94F /* Bitmessage-Info.plist */,
+				AA31561218AAE02D0017E94F /* Bitpost-Info.plist */,
 				AA31561318AAE02D0017E94F /* InfoPlist.strings */,
 				AA31561618AAE02D0017E94F /* main.m */,
-				AA31561818AAE02D0017E94F /* Bitmessage-Prefix.pch */,
+				AA31561818AAE02D0017E94F /* Bitpost-Prefix.pch */,
 				AA31561918AAE02D0017E94F /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -439,7 +439,7 @@
 		AA31562F18AAE02D0017E94F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AA31563018AAE02D0017E94F /* BitmessageTests-Info.plist */,
+				AA31563018AAE02D0017E94F /* BitpostTests-Info.plist */,
 				AA31563118AAE02D0017E94F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -641,9 +641,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		AA31560618AAE02D0017E94F /* Bitmessage */ = {
+		AA31560618AAE02D0017E94F /* Bitpost */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA31563818AAE02D0017E94F /* Build configuration list for PBXNativeTarget "Bitmessage" */;
+			buildConfigurationList = AA31563818AAE02D0017E94F /* Build configuration list for PBXNativeTarget "Bitpost" */;
 			buildPhases = (
 				AA31560318AAE02D0017E94F /* Sources */,
 				AA31560418AAE02D0017E94F /* Frameworks */,
@@ -656,14 +656,14 @@
 			dependencies = (
 				75EFCCAA19A1803100C93930 /* PBXTargetDependency */,
 			);
-			name = Bitmessage;
+			name = Bitpost;
 			productName = Bitmessage;
 			productReference = AA31560718AAE02D0017E94F /* Bitpost.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AA31562718AAE02D0017E94F /* BitmessageTests */ = {
+		AA31562718AAE02D0017E94F /* BitpostTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA31563B18AAE02D0017E94F /* Build configuration list for PBXNativeTarget "BitmessageTests" */;
+			buildConfigurationList = AA31563B18AAE02D0017E94F /* Build configuration list for PBXNativeTarget "BitpostTests" */;
 			buildPhases = (
 				AA31562418AAE02D0017E94F /* Sources */,
 				AA31562518AAE02D0017E94F /* Frameworks */,
@@ -674,9 +674,9 @@
 			dependencies = (
 				AA31562D18AAE02D0017E94F /* PBXTargetDependency */,
 			);
-			name = BitmessageTests;
+			name = BitpostTests;
 			productName = BitmessageTests;
-			productReference = AA31562818AAE02D0017E94F /* BitmessageTests.xctest */;
+			productReference = AA31562818AAE02D0017E94F /* BitpostTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -696,7 +696,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AA31560218AAE02D0017E94F /* Build configuration list for PBXProject "Bitmessage" */;
+			buildConfigurationList = AA31560218AAE02D0017E94F /* Build configuration list for PBXProject "Bitpost" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -728,8 +728,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				AA31560618AAE02D0017E94F /* Bitmessage */,
-				AA31562718AAE02D0017E94F /* BitmessageTests */,
+				AA31560618AAE02D0017E94F /* Bitpost */,
+				AA31562718AAE02D0017E94F /* BitpostTests */,
 				75EFCCA519A17FF800C93930 /* submodules */,
 			);
 		};
@@ -895,7 +895,7 @@
 		};
 		AA31562D18AAE02D0017E94F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA31560618AAE02D0017E94F /* Bitmessage */;
+			target = AA31560618AAE02D0017E94F /* Bitpost */;
 			targetProxy = AA31562C18AAE02D0017E94F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -972,6 +972,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -994,6 +995,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "987bdc6a-fc90-4663-a8e9-5445abdb7e3c";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1013,6 +1015,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1029,6 +1032,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PROVISIONING_PROFILE = "987bdc6a-fc90-4663-a8e9-5445abdb7e3c";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1037,17 +1041,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
-				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
+				GCC_PREFIX_HEADER = "Bitmessage/Bitpost-Prefix.pch";
+				INFOPLIST_FILE = "Bitmessage/Bitpost-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fe429106-a868-4fcd-ae28-24b908defe5b";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1057,17 +1062,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
-				INFOPLIST_FILE = "Bitmessage/Bitmessage-Info.plist";
+				GCC_PREFIX_HEADER = "Bitmessage/Bitpost-Prefix.pch";
+				INFOPLIST_FILE = "Bitmessage/Bitpost-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fe429106-a868-4fcd-ae28-24b908defe5b";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1088,8 +1094,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BitmessageTests/BitmessageTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BitmessageTests/BitpostTests-Info.plist";
+				PRODUCT_NAME = BitpostTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1106,8 +1112,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitmessage-Prefix.pch";
-				INFOPLIST_FILE = "BitmessageTests/BitmessageTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "BitmessageTests/BitpostTests-Info.plist";
+				PRODUCT_NAME = BitpostTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1125,7 +1131,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA31560218AAE02D0017E94F /* Build configuration list for PBXProject "Bitmessage" */ = {
+		AA31560218AAE02D0017E94F /* Build configuration list for PBXProject "Bitpost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA31563618AAE02D0017E94F /* Debug */,
@@ -1134,7 +1140,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA31563818AAE02D0017E94F /* Build configuration list for PBXNativeTarget "Bitmessage" */ = {
+		AA31563818AAE02D0017E94F /* Build configuration list for PBXNativeTarget "Bitpost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA31563918AAE02D0017E94F /* Debug */,
@@ -1143,7 +1149,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA31563B18AAE02D0017E94F /* Build configuration list for PBXNativeTarget "BitmessageTests" */ = {
+		AA31563B18AAE02D0017E94F /* Build configuration list for PBXNativeTarget "BitpostTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA31563C18AAE02D0017E94F /* Debug */,

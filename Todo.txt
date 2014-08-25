@@ -1,6 +1,8 @@
 
 === important ===
 
+- delete any message whose toAddress doesn't match an identity, channel or subscription
+- some way to choose a default identity
 - [feature] separate reply button on channels to reply using channel as fromAddress
 
 == features ============

@@ -116,12 +116,14 @@
         [others addChild:package];
     }
     
+    /*
     {
         NavInfoNode *package = [[NavInfoNode alloc] init];
         package.nodeTitle = @"ZipKit";
         package.nodeSubtitle = @"Karl Moskowski";
         [others addChild:package];
     }
+    */
     
     
     {
