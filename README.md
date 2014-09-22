@@ -22,8 +22,9 @@ For more info see:
 * https://bitmessage.org
 
 
-Tech details
------------------
+How Bitpost Works
+------------------------
+
 The UI launches a local pybitmessage node in the background which uses Tor to connect to the Bitmessage network. 
 
 The local bitmessage node is run with custom node and API ports so it doesn't interfere with other bitmessage clients. The app uses it's own bitmessage keys.dat file for the app which is stored in ~/Library/Application Support/Bitpost. 
