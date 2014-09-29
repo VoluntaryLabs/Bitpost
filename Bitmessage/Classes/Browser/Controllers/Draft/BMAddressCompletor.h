@@ -14,7 +14,7 @@
 @property (assign, nonatomic) id delegate;
 @property (assign, nonatomic) BOOL isCompleting;
 @property (strong, nonatomic) BMAddressTextField *textField;
-@property (strong, nonatomic) NSMutableArray *addressLabels;
+@property (strong, nonatomic) NSSet *addressLabels;
 @property (strong, nonatomic) NSString *lastString;
 @property (assign, nonatomic) BOOL shouldComplete;
 

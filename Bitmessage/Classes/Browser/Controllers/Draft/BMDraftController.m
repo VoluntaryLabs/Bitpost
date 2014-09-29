@@ -70,14 +70,11 @@ NSMutableArray *sharedDrafts = nil;
 {
     [super loadView];
 
-    NSMutableArray *labels = [BMClient.sharedBMClient allAddressLabels];
     self.fromCompletor = [[BMAddressCompletor alloc] init];
-    //self.fromCompletor.addressLabels = [BMClient.sharedBMClient fromAddressLabels];
-    self.fromCompletor.addressLabels = labels;
+    self.fromCompletor.addressLabels = [BMClient.sharedBMClient fromAddressLabels];
     
     self.toCompletor   = [[BMAddressCompletor alloc] init];
-    //self.toCompletor.addressLabels = [BMClient.sharedBMClient allAddressLabels];
-    self.toCompletor.addressLabels = labels;
+    self.toCompletor.addressLabels = [BMClient.sharedBMClient allAddressLabels];
     
     [self setupViewPositions];
     [self setupHighlightColors];

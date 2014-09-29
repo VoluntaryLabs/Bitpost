@@ -50,7 +50,8 @@
     BMDraftController *draft = [BMDraftController openNewDraft];
     
     [draft.to setStringValue:self.fromAddress];
-    [draft setDefaultFrom];
+    [draft.from setStringValue:self.toAddress];
+    //[draft setDefaultFrom];
     [draft setAddressesToLabels];
     [draft.subject setStringValue:self.subjectString];
     [draft addSubjectPrefix:@"Re: "];
