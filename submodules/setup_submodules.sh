@@ -1,1 +1,2 @@
-git submodule init && git submodule update
+git submodule init --recursive && git submodule update --recursive
+

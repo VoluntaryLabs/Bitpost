@@ -11,10 +11,10 @@
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
-		AA27EF6819A81948000E0339 /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */; };
-		AA27EF6919A81948000E0339 /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
-		AA27EF6A19A81948000E0339 /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA5DFDF3190DEFE500383283 /* NavKit.framework */; };
-		AA27EF6B19A81948000E0339 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA153C3418FF00CF007B4785 /* BitmessageKit.framework */; };
+		AA24105919DAAB77003BC34E /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1021519A2D2880094B7C4 /* FoundationCategoriesKit.framework */; };
+		AA24105A19DAAB94003BC34E /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020C19A2D2810094B7C4 /* NavNodeKit.framework */; };
+		AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020319A2D2770094B7C4 /* BitmessageKit.framework */; };
+		AA24105C19DAAB9F003BC34E /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F101F819A2D26F0094B7C4 /* NavKit.framework */; };
 		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
 		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
 		AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86218B8175A008CEEB4 /* BMContactView.m */; };
@@ -171,10 +171,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AA27EF6819A81948000E0339 /* FoundationCategoriesKit.framework in CopyFiles */,
-				AA27EF6919A81948000E0339 /* NavNodeKit.framework in CopyFiles */,
-				AA27EF6A19A81948000E0339 /* NavKit.framework in CopyFiles */,
-				AA27EF6B19A81948000E0339 /* BitmessageKit.framework in CopyFiles */,
+				AA24105919DAAB77003BC34E /* FoundationCategoriesKit.framework in CopyFiles */,
+				AA24105A19DAAB94003BC34E /* NavNodeKit.framework in CopyFiles */,
+				AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */,
+				AA24105C19DAAB9F003BC34E /* NavKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
