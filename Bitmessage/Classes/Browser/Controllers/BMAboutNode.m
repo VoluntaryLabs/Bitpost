@@ -7,6 +7,7 @@
 //
 
 #import "BMAboutNode.h"
+#import <BitmessageKit/BitmessageKit.h>
 
 @implementation BMAboutNode
 
@@ -159,6 +160,20 @@
             how.nodeTitle = @"How to contribute";
             //what.nodeSubtitle = @"Designer";
             [help addChild:how];
+        }
+    }
+    
+    NavInfoNode *status = [[NavInfoNode alloc] init];
+    [about addChild:status];
+    status.nodeTitle = @"Status";
+    status.nodeSuggestedWidth = 200;
+    
+    {
+        {
+            NavInfoNode *nonce = [[NavInfoNode alloc] init];
+            nonce.nodeTitle = @"Nonce trials/byte";
+            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.keysFile.defaultnoncetrialsperbyte];
+            [status addChild:nonce];
         }
     }
 }
