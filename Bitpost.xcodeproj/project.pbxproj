@@ -11,10 +11,10 @@
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
-		AA24105919DAAB77003BC34E /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1021519A2D2880094B7C4 /* FoundationCategoriesKit.framework */; };
-		AA24105A19DAAB94003BC34E /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020C19A2D2810094B7C4 /* NavNodeKit.framework */; };
-		AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020319A2D2770094B7C4 /* BitmessageKit.framework */; };
-		AA24105C19DAAB9F003BC34E /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F101F819A2D26F0094B7C4 /* NavKit.framework */; };
+		AA24105919DAAB77003BC34E /* FoundationCategoriesKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1021519A2D2880094B7C4 /* FoundationCategoriesKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AA24105A19DAAB94003BC34E /* NavNodeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020C19A2D2810094B7C4 /* NavNodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020319A2D2770094B7C4 /* BitmessageKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AA24105C19DAAB9F003BC34E /* NavKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F101F819A2D26F0094B7C4 /* NavKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
 		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
 		AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86218B8175A008CEEB4 /* BMContactView.m */; };
@@ -152,6 +152,20 @@
 			remoteGlobalIDString = AA31560618AAE02D0017E94F;
 			remoteInfo = Bitmessage;
 		};
+		AA5A0CCC19E8B109004C397D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA5A0CBF19E8B108004C397D /* SystemInfoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD0C0A519E48B4400B24217;
+			remoteInfo = SystemInfoKit;
+		};
+		AA5A0CCE19E8B109004C397D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA5A0CBF19E8B108004C397D /* SystemInfoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AAD0C0B019E48B4400B24217;
+			remoteInfo = SystemInfoKitTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -235,6 +249,7 @@
 		AA3156CA18AAE0E60017E94F /* search_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_active.png; sourceTree = "<group>"; };
 		AA3156CB18AAE0E60017E94F /* search_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search_inactive.png; sourceTree = "<group>"; };
 		AA3156FC18AAE1130017E94F /* Compose.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Compose.xib; sourceTree = "<group>"; };
+		AA5A0CBF19E8B108004C397D /* SystemInfoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SystemInfoKit.xcodeproj; path = submodules/SystemInfoKit/SystemInfoKit.xcodeproj; sourceTree = "<group>"; };
 		AA5DFDF3190DEFE500383283 /* NavKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/NavKit.framework"; sourceTree = "<group>"; };
 		AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NavNodeKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/NavNodeKit.framework"; sourceTree = "<group>"; };
 		AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoundationCategoriesKit.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BitMarkets-eenrgxhlyrwgqccvbetldvfypzkj/Build/Products/Debug/FoundationCategoriesKit.framework"; sourceTree = "<group>"; };
@@ -359,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				AA31561018AAE02D0017E94F /* Bitmessage */,
+				AA5A0CBF19E8B108004C397D /* SystemInfoKit.xcodeproj */,
 				75F101EF19A2D26F0094B7C4 /* NavKit.xcodeproj */,
 				75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */,
 				75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */,
@@ -526,6 +542,15 @@
 			path = xibs;
 			sourceTree = "<group>";
 		};
+		AA5A0CC019E8B108004C397D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA5A0CCD19E8B109004C397D /* SystemInfoKit.framework */,
+				AA5A0CCF19E8B109004C397D /* SystemInfoKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AA70C86918D39219001D77FB /* themes */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,7 +710,7 @@
 		AA3155FF18AAE02D0017E94F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = voluntary.net;
 				TargetAttributes = {
 					AA31560618AAE02D0017E94F = {
@@ -724,6 +749,10 @@
 				{
 					ProductGroup = 75F1020719A2D2810094B7C4 /* Products */;
 					ProjectRef = 75F1020619A2D2810094B7C4 /* NavNodeKit.xcodeproj */;
+				},
+				{
+					ProductGroup = AA5A0CC019E8B108004C397D /* Products */;
+					ProjectRef = AA5A0CBF19E8B108004C397D /* SystemInfoKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -790,6 +819,20 @@
 			fileType = wrapper.cfbundle;
 			path = FoundationCategoriesKitTests.xctest;
 			remoteRef = 75F1021619A2D2880094B7C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA5A0CCD19E8B109004C397D /* SystemInfoKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SystemInfoKit.framework;
+			remoteRef = AA5A0CCC19E8B109004C397D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA5A0CCF19E8B109004C397D /* SystemInfoKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SystemInfoKitTests.xctest;
+			remoteRef = AA5A0CCE19E8B109004C397D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

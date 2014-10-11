@@ -23,6 +23,13 @@
     return self;
 }
 
+- (NSString *)versionString
+{
+    NSDictionary *info = NSBundle.mainBundle.infoDictionary;
+    NSString *versionString = [info objectForKey:@"CFBundleVersion"];
+    return versionString;
+}
+
 - (void)setup
 {
     NavInfoNode *about = self;
@@ -34,10 +41,7 @@
     NavInfoNode *version = [[NavInfoNode alloc] init];
     [about addChild:version];
     version.nodeTitle = @"Version";
-    
-    NSDictionary *info = NSBundle.mainBundle.infoDictionary;
-    NSString *versionString = [info objectForKey:@"CFBundleVersion"];
-    version.nodeSubtitle = versionString;
+    version.nodeSubtitle = self.versionString;
     version.nodeSuggestedWidth = 200;
     
     NavInfoNode *contributors = [[NavInfoNode alloc] init];
@@ -169,6 +173,13 @@
     status.nodeSuggestedWidth = 200;
     
     {
+        {
+            NavInfoNode *nonce = [[NavInfoNode alloc] init];
+            nonce.nodeTitle = @"Nonce trials/byte";
+            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.keysFile.defaultnoncetrialsperbyte];
+            [status addChild:nonce];
+        }
+        
         {
             NavInfoNode *nonce = [[NavInfoNode alloc] init];
             nonce.nodeTitle = @"Nonce trials/byte";

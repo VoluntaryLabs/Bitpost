@@ -10,3 +10,6 @@
 [submodule "FoundationCategoriesKit"]
 	path = submodules/FoundationCategoriesKit
 	url = https://github.com/stevedekorte/FoundationCategoriesKit.git
+[submodule "submodules/SystemInfoKit"]
+	path = submodules/SystemInfoKit
+	url = git@github.com:Voluntarynet/SystemInfoKit.git
