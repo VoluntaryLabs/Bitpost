@@ -66,7 +66,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>TorPort</key>
+	<key>torSocksPort</key>
 	<string>9050</string>
 </dict>
 </plist>
