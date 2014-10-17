@@ -175,15 +175,29 @@
     {
         {
             NavInfoNode *nonce = [[NavInfoNode alloc] init];
-            nonce.nodeTitle = @"Nonce trials/byte";
-            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.keysFile.defaultnoncetrialsperbyte];
+            nonce.nodeTitle = @"Proof of work";
+            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@ trials/byte", BMClient.sharedBMClient.server.keysFile.defaultnoncetrialsperbyte];
             [status addChild:nonce];
         }
         
         {
             NavInfoNode *nonce = [[NavInfoNode alloc] init];
-            nonce.nodeTitle = @"Nonce trials/byte";
-            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.keysFile.defaultnoncetrialsperbyte];
+            nonce.nodeTitle = @"Tor";
+            nonce.nodeSubtitle = BMClient.sharedBMClient.server.useTor ? @"enabled" : @"disabled";
+            [status addChild:nonce];
+        }
+        
+        {
+            NavInfoNode *nonce = [[NavInfoNode alloc] init];
+            nonce.nodeTitle = @"Port";
+            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.port];
+            [status addChild:nonce];
+        }
+        
+        {
+            NavInfoNode *nonce = [[NavInfoNode alloc] init];
+            nonce.nodeTitle = @"API Port";
+            nonce.nodeSubtitle = [NSString stringWithFormat:@"%@", BMClient.sharedBMClient.server.apiPort];
             [status addChild:nonce];
         }
     }

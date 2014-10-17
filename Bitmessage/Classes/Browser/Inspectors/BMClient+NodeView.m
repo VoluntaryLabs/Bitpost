@@ -54,6 +54,7 @@
 
 // import/export
 
+/*
 - (void)export
 {
     NSOpenPanel* panel = [NSOpenPanel openPanel];
@@ -96,5 +97,6 @@
          
      }];
 }
+ */
 
 @end
