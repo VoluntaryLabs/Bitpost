@@ -5,7 +5,6 @@
 #import "BMDraftController.h"
 #import "BMNewUserView.h"
 #import "BMClient+NodeView.h"
-#import "BMAboutNode.h"
 
 @implementation BMAppController
 
@@ -17,7 +16,6 @@
     BMNode *root = BMClient.sharedBMClient;
     [self setRootNode:(NavNode *)root];
     [self setNavTitle:@""];
-    
     [self addAbout];
     
     [self checkForNewUser];
@@ -28,8 +26,16 @@
 
 - (void)addAbout
 {
-    BMAboutNode *about = [[BMAboutNode alloc] init];
-    [(BMNode *)self.rootNode addChild:about];
+    /*
+    NavInfoNode *about = [[NavInfoNode alloc] init];
+    about.nodeTitle = @"About";
+    about.nodeSuggestedWidth = 200;
+    */
+ 
+    NavInfoNode *info = (NavInfoNode *)BMClient.sharedBMClient.aboutNode;
+    info.nodeTitle = @"About";
+
+    [self.rootNode addChild:info];
 }
 
 - (void)checkForNewUser

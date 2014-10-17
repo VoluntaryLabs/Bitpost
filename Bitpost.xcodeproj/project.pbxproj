@@ -11,7 +11,6 @@
 		AA1AA69C18B41C9E00AE72F6 /* message_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69A18B41C9E00AE72F6 /* message_active.png */; };
 		AA1AA69D18B41C9E00AE72F6 /* message_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA69B18B41C9E00AE72F6 /* message_inactive.png */; };
 		AA1AA6A418B427C100AE72F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA1AA6A318B427C100AE72F6 /* MainMenu.xib */; };
-		AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75F1020319A2D2770094B7C4 /* BitmessageKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AA2AC86718B8175A008CEEB4 /* BMAddressedView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC85E18B8175A008CEEB4 /* BMAddressedView.m */; };
 		AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86018B8175A008CEEB4 /* BMChannelView.m */; };
 		AA2AC86918B8175A008CEEB4 /* BMContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2AC86218B8175A008CEEB4 /* BMContactView.m */; };
@@ -59,7 +58,6 @@
 		AA9413C518C952F80092FEF4 /* BMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C018C952F80092FEF4 /* BMMessageView.m */; };
 		AA9413C618C952F80092FEF4 /* BMNewUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9413C318C952F80092FEF4 /* BMNewUserView.m */; };
 		AA94775B18E268D3004EFC7A /* forward_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AA94775A18E268D3004EFC7A /* forward_active.png */; };
-		AA9C72DA198877240036E3FF /* BMAboutNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C72D9198877240036E3FF /* BMAboutNode.m */; };
 		AA9EFBFE18F4960000DC32F4 /* BMAddressed+NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */; };
 		AA9EFC5418F4A56F00DC32F4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9EFC5318F4A56F00DC32F4 /* libz.dylib */; };
 		AA9F2B5C190DFF92008444F6 /* NavNodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5DFDF6190DEFF600383283 /* NavNodeKit.framework */; };
@@ -93,26 +91,26 @@
 			remoteGlobalIDString = 75EFCCA519A17FF800C93930;
 			remoteInfo = submodules;
 		};
-		75F1020219A2D2770094B7C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8EDE5B7A18F59414009A726A;
-			remoteInfo = BitmessageKit;
-		};
-		75F1020419A2D2770094B7C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8EDE5B9118F59414009A726A;
-			remoteInfo = BitmessageKitTests;
-		};
 		AA31562C18AAE02D0017E94F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AA3155FF18AAE02D0017E94F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AA31560618AAE02D0017E94F;
 			remoteInfo = Bitmessage;
+		};
+		AAA9FA9819F1BBBF00D5858C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8EDE5B7A18F59414009A726A;
+			remoteInfo = BitmessageKit;
+		};
+		AAA9FA9A19F1BBBF00D5858C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8EDE5B9118F59414009A726A;
+			remoteInfo = BitmessageKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -135,7 +133,6 @@
 			files = (
 				AA7CE00219F0852B00E9EFAC /* TorServerKit.framework in CopyFiles */,
 				AA7CDFFD19F0845D00E9EFAC /* SystemInfoKit.framework in CopyFiles */,
-				AA24105B19DAAB9A003BC34E /* BitmessageKit.framework in CopyFiles */,
 				AA7CDFEB19F07F4000E9EFAC /* FoundationCategoriesKit.framework in CopyFiles */,
 				AA7CDFEF19F07F4900E9EFAC /* NavKit.framework in CopyFiles */,
 				AA7CDFEE19F07F4400E9EFAC /* NavNodeKit.framework in CopyFiles */,
@@ -210,8 +207,6 @@
 		AA9413C218C952F80092FEF4 /* BMNewUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMNewUserView.h; sourceTree = "<group>"; };
 		AA9413C318C952F80092FEF4 /* BMNewUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMNewUserView.m; sourceTree = "<group>"; };
 		AA94775A18E268D3004EFC7A /* forward_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_active.png; sourceTree = "<group>"; };
-		AA9C72D8198877240036E3FF /* BMAboutNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAboutNode.h; sourceTree = "<group>"; };
-		AA9C72D9198877240036E3FF /* BMAboutNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAboutNode.m; sourceTree = "<group>"; };
 		AA9EFBFC18F4960000DC32F4 /* BMAddressed+NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BMAddressed+NodeView.h"; sourceTree = "<group>"; };
 		AA9EFBFD18F4960000DC32F4 /* BMAddressed+NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BMAddressed+NodeView.m"; sourceTree = "<group>"; };
 		AA9EFC5318F4A56F00DC32F4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -268,15 +263,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75F101FC19A2D2770094B7C4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				75F1020319A2D2770094B7C4 /* BitmessageKit.framework */,
-				75F1020519A2D2770094B7C4 /* BitmessageKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AA2AC85C18B8175A008CEEB4 /* Addressed */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +283,6 @@
 		AA3155FE18AAE02D0017E94F = {
 			isa = PBXGroup;
 			children = (
-				AA7CE00119F0852B00E9EFAC /* TorServerKit.framework */,
-				AA7CDFFC19F0845D00E9EFAC /* SystemInfoKit.framework */,
 				AA31561018AAE02D0017E94F /* Bitmessage */,
 				75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */,
 				AA31562E18AAE02D0017E94F /* BitmessageTests */,
@@ -319,6 +303,8 @@
 		AA31560918AAE02D0017E94F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA7CE00119F0852B00E9EFAC /* TorServerKit.framework */,
+				AA7CDFFC19F0845D00E9EFAC /* SystemInfoKit.framework */,
 				AA7CDFFF19F0852300E9EFAC /* TorServerKit.framework */,
 				AA9EFC5318F4A56F00DC32F4 /* libz.dylib */,
 				AA5DFDF9190DF00700383283 /* FoundationCategoriesKit.framework */,
@@ -505,6 +491,15 @@
 			path = NewUser;
 			sourceTree = "<group>";
 		};
+		AAA9FA9419F1BBBF00D5858C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAA9FA9919F1BBBF00D5858C /* BitmessageKit.framework */,
+				AAA9FA9B19F1BBBF00D5858C /* BitmessageKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AAB79BC118AB14170041B6B1 /* Top */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,8 +525,6 @@
 		AAD2849018C01EE500FC0C6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA9C72D8198877240036E3FF /* BMAboutNode.h */,
-				AA9C72D9198877240036E3FF /* BMAboutNode.m */,
 				AAD2849118C01EE500FC0C6F /* BMAppController.h */,
 				AAD2849218C01EE500FC0C6F /* BMAppController.m */,
 				AAD2849318C01EE500FC0C6F /* Draft */,
@@ -649,7 +642,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 75F101FC19A2D2770094B7C4 /* Products */;
+					ProductGroup = AAA9FA9419F1BBBF00D5858C /* Products */;
 					ProjectRef = 75F101FB19A2D2770094B7C4 /* BitmessageKit.xcodeproj */;
 				},
 			);
@@ -663,18 +656,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		75F1020319A2D2770094B7C4 /* BitmessageKit.framework */ = {
+		AAA9FA9919F1BBBF00D5858C /* BitmessageKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = BitmessageKit.framework;
-			remoteRef = 75F1020219A2D2770094B7C4 /* PBXContainerItemProxy */;
+			remoteRef = AAA9FA9819F1BBBF00D5858C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		75F1020519A2D2770094B7C4 /* BitmessageKitTests.xctest */ = {
+		AAA9FA9B19F1BBBF00D5858C /* BitmessageKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = BitmessageKitTests.xctest;
-			remoteRef = 75F1020419A2D2770094B7C4 /* PBXContainerItemProxy */;
+			remoteRef = AAA9FA9A19F1BBBF00D5858C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -756,7 +749,6 @@
 				AA9413C418C952F80092FEF4 /* BMMessage+NodeView.m in Sources */,
 				AAD284A818C01EE500FC0C6F /* BMDraftController.m in Sources */,
 				AAD284A718C01EE500FC0C6F /* BMAddressTextField.m in Sources */,
-				AA9C72DA198877240036E3FF /* BMAboutNode.m in Sources */,
 				AA2AC86818B8175A008CEEB4 /* BMChannelView.m in Sources */,
 				AAA2E6D319009CDC0098C357 /* BMClient+NodeView.m in Sources */,
 			);
