@@ -19,7 +19,10 @@
     [self addAbout];
     
     [self checkForNewUser];
-    [NSAppleEventManager.sharedAppleEventManager setEventHandler:self andSelector:@selector(composeFromURL:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+    [NSAppleEventManager.sharedAppleEventManager setEventHandler:self
+                                                     andSelector:@selector(composeFromURL:)
+                                                   forEventClass:kInternetEventClass
+                                                      andEventID:kAEGetURL];
     
 
 }
