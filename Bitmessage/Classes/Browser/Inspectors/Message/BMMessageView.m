@@ -24,7 +24,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"dealloc BMMessageView %p", (__bridge void *)self);
+    //NSLog(@"dealloc BMMessageView %p", (__bridge void *)self);
 }
 
 - (NSString *)fontName

@@ -14,10 +14,19 @@
 
 @implementation BMMessage (NodeView)
 
-- (NSArray *)uiActions
+- (void)initCategory
 {
-    NSArray *uiActions = [NSMutableArray arrayWithObjects:@"reply", @"forward", nil];
-    return  [uiActions arrayByAddingObjectsFromArray:super.uiActions];
+    [super initCategory];
+    
+    {
+        NavActionSlot *slot = [self.navMirror newActionSlotWithName:@"reply"];
+        [slot setVisibleName:@"reply"];
+    }
+    
+    {
+        NavActionSlot *slot = [self.navMirror newActionSlotWithName:@"forward"];
+        [slot setVisibleName:@"forward"];
+    }
 }
 
 - (NSString *)nodeNote

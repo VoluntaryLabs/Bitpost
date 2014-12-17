@@ -74,6 +74,7 @@
 		AAB79BCE18AB14170041B6B1 /* reply_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BC718AB14170041B6B1 /* reply_inactive.png */; };
 		AAB79BD818AEEAB70041B6B1 /* send_active.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD618AEEAB70041B6B1 /* send_active.png */; };
 		AAB79BD918AEEAB70041B6B1 /* send_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB79BD718AEEAB70041B6B1 /* send_inactive.png */; };
+		AABEB7761A3BD8F0005502A4 /* BitmessageKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAA9FA9919F1BBBF00D5858C /* BitmessageKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAD284A518C01EE500FC0C6F /* BMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849218C01EE500FC0C6F /* BMAppController.m */; };
 		AAD284A618C01EE500FC0C6F /* BMAddressCompletor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849518C01EE500FC0C6F /* BMAddressCompletor.m */; };
 		AAD284A718C01EE500FC0C6F /* BMAddressTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD2849718C01EE500FC0C6F /* BMAddressTextField.m */; };
@@ -131,6 +132,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AABEB7761A3BD8F0005502A4 /* BitmessageKit.framework in CopyFiles */,
 				AA7CE00219F0852B00E9EFAC /* TorServerKit.framework in CopyFiles */,
 				AA7CDFFD19F0845D00E9EFAC /* SystemInfoKit.framework in CopyFiles */,
 				AA7CDFEB19F07F4000E9EFAC /* FoundationCategoriesKit.framework in CopyFiles */,
@@ -922,10 +924,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"./**",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitpost-ajvhvrrrteljrtezagxowfachpyv/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitpost-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitpost-Info.plist";
@@ -933,7 +932,7 @@
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -946,10 +945,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"./**",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Bitpost-ajvhvrrrteljrtezagxowfachpyv/Build/Products/Debug",
-				);
+				FRAMEWORK_SEARCH_PATHS = "./**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bitmessage/Bitpost-Prefix.pch";
 				INFOPLIST_FILE = "Bitmessage/Bitpost-Info.plist";
@@ -957,7 +953,7 @@
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Bitpost;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

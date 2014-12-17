@@ -12,7 +12,6 @@
 
 - (NSString *)nodeNote;
 
-- (NSArray *)uiActions;
 - (void)reply;
 - (void)forward;
 

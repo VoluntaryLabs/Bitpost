@@ -23,22 +23,18 @@
                                                      andSelector:@selector(composeFromURL:)
                                                    forEventClass:kInternetEventClass
                                                       andEventID:kAEGetURL];
-    
-
 }
 
 - (void)addAbout
 {
-    /*
     NavInfoNode *about = [[NavInfoNode alloc] init];
     about.nodeTitle = @"About";
     about.nodeSuggestedWidth = 200;
-    */
  
-    NavInfoNode *info = (NavInfoNode *)BMClient.sharedBMClient.aboutNode;
-    info.nodeTitle = @"About";
-
-    [self.rootNode addChild:info];
+    NavInfoNode *info = (NavInfoNode *)BMClient.sharedBMClient.nodeAbout;
+    [about addChild:info];
+    
+    [self.rootNode addChild:about];
 }
 
 - (void)checkForNewUser

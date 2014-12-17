@@ -11,10 +11,26 @@
 
 @implementation BMClient (NodeView)
 
-- (NSArray *)uiActions
+- (void)initCategory
 {
-    NSArray *uiActions = [NSMutableArray arrayWithObjects:@"compose", /*@"export", @"import", */ nil];
-    return  [uiActions arrayByAddingObjectsFromArray:super.uiActions];
+    [super initCategory];
+    
+    {
+        NavActionSlot *slot = [self.navMirror newActionSlotWithName:@"compose"];
+        [slot setVisibleName:@"compose"];
+    }
+    
+    /*
+    {
+        NavActionSlot *slot = [self.navMirror newActionSlotWithName:@"export"];
+        [slot setVisibleName:@"export"];
+    }
+    
+    {
+        NavActionSlot *slot = [self.navMirror newActionSlotWithName:@"import"];
+        [slot setVisibleName:@"import"];
+    }
+    */
 }
 
 - (void)compose
@@ -42,6 +58,8 @@
     [draft open];
 }
 
+
+/*
 - (NSString *)verifyActionMessage:(NSString *)actionString
 {
     if ([actionString isEqualToString:@"import"])
@@ -49,8 +67,10 @@
         return @"CAUTION: This operation will delete your current Bitmessage mailbox and any identities you have in it. This will destroy the private keys for those identities making any mail sent to them permanently unreadable.";
     }
     
+    
     return nil;
 }
+*/
 
 // import/export
 
