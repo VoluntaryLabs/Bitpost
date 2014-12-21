@@ -16,7 +16,3 @@ git commit . -s;
 cd ../..
 pwd; 
 git commit . -s; 
-
-cd ../..
-pwd; 
-git commit . -s; 
