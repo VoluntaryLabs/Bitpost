@@ -130,9 +130,15 @@ NSMutableArray *sharedDrafts = nil;
     [self.to setNextKeyView:self.subject];
     [self.subject  setNextKeyView:self.bodyText];
     
+    [self.fromNote setY:self.from.y];
+    [self.fromNote setThemePath:@"draft/note"];
+
+    [self.toNote setY:self.to.y];
+    [self.toNote setThemePath:@"draft/note"];
+    
     if (self.isBroadcast)
     {
-        [self.to setStringValue:@"[Broadcast]"];
+        [self.to setStringValue:@"[broadcast subscribers]"];
         [self.to setEditable:NO];
         [self.to setSelectable:NO];
         [self.to setThemePath:@"draft/field-uneditable"];
@@ -220,7 +226,7 @@ NSMutableArray *sharedDrafts = nil;
 - (NSString *)fromAddress
 {
     NSString *s = self.from.stringValue;
-    NSString *address = [BMClient.sharedBMClient addressForLabel:s];
+    NSString *address = [BMClient.sharedBMClient identityOrChannelAddressForLabel:s];
     
     if (address)
     {
@@ -284,6 +290,19 @@ NSMutableArray *sharedDrafts = nil;
         [self.sendButton setImage:[NSImage imageNamed:@"send_inactive"]];
         [self.sendButton setEnabled:NO];
     }
+    
+    [self updateNotes];
+}
+    
+- (void)updateNotes
+{
+    NSUInteger max = 40;
+
+    [self.fromNote setStringValue:[self.fromAddress stringAbbreviatedToIndex:max]];
+    [self.fromNote setHidden:[self.from.stringValue hasPrefix:@"BM-"] || ![BMAddress isValidAddress:self.fromAddress]];
+    
+    [self.toNote setStringValue:[self.toAddress stringAbbreviatedToIndex:max]];
+    [self.toNote setHidden:self.isBroadcast || ![BMAddress isValidAddress:self.toAddress]];
 }
 
 - (void)open

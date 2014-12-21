@@ -15,13 +15,19 @@
 
 @property (assign, nonatomic) IBOutlet NSButton *sendButton;
 
+@property (assign, nonatomic) IBOutlet NSTextField *fromLabel;
 @property (assign, nonatomic) IBOutlet BMAddressTextField *from;
+@property (assign, nonatomic) IBOutlet NSTextField *fromNote;
+
+
+@property (assign, nonatomic) IBOutlet NSTextField *toLabel;
 @property (assign, nonatomic) IBOutlet BMAddressTextField *to;
+@property (assign, nonatomic) IBOutlet NSTextField *toNote;
+
+
+@property (assign, nonatomic) IBOutlet NSTextField *subjectLabel;
 @property (assign, nonatomic) IBOutlet NSTextField *subject;
 
-@property (assign, nonatomic) IBOutlet NSTextField *fromLabel;
-@property (assign, nonatomic) IBOutlet NSTextField *toLabel;
-@property (assign, nonatomic) IBOutlet NSTextField *subjectLabel;
 
 
 @property (assign, nonatomic) IBOutlet NSScrollView *scrollView;

@@ -1,57 +1,6 @@
 {
 	"default": 
 	{
-        "sell" :
-        {
-            "title" :
-            {
-                "fontName" : "Open Sans",
-                "fontSize" : 22,
-                "color" : "#000000",
-            },
-            
-            "price" :
-            {
-                "fontName" : "Open Sans",
-                "fontSize" : 16,
-                "color" : "#CCCCCC",
-            },
-            
-            "description" :
-            {
-                "fontName" : "Open Sans",
-                "fontSize" : 13,
-                "color" : "#999999",
-            },
-            
-            "label" :
-            {
-                "fontName" : "Open Sans",
-                "fontSize" : 13,
-                "color" : "#999999",
-            },
-            
-            "address" :
-            {
-                "fontName" : "Open Sans Italic",
-                "fontSize" : 13,
-                "color" : "#999999",
-            },
-            
-            "separator" :
-            {
-                "backgroundColor" : "#CCCCCC",
-            },
-            
-            "button" :
-            {
-                "fontName" : "Open Sans",
-                "fontSize" : 14,
-                "color" : "#FFFFFF",
-                "backgroundColor" : "#000000",
-            },
-        },
-        
         
         "item" :
         {
@@ -127,8 +76,6 @@
                 },
             },            
         },
-        
-        
         
 		"columns":
 		[
@@ -274,6 +221,15 @@
                 "fontSize" : 13,
                 "color" : "#FF0000",
             },
+            
+            "note" :
+            {
+                "fontName" : "Open Sans",
+                "fontSize" : 13,
+                "color" : "#DDDDDD",
+                "align": "right",
+            },
+
             
             "body" :
             {
