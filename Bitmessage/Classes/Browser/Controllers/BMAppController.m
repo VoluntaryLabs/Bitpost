@@ -29,7 +29,7 @@
 {
     NavInfoNode *about = [[NavInfoNode alloc] init];
     about.nodeTitle = @"About";
-    about.nodeSuggestedWidth = 200;
+    about.nodeSuggestedWidth = @200;
  
     NavInfoNode *info = (NavInfoNode *)BMClient.sharedBMClient.nodeAbout;
     [about addChild:info];

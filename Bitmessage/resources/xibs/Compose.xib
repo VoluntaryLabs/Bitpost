@@ -120,7 +120,7 @@
                         </subviews>
                     </customView>
                     <customView id="vTT-aB-84r" customClass="NavColoredView">
-                        <rect key="frame" x="-2" y="409" width="701" height="60"/>
+                        <rect key="frame" x="1" y="409" width="701" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TJw-B2-wUd">
@@ -133,7 +133,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" id="Hj0-vj-3JM">
-                                <rect key="frame" x="99" y="16" width="559" height="28"/>
+                                <rect key="frame" x="99" y="16" width="582" height="28"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" drawsBackground="YES" id="b3I-Xc-R04">
                                     <font key="font" metaFont="system"/>
